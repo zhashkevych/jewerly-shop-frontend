@@ -1,0 +1,128 @@
+$browser-context: 16; // Default font-size
+
+@function em($pixels, $context: $browser-context) {
+    @return #{$pixels/$context}em;
+}
+
+@function rem($pixels, $context: $browser-context) {
+    @return #{$pixels/$context}rem;
+}
+
+@mixin transition($args...) {
+    transition: $args;
+}
+
+@mixin mixin-transition($time) {
+    -webkit-transition: $time ease-in-out;
+    -moz-transition: $time ease-in-out;
+    -ms-transition: $time ease-in-out;
+    -o-transition: $time ease-in-out;
+    transition: $time ease-in-out;
+}
+
+@mixin rotate($deg) {
+    -webkit-transform: rotate($deg);
+    transform: rotate($deg);
+}
+
+@mixin text-cut($col) {
+    overflow: hidden;
+    display: -moz-box;
+    display: -webkit-box;
+    -webkit-line-clamp: $col;
+    -moz-line-clamp: $col;
+    -moz-box-orient: vertical;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+}
+
+@mixin background($size, $url) {
+    background-repeat: no-repeat;
+    background-size: $size;
+    background-position: center center;
+    background-image: url($url);
+}
+
+@mixin border-radius($var) {
+    border-radius: $var;
+}
+
+@mixin box-shadow($inset, $hoff, $voff, $blur, $color) {
+    box-shadow: $inset $hoff $voff $blur $color;
+}
+
+@mixin box-shadow-none($var) {
+    box-shadow: $var;
+}
+
+@mixin columns($col, $margin) {
+    -webkit-columns: $col;
+    -moz-columns: $col;
+    columns: $col;
+    -webkit-column-gap: $margin;
+    -moz-column-gap: $margin;
+    column-gap: $margin;
+    break-after: column;
+}
+
+@mixin font($size: false, $colour: false, $weight: false, $lh: false) {
+    font-family: $font, sans-serif;
+
+    @if $size {
+        font-size: $size;
+    }
+
+    @if $colour {
+        color: $colour;
+    }
+
+    @if $weight {
+        font-weight: $weight;
+    }
+
+    @if $lh {
+        line-height: $lh;
+    }
+}
+
+@mixin input-placeholder {
+    &::placeholder {
+        @content;
+    }
+
+    &:-moz-placeholder {
+        @content;
+    }
+
+    &::-webkit-input-placeholder {
+        @content;
+    }
+}
+
+@mixin truncate($truncation-boundary) {
+    max-width: $truncation-boundary;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@mixin a-attr($attribute, $color, $background) {
+    $percent: alpha($color) * 100%;
+    $opaque: opacify($color, 1);
+    $solid-color: mix($opaque, $background, $percent);
+    #{$attribute}: $solid-color;
+    #{$attribute}: $color;
+}
+
+@mixin transform($transforms...) {
+    -webkit-transform: $transforms;
+    transform: $transforms;
+}
+
+@function pc($px, $font-size-body) {
+    @return $px / $font-size-body * 100%;
+}
+
+@mixin f-s($px) {
+    font-size: pc($px, $font-size-body);
+}

@@ -1,0 +1,32 @@
+{
+  "name": "jewerly-shop",
+  "version": "1.0.0",
+  "description": "Jewerly E-Commerce Web Site Frontend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhashkevych/jewerly-shop-frontend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhashkevych/jewerly-shop-frontend/issues"
+  },
+  "homepage": "https://github.com/zhashkevych/jewerly-shop-frontend#readme",
+  "devDependencies": {
+    "browser-sync": "^2.26.12",
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-file-include": "^2.2.2",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-uglify-es": "^2.0.0"
+  },
+  "dependencies": {
+    "gulp-autoprefixer": "^7.0.1",
+    "npm": "^6.14.7"
+  }
+}
