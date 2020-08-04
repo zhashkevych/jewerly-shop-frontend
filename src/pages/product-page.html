@@ -6,10 +6,43 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Product page</title>
+    <link rel="stylesheet" href="css/main.min.css">
 </head>
 <body>
-@@include('partials/header.html')
-
-@@include('partials/socials.html')
+<div class="container">
+    @@include('partials/header.html')
+    <div class="product-page">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-7 item_photo">
+                    <p class="item_name">18k Gold Plated Amazonite Hoops</p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. A mollitia nobis quaerat
+                    qui suscipit. Accusamus adipisci alias amet assumenda beatae commodi corporis, cumque deserunt
+                    distinctio dolore dolorem doloribus earum et, eum excepturi id in iste labore laudantium maxime
+                    minima modi nisi obcaecati optio porro quaerat qui quibusdam quis rem repudiandae similique sint
+                    sunt tempora tempore tenetur velit voluptas? Accusantium alias amet asperiores aut deserunt dolores
+                    dolorum earum eius, excepturi exercitationem hic ipsum minus neque qui quisquam quod repudiandae
+                    saepe sequi vel vero! Aliquam aliquid assumenda, beatae consequuntur, cumque eos ex exercitationem
+                    fuga incidunt maxime mollitia necessitatibus, nemo sed temporibus voluptatum?
+                </div>
+                <div class="col-md-5 item_descr">
+                    <p class="item_title">18k Gold Plated Amazonite Hoops</p>
+                    <p class="item_price">€55</p>
+                    <a href="">add to cart</a>
+                    <div class="item_specs">
+                        <p class="item_available" id="itemAvailable">Your item is in stock!</p>
+                    </div>
+                    <div class="item_tabs">
+                        <p>Product description</p>
+                        <p>Shipping and returns</p>
+                        <p>Material information</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @@include('partials/socials.html')
+    @@include('partials/footer.html')
+</div>
 </body>
 </html>

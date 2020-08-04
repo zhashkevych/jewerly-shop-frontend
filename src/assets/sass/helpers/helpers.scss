@@ -2,6 +2,29 @@ html {
     min-height: 100vh;
 }
 
+@font-face {
+    font-family: 'Basis Grotesque Pro';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Basis Grotesque Pro'), url('../../fonts/BasisGrotesquePro-Regular.woff') format('woff');
+}
+
+
+@font-face {
+    font-family: 'Basis Grotesque Pro Bold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Basis Grotesque Pro Bold'), url('../../fonts/BasisGrotesquePro-Bold.woff') format('woff');
+}
+
+
+@font-face {
+    font-family: 'Basis Grotesque Pro Light';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Basis Grotesque Pro Light'), url('../../fonts/BasisGrotesquePro-Light.woff') format('woff');
+}
+
 body {
     // height: 100%; // then => document.documentElement.scrollTop = 0;
     min-height: 100vh;
@@ -11,7 +34,7 @@ body {
     line-height: 1;
     font-family: $font;
     font-weight: 400;
-    background-color: $bg-main;
+    //background-color: $bg-main;
     -webkit-overflow-scrolling: touch;
 
     * {

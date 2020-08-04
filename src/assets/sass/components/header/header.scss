@@ -1,0 +1,12 @@
+.header {
+    &_upper_content {
+        .cart_icon {
+            background-image: url("https://assets.safira.com/static/version1595826986/frontend/Swace/safira/en_US/images/minicart-icon2.svg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            width: 25px;
+            height: 25px;
+        }
+    }
+}
