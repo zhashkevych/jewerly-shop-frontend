@@ -2,29 +2,6 @@ html {
     min-height: 100vh;
 }
 
-@font-face {
-    font-family: 'Basis Grotesque Pro';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Basis Grotesque Pro'), url('../../fonts/BasisGrotesquePro-Regular.woff') format('woff');
-}
-
-
-@font-face {
-    font-family: 'Basis Grotesque Pro Bold';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Basis Grotesque Pro Bold'), url('../../fonts/BasisGrotesquePro-Bold.woff') format('woff');
-}
-
-
-@font-face {
-    font-family: 'Basis Grotesque Pro Light';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Basis Grotesque Pro Light'), url('../../fonts/BasisGrotesquePro-Light.woff') format('woff');
-}
-
 body {
     // height: 100%; // then => document.documentElement.scrollTop = 0;
     min-height: 100vh;
@@ -656,6 +633,19 @@ strong {
         padding-top: 0;
     }
 }
+
+.mr-50 {
+    margin-right: 50px;
+
+    @include media (">=xs", "<md") {
+        margin-right: 15px;
+    }
+
+    @include media (">=md", "<xl") {
+        margin-right: 35px;
+    }
+}
+
 //  margin top
 .mt-20 {
     margin-top: 20px;
@@ -815,4 +805,8 @@ strong {
 
 .container {
     max-width: 1280px;
+}
+
+.fz-16 {
+    font-size: 16px !important;
 }
