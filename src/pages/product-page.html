@@ -11,31 +11,49 @@
 <body>
 <div class="container">
     @@include('partials/header.html')
-    <div class="product-page">
-        <div class="col-md-12">
+    <div class="product-page mt-30 mb-30">
+        <div class="col-md-12 pl-0 pr-0">
+            <p class="item_name fz-10">18k Gold Plated Amazonite Hoops</p>
             <div class="row">
                 <div class="col-md-7 item_photo">
-                    <p class="item_name">18k Gold Plated Amazonite Hoops</p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. A mollitia nobis quaerat
-                    qui suscipit. Accusamus adipisci alias amet assumenda beatae commodi corporis, cumque deserunt
-                    distinctio dolore dolorem doloribus earum et, eum excepturi id in iste labore laudantium maxime
-                    minima modi nisi obcaecati optio porro quaerat qui quibusdam quis rem repudiandae similique sint
-                    sunt tempora tempore tenetur velit voluptas? Accusantium alias amet asperiores aut deserunt dolores
-                    dolorum earum eius, excepturi exercitationem hic ipsum minus neque qui quisquam quod repudiandae
-                    saepe sequi vel vero! Aliquam aliquid assumenda, beatae consequuntur, cumque eos ex exercitationem
-                    fuga incidunt maxime mollitia necessitatibus, nemo sed temporibus voluptatum?
+                    <div class="photo" style="background: url('https://picsum.photos/480/480') center no-repeat"></div>
                 </div>
                 <div class="col-md-5 item_descr">
-                    <p class="item_title">18k Gold Plated Amazonite Hoops</p>
-                    <p class="item_price">€55</p>
-                    <a href="">add to cart</a>
-                    <div class="item_specs">
-                        <p class="item_available" id="itemAvailable">Your item is in stock!</p>
+                    <p class="title font-weight-semi">18k Gold Plated Amazonite Hoops</p>
+                    <p class="price">€55</p>
+                    <a href="" class="cta_btn">add to cart</a>
+                    <div class="specs">
+                        <p class="item_availability true" id="itemAvailable">Your item is in stock!</p>
                     </div>
-                    <div class="item_tabs">
-                        <p>Product description</p>
-                        <p>Shipping and returns</p>
-                        <p>Material information</p>
+
+                    <div id="tabs1" class="tab-contents no-js mt-20">
+                        <div class="tab-nav">
+                            <a href="#" class="tab-link is-active">Product description</a>
+                            <a href="#" class="tab-link">Shipping and returns</a>
+                            <a href="#" class="tab-link">Material information</a>
+                        </div>
+                        <div class="tab-content is-active">
+                            <p>Looking to add a transformative piece to your jewellery collection? Look no further,
+                                because the 18k gold-plated Moonstone necklace is perfect. With a mesmerising genuine
+                                white moonstone that oozes charm and sophistication, you better be ready for a tonne of
+                                compliments.
+                            </p>
+                        </div>
+                        <div class="tab-content">
+                            <p>Depending on where you are spreading your magic in the world, you will be able to choose
+                                between different options of delivery and we have free shipping within EU! The cost of
+                                your delivery depends on which shipping option you choose and which country you're from.
+                                You can read all about our shipping and returns here.
+                            </p>
+                        </div>
+                        <div class="tab-content">
+                            <p>At Safira we care about the quality of what we produce and the uniqueness of designing
+                                and manufacturing fashionable jewellery of precious metals. Safira jewellery carries
+                                control stamps as proof of authenticity. Safira complies with SWEDAC's (via The
+                                Technical Research Institute of Sweden) regulations on control and marking of articles
+                                of precious metals.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -44,5 +62,9 @@
     @@include('partials/socials.html')
     @@include('partials/footer.html')
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+
+<script src="js/main.min.js"></script>
 </body>
 </html>
