@@ -1,2 +1,2 @@
-@@include('alert/index.js')
+@@include('headerCart/index.js')
 @@include('productPage/index.js')

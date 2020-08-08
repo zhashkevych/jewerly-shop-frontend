@@ -70,5 +70,14 @@
 
         }
 
+        &_notification {
+            padding: 50px 80px;
+            border: 10px solid gray;
+            text-align: center;
+            width: 100%;
+            max-height: 200px;
+            height: 100%;
+        }
+
     }
 }
