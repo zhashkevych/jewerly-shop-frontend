@@ -23,7 +23,7 @@ let path = {
         img: sourceFolder + "/assets/images/**/*.{jpg,png,svg,gif,ico,webp}",
     },
     clean: "./" + projectFolder + "/"
-}
+};
 
 let {src, dest} = require('gulp'),
     gulp = require('gulp'),
@@ -39,6 +39,12 @@ function html() {
     return src(path.src.html)
         .pipe(fileinclude())
         .pipe(dest(path.build.html))
+}
+
+function img() {
+    return src(path.src.img)
+        .pipe(fileinclude())
+        .pipe(dest(path.build.img))
 }
 
 function js() {
@@ -73,20 +79,12 @@ function css() {
         .pipe(dest(path.build.css))
 }
 
-// function watchFiles() {
-//     gulp.watch([path.watch.html], html)
-//     gulp.watch([path.watch.css], css)
-//     gulp.watch([path.watch.js], js)
-// }
-
-let build = gulp.series(gulp.parallel(js, css, html))
-// let watch = gulp.parallel(build, watchFiles);
+let build = gulp.series(gulp.parallel(js, css, html, img));
 
 exports.js = js;
 exports.css = css;
+exports.img = img;
 exports.html = html;
 exports.build = build;
-// exports.watch = watch;
 exports.default = build;
 
-//https://www.youtube.com/watch?v=stFOy0Noahg&t=673s
