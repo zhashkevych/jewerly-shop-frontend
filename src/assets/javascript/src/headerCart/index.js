@@ -6,6 +6,7 @@ const quantityCartHeader = () => {
     let amountOfAddedItemsInCart = $('.shopping-cart-items .clearfix');
     if (amountOfAddedItemsInCart) {
         $('#cartQuantityHeader').html(amountOfAddedItemsInCart.length);
+        $('#cartQuantityContainer').html(amountOfAddedItemsInCart.length);
     }
 
 };
@@ -24,10 +25,10 @@ const cartSum = () => {
     }
 };
 
-
 quantityCartHeader();
 cartSum();
 
-$.getJSON('http://164.90.218.246:8000/admin/products', function (data) {
-    console.log(data)
-});
+//$.getJSON('http://164.90.218.246:8000/admin/products', function (data) {
+  //  console.log(data)
+//});
+
