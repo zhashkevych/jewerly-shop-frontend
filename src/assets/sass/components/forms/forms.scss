@@ -15,16 +15,20 @@
 	  border: 1px solid #000;
 	  font-size: 14px;
 	  color: #000;
-
-	  &[type="submit"] {
-		background: black;
-		padding: 8px 0;
-		margin-top: 20px;
-		margin-bottom: 10px;
-		font-size: 15px;
-		color: white;
-	  }
 	}
+
+	p[type="submit"] {
+	  background: #000;
+	  padding: 7px 0;
+	  margin-top: 20px;
+	  margin-bottom: 10px;
+	  font-size: 15px;
+	  color: #fff;
+	  width: 350px;
+	  max-width: 350px;
+	  text-align: center;
+	}
+
 	.message {
 	  font-size: 15px;
 	}
