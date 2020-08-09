@@ -9,16 +9,10 @@
         position: absolute;
         width: 30px;
         height: 30px;
-        background: red;
         border-radius: 50%;
 
         &.ig {
-            background-image: url("https://assets.safira.com/static/version1595826986/frontend/Swace/safira/en_US/images/social_media_facebook.svg");
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
-            width: 8px;
-            height: 16px;
+
         }
 
         &.fb {

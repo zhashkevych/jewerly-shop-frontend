@@ -1,253 +1,249 @@
 .header {
-    &_upper_content {
-        .header_notification {
-            background: black;
-            padding: 3px 0;
-            width: 100%;
-            text-align: center;
+  &_upper_content {
+	border-bottom: 2px solid white;
 
-            p {
-                color: white;
-                font-size: 13px;
-            }
-        }
+	.header_notification {
+	  background: black;
+	  padding: 3px 0;
+	  width: 100%;
+	  border-bottom: 2px solid white;
+	  text-align: center;
 
-        .main_logo {
-            width: 60px;
-            height: 60px;
-        }
+	  p {
+		color: white;
+		font-size: 13px;
+	  }
+	}
 
-        .login {
-            &_icon {
-                background-image: url("https://assets.safira.com/static/version1595826986/frontend/Swace/safira/en_US/images/login-icon.svg");
-                background-repeat: no-repeat;
-                background-position: center;
-                background-size: cover;
-                margin: 0 auto;
-                width: 14px;
-                height: 16px;
-            }
+	.main_logo {
+	  background-position: center;
+	  background-size: cover;
+	  width: 60px;
+	  height: 60px;
+	  background-image: url("https://instagram.fiev1-1.fna.fbcdn.net/v/t51.2885-19/s150x150/80604065_2458251514503395_7412968151073161216_n.jpg?_nc_ht=instagram.fiev1-1.fna.fbcdn.net&_nc_ohc=Zd0dMUsHy9gAX_ht3Z1&oh=705cd8d782371b8bd90d41c3646a83a0&oe=5F5AF6DD");
+	}
 
-            &_title {
-                font-size: 12px;
-                color: #9b9b9b;
-            }
+	.login {
+	  &_icon {
+		background-image: url("../img/icons/svg/user_icon.svg");
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		margin: 0 auto;
+		width: 15px;
+		height: 17px;
+	  }
 
-        }
+	  &_title {
+		font-size: 13px;
+	  }
 
-        .cart {
-            &_icon {
-                background-image: url("https://assets.safira.com/static/version1595826986/frontend/Swace/safira/en_US/images/minicart-icon2.svg");
-                background-repeat: no-repeat;
-                background-position: center;
-                background-size: cover;
-                width: 25px;
-                height: 25px;
-                position: relative;
+	}
 
-                &:after {
-                    content: "0";
-                    position: absolute;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    padding: 3px 5px;
-                    border-radius: 50%;
-                    color: #fff;
-                    background-color: #000;
-                    right: -7px;
-                    top: 0;
-                    font-size: 10px;
-                }
-            }
+	.cart {
+	  font-size: 13px;
 
-            &_value {
-                margin-right: 10px;
-            }
+	  &_icon {
+		background-image: url("https://assets.safira.com/static/version1595826986/frontend/Swace/safira/en_US/images/minicart-icon2.svg");
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		width: 25px;
+		height: 25px;
+		position: relative;
 
-        }
+		&:after {
+		  content: "0";
+		  position: absolute;
+		  display: flex;
+		  justify-content: center;
+		  align-items: center;
+		  padding: 3px 5px;
+		  border-radius: 50%;
+		  color: #fff;
+		  background-color: #000;
+		  right: -7px;
+		  top: 0;
+		  font-size: 10px;
+		}
+	  }
 
-        .login_wrapper {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-right: 20px;
-        }
+	  &_value {
+		margin-right: 10px;
+	  }
 
-        .cart_wrapper {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 125px;
-            height: 100%;
-            background-color: #ffece9;
-            cursor: pointer;
-        }
-    }
+	}
 
-    &_lower_content {
-        border-top: 1px solid #f0f0f0;
-        border-bottom: 1px solid #f0f0f0;
-        padding: 15px 0;
+	.login_wrapper {
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  margin-right: 20px;
+	}
 
-        .item {
-            color: black;
-            font-size: 16px;
-        }
-    }
+	.cart_wrapper {
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  width: 125px;
+	  height: 100%;
+	  background-color: #ffece9;
+	  cursor: pointer;
+	}
+  }
 
-    $main-color: #6394F8;
-    $light-text: #ABB0BE;
-    @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
+  &_lower_content {
+	border-top: 1px solid #f0f0f0;
+	border-bottom: 1px solid #f0f0f0;
+	padding: 15px 0;
 
+	.item {
+	  color: black;
+	  font-size: 16px;
+	}
+  }
 
-    nav {
+  $main-color: #6394F8;
+  $light-text: #ABB0BE;
+  @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
 
-        .navbar-left {
-            float: left;
-        }
+  nav {
 
-        .navbar-right {
-            float: right;
-            display: flex;
-            align-items: center;
+	.navbar-left {
+	  float: left;
+	}
 
-        }
+	.navbar-right {
+	  float: right;
+	  display: flex;
+	  align-items: center;
+	}
 
-        ul {
+	ul {
 
-            li {
-                display: inline;
-                padding-left: 20px;
+	  li {
+		display: inline;
+		padding-left: 20px;
 
-                #cart {
-                    color: black;
-                }
+		.fa-shopping-cart {
+		  color: #000;
+		}
+	  }
+	}
+  }
 
-                i.fa.fa-shopping-cart {
-                    color: #000;
-                }
+  .container_cart {
+	margin: auto;
+	width: calc(90% - 40px);
+	position: absolute;
+	z-index: 1;
+	left: 60px;
+  }
 
-                a {
-                    text-decoration: none;
-                    color: black;
-                }
-            }
-        }
-    }
+  .badge {
+	background-color: black;
+	border-radius: 10px;
+	color: white;
+	display: inline-block;
+	font-size: 12px;
+	line-height: 1;
+	padding: 3px 7px;
+	text-align: center;
+	vertical-align: middle;
+	white-space: nowrap;
+  }
 
-    .container_cart {
-        margin: auto;
-        width: 80%;
-        position: absolute;
-        z-index: 1;
-        left: 60px;
-    }
-
-    .badge {
-        background-color: black;
-        border-radius: 10px;
-        color: white;
-        display: inline-block;
-        font-size: 12px;
-        line-height: 1;
-        padding: 3px 7px;
-        text-align: center;
-        vertical-align: middle;
-        white-space: nowrap;
-    }
-
-    .shopping-cart {
-        margin: 20px 0;
-        float: right;
-        background: white;
-        width: 320px;
-        position: relative;
-        border-radius: 3px;
-        padding: 20px;
+  .shopping-cart {
+	margin: 20px 0;
+	float: right;
+	background: white;
+	width: 320px;
+	position: relative;
+	border-radius: 3px;
+	padding: 20px;
 
 
-        .shopping-cart-header {
-            border-bottom: 1px solid #E8E8E8;
-            padding-bottom: 15px;
+	.shopping-cart-header {
+	  border-bottom: 1px solid #E8E8E8;
+	  padding-bottom: 15px;
 
-            .shopping-cart-total {
-                float: right;
-            }
-        }
+	  .shopping-cart-total {
+		float: right;
+	  }
+	}
 
-        .shopping-cart-items {
+	.shopping-cart-items {
 
-            padding-top: 20px;
+	  padding-top: 20px;
 
-            li {
-                margin-bottom: 18px;
-            }
+	  li {
+		margin-bottom: 18px;
+	  }
 
-            img {
-                float: left;
-                margin-right: 12px;
-            }
+	  img {
+		float: left;
+		margin-right: 12px;
+	  }
 
-            .item-name {
-                display: block;
-                padding-top: 10px;
-                font-size: 16px;
-            }
+	  .item-name {
+		display: block;
+		padding-top: 10px;
+		font-size: 16px;
+	  }
 
-            .item-price {
-                margin-right: 8px;
-            }
+	  .item-price {
+		margin-right: 8px;
+	  }
 
-            .item-quantity {
-                color: $light-text;
-                font-size: 14px;
-            }
-        }
+	  .item-quantity {
+		color: $light-text;
+		font-size: 14px;
+	  }
+	}
 
-    }
+  }
 
-    .shopping-cart:after {
-        bottom: 100%;
-        left: 89%;
-        border: solid transparent;
-        content: " ";
-        height: 0;
-        width: 0;
-        position: absolute;
-        pointer-events: none;
-        border-bottom-color: white;
-        border-width: 8px;
-        margin-left: -8px;
-    }
+  .shopping-cart:after {
+	bottom: 100%;
+	left: 89%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-bottom-color: white;
+	border-width: 8px;
+	margin-left: -8px;
+  }
 
-    .cart-icon {
-        color: black;
-        font-size: 24px;
-        margin-right: 7px;
-        float: left;
-    }
+  .cart-icon {
+	color: black;
+	font-size: 24px;
+	margin-right: 7px;
+	float: left;
+  }
 
-    .button {
-        background: black;
-        color: white;
-        text-align: center;
-        padding: 12px;
-        text-decoration: none;
-        display: block;
-        border-radius: 3px;
-        font-size: 16px;
-        margin: 25px 0 15px 0;
-        transition: .4s;
+  .button {
+	background: black;
+	color: white;
+	text-align: center;
+	padding: 12px;
+	text-decoration: none;
+	display: block;
+	border-radius: 3px;
+	font-size: 16px;
+	margin: 25px 0 15px 0;
+	transition: .4s;
 
-        &:hover {
-            background: #f6b1aa;
-        }
-    }
+	&:hover {
+	  background: #f6b1aa;
+	}
+  }
 
-    .clearfix:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
+  .clearfix:after {
+	content: "";
+	display: table;
+	clear: both;
+  }
 }

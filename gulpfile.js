@@ -51,6 +51,13 @@ function html() {
         .pipe(browsersync.stream())
 }
 
+function img() {
+    return src(path.src.img)
+        .pipe(fileinclude())
+        .pipe(dest(path.build.img))
+        .pipe(browsersync.stream())
+}
+
 function js() {
     return src(path.src.js)
         .pipe(fileinclude())
@@ -86,16 +93,17 @@ function css() {
 }
 
 function watchFiles() {
-    gulp.watch([path.watch.html], html)
-    gulp.watch([path.watch.css], css)
-    gulp.watch([path.watch.js], js)
+    gulp.watch([path.watch.html], html);
+    gulp.watch([path.watch.css], css);
+    gulp.watch([path.watch.js], js);
 }
 
-let build = gulp.series(gulp.parallel(js, css, html))
+let build = gulp.series(gulp.parallel(js, css, html, img));
 let watch = gulp.parallel(build, watchFiles, browserSync);
 
 exports.js = js;
 exports.css = css;
+exports.img = img;
 exports.html = html;
 exports.build = build;
 exports.watch = watch;

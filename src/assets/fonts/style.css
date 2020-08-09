@@ -1,32 +1,9 @@
-/*@font-face {*/
-/*    font-family: 'Basis Grotesque Pro';*/
-/*    font-style: normal;*/
-/*    font-weight: normal;*/
-/*    src: local('Basis Grotesque Pro'), url('../../fonts/BasisGrotesquePro-Regular.woff') format('woff');*/
-/*}*/
-
-
-/*@font-face {*/
-/*    font-family: 'Basis Grotesque Pro Bold';*/
-/*    font-style: normal;*/
-/*    font-weight: normal;*/
-/*    src: local('Basis Grotesque Pro Bold'), url('../../fonts/BasisGrotesquePro-Bold.woff') format('woff');*/
-/*}*/
-
-
-/*@font-face {*/
-/*    font-family: 'Basis Grotesque Pro Light';*/
-/*    font-style: normal;*/
-/*    font-weight: normal;*/
-/*    src: local('Basis Grotesque Pro Light'), url('../../fonts/BasisGrotesquePro-Light.woff') format('woff');*/
-/*}*/
-
 @font-face {
-    font-family: 'Verdana Regular';
-    src: url('Verdana.eot');
-    src: url('Verdana.eot?#iefix') format('embedded-opentype'),
-    url('Verdana.woff') format('woff'),
-    url('Verdana.ttf') format('truetype');
+    font-family: 'Proxima Nova Light';
+    src: url('ProximaNova-Light.eot');
+    src: url('ProximaNova-Light.eot?#iefix') format('embedded-opentype'),
+    url('ProximaNova-Light.woff') format('woff'),
+    url('ProximaNova-Light.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
