@@ -1,0 +1,33 @@
+.form {
+  &_login,
+  &_register {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	input {
+	  width: 350px;
+	  max-width: 350px;
+	  border-radius: 5px;
+	  margin: 10px 0;
+	  padding: 6px 0 6px 10px;
+	  border: 1px solid #000;
+	  font-size: 14px;
+	  color: #000;
+
+	  &[type="submit"] {
+		background: black;
+		padding: 8px 0;
+		margin-top: 20px;
+		margin-bottom: 10px;
+		font-size: 15px;
+		color: white;
+	  }
+	}
+	.message {
+	  font-size: 15px;
+	}
+  }
+
+}

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login page</title>
+</head>
+<body>
+
+<div class="container">
+    @@include('partials/header.html')
+
+    <div class="login-page mt-30 mb-30">
+        <p class="article-level-2 mb-30">Login</p>
+        <form action="" id="loginForm" class="form_login">
+            <input id="login_email" type="text" placeholder="Your email">
+            <input id="login_pass" type="password" placeholder="Your password">
+            <input style="display: none; visibility: hidden; opacity: 0;" id="gender" type="text" placeholder="Your password">
+            <input id="login_submit" type="submit" value="Submit">
+            <p class="message">If you are not registered, you can do it right there. <a href="/register-page.html">Register</a></p>
+        </form>
+    </div>
+
+    @@include('partials/socials.html')
+    @@include('partials/footer.html')
+</div>
+</body>
+</html>
