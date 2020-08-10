@@ -94,6 +94,7 @@ $('#login_submit').on('click', function () {
     }
 });
 
+
 const isUserLogged = () => {
     if (getCookie('logged_in')) {
         $('.header .login_wrapper').html('א גוטן חבר');
