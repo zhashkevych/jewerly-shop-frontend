@@ -1,3 +1,5 @@
+git checkout -f master && git pull origin master
+
 docker build --no-cache . -t jewerly-frontent:0.1
 
 if [ "$(docker ps -q -f name=jewerly-frontend)" ]; then

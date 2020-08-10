@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [ develop ]
  
 jobs:
   build:
@@ -17,5 +17,5 @@ jobs:
         port: ${{ secrets.PORT }}
         script: |
             cd ${{ secrets.PROJECTPATH }}
-            chmod +x deploy.sh && ./deploy.sh
+            chmod +x deploy-stage.sh && ./deploy-stage.sh
             
