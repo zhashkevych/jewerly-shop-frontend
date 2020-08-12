@@ -1,5 +1,9 @@
-$("#cart").on("click", function () {
-    $(".shopping-cart").fadeToggle("fast");
+$(document).mouseup(function (e) {
+    let container = $(".shopping-cart");
+
+    if (!container.is(e.target) && container.has(e.target).length === 0) {
+        container.fadeToggle("fast");
+    }
 });
 
 const quantityCartHeader = () => {
@@ -28,7 +32,8 @@ const cartSum = () => {
 quantityCartHeader();
 cartSum();
 
-//$.getJSON('http://164.90.218.246:8000/admin/products', function (data) {
-  //  console.log(data)
-//});
+$.getJSON('http://164.90.218.246:8000/admin/products', function (data) {
+    console.log(data)
+});
+
 
