@@ -23,6 +23,10 @@
 	  background-image: url("https://instagram.fiev1-1.fna.fbcdn.net/v/t51.2885-19/s150x150/80604065_2458251514503395_7412968151073161216_n.jpg?_nc_ht=instagram.fiev1-1.fna.fbcdn.net&_nc_ohc=Zd0dMUsHy9gAX_ht3Z1&oh=705cd8d782371b8bd90d41c3646a83a0&oe=5F5AF6DD");
 	}
 
+	.main_title {
+	  font-size: 21px;
+	}
+
 	.login {
 	  &_icon {
 		background-image: url("../img/icons/svg/user_icon.svg");
@@ -137,6 +141,11 @@
 	.item {
 	  color: black;
 	  font-size: 16px;
+	  transition: .4s;
+
+	  &:hover {
+		font-size: 17px;
+	  }
 	}
   }
 

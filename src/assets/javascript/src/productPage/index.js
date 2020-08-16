@@ -149,14 +149,14 @@ const showProduct = () => {
         $('#productPagePhoto').attr('style', `background: url('${testProductObject.data[currentProductId - 1].image.url}') center no-repeat; background-size: contain;`);
         $('#productPageTitle').html(testProductObject.data[currentProductId - 1].title);
         $('#productPagePrice').html('$ ' + testProductObject.data[currentProductId - 1].current_price);
-        $('#productPageCode').html(testProductObject.data[currentProductId - 1].code);
+        $('#productPageCode').html('Code: ' + testProductObject.data[currentProductId - 1].code);
 
         if (testProductObject.data[currentProductId - 1].stock) {
             $('#itemAvailable').addClass('true')
         } else {
             $("#addProductToCart").attr("disabled", true);
             $('#itemAvailable').addClass('false');
-            $('#itemAvailable').html('Your item is not in stock.');
+            $('#itemAvailable').html('This item is not in stock.');
         }
 
         $('#product_description').html(testProductObject.data[currentProductId - 1].description);

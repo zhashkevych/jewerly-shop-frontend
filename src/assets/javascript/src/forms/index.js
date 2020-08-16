@@ -26,8 +26,6 @@ function eraseCookie(name) {
 $('#reg_submit').on('click', function () {
 
     if ($('#gender').val() === '') {
-        let user_data = $('#registerForm');
-
         let data = {
             email: $('#reg_email').val(),
             first_name: $('#reg_f_name').val(),
@@ -82,9 +80,6 @@ $('#reg_submit').on('click', function () {
 
 $('#login_submit').on('click', function () {
     if ($('#gender').val() === '') {
-        let user_data = $('#loginForm');
-        console.log(user_data);
-
         let data = {
             email: $('#login_email').val(),
             password: $('#login_pass').val()
@@ -132,7 +127,6 @@ $('#login_submit').on('click', function () {
         })
     }
 });
-
 
 const isUserLogged = () => {
     if (getCookie('logged_in')) {

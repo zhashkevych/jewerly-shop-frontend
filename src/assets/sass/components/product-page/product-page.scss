@@ -9,7 +9,7 @@
 
 	&_descr {
 	  .title {
-		font-size: 19px;
+		font-size: 22px;
 	  }
 
 	  .price {
@@ -35,6 +35,10 @@
 		text-transform: uppercase;
 		color: #fff;
 		background-color: #000;
+
+		&[disabled="disabled"] {
+		  background-color: #999999;
+		}
 	  }
 
 	  .specs {
@@ -74,7 +78,7 @@
 
 	  .tab-link {
 		padding: 10px 20px;
-		font-size: 12px;
+		font-size: 13px;
 		color: #fff;
 		display: inline-block;
 		background-color: #b3b3b3;
@@ -82,7 +86,6 @@
 		transition: 0.4s;
 
 		&.is-active {
-		  text-decoration: underline;
 		  color: #dc446e;
 		  background-color: #ebebeb;
 		  transition: 0.4s;

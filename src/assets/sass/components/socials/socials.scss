@@ -38,7 +38,16 @@
   }
 
   .pink_bg {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	background-color: #ffe7e5;
+
+	p {
+	  font-weight: bolder;
+	  color: #3a3a3a;
+	  font-size: 52px;
+	}
   }
 
 }
