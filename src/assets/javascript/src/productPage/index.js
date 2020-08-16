@@ -114,7 +114,7 @@ const showProduct = () => {
         let currentProductId = parseInt(matches[0]);
 
         $('#productPageTitle').html(testProductObject.data[currentProductId - 1].title);
-        $('#productPagePrice').html(testProductObject.data[currentProductId - 1].current_price);
+        $('#productPagePrice').html('$ ' + testProductObject.data[currentProductId - 1].current_price);
     }
 };
 
@@ -122,18 +122,15 @@ const addProductTooCart = () => {
 
     $('#addProductToCart').on('click', function () {
 
-        for (let i = 0; i < testProductObject.data.length; i++) {
-
-        }
-        console.log('click on add to cart')
         let addedProduct = document.createElement('li');
         addedProduct.className = 'clearfix';
         addedProduct.innerHTML = `
                     <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item1.jpg" alt="item1">
-                    <span class="item-name">title</span>
-                    <span class="item-price itemPrice">$112.12</span>
-                    <span class="item-quantity">Quantity: 01</span>
+                    <span class="item-name">${document.querySelector('#productPageTitle').innerHTML}</span>
+                    <span class="item-price itemPrice">${document.querySelector('#productPagePrice').innerHTML}</span>
+                    <span class="item-quantity"></span>
                 `;
+
 
         document.querySelector('#shoppingCartContainer').appendChild(addedProduct);
 
