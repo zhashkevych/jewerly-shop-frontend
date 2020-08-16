@@ -112,11 +112,11 @@ let testProductObject = {
             title: 'Test RING 4',
             description: 'Test RING 4 description description description',
             material: 'Silver 999',
-            current_price: 55555,
+            current_price: 80,
             previous_price: 1011,
             code: '123123_CODE',
             image: {
-                url: 'https://cdn.silverbene.com/media/catalog/product/cache/5196f519d2759624b018ede98e5f815b/B/M/BME_555183874171_1_.jpg',
+                url: 'https://www.ottasilver.com/media/product/79e/men-silver-ring-with-tiger-eye-stone-ottasilver-kr360-60e.jpg',
                 alt_test: ''
             },
             category_id: 'rings',
@@ -143,6 +143,9 @@ const showProduct = () => {
             $('#itemAvailable').addClass('false');
             $('#itemAvailable').html('Your item is not in stock.');
         }
+
+        $('#product_description').html(testProductObject.data[currentProductId - 1].description);
+        $('#product_material').html(testProductObject.data[currentProductId - 1].material);
     }
 };
 

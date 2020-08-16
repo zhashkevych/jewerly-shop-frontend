@@ -64,7 +64,7 @@ $('#reg_submit').on('click', function () {
 
                 swal({
                     title: "Success registration!",
-                    text: "Right now you will be redirected on main-page",
+                    text: "Right now you will be redirected on general page",
                     icon: "success",
                     closeOnClickOutside: true,
                     closeOnEsc: true,
@@ -118,7 +118,7 @@ $('#login_submit').on('click', function () {
                 }
                 swal({
                     title: "Success log in!",
-                    text: "Right now you will be redirected on main-page",
+                    text: "Right now you will be redirected on general page.",
                     icon: "success",
                     closeOnClickOutside: true,
                     closeOnEsc: true,

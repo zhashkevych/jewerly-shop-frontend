@@ -12,10 +12,32 @@
 <div class="container">
     @@include('partials/header.html')
     <div class="products-page mt-30 mb-30">
-        <p class="article-level-2">Products Page</p>
-        <div class="col-md-12 pl-0 mt-30">
-            <div class="row no-gutters" id="productsPageItemsList"></div>
+        <p class="article-level-2">Our products</p>
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-4 pl-0 mt-30">
+                    <p class="article-level-3">Categories</p>
+                    <div class="col-md-6 pl-0">
+                        <div class="cat_item mb-20">
+                            <a class="link" href="/category/CATEGORY_NAME">Category name 1</a>
+                        </div>
+                        <div class="cat_item mb-20">
+                            <a class="link" href="/category/CATEGORY_NAME">Category name 2</a>
+                        </div>
+                        <div class="cat_item mb-20">
+                            <a class="link" href="/category/CATEGORY_NAME">Category name 3</a>
+                        </div>
+                        <div class="cat_item mb-20">
+                            <a class="link" href="/category/CATEGORY_NAME">Category name 4</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8 pl-0 mt-30">
+                    <div class="row no-gutters" id="productsPageItemsList"></div>
+                </div>
+            </div>
         </div>
+
     </div>
     @@include('partials/socials.html')
     @@include('partials/footer.html')
