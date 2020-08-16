@@ -121,6 +121,21 @@ let testProductObject = {
             },
             category_id: 'rings',
             stock: true
+        },
+        {
+            id: 5,
+            title: 'Test RING 5',
+            description: 'Test RING 5 description description description',
+            material: 'Silver 12312',
+            current_price: 200,
+            previous_price: 1011,
+            code: '123123_CODE',
+            image: {
+                url: 'https://www.ottasilver.com/media/product/79e/men-silver-ring-with-tiger-eye-stone-ottasilver-kr360-60e.jpg',
+                alt_test: ''
+            },
+            category_id: 'rings',
+            stock: true
         }
 
     ]
@@ -131,10 +146,10 @@ const showProduct = () => {
         let matches = window.location.search.match(/\d+/g);
         let currentProductId = parseInt(matches[0]);
 
-
         $('#productPagePhoto').attr('style', `background: url('${testProductObject.data[currentProductId - 1].image.url}') center no-repeat; background-size: contain;`);
         $('#productPageTitle').html(testProductObject.data[currentProductId - 1].title);
         $('#productPagePrice').html('$ ' + testProductObject.data[currentProductId - 1].current_price);
+        $('#productPageCode').html(testProductObject.data[currentProductId - 1].code);
 
         if (testProductObject.data[currentProductId - 1].stock) {
             $('#itemAvailable').addClass('true')
@@ -150,7 +165,6 @@ const showProduct = () => {
 };
 
 const addProductTooCart = () => {
-
     $('#addProductToCart').on('click', function () {
         let matches = window.location.search.match(/\d+/g);
         let currentProductId = parseInt(matches[0]);
