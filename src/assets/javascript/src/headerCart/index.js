@@ -1,10 +1,10 @@
-/*$(document).mouseup(function (e) {
+$('#cart').on('click', function (e) {
     let container = $(".shopping-cart");
 
     if (!container.is(e.target) && container.has(e.target).length === 0) {
         container.fadeToggle("fast");
     }
-});*/
+});
 
 const quantityCartHeader = () => {
     let amountOfAddedItemsInCart = $('.shopping-cart-items .clearfix');
@@ -32,8 +32,8 @@ const cartSum = () => {
 quantityCartHeader();
 cartSum();
 
-$.getJSON('http://164.90.218.246:8000/admin/products', function (data) {
-    console.log(data)
-});
+//$.getJSON('http://164.90.218.246:8000/admin/products', function (data) {
+//  console.log(data)
+//});
 
 
