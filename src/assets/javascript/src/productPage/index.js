@@ -71,10 +71,11 @@ let testProductObject = {
             previous_price: 10,
             code: '123123_CODE',
             image: {
-                url: "https://cdn.silverbene.com/media/catalog/product/cache/5196f519d2759624b018ede98e5f815b/B/M/BME_555183874171_1_.jpg",
+                url: 'https://cdn.silverbene.com/media/catalog/product/cache/5196f519d2759624b018ede98e5f815b/B/M/BME_555183874171_1_.jpg',
                 alt_test: ''
             },
-            category_id: 'rings'
+            category_id: 'rings',
+            stock: true
         },
         {
             id: 2,
@@ -85,25 +86,42 @@ let testProductObject = {
             previous_price: 1011,
             code: '123123_CODE',
             image: {
-                url: "https://cdn.silverbene.com/media/catalog/product/cache/5196f519d2759624b018ede98e5f815b/B/M/BME_555183874171_1_.jpg",
+                url: 'https://www.ottasilver.com/media/product/79e/men-silver-ring-with-tiger-eye-stone-ottasilver-kr360-60e.jpg',
                 alt_test: ''
             },
-            category_id: 'rings'
+            category_id: 'rings',
+            stock: false
         },
         {
             id: 3,
             title: 'Test RING 3',
-            description: 'Test RING 2 description description description',
+            description: 'Test RING 3 description description description',
             material: 'Silver 999',
             current_price: 21222,
             previous_price: 1011,
             code: '123123_CODE',
             image: {
-                url: "https://cdn.silverbene.com/media/catalog/product/cache/5196f519d2759624b018ede98e5f815b/B/M/BME_555183874171_1_.jpg",
+                url: 'https://cdn.silverbene.com/media/catalog/product/cache/5196f519d2759624b018ede98e5f815b/B/M/BME_555183874171_1_.jpg',
                 alt_test: ''
             },
-            category_id: 'rings'
+            category_id: 'rings',
+            stock: true
         },
+        {
+            id: 4,
+            title: 'Test RING 4',
+            description: 'Test RING 4 description description description',
+            material: 'Silver 999',
+            current_price: 55555,
+            previous_price: 1011,
+            code: '123123_CODE',
+            image: {
+                url: 'https://cdn.silverbene.com/media/catalog/product/cache/5196f519d2759624b018ede98e5f815b/B/M/BME_555183874171_1_.jpg',
+                alt_test: ''
+            },
+            category_id: 'rings',
+            stock: true
+        }
 
     ]
 };
@@ -113,24 +131,36 @@ const showProduct = () => {
         let matches = window.location.search.match(/\d+/g);
         let currentProductId = parseInt(matches[0]);
 
+
+        $('#productPagePhoto').attr('style', `background: url('${testProductObject.data[currentProductId - 1].image.url}') center no-repeat; background-size: contain;`);
         $('#productPageTitle').html(testProductObject.data[currentProductId - 1].title);
         $('#productPagePrice').html('$ ' + testProductObject.data[currentProductId - 1].current_price);
+
+        if (testProductObject.data[currentProductId - 1].stock) {
+            $('#itemAvailable').addClass('true')
+        } else {
+            $("#addProductToCart").attr("disabled", true);
+            $('#itemAvailable').addClass('false');
+            $('#itemAvailable').html('Your item is not in stock.');
+        }
     }
 };
 
 const addProductTooCart = () => {
 
     $('#addProductToCart').on('click', function () {
+        let matches = window.location.search.match(/\d+/g);
+        let currentProductId = parseInt(matches[0]);
 
         let addedProduct = document.createElement('li');
+        console.log(testProductObject.data[currentProductId - 1].image.url);
         addedProduct.className = 'clearfix';
         addedProduct.innerHTML = `
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item1.jpg" alt="item1">
+                    <div class="img" style="background: ${`url('${testProductObject.data[currentProductId - 1].image.url}') center no-repeat; background-size: contain; `}"></div>
                     <span class="item-name">${document.querySelector('#productPageTitle').innerHTML}</span>
                     <span class="item-price itemPrice">${document.querySelector('#productPagePrice').innerHTML}</span>
                     <span class="item-quantity"></span>
                 `;
-
 
         document.querySelector('#shoppingCartContainer').appendChild(addedProduct);
 
