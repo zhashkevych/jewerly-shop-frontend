@@ -1,10 +1,10 @@
-$(document).mouseup(function (e) {
+/*$(document).mouseup(function (e) {
     let container = $(".shopping-cart");
 
     if (!container.is(e.target) && container.has(e.target).length === 0) {
         container.fadeToggle("fast");
     }
-});
+});*/
 
 const quantityCartHeader = () => {
     let amountOfAddedItemsInCart = $('.shopping-cart-items .clearfix');

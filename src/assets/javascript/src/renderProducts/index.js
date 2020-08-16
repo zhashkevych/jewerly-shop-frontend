@@ -1,19 +1,3 @@
-/*const url = 'http://164.90.218.246:8001/admin';
-
-$.ajax({
-    type: 'GET',
-    url: `${url}` + '/products',
-    dataType: "json",
-    beforeSend: function () {},
-    error: function () {
-        console.log('error')
-    },
-    success: function () {
-        console.log('success')
-    },
-});
-*/
-
 let testProductObject = {
     data: [
         {
@@ -48,43 +32,18 @@ let testProductObject = {
     ]
 };
 
-
 for (let i = 0; i < testProductObject.data.length; i++) {
+    const singleItemTestTitle = testProductObject.data[i].title;
+    const singleItemTestId = testProductObject.data[i].id;
+    const singleItemTestImg = testProductObject.data[i].image.url;
+    console.log(singleItemTestTitle);
+    console.log(singleItemTestId);
+    console.log(singleItemTestImg);
 
-    document.body.onload = addElement;
-    let my_div = newDiv = null;
 
-    function addElement() {
-        for (let j = 0; j < testProductObject.data.length; j++) {
+    let productsItem = document.createElement('div');
+    productsItem.className = 'col-md-3';
+    productsItem.innerHTML = `<div class="item" style="background: url(${singleItemTestImg})  center center no-repeat;"><a href="#">${singleItemTestTitle}</a></div>`;
 
-            let newDiv = document.createElement("div");
-            newDiv.innerHTML = testProductObject.data[i].title;
-
-            my_div = document.getElementById("org_div1");
-            document.getElementById('testResultOne').appendChild(newDiv);
-        }
-
-    }
+    document.querySelector('#mainPageProductsList').appendChild(productsItem);
 }
-
-
-/*function create() {
-    for (let i = 0; i < testProductObject.data.length; i++) {
-        let h1 = document.createElement('h1');
-        h1.textContent = testProductObject.data[0].title;
-        h1.setAttribute('class', 'item_1');
-        document.getElementById('testResultOne').appendChild(h1);
-
-        console.log(testProductObject.data[i])
-    }
-
-}
-
-create();*/
-
-
-/*for (let i = 0; i < testProductObject.data.length; i++) {
-    testProductObject.data[i];
-    console.log(testProductObject.data[i])
-}*/
-

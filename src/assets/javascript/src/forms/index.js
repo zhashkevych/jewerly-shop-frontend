@@ -27,7 +27,6 @@ $('#reg_submit').on('click', function () {
 
     if ($('#gender').val() === '') {
         let user_data = $('#registerForm');
-        console.log(user_data);
 
         let data = {
             email: $('#reg_email').val(),
