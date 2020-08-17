@@ -23,13 +23,6 @@
                         <option value="€">€ EUR</option>
                         <option value="₴">₴ UAH</option>
                     </select>
-                    <!--<div class="item currency_wrapper" id="currencyHeader">-->
-                    <!--<p id="currentCurrency">$ USD</p>-->
-                    <!--<div class="currency_hidden">-->
-                    <!--<p id="currencyEuro">€ EUR</p>-->
-                    <!--<p id="currencyUah">₴ UAH</p>-->
-                    <!--</div>-->
-                    <!--</div>-->
                     <div class="item login_wrapper">
                         <a href="/login-page.html" class="login">
                             <div class="login_icon"></div>
@@ -66,12 +59,31 @@
         </div>
     </div>
     <div class="row no-gutters header_lower_content">
-        <div class="col-sm-12">
-            <a href="/category/rings" class="col-sm-2 pl-0 item">Rings</a>
-            <a href="/category/bracelets" class="col-sm-2 item">Bracelets</a>
-            <a href="/category/pendants" class="col-sm-2 item">Pendants</a>
-            <a href="/category/earrings" class="col-sm-2 item">Earrings</a>
-            <a href="/category/chokers-necklaces" class="col-sm-2 item">Chokers / Necklaces</a>
+        <div class="col-sm-10">
+            <a href="/category/rings" class="col-sm-2 pl-0 item" id="ringsTestString">Rings</a>
+            <a href="/category/bracelets" class="col-sm-2 item" id="braceletsTestString">Bracelets</a>
+            <a href="/category/pendants" class="col-sm-2 item" id="pedantsTestString">Pendants</a>
+            <a href="/category/earrings" class="col-sm-2 item" id="earringsTestString">Earrings</a>
+            <a href="/category/chokers-necklaces" class="col-sm-2 item" id="chokersNecklacesTestString">Chokers / Necklaces</a>
+        </div>
+        <div class="col-sm-2">
+
+            <div class="switch-lang">
+                <a href="" class="current-lang">
+                    <p class="lang-text"></p>
+                </a>
+                <div class="lang-dropdown">
+                    <a href="?lang=ru" class="selecting-lang">
+                        <p id="lang_ru" class="lang-text">RU</p>
+                    </a>
+                    <a href="?lang=ua" class="selecting-lang">
+                        <p id="lang_ua" class="lang-text">UA</p>
+                    </a>
+                    <a href="?lang=en" class="selecting-lang">
+                        <p id="lang_en" class="lang-text">EN</p>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </header>

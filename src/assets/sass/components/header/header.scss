@@ -295,4 +295,86 @@
 	display: table;
 	clear: both;
   }
+
+  .switch-lang {
+	min-width: 40px;
+	text-align: left;
+	cursor: pointer;
+	z-index: 50;
+	position: absolute;
+	top: -6px;
+	right: 0;
+  }
+
+  .switch-lang:hover .lang-dropdown {
+	display: flex;
+	flex-direction: column;
+  }
+
+  .switcher-link {
+	color: #fff;
+  }
+
+  .switcher-link:hover {
+	color: #fff;
+  }
+
+  .current-lang {
+	//padding: 3px 5px 0px 5px;
+	border-radius: 5px;
+	display: flex;
+	align-items: center;
+  }
+
+  .lang-flag {
+	width: 20px;
+	display: inline-block;
+  }
+
+  .lang-text {
+	padding: 3px 0px 3px 0px;
+	display: inline-block;
+	margin-left: 5px;
+	vertical-align: top;
+	margin-top: 2px;
+	font-size: 14px;
+	text-transform: uppercase;
+  }
+
+  .lang-dropdown {
+	display: none;
+	background: white;
+	border-radius: 5px;
+	margin-top: 2px;
+  }
+
+  .selecting-lang {
+	padding: 3px 5px 3px 5px;
+	cursor: pointer;
+  }
+
+  .selecting-lang:hover {
+	background: none;
+  }
+
+  ul > :first-child {
+	border-radius: 5px 5px 0px 0px;
+  }
+
+  ul > :last-child {
+	border-radius: 0px 0px 5px 5px;
+  }
+
+  li {
+	list-style-type: none;
+  }
+
+  .menu-arrow {
+	display: inline-block;
+	width: 10px;
+	margin-left: 10px;
+	vertical-align: top;
+	margin-top: 6px;
+  }
+
 }
