@@ -64,4 +64,4 @@ const langControl = () => {
     $('#chokersNecklacesTestString').html(translations[currLang].categories.chokersNecklaces);
 };
 
-langControl();
+//langControl();

@@ -1,4 +1,16 @@
 .products-page {
+  .price_cta_preview {
+	p {
+	  position: relative;
+	  display: flex;
+	  font-size: 14px;
+	  background: white;
+	  max-width: 120px;
+	  margin: 0;
+	  justify-content: center;
+	}
+  }
+
   .cat_item {
 	border: 1px solid #000;
 	border-radius: 30px;

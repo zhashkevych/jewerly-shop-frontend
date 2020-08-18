@@ -75,7 +75,7 @@ let testProductObject = {
                 alt_test: ''
             },
             category_id: 'rings',
-            stock: true
+            in_stock: true
         },
         {
             id: 2,
@@ -90,7 +90,7 @@ let testProductObject = {
                 alt_test: ''
             },
             category_id: 'rings',
-            stock: false
+            in_stock: false
         },
         {
             id: 3,
@@ -105,7 +105,7 @@ let testProductObject = {
                 alt_test: ''
             },
             category_id: 'rings',
-            stock: true
+            in_stock: true
         },
         {
             id: 4,
@@ -120,7 +120,7 @@ let testProductObject = {
                 alt_test: ''
             },
             category_id: 'rings',
-            stock: true
+            in_stock: true
         },
         {
             id: 5,
@@ -135,7 +135,7 @@ let testProductObject = {
                 alt_test: ''
             },
             category_id: 'rings',
-            stock: true
+            in_stock: true
         }
 
     ]
@@ -151,12 +151,12 @@ const showProduct = () => {
         $('#productPagePrice').html('$ ' + testProductObject.data[currentProductId - 1].current_price);
         $('#productPageCode').html('Code: ' + testProductObject.data[currentProductId - 1].code);
 
-        if (testProductObject.data[currentProductId - 1].stock) {
+        if (testProductObject.data[currentProductId - 1].in_stock) {
             $('#itemAvailable').addClass('true')
         } else {
             $("#addProductToCart").attr("disabled", true);
             $('#itemAvailable').addClass('false');
-            $('#itemAvailable').html('This item is not in stock.');
+            $('#itemAvailable').html('This item is not in in_stock.');
         }
 
         $('#product_description').html(testProductObject.data[currentProductId - 1].description);
