@@ -306,7 +306,7 @@
 	right: 0;
   }
 
-  .switch-lang:hover .lang-dropdown {
+  .lang-dropdown.active {
 	display: flex;
 	flex-direction: column;
   }
