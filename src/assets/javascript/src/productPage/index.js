@@ -178,7 +178,7 @@ const showProduct = () => {
 
         $('#productPagePhoto').attr('style', `background: url('${testProductObject.data[currentProductId - 1].image.url}') center no-repeat; background-size: contain;`);
         $('#productPageTitle').html(testProductObject.data[currentProductId - 1].title);
-        $('#productPagePrice').html('$ ' + testProductObject.data[currentProductId - 1].current_price);
+        $('#productPagePrice').html(`<span class="currentCurrencyValPrice">${document.getElementById('currentCurrencyMain').innerHTML[0]}</span> ` + testProductObject.data[currentProductId - 1].current_price);
         $('#productPageCode').html('Code: ' + testProductObject.data[currentProductId - 1].code);
 
         if (testProductObject.data[currentProductId - 1].in_stock) {

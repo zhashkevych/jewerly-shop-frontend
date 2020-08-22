@@ -30,7 +30,6 @@ const toggleCurrencyList = () => {
     $('.header_upper_content').bind('DOMSubtreeModified', function () {
         for (let i = 0; i < document.getElementsByClassName('currentCurrencyValPrice').length; i++) {
             document.getElementsByClassName('currentCurrencyValPrice')[i].innerHTML = document.getElementById('currentCurrencyMain').innerHTML[0];
-            console.log(document.getElementsByClassName('currentCurrencyValPrice')[i])
         }
     });
 
