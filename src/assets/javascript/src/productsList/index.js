@@ -1,5 +1,10 @@
 const productsList = () => {
     if (window.location.search.slice(-1) === '1') {
+        let catTitle = 'Rings';
+        let catTitleItem = document.createElement('div');
+        catTitleItem.innerHTML = `${catTitle}`;
+        document.querySelector('#catTitle').appendChild(catTitleItem);
+
         for (let i = 0; i < testProductObject.data.length; i++) {
             if (testProductObject.data[i].category_id === 1) {
                 console.log(testProductObject.data[i]);
@@ -17,6 +22,11 @@ const productsList = () => {
     }
 
     if (window.location.search.slice(-1) === '2') {
+        let catTitle = 'Bracelets';
+        let catTitleItem = document.createElement('div');
+        catTitleItem.innerHTML = `${catTitle}`;
+        document.querySelector('#catTitle').appendChild(catTitleItem);
+
         for (let i = 0; i < testProductObject.data.length; i++) {
             if (testProductObject.data[i].category_id === 2) {
                 console.log(testProductObject.data[i]);
@@ -34,6 +44,11 @@ const productsList = () => {
     }
 
     if (window.location.search.slice(-1) === '3') {
+        let catTitle = 'Pendants';
+        let catTitleItem = document.createElement('div');
+        catTitleItem.innerHTML = `${catTitle}`;
+        document.querySelector('#catTitle').appendChild(catTitleItem);
+
         for (let i = 0; i < testProductObject.data.length; i++) {
             if (testProductObject.data[i].category_id === 3) {
                 console.log(testProductObject.data[i]);
@@ -51,6 +66,11 @@ const productsList = () => {
     }
 
     if (window.location.search.slice(-1) === '4') {
+        let catTitle = 'Earrings';
+        let catTitleItem = document.createElement('div');
+        catTitleItem.innerHTML = `${catTitle}`;
+        document.querySelector('#catTitle').appendChild(catTitleItem);
+
         for (let i = 0; i < testProductObject.data.length; i++) {
             if (testProductObject.data[i].category_id === 4) {
                 console.log(testProductObject.data[i]);
@@ -68,6 +88,11 @@ const productsList = () => {
     }
 
     if (window.location.search.slice(-1) === '5') {
+        let catTitle = 'Necklaces';
+        let catTitleItem = document.createElement('div');
+        catTitleItem.innerHTML = `${catTitle}`;
+        document.querySelector('#catTitle').appendChild(catTitleItem);
+
         for (let i = 0; i < testProductObject.data.length; i++) {
             if (testProductObject.data[i].category_id === 5) {
                 console.log(testProductObject.data[i]);
