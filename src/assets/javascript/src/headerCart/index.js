@@ -33,22 +33,6 @@ const cartSum = () => {
     }
 };
 
-const toggleCurrencyList = () => {
-    $('#currency').change(function () {
-        let currency = $("#currency option:checked").val();
-        $('.curr').html(currency);
-        console.log(currency);
-    });
-
-    // $('#currentCurrency').on('click', function () {
-    //     $('.currency_hidden').fadeToggle("fast");
-    // })
-    //
-    // $('#currencyEuro').on('click', function () {
-    //     $('#currentCurrency').html($('#currencyEuro').html())
-    // })
-};
-
 const categoriesToggle = () => {
     let cat1 = document.getElementById('ringsTestString');
     let cat2 = document.getElementById('braceletsTestString');
@@ -80,7 +64,6 @@ const categoriesToggle = () => {
 quantityCartHeader();
 cartSum();
 categoriesToggle();
-toggleCurrencyList();
 
 //$.getJSON('http://164.90.218.246:8000/admin/products', function (data) {
 //  console.log(data)
