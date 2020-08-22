@@ -64,7 +64,7 @@ let testProductObject = {
     data: [
         {
             id: 1,
-            title: 'Rings Rings Rings Rings 1 CAT_ID=1',
+            title: 'Ring 1 CAT_ID=1',
             description: 'Test RING 1 description description description',
             material: 'Silver 999',
             current_price: 100,
@@ -79,7 +79,7 @@ let testProductObject = {
         },
         {
             id: 2,
-            title: 'Bracelets Bracelets Bracelets CAT_ID=2',
+            title: 'Bracelet 1',
             description: 'Test RING 2 description description description',
             material: 'Silver 999',
             current_price: 500,
@@ -94,7 +94,7 @@ let testProductObject = {
         },
         {
             id: 3,
-            title: 'Pendants Pendants Pendants Pendants Pendants CAT_ID=3',
+            title: 'Pendants 1',
             description: 'Test RING 3 description description description',
             material: 'Silver 999',
             current_price: 21222,
@@ -109,7 +109,7 @@ let testProductObject = {
         },
         {
             id: 4,
-            title: 'Earrings Earrings Earrings Earrings CAT_ID=4',
+            title: 'Earrings 1',
             description: 'Test RING 4 description description description',
             material: 'Silver 999',
             current_price: 80,
@@ -124,7 +124,7 @@ let testProductObject = {
         },
         {
             id: 5,
-            title: 'Necklaces Necklaces Necklaces Necklaces CAT_ID=5',
+            title: 'Necklace 1',
             description: 'Test RING 5 description description description',
             material: 'Silver 12312',
             current_price: 200,
@@ -139,7 +139,7 @@ let testProductObject = {
         },
         {
             id: 6,
-            title: 'RINGS RINGS RINGS CAT_ID=1',
+            title: 'Ring 2',
             description: 'Test RING 5 description description description',
             material: 'Silver 12312',
             current_price: 432532,
@@ -154,7 +154,7 @@ let testProductObject = {
         },
         {
             id: 7,
-            title: 'RINGS RINGS RINsfdGS CAT_ID=1',
+            title: 'Ring 3',
             description: 'Test RING 5 description description description',
             material: 'Silver 12312',
             current_price: 123123,

@@ -55,6 +55,7 @@ const categoriesToggle = () => {
     let cat3 = document.getElementById('pedantsTestString');
     let cat4 = document.getElementById('earringsTestString');
     let cat5 = document.getElementById('chokersNecklacesTestString');
+    let catAllItems = document.getElementById('catAllItems');
 
     cat1.onclick = () => {
         window.location.href = 'products-page.html?=1'
@@ -70,6 +71,9 @@ const categoriesToggle = () => {
     };
     cat5.onclick = () => {
         window.location.href = 'products-page.html?=5'
+    };
+    catAllItems.onclick = () => {
+        window.location.href = 'products-page.html?=all'
     };
 };
 
