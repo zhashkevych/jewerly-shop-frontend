@@ -26,9 +26,6 @@ function eraseCookie(name) {
 $('#reg_submit').on('click', function () {
 
     if ($('#gender').val() === '') {
-        let user_data = $('#registerForm');
-        console.log(user_data);
-
         let data = {
             email: $('#reg_email').val(),
             first_name: $('#reg_f_name').val(),
@@ -44,16 +41,37 @@ $('#reg_submit').on('click', function () {
             data: JSON.stringify(data),
             dataType: "json",
             beforeSend: function () {
-                alert('beforeSend')
+                $('#registerForm').addClass('active');
+                $('.loader_reg').removeClass('d-none');
             },
             error: function (response) {
-                alert('error')
+                $('#registerForm').toggleClass('active');
+                $('.loader_reg').toggleClass('d-none');
+                swal({
+                    title: "Error",
+                    text: "Check all fields and try one more time",
+                    icon: "error",
+                    closeOnClickOutside: true,
+                    closeOnEsc: true,
+                });
             },
             success: function (response) {
-                alert('success success success success');
                 if (response.success) {
                     setCookie('logged_in', 'true', 0.5);
                 }
+
+                swal({
+                    title: "Success registration!",
+                    text: "Right now you will be redirected on general page",
+                    icon: "success",
+                    closeOnClickOutside: true,
+                    closeOnEsc: true,
+                }).then(() => {
+                    window.open('/main-page.html');
+                });
+
+                $('#registerForm').removeClass('active');
+                $('.loader_reg').addClass('d-none');
             },
         })
     }
@@ -62,9 +80,6 @@ $('#reg_submit').on('click', function () {
 
 $('#login_submit').on('click', function () {
     if ($('#gender').val() === '') {
-        let user_data = $('#loginForm');
-        console.log(user_data);
-
         let data = {
             email: $('#login_email').val(),
             password: $('#login_pass').val()
@@ -78,17 +93,36 @@ $('#login_submit').on('click', function () {
             data: JSON.stringify(data),
             dataType: "json",
             beforeSend: function () {
-                alert('beforeSend')
+                $('#loginForm').addClass('active');
+                $('.loader_login').removeClass('d-none');
             },
             error: function () {
-                alert('error error error error error');
+                $('#loginForm').toggleClass('active');
+                $('.loader_login').toggleClass('d-none');
+                swal({
+                    title: "Error",
+                    text: "Check all fields and try one more time",
+                    icon: "error",
+                    closeOnClickOutside: true,
+                    closeOnEsc: true,
+                });
             },
             success: function (response) {
-                alert('success success success success');
-
                 if (response.token) {
                     setCookie('logged_in', 'true', 0.5);
                 }
+                swal({
+                    title: "Success log in!",
+                    text: "Right now you will be redirected on general page.",
+                    icon: "success",
+                    closeOnClickOutside: true,
+                    closeOnEsc: true,
+                }).then(() => {
+                    window.open('/main-page.html');
+                });
+
+                $('#loginForm').removeClass('active');
+                $('.loader_login').addClass('d-none');
             },
         })
     }
@@ -96,7 +130,7 @@ $('#login_submit').on('click', function () {
 
 const isUserLogged = () => {
     if (getCookie('logged_in')) {
-        $('.header .login_wrapper').html('א גוטן חבר');
+        $('.header .login_wrapper').html('Hello, user_name');
         $('body').addClass('logged-in');
     }
 };

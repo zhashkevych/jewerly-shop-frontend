@@ -11,9 +11,9 @@
 
 <div class="container">
     @@include('partials/header.html')
-
     <div class="register-page mt-30 mb-30">
         <p class="article-level-2">Register</p>
+        <div id="testShowItem"></div>
         <form action="" id="registerForm" class="form_register">
             <input id="reg_f_name" type="text" name="first_name" placeholder="First name">
             <input id="reg_l_name" type="text" name="last_name" placeholder="Last name">
@@ -24,8 +24,11 @@
             <p id="reg_submit" type="submit" value="Submit">Submit</p>
             <p class="message mt-20">If you are already registered, you can login right there. <a
                     href="/login-page.html">Log in</a></p>
+            <img class="loader_reg d-none" src="img/icons/svg/loader.svg" alt="">
         </form>
     </div>
+
+
 
     @@include('partials/socials.html')
     @@include('partials/footer.html')

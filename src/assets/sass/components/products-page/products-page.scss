@@ -1,0 +1,49 @@
+.products-page {
+  .price_cta_preview {
+	p {
+	  position: relative;
+	  display: flex;
+	  font-size: 14px;
+	  background: white;
+	  max-width: 120px;
+	  margin: 0;
+	  justify-content: center;
+	}
+  }
+
+  .cat_item {
+	border: 1px solid #000;
+	border-radius: 30px;
+	background: #f6f6f6;
+	text-align: center;
+	padding: 5px 15px;
+
+	.link {
+	  font-size: 15px;
+	  color: black;
+	}
+  }
+
+  .item {
+	border-right: 1px solid gray;
+	position: relative;
+
+	a {
+	  position: absolute;
+	  background: white;
+	  border: 1px solid black;
+	  color: #000;
+	  padding: 10px 20px;
+	  font-size: 14px;
+	  text-align: center;
+	  bottom: 20px;
+	  left: 100px;
+	  box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.45);
+	  transition: .4s;
+
+	  &:hover {
+		box-shadow: none;
+	  }
+	}
+  }
+}

@@ -1,6 +1,13 @@
 .form {
   &_login,
   &_register {
+	&.active {
+	  input,
+	  p[type="submit"] {
+		opacity: .4;
+	  }
+	}
+
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -34,4 +41,16 @@
 	}
   }
 
+}
+
+.loader {
+  &_login {
+	position: relative;
+	bottom: 193px;
+  }
+
+  &_reg {
+	position: relative;
+	bottom: 230px;
+  }
 }

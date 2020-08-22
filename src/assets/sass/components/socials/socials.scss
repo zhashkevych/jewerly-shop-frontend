@@ -1,28 +1,53 @@
 .socials {
-    .image {
-        position: relative;
-        width: auto;
-        height: 400px;
-    }
+  .image {
+	width: auto;
+	height: 400px;
 
-    .icon {
-        position: absolute;
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
+	.icons {
+	  height: 100%;
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
 
-        &.ig {
+	  .icon {
+		height: 50px;
+		width: 50px;
+		background-color: white;
+		border-radius: 50%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 
-        }
+		&:nth-child(2) {
+		  margin: 0 50px;
+		}
 
-        &.fb {
+		.fb,
+		.ig {
+		  position: absolute;
+		  margin: 0 auto;
+		  height: 30px;
+		  width: 30px;
+		  background-repeat: no-repeat;
+		  background-size: cover;
 
-        }
+		}
+	  }
 
-    }
+	}
+  }
 
-    .pink_bg {
-        background-color: #ffe7e5;
-    }
+  .pink_bg {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #ffe7e5;
+
+	p {
+	  font-weight: bolder;
+	  color: #3a3a3a;
+	  font-size: 52px;
+	}
+  }
 
 }

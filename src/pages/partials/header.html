@@ -1,20 +1,28 @@
+<!--settings start-->
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/main.min.css">
+<!--settings end-->
+
 <header class="header">
     <div class="row no-gutters header_upper_content">
         <div class="col-md-12">
             <div class="row no-gutters">
                 <div class="header_notification">
-                    <p>SilverRain Israel jewelry company since 2012. All silver products made in Italy.</p>
+                    <p>SilverRain Israel jewelry company since 2012. All silver products made in Italy. TEST STAGE 1</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6 d-flex align-items-center item">
                     <a href="/main-page.html"
                        class="main_logo image mr-15"></a>
-                    <p class="article-level-1">Silver Rain</p>
+                    <p class="article-level-1 main_title">SilverRain</p>
                 </div>
                 <div class="col-md-6 d-flex justify-content-end">
+                    <select id="currency" class="currency_wrapper">
+                        <option value="$">$ USD</option>
+                        <option value="€">€ EUR</option>
+                        <option value="₴">₴ UAH</option>
+                    </select>
                     <div class="item login_wrapper">
                         <a href="/login-page.html" class="login">
                             <div class="login_icon"></div>
@@ -41,35 +49,44 @@
                 <i class="fa fa-shopping-cart cart-icon"></i><span class="badge" id="cartQuantityContainer">0</span>
                 <div class="shopping-cart-total">
                     <span class="lighter-text">Total:</span>
-                    <span class="main-color-text" id="cartTotalSumHeader">$2,229.97</span>
+                    <span class="main-color-text" id="cartTotalSumHeader"></span>
                 </div>
-            </div> <!--end shopping-cart-header -->
+            </div>
 
-            <ul class="shopping-cart-items">
-                <li class="clearfix">
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item1.jpg" alt="item1" />
-                    <span class="item-name">Ring</span>
-                    <span class="item-price itemPrice">$3.99</span>
-                    <span class="item-quantity">Quantity: 01</span>
-                </li>
-                <li class="clearfix">
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item1.jpg" alt="item1" />
-                    <span class="item-name">Ring 2</span>
-                    <span class="item-price itemPrice">$15.12</span>
-                    <span class="item-quantity">Quantity: 01</span>
-                </li>
-            </ul>
-
-            <a href="#" class="button">Checkout</a>
-        </div> <!--end shopping-cart -->
-    </div> <!--end container -->
+            <ul class="shopping-cart-items" id="shoppingCartContainer"></ul>
+            <p class="article-level-4 empty_cart fz-16 text-center">Your cart is empty. Buy something ;-)</p>
+            <a href="/checkout-page.html" class="button">Checkout</a>
+        </div>
+    </div>
     <div class="row no-gutters header_lower_content">
-        <div class="col-sm-12">
-            <a href="javascript:void(0);" class="col-sm-2 pl-0 item">Rings</a>
-            <a href="javascript:void(0);" class="col-sm-2 item">Bracelets</a>
-            <a href="javascript:void(0);" class="col-sm-2 item">Pendants</a>
-            <a href="javascript:void(0);" class="col-sm-2 item">Earrings</a>
-            <a href="javascript:void(0);" class="col-sm-2 item">Chokers / Necklaces</a>
+        <div class="col-sm-10">
+            <div class="row no-gutters">
+                <p class="col-sm-2 pl-0 item" id="catAllItems">All Items</p>
+                <p class="col-sm-2 pl-0" id="ringsTestString">Rings</p>
+                <p class="col-sm-2 item" id="braceletsTestString">Bracelets</p>
+                <p class="col-sm-2 item" id="pedantsTestString">Pendants</p>
+                <p class="col-sm-2 item" id="earringsTestString">Earrings</p>
+                <p class="col-sm-2 item" id="chokersNecklacesTestString">Necklaces</p>
+            </div>
+        </div>
+        <div class="col-sm-2">
+
+            <div class="switch-lang">
+                <a href="" class="current-lang">
+                    <p class="lang-text">EN</p>
+                </a>
+                <div class="lang-dropdown">
+                    <div class="selecting-lang" id="lang_ru">
+                        <p class="lang-text">RU</p>
+                    </div>
+                    <div class="selecting-lang" id="lang_ua">
+                        <p class="lang-text">UA</p>
+                    </div>
+                    <div class="selecting-lang" id="lang_en">
+                        <p class="lang-text">EN</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </header>
