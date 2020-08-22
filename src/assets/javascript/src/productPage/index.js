@@ -64,7 +64,7 @@ let testProductObject = {
     data: [
         {
             id: 1,
-            title: 'Test RING 1',
+            title: 'Rings Rings Rings Rings 1 CAT_ID=1',
             description: 'Test RING 1 description description description',
             material: 'Silver 999',
             current_price: 100,
@@ -74,12 +74,12 @@ let testProductObject = {
                 url: 'https://cdn.silverbene.com/media/catalog/product/cache/5196f519d2759624b018ede98e5f815b/B/M/BME_555183874171_1_.jpg',
                 alt_test: ''
             },
-            category_id: 'rings',
+            category_id: 1,
             in_stock: true
         },
         {
             id: 2,
-            title: 'Test RING 2',
+            title: 'Bracelets Bracelets Bracelets CAT_ID=2',
             description: 'Test RING 2 description description description',
             material: 'Silver 999',
             current_price: 500,
@@ -89,12 +89,12 @@ let testProductObject = {
                 url: 'https://www.ottasilver.com/media/product/79e/men-silver-ring-with-tiger-eye-stone-ottasilver-kr360-60e.jpg',
                 alt_test: ''
             },
-            category_id: 'rings',
+            category_id: 2,
             in_stock: false
         },
         {
             id: 3,
-            title: 'Test RING 3',
+            title: 'Pendants Pendants Pendants Pendants Pendants CAT_ID=3',
             description: 'Test RING 3 description description description',
             material: 'Silver 999',
             current_price: 21222,
@@ -104,12 +104,12 @@ let testProductObject = {
                 url: 'https://cdn.silverbene.com/media/catalog/product/cache/5196f519d2759624b018ede98e5f815b/B/M/BME_555183874171_1_.jpg',
                 alt_test: ''
             },
-            category_id: 'rings',
+            category_id: 3,
             in_stock: true
         },
         {
             id: 4,
-            title: 'Test RING 4',
+            title: 'Earrings Earrings Earrings Earrings CAT_ID=4',
             description: 'Test RING 4 description description description',
             material: 'Silver 999',
             current_price: 80,
@@ -119,12 +119,12 @@ let testProductObject = {
                 url: 'https://www.ottasilver.com/media/product/79e/men-silver-ring-with-tiger-eye-stone-ottasilver-kr360-60e.jpg',
                 alt_test: ''
             },
-            category_id: 'rings',
+            category_id: 4,
             in_stock: true
         },
         {
             id: 5,
-            title: 'Test RING 5',
+            title: 'Necklaces Necklaces Necklaces Necklaces CAT_ID=5',
             description: 'Test RING 5 description description description',
             material: 'Silver 12312',
             current_price: 200,
@@ -134,7 +134,37 @@ let testProductObject = {
                 url: 'https://www.ottasilver.com/media/product/79e/men-silver-ring-with-tiger-eye-stone-ottasilver-kr360-60e.jpg',
                 alt_test: ''
             },
-            category_id: 'rings',
+            category_id: 5,
+            in_stock: true
+        },
+        {
+            id: 6,
+            title: 'RINGS RINGS RINGS CAT_ID=1',
+            description: 'Test RING 5 description description description',
+            material: 'Silver 12312',
+            current_price: 432532,
+            previous_price: 1011,
+            code: '123123_CODE',
+            image: {
+                url: 'https://www.ottasilver.com/media/product/79e/men-silver-ring-with-tiger-eye-stone-ottasilver-kr360-60e.jpg',
+                alt_test: ''
+            },
+            category_id: 1,
+            in_stock: true
+        },
+        {
+            id: 7,
+            title: 'RINGS RINGS RINsfdGS CAT_ID=1',
+            description: 'Test RING 5 description description description',
+            material: 'Silver 12312',
+            current_price: 123123,
+            previous_price: 1011,
+            code: '123123_CODE',
+            image: {
+                url: 'https://www.ottasilver.com/media/product/79e/men-silver-ring-with-tiger-eye-stone-ottasilver-kr360-60e.jpg',
+                alt_test: ''
+            },
+            category_id: 1,
             in_stock: true
         }
 
@@ -156,7 +186,7 @@ const showProduct = () => {
         } else {
             $("#addProductToCart").attr("disabled", true);
             $('#itemAvailable').addClass('false');
-            $('#itemAvailable').html('This item is not in in_stock.');
+            $('#itemAvailable').html('This item is not in stock.');
         }
 
         $('#product_description').html(testProductObject.data[currentProductId - 1].description);

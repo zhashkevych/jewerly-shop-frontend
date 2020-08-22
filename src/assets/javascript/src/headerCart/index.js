@@ -49,8 +49,33 @@ const toggleCurrencyList = () => {
     // })
 };
 
+const categoriesToggle = () => {
+    let cat1 = document.getElementById('ringsTestString');
+    let cat2 = document.getElementById('braceletsTestString');
+    let cat3 = document.getElementById('pedantsTestString');
+    let cat4 = document.getElementById('earringsTestString');
+    let cat5 = document.getElementById('chokersNecklacesTestString');
+
+    cat1.onclick = () => {
+        window.location.href = 'products-page.html?=1'
+    };
+    cat2.onclick = () => {
+        window.location.href = 'products-page.html?=2'
+    };
+    cat3.onclick = () => {
+        window.location.href = 'products-page.html?=3'
+    };
+    cat4.onclick = () => {
+        window.location.href = 'products-page.html?=4'
+    };
+    cat5.onclick = () => {
+        window.location.href = 'products-page.html?=5'
+    };
+};
+
 quantityCartHeader();
 cartSum();
+categoriesToggle();
 toggleCurrencyList();
 
 //$.getJSON('http://164.90.218.246:8000/admin/products', function (data) {

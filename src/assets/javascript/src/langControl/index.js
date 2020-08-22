@@ -19,6 +19,8 @@ const langControl = () => {
         $('#lang_ua').show();
         $('.lang-dropdown').removeClass('active');
 
+        setCookie('lang_val', 'ru', 0.5);
+
         let currLang = document.getElementsByTagName('body')[0].className.slice(-2);
         console.log(currLang);
 
@@ -204,3 +206,31 @@ const langControl = () => {
 };
 
 langControl();
+
+if (getCookie('lang_val') === 'ru') {
+    $('body').addClass('lang_ru');
+    let translations = {
+        ru: {
+            headerTop: {
+                title: 'SilverRain Израильская ювелирная компания с 2012 года. Все изделия из серебра произведены в Италии.',
+                login_title: 'Вход'
+            },
+            categories: {
+                rings: 'Кольца',
+                bracelets: 'Браслеты',
+                pendants: 'Подвески',
+                earrings: 'Серьги',
+                chokersNecklaces: 'Чокеры / Ожерелья',
+            },
+        }
+    };
+
+    $('.header_notification p').html(translations.ru.headerTop.title);
+    $('.login_title').html(translations.ru.headerTop.login_title);
+    $('#ringsTestString').html(translations.ru.categories.rings);
+    $('#braceletsTestString').html(translations.ru.categories.bracelets);
+    $('#pedantsTestString').html(translations.ru.categories.pendants);
+    $('#earringsTestString').html(translations.ru.categories.earrings);
+    $('#chokersNecklacesTestString').html(translations.ru.categories.chokersNecklaces);
+    langControl();
+}
