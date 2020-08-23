@@ -29,7 +29,7 @@ const cartSum = () => {
         let singleItemPrice = itemPrice[i];
         totalSum += parseFloat(singleItemPrice.innerText.substr(1));
         let toFixedTest = totalSum.toFixed(2);
-        cartTotalSumHeader.html(`<span class="currentCurrencyValPrice">${document.getElementById('currentCurrencyMain').innerHTML[0]}</span> ` + + `${toFixedTest}`);
+        cartTotalSumHeader.html(`<span class="currentCurrencyValPrice">${document.getElementById('currentCurrencyMain').innerHTML[0]}</span> ` + +`${toFixedTest}`);
     }
 };
 
@@ -61,12 +61,8 @@ const categoriesToggle = () => {
     };
 };
 
-quantityCartHeader();
-cartSum();
-categoriesToggle();
-
-//$.getJSON('http://164.90.218.246:8000/admin/products', function (data) {
-//  console.log(data)
-//});
-
-
+if (window.location.pathname !== '/admin.html' && window.location.pathname !== '/admin-panel.html') {
+    quantityCartHeader();
+    cartSum();
+    categoriesToggle();
+}

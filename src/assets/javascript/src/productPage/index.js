@@ -140,7 +140,7 @@ $.ajax({
     url: 'http://164.90.218.246:8001/auth/admin/sign-in',
     data: JSON.stringify({
         "login": "admin",
-        "password": "a8486b622d2f36750967187b07993484737855f3"
+        "password": "eUdYff4bkQbmEKNq"
     }),
     dataType: "json",
     success: function (data) {

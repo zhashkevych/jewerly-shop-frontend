@@ -1,0 +1,61 @@
+.admin_login {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin_inputs_wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  input {
+	margin-bottom: 20px;
+	border: 1px solid black;
+	padding: 5px 10px;
+	font-size: 15px;
+	min-width: 260px;
+  }
+}
+
+.admin_panel {
+  /*
+  *
+  * ==========================================
+  * CUSTOM UTIL CLASSES
+  * ==========================================
+  */
+  .nav-pills-custom .nav-link {
+	color: #aaa;
+	background: #fff;
+	position: relative;
+  }
+
+  .nav-pills-custom .nav-link.active {
+	color: #45b649;
+	background: #fff;
+  }
+
+
+  /* Add indicator arrow for the active tab */
+  @media (min-width: 992px) {
+	.nav-pills-custom .nav-link::before {
+	  content: '';
+	  display: block;
+	  border-top: 8px solid transparent;
+	  border-left: 10px solid #fff;
+	  border-bottom: 8px solid transparent;
+	  position: absolute;
+	  top: 50%;
+	  right: -10px;
+	  transform: translateY(-50%);
+	  opacity: 0;
+	}
+  }
+
+  .nav-pills-custom .nav-link.active::before {
+	opacity: 1;
+  }
+}
