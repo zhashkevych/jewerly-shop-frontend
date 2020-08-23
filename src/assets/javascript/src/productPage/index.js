@@ -64,7 +64,7 @@ let testProductObject = {
     data: [
         {
             id: 1,
-            title: 'Ring 1 CAT_ID=1',
+            title: 'Ring 1',
             description: 'Test RING 1 description description description',
             material: 'Silver 999',
             current_price: 100,

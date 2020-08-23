@@ -19,9 +19,9 @@ const productsList = () => {
     }
 
     if (window.location.search.slice(-1) === '1') {
-        let catTitle = 'Rings';
         let catTitleItem = document.createElement('div');
-        catTitleItem.innerHTML = `${catTitle}`;
+        catTitleItem.id = 'catRingsTitle';
+        catTitleItem.innerHTML = 'Rings';
         document.querySelector('#catTitle').appendChild(catTitleItem);
 
         for (let i = 0; i < testProductObject.data.length; i++) {
@@ -32,7 +32,7 @@ const productsList = () => {
 
                 let productsListItem = document.createElement('div');
                 productsListItem.className = 'col-md-3 mb-20';
-                productsListItem.innerHTML = `<div class="item" id="item_id_${singleItemTestId}" style="background: url(${singleItemTestImg})  center center no-repeat; min-height: 250px; background-size: contain;"><div class="price_cta_preview"><a href="/product-page.html?=product_id_${singleItemTestId}">${singleItemTestTitle}</a><p>Price: ${testProductObject.data[i].current_price}<span class="currentCurrencyValPrice">${document.getElementById('currentCurrencyMain').innerHTML[0]}</span></p></div></div>`;
+                productsListItem.innerHTML = `<div class="item" id="item_id_${singleItemTestId}" style="background: url(${singleItemTestImg})  center center no-repeat; min-height: 250px; background-size: contain;"><div class="price_cta_preview"><a href="/product-page.html?=product_id_${singleItemTestId}">${singleItemTestTitle}</a><p style="font-weight: 500;">Price: ${testProductObject.data[i].current_price}<span style="margin-left: 5px;" class="currentCurrencyValPrice">${document.getElementById('currentCurrencyMain').innerHTML[0]}</span></p></div></div>`;
 
                 document.querySelector('#productsPageItemsList').appendChild(productsListItem);
             }

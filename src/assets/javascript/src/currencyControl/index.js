@@ -6,25 +6,24 @@ const toggleCurrencyList = () => {
     $('#currencySecondary').on('click', function () {
         if ($('#currentCurrencyMain').html() === '$ USD') {
             $('#currentCurrencyMain').html('€ EUR');
-            $('#currencySecondary').html('$ USD')
-            console.log('currentCurrencyMain EUR')
+            $('#currencySecondary').html('$ USD');
             setCookie('currentCurrency', '€', 0.5)
         }
     })
 
     if (getCookie('currentCurrency') === '€') {
         $('#currentCurrencyMain').html('€ EUR');
-        $('#currencySecondary').html('$ USD')
+        $('#currencySecondary').html('$ USD');
         $('#currencySecondary').on('click', function () {
             $('#currentCurrencyMain').html('$ USD');
-            $('#currencySecondary').html('€ EUR')
+            $('#currencySecondary').html('€ EUR');
             setCookie('currentCurrency', '$', 0.5)
         })
     }
 
     if (getCookie('currentCurrency') === '$') {
         $('#currentCurrencyMain').html('$ USD');
-        $('#currencySecondary').html('€ EUR')
+        $('#currencySecondary').html('€ EUR');
     }
 
     $('.header_upper_content').bind('DOMSubtreeModified', function () {

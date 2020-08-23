@@ -78,6 +78,8 @@ const langControl = () => {
         $('#pedantsTestString').html(translations[currLang].categories.pendants);
         $('#earringsTestString').html(translations[currLang].categories.earrings);
         $('#chokersNecklacesTestString').html(translations[currLang].categories.chokersNecklaces);
+
+        $('#catRingsTitle').html(translations[currLang].categories.rings)
     });
 
     $('#lang_ua').on('click', function () {
@@ -148,6 +150,8 @@ const langControl = () => {
         $('#earringsTestString').html(translations[currLang].categories.earrings);
         $('#chokersNecklacesTestString').html(translations[currLang].categories.chokersNecklaces);
 
+        $('#catRingsTitle').html(translations[currLang].categories.rings)
+
     });
 
     $('#lang_en').on('click', function () {
@@ -216,6 +220,8 @@ const langControl = () => {
         $('#earringsTestString').html(translations[currLang].categories.earrings);
         $('#chokersNecklacesTestString').html(translations[currLang].categories.chokersNecklaces);
 
+        $('#catRingsTitle').html(translations[currLang].categories.rings)
+
     });
 };
 
@@ -255,6 +261,8 @@ if (getCookie('lang_val') === 'ru') {
     $('#pedantsTestString').html(translations.ru.categories.pendants);
     $('#earringsTestString').html(translations.ru.categories.earrings);
     $('#chokersNecklacesTestString').html(translations.ru.categories.chokersNecklaces);
+
+    $('#catRingsTitle').html(translations.ru.categories.rings);
     langControl();
 }
 
@@ -292,6 +300,8 @@ if (getCookie('lang_val') === 'ua') {
     $('#pedantsTestString').html(translations.ua.categories.pendants);
     $('#earringsTestString').html(translations.ua.categories.earrings);
     $('#chokersNecklacesTestString').html(translations.ua.categories.chokersNecklaces);
+
+    $('#catRingsTitle').html(translations.ua.categories.rings);
     langControl();
 }
 
@@ -330,5 +340,7 @@ if (getCookie('lang_val') === 'en') {
     $('#pedantsTestString').html(translations.en.categories.pendants);
     $('#earringsTestString').html(translations.en.categories.earrings);
     $('#chokersNecklacesTestString').html(translations.en.categories.chokersNecklaces);
+
+    $('#catRingsTitle').html(translations.en.categories.rings);
     langControl();
 }
