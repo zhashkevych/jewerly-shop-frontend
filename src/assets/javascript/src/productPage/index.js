@@ -75,7 +75,7 @@ const showProduct = () => {
                     if (response.data[i].id === currentProductId) {
                         $('#productPagePhoto').attr('style', `background: url('${response.data[i].images[0].url}') center no-repeat; background-size: contain;`);
                         $('#productPageTitle').html(response.data[i].title);
-                        $('#productPagePrice').html('$ ' + response.data[i].current_price);
+                        $('#productPagePrice').html(`<span style="margin-right: 5px;" class="currentCurrencyValPrice">${document.getElementById('currentCurrencyMain').innerHTML[0]}</span>` + response.data[i].current_price);
                         $('#productPageCode').html('Code: ' + response.data[i].code);
 
                         if (response.data[i].in_stock) {
