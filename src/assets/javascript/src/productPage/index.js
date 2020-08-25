@@ -99,28 +99,18 @@ const addProductTooCart = () => {
     $.ajax({
         type: "GET",
         url: 'http://164.90.218.246:8001/api/products',
-        // headers: {'Authorization': `Bearer ${getCookie('auth_token')}`},
         success: function (response) {
-
             $('#addProductToCart').on('click', function () {
                 let matches = window.location.search.match(/\d+/g);
                 let currentProductId = parseInt(matches[0]);
-
                 let addedProduct = document.createElement('li');
                 addedProduct.className = 'clearfix';
-                // addedProduct.innerHTML = `
-                //     <div class="img" style="background: ${`url('${testProductObject.data[currentProductId - 1].image.url}') center no-repeat; background-size: contain; `}"></div>
-                //     <span class="item-name">${document.querySelector('#productPageTitle').innerHTML}</span>
-                //     <span class="item-price itemPrice">${document.querySelector('#productPagePrice').innerHTML}</span>
-                //     <span class="item-quantity"></span>
-                // `;
-
                 addedProduct.innerHTML = `
+                    <div class="img" style="background: ${`url('${response.data[currentProductId].images[0].url}') center no-repeat; background-size: contain; `}"></div>
                     <span class="item-name">${document.querySelector('#productPageTitle').innerHTML}</span>
                     <span class="item-price itemPrice">${document.querySelector('#productPagePrice').innerHTML}</span>
                     <span class="item-quantity"></span>
                 `;
-
                 document.querySelector('#shoppingCartContainer').appendChild(addedProduct);
 
                 quantityCartHeader();

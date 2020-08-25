@@ -25,10 +25,10 @@
 
 	.main_title {
 	  font-size: 21px;
-	}
 
-	.currency_wrapper {
-
+	  @include media('<sm') {
+		font-size: 17px;
+	  }
 	}
 
 	.login {
@@ -296,6 +296,10 @@
 	position: absolute;
 	top: -6px;
 	right: 0;
+
+	@include media('<sm') {
+	  top: -75px;
+	}
   }
 
   .lang-dropdown.active {
