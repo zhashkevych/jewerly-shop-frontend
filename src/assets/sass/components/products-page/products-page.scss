@@ -1,4 +1,9 @@
 .products-page {
+  .col-md-12.pl-0,
+  .col-md-12.pr-0 {
+	padding: 0;
+  }
+
   .price_cta_preview {
 	p {
 	  position: relative;
@@ -27,6 +32,11 @@
   .item {
 	border-right: 1px solid gray;
 	position: relative;
+
+	@include media('<sm') {
+	  border-bottom: 1px solid gray;
+	  border-right: 0;
+	}
 
 	a {
 	  position: absolute;
