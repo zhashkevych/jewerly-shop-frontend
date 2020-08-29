@@ -20,15 +20,6 @@ const loginToPanel = () => {
 
 };
 
-const adminPanel = () => {
-
-};
-
 if (window.location.pathname === '/admin.html') {
     loginToPanel();
 }
-
-if (window.location.pathname !== '/admin-panel.html') {
-    adminPanel();
-}
-

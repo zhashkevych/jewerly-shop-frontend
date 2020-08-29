@@ -107,9 +107,9 @@ const addProductTooCart = () => {
                     addedProduct.innerHTML = `<button type="button" class="close" aria-label="Close"><span aria-hidden="true" id="removeItemFromCart">&times;</span></button>
                     <div class="img" style="background: ${`url('${response.data[i].images[0].url}') center no-repeat; background-size: contain; `}"></div>
                     <span class="item-name">${document.querySelector('#productPageTitle').innerHTML}</span>
-                    <span class="item-price itemPrice">${document.querySelector('#productPagePrice').innerHTML}</span> <span>Quantity: </span>
-                    <span class="item-quantity">${$('#productQuantity').val()}</span>
-                `;
+                    <span class="item-price itemPrice">${document.querySelector('#productPagePrice').innerHTML}</span> <span class="oc-text-gray">Quantity: </span>
+                    <span class="item-quantity">${$('#productQuantity').val()}</span>`;
+
                     document.querySelector('#shoppingCartContainer').appendChild(addedProduct);
 
                     localStorage.setItem('itemId', $('#productId').html());
@@ -129,10 +129,17 @@ const addProductTooCart = () => {
                 // $('#removeItemFromCart').on('click', function () {
                 //
                 // });
+                if ($('#shoppingCartContainer .clearfix').length === 1) {
+                    let testObj = {
+                        item: $('#shoppingCartContainer .clearfix')[0].innerHTML
+                    };
+                    console.log(testObj.item)
+                    setCookie('testCartItem', testObj.item, 1);
+                    console.log(getCookie('testCartItem'))
+                }
                 quantityCartHeader();
                 cartSum();
             });
-            $('#addProductToCart').attr('disable', true);
         }
     })
 };
