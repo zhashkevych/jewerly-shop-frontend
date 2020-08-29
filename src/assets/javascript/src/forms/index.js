@@ -128,6 +128,53 @@ $('#login_submit').on('click', function () {
     }
 });
 
+$('#checkoutPageSubmit').on('click', function () {
+    if ($('#gender').val() === '') {
+        let data = {
+            items: [{
+                product_id: parseInt(localStorage.getItem('itemId')),
+                quantity: parseInt(localStorage.getItem('itemQuantity')),
+            }],
+            first_name: $('#checkout_fname').val(),
+            last_name: $('#checkout_lname').val(),
+            additional_name: $('#checkout_additional_name').val(),
+            email: $('#checkout_email').val(),
+            phone: $('#checkout_phone').val(),
+            country: $('#checkout_country').val(),
+            address: $('#checkout_address').val(),
+            postal_code: $('#checkout_postal_code').val(),
+        };
+        const url = 'http://164.90.218.246:8001';
+
+        $.ajax({
+            type: 'POST',
+            url: `${url}` + '/api/order',
+            data: JSON.stringify(data),
+            dataType: "json",
+            beforeSend: function () {
+
+            },
+            error: function (response) {
+                console.log(response)
+
+            },
+            success: function (response) {
+                console.log(response.url);
+                swal({
+                    title: "Success",
+                    text: "Right now you will be redirected on payment page.",
+                    icon: "success",
+                    closeOnClickOutside: true,
+                    closeOnEsc: true,
+                }).then(() => {
+                    window.open(response.url);
+                });
+            },
+        });
+        localStorage.clear();
+    }
+})
+
 const isUserLogged = () => {
     if (getCookie('logged_in')) {
         $('.header .login_wrapper').html('Hello, user_name');

@@ -200,6 +200,10 @@
 	border-radius: 3px;
 	padding: 20px;
 
+	.oc-text-gray.minimal-order {
+	  font-size: 14px;
+	  text-align: center;
+	}
 
 	.shopping-cart-header {
 	  border-bottom: 1px solid #E8E8E8;
@@ -240,6 +244,8 @@
 		color: $light-text;
 		font-size: 14px;
 	  }
+
+
 	}
 
   }

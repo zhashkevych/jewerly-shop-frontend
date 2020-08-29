@@ -25,6 +25,17 @@
 		color: gray;
 	  }
 
+	  label {
+		font-size: 14px;
+		margin-right: 10px;
+		input#productQuantity {
+		  width: 40px;
+		  font-size: 15px;
+		  border: 1px solid black;
+		  text-align: center;
+		}
+	  }
+
 	  .cta_btn {
 		display: block;
 		padding: 15px 21px;
@@ -135,3 +146,4 @@
 	}
   }
 }
+

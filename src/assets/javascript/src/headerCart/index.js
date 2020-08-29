@@ -29,7 +29,7 @@ const cartSum = () => {
         let singleItemPrice = itemPrice[i];
         totalSum += parseFloat(singleItemPrice.innerText.substr(1));
         let toFixedTest = totalSum.toFixed(2);
-        cartTotalSumHeader.html(`<span class="currentCurrencyValPrice">${document.getElementById('currentCurrencyMain').innerHTML[0]}</span> ` + +`${toFixedTest}`);
+        cartTotalSumHeader.html(`<span class="currentCurrencyValPrice">${document.getElementById('currentCurrencyMain').innerHTML[0]}</span> ` + +`${parseInt(toFixedTest) * parseInt($('#productQuantity').val())}`);
     }
 };
 

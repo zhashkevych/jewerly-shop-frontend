@@ -66,13 +66,13 @@ const showProduct = () => {
         url: 'http://164.90.218.246:8001/api/products',
         // headers: {'Authorization': `Bearer ${getCookie('auth_token')}`},
         success: function (response) {
-
             for (let i = 0; i < response.data.length; i++) {
-
                 if (response.data[i].id) {
                     let matches = window.location.search.match(/\d+/g);
                     let currentProductId = parseInt(matches[0]);
                     if (response.data[i].id === currentProductId) {
+                        $('#productId').html(response.data[i].id);
+                        // $('#productQuantity').html();
                         $('#productPagePhoto').attr('style', `background: url('${response.data[i].images[0].url}') center no-repeat; background-size: contain;`);
                         $('#productPageTitle').html(response.data[i].title);
                         $('#productPagePrice').html(`<span style="margin-right: 5px;" class="currentCurrencyValPrice">${document.getElementById('currentCurrencyMain').innerHTML[0]}</span>` + response.data[i].current_price);
@@ -101,21 +101,38 @@ const addProductTooCart = () => {
         url: 'http://164.90.218.246:8001/api/products',
         success: function (response) {
             $('#addProductToCart').on('click', function () {
-                let matches = window.location.search.match(/\d+/g);
-                let currentProductId = parseInt(matches[0]);
                 let addedProduct = document.createElement('li');
-                addedProduct.className = 'clearfix';
-                addedProduct.innerHTML = `
-                    <div class="img" style="background: ${`url('${response.data[currentProductId].images[0].url}') center no-repeat; background-size: contain; `}"></div>
+                for (let i = 0; i < response.data.length; i++) {
+                    addedProduct.className = 'clearfix';
+                    addedProduct.innerHTML = `<button type="button" class="close" aria-label="Close"><span aria-hidden="true" id="removeItemFromCart">&times;</span></button>
+                    <div class="img" style="background: ${`url('${response.data[i].images[0].url}') center no-repeat; background-size: contain; `}"></div>
                     <span class="item-name">${document.querySelector('#productPageTitle').innerHTML}</span>
-                    <span class="item-price itemPrice">${document.querySelector('#productPagePrice').innerHTML}</span>
-                    <span class="item-quantity"></span>
+                    <span class="item-price itemPrice">${document.querySelector('#productPagePrice').innerHTML}</span> <span>Quantity: </span>
+                    <span class="item-quantity">${$('#productQuantity').val()}</span>
                 `;
-                document.querySelector('#shoppingCartContainer').appendChild(addedProduct);
+                    document.querySelector('#shoppingCartContainer').appendChild(addedProduct);
 
+                    localStorage.setItem('itemId', $('#productId').html());
+                    localStorage.setItem('itemQuantity', $('.item-quantity').html());
+                }
+                // const removeItem = () => {
+                //     let item = document.querySelectorAll('#removeItemFromCart');
+                //     for (let i = 0; i < item.length; i++) {
+                //         item[i].onclick = () => {
+                //             for (let k = 0; k < document.querySelectorAll('.clearfix').length; k++) {
+                //                 document.querySelectorAll('.clearfix')[k].classList.add('d-none')
+                //             }
+                //         }
+                //     }
+                // };
+                // removeItem();
+                // $('#removeItemFromCart').on('click', function () {
+                //
+                // });
                 quantityCartHeader();
                 cartSum();
-            })
+            });
+            $('#addProductToCart').attr('disable', true);
         }
     })
 };
