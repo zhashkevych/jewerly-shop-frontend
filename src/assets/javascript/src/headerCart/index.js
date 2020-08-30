@@ -29,24 +29,8 @@ const cartSum = () => {
         let singleItemPrice = itemPrice[i];
         totalSum += parseFloat(singleItemPrice.innerText.substr(1));
         let toFixedTest = totalSum.toFixed(2);
-        cartTotalSumHeader.html('$ ' + `${toFixedTest}`);
+        cartTotalSumHeader.html(`<span class="currentCurrencyValPrice">${document.getElementById('currentCurrencyMain').innerHTML[0]}</span> ` + +`${parseInt(toFixedTest) * parseInt($('#productQuantity').val())}`);
     }
-};
-
-const toggleCurrencyList = () => {
-    $('#currency').change(function () {
-        let currency = $("#currency option:checked").val();
-        $('.curr').html(currency);
-        console.log(currency);
-    });
-
-    // $('#currentCurrency').on('click', function () {
-    //     $('.currency_hidden').fadeToggle("fast");
-    // })
-    //
-    // $('#currencyEuro').on('click', function () {
-    //     $('#currentCurrency').html($('#currencyEuro').html())
-    // })
 };
 
 const categoriesToggle = () => {
@@ -77,13 +61,8 @@ const categoriesToggle = () => {
     };
 };
 
-quantityCartHeader();
-cartSum();
-categoriesToggle();
-toggleCurrencyList();
-
-//$.getJSON('http://164.90.218.246:8000/admin/products', function (data) {
-//  console.log(data)
-//});
-
-
+if (window.location.pathname !== '/admin.html' && window.location.pathname !== '/admin-panel.html') {
+    quantityCartHeader();
+    cartSum();
+    categoriesToggle();
+}

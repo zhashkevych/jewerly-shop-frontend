@@ -1,5 +1,20 @@
 .checkout-page {
   .content {
 	margin: 0 auto;
+
+	.checkout-form {
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  flex-direction: column;
+
+	  label {
+		margin: 7px 0;
+		input {
+		  border: 1px solid black;
+		  padding: 5px 10px;
+		}
+	  }
+	}
   }
 }

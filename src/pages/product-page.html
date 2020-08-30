@@ -20,7 +20,14 @@
                 <div class="col-md-5 item_descr">
                     <p class="title font-weight-semi" id="productPageTitle"></p>
                     <p class="price" id="productPagePrice"></p>
-                    <p class="code" id="productPageCode"></p>
+                    <div class="d-flex justify-content-sm-between align-content-center">
+                        <p class="code" id="productPageCode"></p>
+                        <label>
+                            Quantity:
+                            <input width="50" type="number" id="productQuantity" value="1" name="quantity" min="1">
+                        </label>
+                    </div>
+                    <p style="display: none;" id="productId"></p>
                     <button class="cta_btn" id="addProductToCart">add to cart</button>
                     <div class="specs">
                         <p class="item_availability" id="itemAvailable">This item is in stock!</p>

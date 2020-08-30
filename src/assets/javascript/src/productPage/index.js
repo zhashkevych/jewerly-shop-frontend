@@ -60,164 +60,106 @@ if (window.location.pathname === '/product-page.html') {
     myTabs1.init();
 }
 
-let testProductObject = {
-    data: [
-        {
-            id: 1,
-            title: 'Ring 1 CAT_ID=1',
-            description: 'Test RING 1 description description description',
-            material: 'Silver 999',
-            current_price: 100,
-            previous_price: 10,
-            code: '123123_CODE',
-            image: {
-                url: 'https://cdn.silverbene.com/media/catalog/product/cache/5196f519d2759624b018ede98e5f815b/B/M/BME_555183874171_1_.jpg',
-                alt_test: ''
-            },
-            category_id: 1,
-            in_stock: true
-        },
-        {
-            id: 2,
-            title: 'Bracelet 1',
-            description: 'Test RING 2 description description description',
-            material: 'Silver 999',
-            current_price: 500,
-            previous_price: 1011,
-            code: '123123_CODE',
-            image: {
-                url: 'https://www.ottasilver.com/media/product/79e/men-silver-ring-with-tiger-eye-stone-ottasilver-kr360-60e.jpg',
-                alt_test: ''
-            },
-            category_id: 2,
-            in_stock: false
-        },
-        {
-            id: 3,
-            title: 'Pendants 1',
-            description: 'Test RING 3 description description description',
-            material: 'Silver 999',
-            current_price: 21222,
-            previous_price: 1011,
-            code: '123123_CODE',
-            image: {
-                url: 'https://cdn.silverbene.com/media/catalog/product/cache/5196f519d2759624b018ede98e5f815b/B/M/BME_555183874171_1_.jpg',
-                alt_test: ''
-            },
-            category_id: 3,
-            in_stock: true
-        },
-        {
-            id: 4,
-            title: 'Earrings 1',
-            description: 'Test RING 4 description description description',
-            material: 'Silver 999',
-            current_price: 80,
-            previous_price: 1011,
-            code: '123123_CODE',
-            image: {
-                url: 'https://www.ottasilver.com/media/product/79e/men-silver-ring-with-tiger-eye-stone-ottasilver-kr360-60e.jpg',
-                alt_test: ''
-            },
-            category_id: 4,
-            in_stock: true
-        },
-        {
-            id: 5,
-            title: 'Necklace 1',
-            description: 'Test RING 5 description description description',
-            material: 'Silver 12312',
-            current_price: 200,
-            previous_price: 1011,
-            code: '123123_CODE',
-            image: {
-                url: 'https://www.ottasilver.com/media/product/79e/men-silver-ring-with-tiger-eye-stone-ottasilver-kr360-60e.jpg',
-                alt_test: ''
-            },
-            category_id: 5,
-            in_stock: true
-        },
-        {
-            id: 6,
-            title: 'Ring 2',
-            description: 'Test RING 5 description description description',
-            material: 'Silver 12312',
-            current_price: 432532,
-            previous_price: 1011,
-            code: '123123_CODE',
-            image: {
-                url: 'https://www.ottasilver.com/media/product/79e/men-silver-ring-with-tiger-eye-stone-ottasilver-kr360-60e.jpg',
-                alt_test: ''
-            },
-            category_id: 1,
-            in_stock: true
-        },
-        {
-            id: 7,
-            title: 'Ring 3',
-            description: 'Test RING 5 description description description',
-            material: 'Silver 12312',
-            current_price: 123123,
-            previous_price: 1011,
-            code: '123123_CODE',
-            image: {
-                url: 'https://www.ottasilver.com/media/product/79e/men-silver-ring-with-tiger-eye-stone-ottasilver-kr360-60e.jpg',
-                alt_test: ''
-            },
-            category_id: 1,
-            in_stock: true
-        }
-
-    ]
-};
-
 const showProduct = () => {
-    for (let i = 0; i < testProductObject.data.length; i++) {
-        let matches = window.location.search.match(/\d+/g);
-        let currentProductId = parseInt(matches[0]);
+    $.ajax({
+        type: "GET",
+        url: 'http://164.90.218.246:8001/api/products',
+        // headers: {'Authorization': `Bearer ${getCookie('auth_token')}`},
+        success: function (response) {
+            for (let i = 0; i < response.data.length; i++) {
+                if (response.data[i].id) {
+                    let matches = window.location.search.match(/\d+/g);
+                    let currentProductId = parseInt(matches[0]);
+                    if (response.data[i].id === currentProductId) {
+                        $('#productId').html(response.data[i].id);
+                        // $('#productQuantity').html();
+                        $('#productPagePhoto').attr('style', `background: url('${response.data[i].images[0].url}') center no-repeat; background-size: contain;`);
+                        $('#productPageTitle').html(response.data[i].title);
+                        $('#productPagePrice').html(`<span style="margin-right: 5px;" class="currentCurrencyValPrice">${document.getElementById('currentCurrencyMain').innerHTML[0]}</span>` + response.data[i].current_price);
+                        $('#productPageCode').html('Code: ' + response.data[i].code);
 
-        $('#productPagePhoto').attr('style', `background: url('${testProductObject.data[currentProductId - 1].image.url}') center no-repeat; background-size: contain;`);
-        $('#productPageTitle').html(testProductObject.data[currentProductId - 1].title);
-        $('#productPagePrice').html('$ ' + testProductObject.data[currentProductId - 1].current_price);
-        $('#productPageCode').html('Code: ' + testProductObject.data[currentProductId - 1].code);
+                        if (response.data[i].in_stock) {
+                            $('#itemAvailable').addClass('true')
+                        } else {
+                            $("#addProductToCart").attr("disabled", true);
+                            $('#itemAvailable').addClass('false');
+                            $('#itemAvailable').html('This item is not in stock.');
+                        }
 
-        if (testProductObject.data[currentProductId - 1].in_stock) {
-            $('#itemAvailable').addClass('true')
-        } else {
-            $("#addProductToCart").attr("disabled", true);
-            $('#itemAvailable').addClass('false');
-            $('#itemAvailable').html('This item is not in stock.');
+                        $('#product_description').html(response.data[i].description);
+                        $('#product_material').html(response.data[i].material);
+                    }
+                }
+            }
         }
-
-        $('#product_description').html(testProductObject.data[currentProductId - 1].description);
-        $('#product_material').html(testProductObject.data[currentProductId - 1].material);
-    }
+    })
 };
 
 const addProductTooCart = () => {
-    $('#addProductToCart').on('click', function () {
-        let matches = window.location.search.match(/\d+/g);
-        let currentProductId = parseInt(matches[0]);
-
-        let addedProduct = document.createElement('li');
-        console.log(testProductObject.data[currentProductId - 1].image.url);
-        addedProduct.className = 'clearfix';
-        addedProduct.innerHTML = `
-                    <div class="img" style="background: ${`url('${testProductObject.data[currentProductId - 1].image.url}') center no-repeat; background-size: contain; `}"></div>
+    $.ajax({
+        type: "GET",
+        url: 'http://164.90.218.246:8001/api/products',
+        success: function (response) {
+            $('#addProductToCart').on('click', function () {
+                let addedProduct = document.createElement('li');
+                for (let i = 0; i < response.data.length; i++) {
+                    addedProduct.className = 'clearfix';
+                    addedProduct.innerHTML = `<button type="button" class="close" aria-label="Close"><span aria-hidden="true" id="removeItemFromCart">&times;</span></button>
+                    <div class="img" style="background: ${`url('${response.data[i].images[0].url}') center no-repeat; background-size: contain; `}"></div>
                     <span class="item-name">${document.querySelector('#productPageTitle').innerHTML}</span>
-                    <span class="item-price itemPrice">${document.querySelector('#productPagePrice').innerHTML}</span>
-                    <span class="item-quantity"></span>
-                `;
+                    <span class="item-price itemPrice">${document.querySelector('#productPagePrice').innerHTML}</span> <span class="oc-text-gray">Quantity: </span>
+                    <span class="item-quantity">${$('#productQuantity').val()}</span>`;
 
-        document.querySelector('#shoppingCartContainer').appendChild(addedProduct);
+                    document.querySelector('#shoppingCartContainer').appendChild(addedProduct);
 
-        quantityCartHeader();
-        cartSum();
+                    localStorage.setItem('itemId', $('#productId').html());
+                    localStorage.setItem('itemQuantity', $('.item-quantity').html());
+                }
+                // const removeItem = () => {
+                //     let item = document.querySelectorAll('#removeItemFromCart');
+                //     for (let i = 0; i < item.length; i++) {
+                //         item[i].onclick = () => {
+                //             for (let k = 0; k < document.querySelectorAll('.clearfix').length; k++) {
+                //                 document.querySelectorAll('.clearfix')[k].classList.add('d-none')
+                //             }
+                //         }
+                //     }
+                // };
+                // removeItem();
+                // $('#removeItemFromCart').on('click', function () {
+                //
+                // });
+                if ($('#shoppingCartContainer .clearfix').length === 1) {
+                    let testObj = {
+                        item: $('#shoppingCartContainer .clearfix')[0].innerHTML
+                    };
+                    console.log(testObj.item)
+                    setCookie('testCartItem', testObj.item, 1);
+                    console.log(getCookie('testCartItem'))
+                }
+                quantityCartHeader();
+                cartSum();
+            });
+        }
     })
-
 };
 
 if (window.location.pathname === '/product-page.html') {
     showProduct();
     addProductTooCart();
 }
+
+$.ajax({
+    type: "POST",
+    url: 'http://164.90.218.246:8001/auth/admin/sign-in',
+    data: JSON.stringify({
+        "login": "admin",
+        "password": "eUdYff4bkQbmEKNq"
+    }),
+    dataType: "json",
+    success: function (data) {
+        setCookie('auth_token', data.token, 0.5)
+    },
+});
+
+

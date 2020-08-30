@@ -1,16 +1,24 @@
 .main-page {
   .section {
 	&_colored {
+	  background: #92b7f1;
+
 	  .text {
-		background: #f6b1aa;
 		text-align: center;
 		margin: 0 auto;
 		width: 100%;
 		padding: 30px 0;
 
+		@include media('<sm') {
+		  padding: 10px 0;
+		}
+
 		p {
 		  color: white;
 		  font-size: 16px;
+		  @include media('<sm') {
+			font-size: 14px;
+		  }
 		}
 	  }
 
@@ -21,20 +29,57 @@
 		.item {
 		  width: 100%;
 		  height: 500px;
+		  @include media('<sm') {
+			height: 300px;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+		  }
 		}
 	  }
 
 	  &_lg {
+		@include media('<sm') {
+		  .col-md-6.pr-0,
+		  .col-md-6.pl-0 {
+			padding: 0;
+			margin: 10px 0;
+		  }
+		}
+
+
 		.item {
 		  width: auto;
 		  height: 500px;
+		  @include media('<sm') {
+			height: 280px;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+		  }
 		}
 	  }
 
 	  &_sm {
+		@include media('<sm') {
+		  #mainPageProductsList {
+			.col-md-3,
+			.col-md-3.pl-0 {
+			  padding: 0;
+			  margin: 10px 0;
+			}
+		  }
+		}
+
 		.item {
 		  width: auto;
 		  height: 360px;
+		  @include media('<sm') {
+			height: 220px;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+		  }
 		}
 	  }
 
@@ -89,6 +134,17 @@
 	  width: 100%;
 	  max-height: 200px;
 	  height: 100%;
+
+	  @include media('<sm') {
+		padding: 10px 20px;
+		border: 3px solid gray;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		min-height: 150px;
+		margin-bottom: 10px;
+	  }
 	}
 
   }

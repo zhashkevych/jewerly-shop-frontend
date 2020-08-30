@@ -4,6 +4,9 @@
 	  .photo {
 		width: 100%;
 		height: 480px;
+		@include media('<sm') {
+		  height: 300px;
+		}
 	  }
 	}
 
@@ -20,6 +23,17 @@
 	  .code {
 		font-size: 14px;
 		color: gray;
+	  }
+
+	  label {
+		font-size: 14px;
+		margin-right: 10px;
+		input#productQuantity {
+		  width: 40px;
+		  font-size: 15px;
+		  border: 1px solid black;
+		  text-align: center;
+		}
 	  }
 
 	  .cta_btn {
@@ -74,6 +88,10 @@
 	  .tab-nav {
 		margin: 0;
 		padding: 0;
+
+		@include media('<sm') {
+		  margin-bottom: 30px;
+		}
 	  }
 
 	  .tab-link {
@@ -84,6 +102,11 @@
 		background-color: #b3b3b3;
 		text-decoration: none;
 		transition: 0.4s;
+
+		@include media('<sm') {
+		  width: 100%;
+		  margin-bottom: 5px;
+		}
 
 		&.is-active {
 		  color: #dc446e;
@@ -110,13 +133,17 @@
 		&.is-active {
 		  display: block;
 		  padding: 20px;
+
 		}
 	  }
 
 	  .tab-contents {
 		margin-bottom: 100px;
+		@include media('<sm') {
+		  margin-bottom: 20px !important;
+		}
 	  }
-
 	}
   }
 }
+

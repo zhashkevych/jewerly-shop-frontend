@@ -8,4 +8,4 @@ if [ "$(docker ps -q -f name=jewerly-frontend-stage)" ]; then
     fi
 fi
 
-docker run --rm -d -p 8080:80 --name jewerly-frontend-stage jewerly-frontent:0.1
+docker run --rm -d -p 8080:80 --name jewerly-frontend-stage --link=jewerly-api-stage:api jewerly-frontent:0.1
