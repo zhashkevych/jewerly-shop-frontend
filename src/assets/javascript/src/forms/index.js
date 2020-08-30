@@ -159,7 +159,6 @@ $('#checkoutPageSubmit').on('click', function () {
 
             },
             success: function (response) {
-                console.log(response.url);
                 swal({
                     title: "Success",
                     text: "Right now you will be redirected on payment page.",

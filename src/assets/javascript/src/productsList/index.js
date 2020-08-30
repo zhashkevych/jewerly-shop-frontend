@@ -10,7 +10,6 @@ const productsList = () => {
                 catTitleItem.innerHTML = `${catTitle}`;
                 document.querySelector('#catTitle').appendChild(catTitleItem);
 
-                console.log(response);
                 for (let i = 0; i < response.data.length; i++) {
                     const singleItemTestTitle = response.data[i].title;
                     const singleItemTestId = response.data[i].id;

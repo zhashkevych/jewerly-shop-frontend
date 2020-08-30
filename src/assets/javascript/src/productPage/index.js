@@ -64,7 +64,6 @@ const showProduct = () => {
     $.ajax({
         type: "GET",
         url: 'http://164.90.218.246:8001/api/products',
-        // headers: {'Authorization': `Bearer ${getCookie('auth_token')}`},
         success: function (response) {
             for (let i = 0; i < response.data.length; i++) {
                 if (response.data[i].id) {
@@ -73,6 +72,8 @@ const showProduct = () => {
                     if (response.data[i].id === currentProductId) {
                         $('#productId').html(response.data[i].id);
                         // $('#productQuantity').html();
+                        setCookie('imgValTest', response.data[i].images[0].url, 0.5);
+
                         $('#productPagePhoto').attr('style', `background: url('${response.data[i].images[0].url}') center no-repeat; background-size: contain;`);
                         $('#productPageTitle').html(response.data[i].title);
                         $('#productPagePrice').html(`<span style="margin-right: 5px;" class="currentCurrencyValPrice">${document.getElementById('currentCurrencyMain').innerHTML[0]}</span>` + response.data[i].current_price);
@@ -105,7 +106,7 @@ const addProductTooCart = () => {
                 for (let i = 0; i < response.data.length; i++) {
                     addedProduct.className = 'clearfix';
                     addedProduct.innerHTML = `<button type="button" class="close" aria-label="Close"><span aria-hidden="true" id="removeItemFromCart">&times;</span></button>
-                    <div class="img" style="background: ${`url('${response.data[i].images[0].url}') center no-repeat; background-size: contain; `}"></div>
+                    <div class="img" style="background: url(${getCookie('imgValTest')}) center center no-repeat; background-size: contain;"></div>
                     <span class="item-name">${document.querySelector('#productPageTitle').innerHTML}</span>
                     <span class="item-price itemPrice">${document.querySelector('#productPagePrice').innerHTML}</span> <span class="oc-text-gray">Quantity: </span>
                     <span class="item-quantity">${$('#productQuantity').val()}</span>`;
@@ -133,9 +134,7 @@ const addProductTooCart = () => {
                     let testObj = {
                         item: $('#shoppingCartContainer .clearfix')[0].innerHTML
                     };
-                    console.log(testObj.item)
                     setCookie('testCartItem', testObj.item, 1);
-                    console.log(getCookie('testCartItem'))
                 }
                 quantityCartHeader();
                 cartSum();
@@ -161,5 +160,3 @@ $.ajax({
         setCookie('auth_token', data.token, 0.5)
     },
 });
-
-

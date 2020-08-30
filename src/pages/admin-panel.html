@@ -33,14 +33,32 @@
             <div class="col-md-10">
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="products" role="tabpanel" aria-labelledby="products-tab">
-                        <div class="article-level-4">Products</div>
+                        <div class="article-level-4">Product</div>
                         <hr>
                         <div class="panel_id_products">
                             <div class="mb-20" id="addNewProduct">Add new product!</div>
+
+                            <input type="file" id="filechooser" name="uploadImg" required accept="image/*">
+
                             <hr>
+                            <p class="article-level-3">List of all products</p>
                             <p id="totalItems" class="mb-20"></p>
                             <hr>
-                            <div class="row" id="all_items"></div>
+                            <div class="row" id="allItems">
+                                <div class="col-md-12">
+                                    <div class="row no-gutters">
+                                        <div class="col-md-1"><p>ID</p></div>
+                                        <div class="col-md-2"><p>Title</p></div>
+                                        <div class="col-md-1"><p>Price</p></div>
+                                        <div class="col-md-3"><p>Description</p></div>
+                                        <div class="col-md-1 mr-2"><p>Material</p></div>
+                                        <div class="col-md-1"><p>Code</p></div>
+                                        <div class="col-md-1"><p>Stock</p></div>
+                                        <div class="col-md-1"><p>Category</p></div>
+                                    </div>
+                                    <hr>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="orders" role="tabpanel" aria-labelledby="orders-tab">
