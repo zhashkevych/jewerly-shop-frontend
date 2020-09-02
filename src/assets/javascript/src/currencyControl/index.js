@@ -1,37 +1,25 @@
 const toggleCurrencyList = () => {
-    $('#currency').hover(function () {
-        $('.currency_wrapper_hidden').toggleClass('d-none');
+    if (getCookie('currentCurrency') === null) {
+        $('#currentCurrencyMain').html('$')
+    } else {
+        $('#currentCurrencyMain').html($("#currencyNew option")[0].innerHTML.charAt(0));
+    }
+
+    $('#currencyNew').change(function () {
+        let currency = $("#currencyNew option:checked").val();
+        $('.curr').html(currency);
+        $('#currentCurrencyMain').html($("#currencyNew option:checked").val());
+        setCookie('currentCurrency', $("#currencyNew option")[0].innerHTML.charAt(0), 0.5);
+        console.log(currency);
     });
 
-    $('#currencySecondary').on('click', function () {
-        if ($('#currentCurrencyMain').html() === '$ USD') {
-            $('#currentCurrencyMain').html('€ EUR');
-            $('#currencySecondary').html('$ USD');
-            setCookie('currentCurrency', '€', 0.5)
-        }
-    })
-
-    if (getCookie('currentCurrency') === '€') {
-        $('#currentCurrencyMain').html('€ EUR');
-        $('#currencySecondary').html('$ USD');
-        $('#currencySecondary').on('click', function () {
-            $('#currentCurrencyMain').html('$ USD');
-            $('#currencySecondary').html('€ EUR');
-            setCookie('currentCurrency', '$', 0.5)
-        })
-    }
-
-    if (getCookie('currentCurrency') === '$') {
-        $('#currentCurrencyMain').html('$ USD');
-        $('#currencySecondary').html('€ EUR');
-    }
+    console.log($("#currencyNew option:checked").val());
 
     $('.header_upper_content').bind('DOMSubtreeModified', function () {
-        for (let i = 0; i < document.getElementsByClassName('currentCurrencyValPrice').length; i++) {
-            document.getElementsByClassName('currentCurrencyValPrice')[i].innerHTML = document.getElementById('currentCurrencyMain').innerHTML[0];
-        }
+        $('.currentCurrencyValPrice').html(document.getElementById('currentCurrencyMain').innerHTML);
     });
-
 };
 
-toggleCurrencyList();
+if (window.location.pathname !== '/admin.html' && window.location.pathname !== '/admin-panel.html') {
+    toggleCurrencyList();
+}

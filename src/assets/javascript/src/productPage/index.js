@@ -13,7 +13,7 @@ const showProduct = () => {
 
                         $('#productPagePhoto').attr('style', `background: url('${response.data[i].images[0].url}') center no-repeat; background-size: contain;`);
                         $('#productPageTitle').html(response.data[i].title);
-                        $('#productPagePrice').html(`<span style="margin-right: 5px;" class="currentCurrencyValPrice">${document.getElementById('currentCurrencyMain').innerHTML[0]}</span>` + response.data[i].current_price);
+                        $('#productPagePrice').html(`<span style="margin-right: 5px;" class="currentCurrencyValPrice">${$("#currencyNew option:checked").val()}</span>` + response.data[i].current_price);
                         $('#productPageCode').html('Code: ' + response.data[i].code);
 
                         if (response.data[i].in_stock) {
@@ -61,16 +61,9 @@ const addProductTooCart = () => {
             });
         }
     })
-
-    $('#testCartTrigger').on('click', function () {
-        console.log(localStorage.getItem('testCart'));
-    })
 };
 
-if (localStorage.getItem('testCart')) {
-    document.querySelector('.container_cart').innerHTML = localStorage.getItem('testCart')
-    console.log(localStorage.getItem('testCart'));
-}
+
 
 if (window.location.pathname === '/product-page.html') {
     showProduct();

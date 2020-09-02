@@ -34,7 +34,7 @@ const cartSum = () => {
         let singleItemPrice = itemPrice[i];
         totalSum += parseFloat(singleItemPrice.innerText.substr(1));
         let toFixedTest = totalSum.toFixed(2);
-        cartTotalSumHeader.html(`<span class="currentCurrencyValPrice">${document.getElementById('currentCurrencyMain').innerHTML[0]}</span> ` + +`${parseInt(toFixedTest) * parseInt($('#productQuantity').val())}`);
+        cartTotalSumHeader.html(`<span class="currentCurrencyValPrice">${$('#currentCurrencyMain').html()}</span> ` + +`${parseInt(toFixedTest) * parseInt($('#productQuantity').val())}`);
     }
 };
 
@@ -68,9 +68,12 @@ const categoriesToggle = () => {
     catAllItems.onclick = () => {
         window.location.href = 'products-page.html?=all'
     };
+
+    if (localStorage.getItem('testCart')) {
+        document.querySelector('.container_cart').innerHTML = localStorage.getItem('testCart')
+        console.log(localStorage.getItem('testCart'));
+    }
 };
-
-
 
 if (window.location.pathname !== '/admin.html' && window.location.pathname !== '/admin-panel.html') {
     quantityCartHeader();

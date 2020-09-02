@@ -19,7 +19,7 @@ const productsList = () => {
                     productsListItem.innerHTML = `
 <div class="item" id="item_id_${singleItemTestId}" style="background: url(${singleItemTestImg})  center center no-repeat; min-height: 250px; background-size: contain;">
     <div class="price_cta_preview">
-        <a href="/product-page.html?=product_id_${singleItemTestId}">${singleItemTestTitle} | ${response.data[i].current_price} <span class="currentCurrencyValPrice">${document.getElementById('currentCurrencyMain').innerHTML[0]}</span></a>
+        <a href="/product-page.html?=product_id_${singleItemTestId}">${singleItemTestTitle} | ${response.data[i].current_price} <span class="currentCurrencyValPrice">${$('#currentCurrencyMain').html()}</span></a>
     </div>
 </div>`;
 
@@ -52,7 +52,7 @@ const productsList = () => {
                         productsListItem.innerHTML = `
 <div class="item" id="item_id_${singleItemTestId}" style="background: url(${singleItemTestImg})  center center no-repeat; min-height: 250px; background-size: contain;">
     <div class="price_cta_preview">
-        <a href="/product-page.html?=product_id_${singleItemTestId}">${singleItemTestTitle} | ${response.data[i].current_price} <span class="currentCurrencyValPrice">${document.getElementById('currentCurrencyMain').innerHTML[0]}</span></a>
+        <a href="/product-page.html?=product_id_${singleItemTestId}">${singleItemTestTitle} | ${response.data[i].current_price} <span class="currentCurrencyValPrice">${$('#currentCurrencyMain').html()}</span></a>
     </div>
 </div>`;
 
@@ -86,7 +86,7 @@ const productsList = () => {
                         productsListItem.innerHTML = `
 <div class="item" id="item_id_${singleItemTestId}" style="background: url(${singleItemTestImg})  center center no-repeat; min-height: 250px; background-size: contain;">
     <div class="price_cta_preview">
-        <a href="/product-page.html?=product_id_${singleItemTestId}">${singleItemTestTitle} | ${response.data[i].current_price} <span class="currentCurrencyValPrice">${document.getElementById('currentCurrencyMain').innerHTML[0]}</span></a>
+        <a href="/product-page.html?=product_id_${singleItemTestId}">${singleItemTestTitle} | ${response.data[i].current_price} <span class="currentCurrencyValPrice">${$('#currentCurrencyMain').html()}</span></a>
     </div>
 </div>`;
 
@@ -119,7 +119,7 @@ const productsList = () => {
                         productsListItem.innerHTML = `
 <div class="item" id="item_id_${singleItemTestId}" style="background: url(${singleItemTestImg})  center center no-repeat; min-height: 250px; background-size: contain;">
     <div class="price_cta_preview">
-        <a href="/product-page.html?=product_id_${singleItemTestId}">${singleItemTestTitle} | ${response.data[i].current_price} <span class="currentCurrencyValPrice">${document.getElementById('currentCurrencyMain').innerHTML[0]}</span></a>
+        <a href="/product-page.html?=product_id_${singleItemTestId}">${singleItemTestTitle} | ${response.data[i].current_price} <span class="currentCurrencyValPrice">${$('#currentCurrencyMain').html()}</span></a>
     </div>
 </div>`;
 
@@ -152,7 +152,7 @@ const productsList = () => {
                         productsListItem.innerHTML = `
 <div class="item" id="item_id_${singleItemTestId}" style="background: url(${singleItemTestImg})  center center no-repeat; min-height: 250px; background-size: contain;">
     <div class="price_cta_preview">
-        <a href="/product-page.html?=product_id_${singleItemTestId}">${singleItemTestTitle} | ${response.data[i].current_price} <span class="currentCurrencyValPrice">${document.getElementById('currentCurrencyMain').innerHTML[0]}</span></a>
+        <a href="/product-page.html?=product_id_${singleItemTestId}">${singleItemTestTitle} | ${response.data[i].current_price} <span class="currentCurrencyValPrice">${$('#currentCurrencyMain').html()}</span></a>
     </div>
 </div>`;
 
@@ -185,7 +185,7 @@ const productsList = () => {
                         productsListItem.innerHTML = `
 <div class="item" id="item_id_${singleItemTestId}" style="background: url(${singleItemTestImg})  center center no-repeat; min-height: 250px; background-size: contain;">
     <div class="price_cta_preview">
-        <a href="/product-page.html?=product_id_${singleItemTestId}">${singleItemTestTitle} | ${response.data[i].current_price} <span class="currentCurrencyValPrice">${document.getElementById('currentCurrencyMain').innerHTML[0]}</span></a>
+        <a href="/product-page.html?=product_id_${singleItemTestId}">${singleItemTestTitle} | ${response.data[i].current_price} <span class="currentCurrencyValPrice">${$('#currentCurrencyMain').html()}</span></a>
     </div>
 </div>`;
 
@@ -218,13 +218,14 @@ const productsList = () => {
                         productsListItem.innerHTML = `
 <div class="item" id="item_id_${singleItemTestId}" style="background: url(${singleItemTestImg})  center center no-repeat; min-height: 250px; background-size: contain;">
     <div class="price_cta_preview">
-        <a href="/product-page.html?=product_id_${singleItemTestId}">${singleItemTestTitle} | ${response.data[i].current_price} <span class="currentCurrencyValPrice">${document.getElementById('currentCurrencyMain').innerHTML[0]}</span></a>
+        <a href="/product-page.html?=product_id_${singleItemTestId}">${singleItemTestTitle} | ${response.data[i].current_price} <span class="currentCurrencyValPrice">${$('#currentCurrencyMain').html()}</span></a>
     </div>
 </div>`;
 
                         document.querySelector('#productsPageItemsList').appendChild(productsListItem);
                     }
                 }
+
                 if ($('#productsPageItemsList .item').length === 0) {
                     let noItems = document.createElement('div');
                     noItems.className = 'article-level-4 text-center';
