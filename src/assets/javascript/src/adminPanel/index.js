@@ -24,45 +24,40 @@ const adminPanel = () => {
             }
         }
     });
-    // Titles        MultiLanguageInput `json:"titles" binding:"required"`
-    // Descriptions  MultiLanguageInput `json:"descriptions" binding:"required"`
-    // Material      MultiLanguageInput `json:"materials" binding:"required"`
-    // CurrentPrice  float32            `json:"current_price" binding:"required"`
-    // PreviousPrice float32            `json:"previous_price"`
-    // Code          string             `json:"code" binding:"required"`
-    // ImageIds      []int              `json:"image_ids" binding:"required"`
-    // CategoryId    Category           `json:"category_id" binding:"required"`
 
     const addProduct = () => {
-
-
-        const addItemBtn = document.querySelector('#addNewProduct');
+        const addItemBtn = document.querySelector('.add_product');
+        const toggleAddInputs = document.querySelector('#toggleAddInputs');
+        toggleAddInputs.onclick = () => {
+            $('.add-new-items-table').fadeToggle("fast");
+            document.querySelector('.add-new-items-table').classList.toggle('d-none');
+        };
 
         addItemBtn.onclick = () => {
             let addProductData = {
                 titles: {
-                    english: 'english title for item',
-                    russian: 'russian title for item',
-                    ukrainian: 'ukrainian title for item',
+                    english: document.getElementById("addItemTitle_en").value,
+                    russian: document.getElementById("addItemTitle_ru").value,
+                    ukrainian: document.getElementById("addItemTitle_ua").value,
                 },
                 descriptions: {
-                    english: 'english descriptions for item',
-                    russian: 'russian descriptions for item',
-                    ukrainian: 'ukrainian descriptions for item',
+                    english: document.getElementById("addItemDescr_en").value,
+                    russian: document.getElementById("addItemDescr_ru").value,
+                    ukrainian: document.getElementById("addItemDescr_ua").value,
                 },
                 materials: {
-                    english: 'english materials for item',
-                    russian: 'russian materials for item',
-                    ukrainian: 'ukrainian materials for item',
+                    english: document.getElementById("addItemMater_en").value,
+                    russian: document.getElementById("addItemMater_ru").value,
+                    ukrainian: document.getElementById("addItemMater_ua").value,
                 },
-                current_price: 100,
-                previous_price: 2,
-                code: 'Code Test 121241241231',
+                current_price: parseFloat(document.getElementById("addItemCurrPrice").value),
+                previous_price: parseFloat(document.getElementById("addItemPrevPrice").value),
+                code: document.getElementById("addItemPrevPrice").value,
                 image_ids: [parseInt(localStorage.getItem('uploadedImageId'))],
-                category_id: 4,
+                category_id: parseInt(document.getElementById("addItemCategory").value),
             };
 
-            let blobFile = $('#filechooser')[0].files[0];
+            let blobFile = $('#addItemImg')[0].files[0];
             let formData = new FormData();
             formData.append("image", blobFile);
 
@@ -74,7 +69,8 @@ const adminPanel = () => {
                 processData: false,
                 contentType: false,
                 success: function (response) {
-                    console.log(response.id);
+                    console.log(addProductData)
+                    console.log(response)
                     localStorage.setItem('uploadedImageId', response.id);
 
                     $.ajax({
@@ -85,17 +81,33 @@ const adminPanel = () => {
                         headers: {'Authorization': `Bearer ${getCookie('auth_token')}`},
                         success: function (response) {
                             console.log(response);
+                            console.log(addProductData)
+
+                            swal({
+                                title: "Success",
+                                text: response,
+                                icon: "success",
+                                closeOnClickOutside: true,
+                                closeOnEsc: true,
+                            })
                         },
                         error: function (jqXHR, textStatus, errorMessage) {
-                            console.log(errorMessage);
+                            console.log(addProductData)
+                            swal({
+                            title: "Error",
+                            text: errorMessage,
+                            icon: "error",
+                            closeOnClickOutside: true,
+                            closeOnEsc: true,
+                        });
                         }
                     })
                 },
                 error: function (jqXHR, textStatus, errorMessage) {
                     console.log(errorMessage);
+                    console.log(addProductData)
                 }
             });
-
 
         }
     };

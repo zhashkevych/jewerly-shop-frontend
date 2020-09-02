@@ -126,7 +126,8 @@
 	border-bottom: 1px solid #f0f0f0;
 	padding: 15px 0;
 
-	.col-sm-2 {
+	.col-sm-2,
+	.col-sm-1 {
 	  cursor: pointer;
 	  font-size: 14px;
 	}
@@ -144,6 +145,10 @@
   $main-color: #6394F8;
   $light-text: #ABB0BE;
   @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
+
+  .cart_holder {
+	cursor: pointer;
+  }
 
   nav {
 
@@ -192,6 +197,7 @@
   }
 
   .shopping-cart {
+	//display: none;
 	margin: 20px 0;
 	float: right;
 	background: white;

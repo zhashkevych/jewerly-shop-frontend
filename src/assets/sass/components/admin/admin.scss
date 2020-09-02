@@ -21,12 +21,6 @@
 }
 
 .admin_panel {
-  /*
-  *
-  * ==========================================
-  * CUSTOM UTIL CLASSES
-  * ==========================================
-  */
   .nav-pills-custom .nav-link {
 	color: #aaa;
 	background: #fff;
@@ -38,8 +32,6 @@
 	background: #fff;
   }
 
-
-  /* Add indicator arrow for the active tab */
   @media (min-width: 992px) {
 	.nav-pills-custom .nav-link::before {
 	  content: '';
@@ -57,5 +49,45 @@
 
   .nav-pills-custom .nav-link.active::before {
 	opacity: 1;
+  }
+
+
+}
+
+.admin-page {
+  .add-new-items-table {
+	display: flex;
+	flex-direction: column;
+
+	label {
+	  display: flex;
+	  margin: 7px 0;
+	  //max-width: 300px;
+
+	  input {
+		border: 1px solid black;
+	  }
+	}
+  }
+  #toggleAddInputs {
+	border: 1px solid black;
+	background: cornflowerblue;
+	color: white;
+	font-size: 18px;
+	text-align: center;
+	padding: 7px 15px;
+	width: 250px;
+	margin: 0 auto;
+	cursor: pointer;
+  }
+  .add_product {
+	border: 1px solid black;
+	background: white;
+	font-size: 18px;
+	text-align: center;
+	padding: 5px 15px;
+	width: 250px;
+	margin: 0 auto;
+	cursor: pointer;
   }
 }

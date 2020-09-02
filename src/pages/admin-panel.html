@@ -15,6 +15,10 @@
 
 <div class="container admin-page">
     <div class="container">
+        <div style="cursor: pointer; border: 1px solid black; background: white;
+padding: 5px 10px; width: 200px; margin: 40px auto 0 auto;" class="text-center">
+            <a href="/main-page.html" target="_blank">Go to the main page</a>
+        </div>
         <h1 class="mt-20 mb-20">Admin Panel</h1>
         <hr>
         <div class="row">
@@ -22,24 +26,119 @@
                 <ul class="nav nav-pills flex-column" id="myTab" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link active" id="products-tab" data-toggle="tab" href="#products" role="tab"
-                           aria-controls="home" aria-selected="true">Product</a>
+                           aria-controls="Product" aria-selected="true">Product</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="orders-tab" data-toggle="tab" href="#orders" role="tab"
-                           aria-controls="profile" aria-selected="false">Orders</a>
+                           aria-controls="Orders" aria-selected="false">Orders</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="main_page-tab" data-toggle="tab" href="#main_page" role="tab"
+                           aria-controls="main_page" aria-selected="false">Main page</a>
                     </li>
                 </ul>
             </div>
             <div class="col-md-10">
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="products" role="tabpanel" aria-labelledby="products-tab">
-                        <div class="article-level-4">Product</div>
+                        <div class="article-level-4">
+                            <p>Product</p>
+                            <a href="/products-page.html" target="_blank" style="font-size: 16px;">Link</a>
+                        </div>
                         <hr>
                         <div class="panel_id_products">
-                            <div class="mb-20" id="addNewProduct">Add new product!</div>
-
-                            <input type="file" id="filechooser" name="uploadImg" required accept="image/*">
-
+                            <div class="mb-20" id="addNewProduct">
+                                <div id="toggleAddInputs">Add new product</div>
+                                <div class="add-new-items-table d-none">
+                                    <div class="row no-gutters">
+                                        <div class="col-md-12">
+                                            <div class="row no-gutters">
+                                                <div class="col-md-4">
+                                                    <p>Title</p>
+                                                    <label>
+                                                        <input id="addItemTitle_en" name="" type="text"
+                                                               placeholder="Title EN">
+                                                    </label>
+                                                    <label>
+                                                        <input id="addItemTitle_ru" name="" type="text"
+                                                               placeholder="Title RU">
+                                                    </label>
+                                                    <label>
+                                                        <input id="addItemTitle_ua" name="" type="text"
+                                                               placeholder="Title UA">
+                                                    </label>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <p>Descriptions</p>
+                                                    <label>
+                                                        <input id="addItemDescr_en" name="" type="text"
+                                                               placeholder="Description EN">
+                                                    </label>
+                                                    <label>
+                                                        <input id="addItemDescr_ru" name="" type="text"
+                                                               placeholder="Description RU">
+                                                    </label>
+                                                    <label>
+                                                        <input id="addItemDescr_ua" name="" type="text"
+                                                               placeholder="Description UA">
+                                                    </label>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <p>Materials</p>
+                                                    <label>
+                                                        <input id="addItemMater_en" name="" type="text"
+                                                               placeholder="Material EN">
+                                                    </label>
+                                                    <label>
+                                                        <input id="addItemMater_ru" name="" type="text"
+                                                               placeholder="Material RU">
+                                                    </label>
+                                                    <label>
+                                                        <input id="addItemMater_ua" name="" type="text"
+                                                               placeholder="Material UA">
+                                                    </label>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label>
+                                                        <input id="addItemCurrPrice" name="current_price" type="text"
+                                                               placeholder="Current price">
+                                                    </label>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label>
+                                                        <input id="addItemPrevPrice" name="previous_price" type="text"
+                                                               placeholder="Previous price">
+                                                    </label>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label>
+                                                        <input id="addItemCode" name="code" type="text"
+                                                               placeholder="Code">
+                                                    </label>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input placeholder="Add image" type="file" id="addItemImg"
+                                                           name="uploadImg" required
+                                                           accept="image/*">
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <label>
+                                                        <select id="addItemCategory" name="category_id">
+                                                            <option id="" value="1">Rings</option>
+                                                            <option id="" value="2">Bracelets</option>
+                                                            <option id="" value="3">Pedants</option>
+                                                            <option id="" value="4">Earrings</option>
+                                                            <option id="" value="5">Necklaces</option>
+                                                            <option id="" value="6">Sets</option>
+                                                        </select>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h3 class="add_product">Submit</h3>
+                                </div>
+                            </div>
                             <hr>
                             <p class="article-level-3">List of all products</p>
                             <p id="totalItems" class="mb-20"></p>
@@ -66,22 +165,17 @@
                         <hr>
                         <div class="panel_id_orders">
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab aperiam atque aut
-                                consectetur doloribus ea id illum labore laborum maiores, minima molestiae
-                                necessitatibus neque nobis numquam placeat quam sed? At autem consectetur culpa
-                                dolor
-                                earum est, exercitationem fugit ipsum nam, nulla perspiciatis possimus, quod
-                                tenetur?
-                                Delectus doloremque et ipsam numquam quasi quibusdam quod ut. Accusamus dolor
-                                dolorem
-                                dolorum eius enim eum, illo ipsa itaque iusto laborum, molestiae necessitatibus,
-                                quae
-                                quas quibusdam rerum sed tempore voluptas. Eligendi impedit laudantium, molestiae
-                                neque
-                                pariatur placeat quasi! Aliquam consectetur dignissimos, inventore iusto labore
-                                laborum,
-                                minus natus nisi nulla officia quas, rerum totam vel!
+                                List of all orders
                             </p>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="main_page" role="tabpanel" aria-labelledby="main_page-tab">
+                        <div class="article-level-4">
+                            <p>Main page</p>
+                            <a href="/main-page.html" target="_blank" style="font-size: 16px;">Link</a></div>
+                        <hr>
+                        <div class="panel_id_main_page">
+                            <p>Edit main page</p>
                         </div>
                     </div>
                 </div>

@@ -1,10 +1,15 @@
-$('#cart').on('click', function (e) {
-    let container = $(".shopping-cart");
+const $cartContainer = $('.shopping-cart');
 
-    if (!container.is(e.target) && container.has(e.target).length === 0) {
-        container.fadeToggle("fast");
+$(document).mouseup(e => {
+    if (!$cartContainer.is(e.target) && $cartContainer.has(e.target).length === 0) {
+        $cartContainer.addClass('d-none');
     }
 });
+
+$('#cart').on('click', () => {
+    $cartContainer.removeClass('d-none');
+});
+
 
 const quantityCartHeader = () => {
     let amountOfAddedItemsInCart = $('.shopping-cart-items .clearfix');
@@ -39,6 +44,7 @@ const categoriesToggle = () => {
     let cat3 = document.getElementById('pedantsTestString');
     let cat4 = document.getElementById('earringsTestString');
     let cat5 = document.getElementById('chokersNecklacesTestString');
+    let cat6 = document.getElementById('setsTestString');
     let catAllItems = document.getElementById('catAllItems');
 
     cat1.onclick = () => {
@@ -55,6 +61,9 @@ const categoriesToggle = () => {
     };
     cat5.onclick = () => {
         window.location.href = 'products-page.html?=5'
+    };
+    cat6.onclick = () => {
+        window.location.href = 'products-page.html?=6'
     };
     catAllItems.onclick = () => {
         window.location.href = 'products-page.html?=all'

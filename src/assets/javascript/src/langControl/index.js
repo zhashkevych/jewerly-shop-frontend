@@ -38,6 +38,7 @@ const langControl = () => {
                     pendants: 'Pendants',
                     earrings: 'Earrings',
                     chokersNecklaces: 'Chokers / Necklaces',
+                    sets: 'Sets',
                 },
             },
             ru: {
@@ -52,6 +53,7 @@ const langControl = () => {
                     pendants: 'Подвески',
                     earrings: 'Серьги',
                     chokersNecklaces: 'Чокеры / Ожерелья',
+                    sets: 'Сеты',
                 },
             },
             ua: {
@@ -66,6 +68,7 @@ const langControl = () => {
                     pendants: 'Підвіски',
                     earrings: 'Сережки',
                     chokersNecklaces: 'Кольє',
+                    sets: 'Сети',
                 },
             }
         };
@@ -78,6 +81,7 @@ const langControl = () => {
         $('#pedantsTestString').html(translations[currLang].categories.pendants);
         $('#earringsTestString').html(translations[currLang].categories.earrings);
         $('#chokersNecklacesTestString').html(translations[currLang].categories.chokersNecklaces);
+        $('#setsTestString').html(translations[currLang].categories.sets);
 
         $('#catRingsTitle').html(translations[currLang].categories.rings)
     });
@@ -109,6 +113,7 @@ const langControl = () => {
                     pendants: 'Pendants',
                     earrings: 'Earrings',
                     chokersNecklaces: 'Chokers / Necklaces',
+                    sets: 'Sets',
                 },
             },
             ru: {
@@ -123,6 +128,7 @@ const langControl = () => {
                     pendants: 'Подвески',
                     earrings: 'Серьги',
                     chokersNecklaces: 'Чокеры / Ожерелья',
+                    sets: 'Сеты',
                 },
             },
             ua: {
@@ -137,6 +143,7 @@ const langControl = () => {
                     pendants: 'Підвіски',
                     earrings: 'Сережки',
                     chokersNecklaces: 'Кольє',
+                    sets: 'Сети',
                 },
             }
         };
@@ -149,6 +156,7 @@ const langControl = () => {
         $('#pedantsTestString').html(translations[currLang].categories.pendants);
         $('#earringsTestString').html(translations[currLang].categories.earrings);
         $('#chokersNecklacesTestString').html(translations[currLang].categories.chokersNecklaces);
+        $('#setsTestString').html(translations[currLang].categories.sets);
 
         $('#catRingsTitle').html(translations[currLang].categories.rings)
 
@@ -181,6 +189,7 @@ const langControl = () => {
                     pendants: 'Pendants',
                     earrings: 'Earrings',
                     chokersNecklaces: 'Chokers / Necklaces',
+                    sets: 'Sets',
                 },
             },
             ru: {
@@ -194,6 +203,7 @@ const langControl = () => {
                     pendants: 'Подвески',
                     earrings: 'Серьги',
                     chokersNecklaces: 'Чокеры / Ожерелья',
+                    sets: 'Сеты',
                 },
             },
             ua: {
@@ -207,6 +217,7 @@ const langControl = () => {
                     pendants: 'Підвіски',
                     earrings: 'Сережки',
                     chokersNecklaces: 'Кольє',
+                    sets: 'Сети',
                 },
             }
         };
@@ -219,6 +230,7 @@ const langControl = () => {
         $('#pedantsTestString').html(translations[currLang].categories.pendants);
         $('#earringsTestString').html(translations[currLang].categories.earrings);
         $('#chokersNecklacesTestString').html(translations[currLang].categories.chokersNecklaces);
+        $('#setsTestString').html(translations[currLang].categories.sets);
 
         $('#catRingsTitle').html(translations[currLang].categories.rings)
 
@@ -226,7 +238,7 @@ const langControl = () => {
 };
 
 
-if (window.location.pathname !== '/admin.html') {
+if (window.location.pathname !== '/admin.html' && window.location.pathname !== '/admin-panel.html') {
     langControl();
 
     if (getCookie('lang_val') === 'ru') {
@@ -251,6 +263,7 @@ if (window.location.pathname !== '/admin.html') {
                     pendants: 'Подвески',
                     earrings: 'Серьги',
                     chokersNecklaces: 'Чокеры / Ожерелья',
+                    sets: 'Сеты',
                 },
             }
         };
@@ -263,6 +276,7 @@ if (window.location.pathname !== '/admin.html') {
         $('#pedantsTestString').html(translations.ru.categories.pendants);
         $('#earringsTestString').html(translations.ru.categories.earrings);
         $('#chokersNecklacesTestString').html(translations.ru.categories.chokersNecklaces);
+        $('#setsTestString').html(translations.ru.categories.sets);
 
         $('#catRingsTitle').html(translations.ru.categories.rings);
         langControl();
@@ -290,6 +304,7 @@ if (window.location.pathname !== '/admin.html') {
                     pendants: 'Підвіски',
                     earrings: 'Сережки',
                     chokersNecklaces: 'Кольє',
+                    sets: 'Сети',
                 },
             }
         };
@@ -302,6 +317,7 @@ if (window.location.pathname !== '/admin.html') {
         $('#pedantsTestString').html(translations.ua.categories.pendants);
         $('#earringsTestString').html(translations.ua.categories.earrings);
         $('#chokersNecklacesTestString').html(translations.ua.categories.chokersNecklaces);
+        $('#setsTestString').html(translations.ua.categories.sets);
 
         $('#catRingsTitle').html(translations.ua.categories.rings);
         langControl();
@@ -330,6 +346,7 @@ if (window.location.pathname !== '/admin.html') {
                     pendants: 'Pendants',
                     earrings: 'Earrings',
                     chokersNecklaces: 'Chokers / Necklaces',
+                    sets: 'Sets',
                 },
             }
         };
@@ -342,6 +359,7 @@ if (window.location.pathname !== '/admin.html') {
         $('#pedantsTestString').html(translations.en.categories.pendants);
         $('#earringsTestString').html(translations.en.categories.earrings);
         $('#chokersNecklacesTestString').html(translations.en.categories.chokersNecklaces);
+        $('#setsTestString').html(translations.en.categories.sets);
 
         $('#catRingsTitle').html(translations.en.categories.rings);
         langControl();
