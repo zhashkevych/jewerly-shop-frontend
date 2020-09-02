@@ -70,6 +70,8 @@ const categoriesToggle = () => {
     };
 };
 
+
+
 if (window.location.pathname !== '/admin.html' && window.location.pathname !== '/admin-panel.html') {
     quantityCartHeader();
     cartSum();

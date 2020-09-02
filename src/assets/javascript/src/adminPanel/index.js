@@ -4,23 +4,31 @@ const adminPanel = () => {
         url: 'http://164.90.218.246:8001/api/products',
         success: function (response) {
             $('#totalItems').html('Total items:' + response.total);
-            for (let i = 0; i < response.data.length; i++) {
+            for (var i = 0; i < response.data.length; i++) {
+                let catsObject = {
+                    1: 'Rings',
+                    2: 'Bracelets',
+                    3: 'Pendants',
+                    4: 'Earrings',
+                    5: 'Necklaces',
+                    6: 'Sets',
+                };
                 let allItems = document.createElement('div');
                 allItems.className = `col-md-12 item_id_${response.data[i].id}`;
                 allItems.innerHTML = `<div class="row no-gutters">
-<div class="col-md-1"><p>${response.data[i].id}</p></div>
+<div class="col-md-1" id="idOfProduct"><p>${response.data[i].id}</p></div>
 <div class="col-md-2"><p>${response.data[i].title}</p></div>
 <div class="col-md-1"><p>${response.data[i].current_price}</p></div>
 <div class="col-md-3"><p>${response.data[i].description}</p></div>
 <div class="col-md-1 mr-2"><p>${response.data[i].material}</p></div>
 <div class="col-md-1"><p>${response.data[i].code}</p></div>
 <div class="col-md-1"><p>${response.data[i].in_stock}</p></div>
-<div class="col-md-1"><p>${response.data[i].category_id}</p></div>
+<div class="col-md-1" id="categoryId"><p> ${catsObject[response.data[i].category_id]}</p></div>
 </div>
-<hr>
+<hr> 
 `;
-
                 document.querySelector('#allItems').appendChild(allItems);
+
             }
         }
     });
@@ -110,7 +118,32 @@ const adminPanel = () => {
         }
     };
 
+    const removeProduct = () => {
+        let removeItem = document.getElementById('removeProduct');
+
+        removeItem.onclick = () => {
+            let delItemId = parseInt(document.getElementById('idDelItem').value);
+
+            $.ajax({
+                    type: "DELETE",
+                    url: `http://164.90.218.246:8001/admin/products/${delItemId}`,
+                    headers: {'Authorization': `Bearer ${getCookie('auth_token')}`},
+                    success: function (response) {
+                        swal({
+                            title: "Success",
+                            text: `Product with ID: ${delItemId} was successful deleted.`,
+                            icon: "success",
+                            closeOnClickOutside: true,
+                            closeOnEsc: true,
+                        })
+                    }
+                }
+            )
+        }
+    };
+
     addProduct();
+    removeProduct();
 };
 
 if (window.location.pathname === '/admin-panel.html') {
