@@ -26,37 +26,16 @@ const adminPanel = () => {
     });
 
     const addProduct = () => {
+        localStorage.clear();
         const addItemBtn = document.querySelector('.add_product');
         const toggleAddInputs = document.querySelector('#toggleAddInputs');
+
         toggleAddInputs.onclick = () => {
             $('.add-new-items-table').fadeToggle("fast");
             document.querySelector('.add-new-items-table').classList.toggle('d-none');
         };
 
         addItemBtn.onclick = () => {
-            let addProductData = {
-                titles: {
-                    english: document.getElementById("addItemTitle_en").value,
-                    russian: document.getElementById("addItemTitle_ru").value,
-                    ukrainian: document.getElementById("addItemTitle_ua").value,
-                },
-                descriptions: {
-                    english: document.getElementById("addItemDescr_en").value,
-                    russian: document.getElementById("addItemDescr_ru").value,
-                    ukrainian: document.getElementById("addItemDescr_ua").value,
-                },
-                materials: {
-                    english: document.getElementById("addItemMater_en").value,
-                    russian: document.getElementById("addItemMater_ru").value,
-                    ukrainian: document.getElementById("addItemMater_ua").value,
-                },
-                current_price: parseFloat(document.getElementById("addItemCurrPrice").value),
-                previous_price: parseFloat(document.getElementById("addItemPrevPrice").value),
-                code: document.getElementById("addItemPrevPrice").value,
-                image_ids: [parseInt(localStorage.getItem('uploadedImageId'))],
-                category_id: parseInt(document.getElementById("addItemCategory").value),
-            };
-
             let blobFile = $('#addItemImg')[0].files[0];
             let formData = new FormData();
             formData.append("image", blobFile);
@@ -69,9 +48,31 @@ const adminPanel = () => {
                 processData: false,
                 contentType: false,
                 success: function (response) {
-                    console.log(addProductData)
-                    console.log(response)
+                    console.log(response);
                     localStorage.setItem('uploadedImageId', response.id);
+
+                    let addProductData = {
+                        titles: {
+                            english: document.getElementById("addItemTitle_en").value,
+                            russian: document.getElementById("addItemTitle_ru").value,
+                            ukrainian: document.getElementById("addItemTitle_ua").value,
+                        },
+                        descriptions: {
+                            english: document.getElementById("addItemDescr_en").value,
+                            russian: document.getElementById("addItemDescr_ru").value,
+                            ukrainian: document.getElementById("addItemDescr_ua").value,
+                        },
+                        materials: {
+                            english: document.getElementById("addItemMater_en").value,
+                            russian: document.getElementById("addItemMater_ru").value,
+                            ukrainian: document.getElementById("addItemMater_ua").value,
+                        },
+                        current_price: parseFloat(document.getElementById("addItemCurrPrice").value),
+                        previous_price: parseFloat(document.getElementById("addItemPrevPrice").value),
+                        code: document.getElementById("addItemPrevPrice").value,
+                        image_ids: [parseInt(localStorage.getItem('uploadedImageId'))],
+                        category_id: parseInt(document.getElementById("addItemCategory").value),
+                    };
 
                     $.ajax({
                         type: "POST",
@@ -81,31 +82,28 @@ const adminPanel = () => {
                         headers: {'Authorization': `Bearer ${getCookie('auth_token')}`},
                         success: function (response) {
                             console.log(response);
-                            console.log(addProductData)
-
                             swal({
                                 title: "Success",
-                                text: response,
+                                text: 'sadasdasdasd',
                                 icon: "success",
                                 closeOnClickOutside: true,
                                 closeOnEsc: true,
                             })
                         },
                         error: function (jqXHR, textStatus, errorMessage) {
-                            console.log(addProductData)
+                            console.log(addProductData);
                             swal({
-                            title: "Error",
-                            text: errorMessage,
-                            icon: "error",
-                            closeOnClickOutside: true,
-                            closeOnEsc: true,
-                        });
+                                title: "Error",
+                                text: errorMessage,
+                                icon: "error",
+                                closeOnClickOutside: true,
+                                closeOnEsc: true,
+                            });
                         }
                     })
                 },
                 error: function (jqXHR, textStatus, errorMessage) {
                     console.log(errorMessage);
-                    console.log(addProductData)
                 }
             });
 
