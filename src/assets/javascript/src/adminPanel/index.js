@@ -15,7 +15,7 @@ const adminPanel = () => {
                 };
                 let allItems = document.createElement('div');
                 allItems.className = `col-md-12 item_id_${response.data[i].id}`;
-                allItems.innerHTML = `<div class="row no-gutters">
+                allItems.innerHTML = `<div class="row  no-gutters">
 <div class="col-md-1" id="idOfProduct"><p>${response.data[i].id}</p></div>
 <div class="col-md-2"><p>${response.data[i].title}</p></div>
 <div class="col-md-1"><p>${response.data[i].current_price}</p></div>

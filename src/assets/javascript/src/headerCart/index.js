@@ -1,14 +1,14 @@
-// const $cartContainer = $('.shopping-cart');
+const $cartContainer = $('.shopping-cart');
 
-// $(document).mouseup(e => {
-//     if (!$cartContainer.is(e.target) && $cartContainer.has(e.target).length === 0) {
-//         $cartContainer.addClass('d-none');
-//     }
-// });
+$(document).mouseup(e => {
+    if (!$cartContainer.is(e.target) && $cartContainer.has(e.target).length === 0) {
+        $cartContainer.addClass('d-none');
+    }
+});
 
-// $('#cart').on('click', () => {
-//     $cartContainer.removeClass('d-none');
-// });
+$('#cart').on('click', () => {
+    $cartContainer.removeClass('d-none');
+});
 
 
 const quantityCartHeader = () => {
@@ -69,10 +69,10 @@ const categoriesToggle = () => {
         window.location.href = 'products-page.html?=all'
     };
 
-    if (localStorage.getItem('testCart')) {
-        document.querySelector('.container_cart').innerHTML = localStorage.getItem('testCart')
-        console.log(localStorage.getItem('testCart'));
-    }
+    // if (localStorage.getItem('testCart')) {
+    //     document.querySelector('.container_cart').innerHTML = localStorage.getItem('testCart')
+    //     console.log(localStorage.getItem('testCart'));
+    // }
 };
 
 if (window.location.pathname !== '/admin.html' && window.location.pathname !== '/admin-panel.html') {
