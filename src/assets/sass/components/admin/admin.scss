@@ -55,6 +55,12 @@
 }
 
 .admin-page {
+  .no-gutters {
+	display: flex;
+	align-items: center;
+	min-height: 50px;
+  }
+
   .add-new-items-table {
 	display: flex;
 	flex-direction: column;
@@ -62,13 +68,13 @@
 	label {
 	  display: flex;
 	  margin: 7px 0;
-	  //max-width: 300px;
 
 	  input {
 		border: 1px solid black;
 	  }
 	}
   }
+
   #toggleAddInputs {
 	border: 1px solid black;
 	background: cornflowerblue;
@@ -80,6 +86,7 @@
 	margin: 0 auto;
 	cursor: pointer;
   }
+
   .add_product {
 	border: 1px solid black;
 	background: white;

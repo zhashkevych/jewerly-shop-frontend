@@ -1,14 +1,14 @@
-const $cartContainer = $('.shopping-cart');
+// const $cartContainer = $('.shopping-cart');
 
-$(document).mouseup(e => {
-    if (!$cartContainer.is(e.target) && $cartContainer.has(e.target).length === 0) {
-        $cartContainer.addClass('d-none');
-    }
-});
+// $(document).mouseup(e => {
+//     if (!$cartContainer.is(e.target) && $cartContainer.has(e.target).length === 0) {
+//         $cartContainer.addClass('d-none');
+//     }
+// });
 
-$('#cart').on('click', () => {
-    $cartContainer.removeClass('d-none');
-});
+// $('#cart').on('click', () => {
+//     $cartContainer.removeClass('d-none');
+// });
 
 
 const quantityCartHeader = () => {

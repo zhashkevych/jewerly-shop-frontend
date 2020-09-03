@@ -142,8 +142,75 @@ const adminPanel = () => {
         }
     };
 
+    const editProduct = () => {
+        let openEditForm = document.querySelector('#toggleEditForm');
+        let editForm = document.querySelector('#editFormInputs');
+
+        openEditForm.onclick = () => {
+            editForm.classList.toggle('d-none');
+        };
+
+        $("#editAvailability").on('change', function () {
+            if ($(this).is(':checked')) {
+                $(this).attr('value', true);
+            } else {
+                $(this).attr('value', false);
+            }
+
+            $('#checkbox-value').text($('#editAvailability').val());
+        });
+
+        let editItem = document.querySelector('#editProduct');
+        editItem.onclick = () => {
+            // let editItemId = parseInt(document.getElementById('idDelItem').value);
+
+            let editItemObj = {
+                titles: {
+                    english: document.getElementById("editItemTitle_en").value,
+                    russian: document.getElementById("editItemTitle_ru").value,
+                    ukrainian: document.getElementById("editItemTitle_ua").value,
+                },
+                descriptions: {
+                    english: document.getElementById("editItemDescr_en").value,
+                    russian: document.getElementById("editItemDescr_ru").value,
+                    ukrainian: document.getElementById("editItemDescr_ua").value,
+                },
+                materials: {
+                    english: document.getElementById("editItemMater_en").value,
+                    russian: document.getElementById("editItemMater_ru").value,
+                    ukrainian: document.getElementById("editItemMater_ua").value,
+                },
+                current_price: parseFloat(document.getElementById("editItemCurrPrice").value),
+                previous_price: parseFloat(document.getElementById("editItemPrevPrice").value),
+                code: document.getElementById("editItemCode").value,
+                // image_ids: [parseInt(localStorage.getItem('uploadedImageId'))],
+                category_id: parseInt(document.getElementById("editItemCategory").value),
+                in_stock: JSON.parse(document.getElementById("editAvailability").value),
+            };
+            $.ajax({
+                    type: "PUT",
+                    url: `http://164.90.218.246:8001/admin/products/3`,
+                    data: JSON.stringify(editItemObj),
+                    dataType: "json",
+                    headers: {'Authorization': `Bearer ${getCookie('auth_token')}`},
+                    success: function (response) {
+                        console.log(response);
+                        swal({
+                            title: "Success",
+                            text: `Success`,
+                            icon: "success",
+                            closeOnClickOutside: true,
+                            closeOnEsc: true,
+                        })
+                    }
+                }
+            )
+        }
+    };
+
     addProduct();
     removeProduct();
+    editProduct();
 };
 
 if (window.location.pathname === '/admin-panel.html') {
