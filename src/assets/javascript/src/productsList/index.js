@@ -36,6 +36,8 @@ const proccessGetProductsResponse = (response) => {
             break;
     }
 
+    console.log(categoryName);
+
     renderAllProductsList(categoryName, response);
 };
 
@@ -43,6 +45,8 @@ const renderAllProductsList = (categoryName, response) => {
     let catTitleItem = document.createElement('div');
     catTitleItem.innerHTML = `${categoryName}`;
     document.querySelector('#catTitle').appendChild(catTitleItem);
+
+    console.log(response);
 
     if (response.data.length === 0) {
         renderEmptyList()
@@ -63,14 +67,14 @@ const renderProductItems = (items) => {
     for (let i = 0; i < items.length; i++) {
         const singleItemTestTitle = items[i].title;
         const singleItemTestId = items[i].id;
-        const singleItemTestImg = response[i].images[0].url;
+        const singleItemTestImg = items[i].images[0].url;
 
         let productsListItem = document.createElement('div');
         productsListItem.className = 'col-md-3 mb-20';
         productsListItem.innerHTML = `
 <div class="item" id="item_id_${singleItemTestId}" style="background: url(${singleItemTestImg})  center center no-repeat; min-height: 250px; background-size: contain;">
 <div class="price_cta_preview">
-<a href="/product-page.html?=product_id_${singleItemTestId}">${singleItemTestTitle} | ${response.data[i].current_price} <span class="currentCurrencyValPrice">${$('#currentCurrencyMain').html()}</span></a>
+<a href="/product-page.html?product_id=${singleItemTestId}">${singleItemTestTitle} | ${items.current_price} <span class="currentCurrencyValPrice">${$('#currentCurrencyMain').html()}</span></a>
 </div>
 </div>`;
 

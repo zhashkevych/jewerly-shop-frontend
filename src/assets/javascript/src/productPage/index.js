@@ -1,73 +1,67 @@
-const showProduct = () => {
+const loadProduct = () => {
+    let urlParams = new URLSearchParams(window.location.search);
+    let productId = urlParams.get('product_id')
+
+    console.log(urlParams);
+
     $.ajax({
         type: "GET",
-        url: 'http://164.90.218.246:8001/api/products',
+        url: `http://164.90.218.246:8001/api/products/${productId}`,
         success: function (response) {
-            for (let i = 0; i < response.data.length; i++) {
-                if (response.data[i].id) {
-                    let matches = window.location.search.match(/\d+/g);
-                    let currentProductId = parseInt(matches[0]);
-                    if (response.data[i].id === currentProductId) {
-                        $('#productId').html(response.data[i].id);
-                        setCookie('imgValTest', response.data[i].images[0].url, 0.5);
-
-                        $('#productPagePhoto').attr('style', `background: url('${response.data[i].images[0].url}') center no-repeat; background-size: contain;`);
-                        $('#productPageTitle').html(response.data[i].title);
-                        $('#productPagePrice').html(`<span style="margin-right: 5px;" class="currentCurrencyValPrice">${$("#currencyNew option:checked").val()}</span>` + response.data[i].current_price);
-                        $('#productPageCode').html('Code: ' + response.data[i].code);
-
-                        if (response.data[i].in_stock) {
-                            $('#itemAvailable').addClass('true')
-                        } else {
-                            $("#addProductToCart").attr("disabled", true);
-                            $('#itemAvailable').addClass('false');
-                            $('#itemAvailable').html('This item is not in stock.');
-                        }
-
-                        $('#product_description').html(response.data[i].description);
-                        $('#product_material').html(response.data[i].material);
-                    }
-                }
-            }
+            renderProduct(response);
         }
     })
 };
 
-const addProductTooCart = () => {
-    $.ajax({
-        type: "GET",
-        url: 'http://164.90.218.246:8001/api/products',
-        success: function (response) {
-            $('#addProductToCart').on('click', function () {
-                let addedProduct = document.createElement('li');
-                for (let i = 0; i < response.data.length; i++) {
-                    addedProduct.className = 'clearfix';
-                    addedProduct.innerHTML = `<button type="button" class="close" aria-label="Close"><span aria-hidden="true" id="removeItemFromCart">&times;</span></button>
-                    <div class="img" style="background: url(${getCookie('imgValTest')}) center center no-repeat; background-size: contain;"></div>
-                    <span class="item-name">${document.querySelector('#productPageTitle').innerHTML}</span>
-                    <span class="item-price itemPrice">${document.querySelector('#productPagePrice').innerHTML}</span> <span class="oc-text-gray">Quantity: </span>
-                    <span class="item-quantity">${$('#productQuantity').val()}</span>`;
+const renderProduct = (product) => {
+    $('#productId').html(product.id);
+    setCookie('imgValTest', product.images[0].url, 0.5);
 
-                    document.querySelector('#shoppingCartContainer').appendChild(addedProduct);
+    $('#productPagePhoto').attr('style', `background: url('${product.images[0].url}') center no-repeat; background-size: contain;`);
+    $('#productPageTitle').html(product.title);
+    $('#productPagePrice').html(`<span style="margin-right: 5px;" class="currentCurrencyValPrice">${$("#currencyNew option:checked").val()}</span>` + product.current_price);
+    $('#productPageCode').html('Code: ' + product.code);
 
-                    localStorage.setItem('itemId', parseInt($('#productId').html()));
-                    localStorage.setItem('itemQuantity', parseInt($('.item-quantity').html()));
+    if (product.in_stock) {
+        $('#itemAvailable').addClass('true')
+    } else {
+        $("#addProductToCart").attr("disabled", true);
+        $('#itemAvailable').addClass('false');
+        $('#itemAvailable').html('This item is not in stock.');
+    }
 
-                    localStorage.setItem('testCart', document.querySelector('.container_cart').innerHTML);
-                }
+    $('#product_description').html(product.description);
+    $('#product_material').html(product.material);
+}
 
-                quantityCartHeader();
-                cartSum();
-            });
-        }
-    })
+const initProductToCardHandler = () => {
+    $('#addProductToCart').on('click', function () {
+        let addedProduct = document.createElement('li');
+        addedProduct.className = 'clearfix';
+        addedProduct.innerHTML = `<button type="button" class="close" aria-label="Close"><span aria-hidden="true" id="removeItemFromCart">&times;</span></button>
+        <div class="img" style="background: url(${getCookie('imgValTest')}) center center no-repeat; background-size: contain;"></div>
+        <span class="item-name">${document.querySelector('#productPageTitle').innerHTML}</span>
+        <span class="item-price itemPrice">${document.querySelector('#productPagePrice').innerHTML}</span> <span class="oc-text-gray">Quantity: </span>
+        <span class="item-quantity">${$('#productQuantity').val()}</span>`;
+
+        document.querySelector('#shoppingCartContainer').appendChild(addedProduct);
+
+        localStorage.setItem('itemId', parseInt($('#productId').html()));
+        localStorage.setItem('itemQuantity', parseInt($('.item-quantity').html()));
+
+        localStorage.setItem('testCart', document.querySelector('.container_cart').innerHTML);
+    
+        quantityCartHeader();
+        cartSum();
+    });
 };
-
 
 
 if (window.location.pathname === '/product-page.html') {
-    showProduct();
-    addProductTooCart();
+    loadProduct();
+    initProductToCardHandler();
+    
+    // ????????????
     (function () {
 
         'use strict';
@@ -129,6 +123,8 @@ if (window.location.pathname === '/product-page.html') {
     myTabs1.init();
 }
 
+
+// ??????
 $.ajax({
     type: "POST",
     url: 'http://164.90.218.246:8001/auth/admin/sign-in',
