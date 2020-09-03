@@ -25,6 +25,8 @@ const langControl = () => {
 
         let currLang = document.getElementsByTagName('body')[0].className.slice(-2);
 
+        // вынести в отдельный файл .json
+        // погуглить либу i18n
         let translations = {
             en: {
                 headerTop: {
