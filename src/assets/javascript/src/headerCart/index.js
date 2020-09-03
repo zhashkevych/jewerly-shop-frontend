@@ -45,28 +45,28 @@ const categoriesToggle = () => {
     let cat4 = document.getElementById('earringsTestString');
     let cat5 = document.getElementById('chokersNecklacesTestString');
     let cat6 = document.getElementById('setsTestString');
-    let catAllItems = document.getElementById('catAllItems');
+    let categoryAll = document.getElementById('catAllItems');
 
     cat1.onclick = () => {
-        window.location.href = 'products-page.html?=1'
+        window.location.href = 'products-page.html?category=1'
     };
     cat2.onclick = () => {
-        window.location.href = 'products-page.html?=2'
+        window.location.href = 'products-page.html?category=2'
     };
     cat3.onclick = () => {
-        window.location.href = 'products-page.html?=3'
+        window.location.href = 'products-page.html?category=3'
     };
     cat4.onclick = () => {
-        window.location.href = 'products-page.html?=4'
+        window.location.href = 'products-page.html?category=4'
     };
     cat5.onclick = () => {
-        window.location.href = 'products-page.html?=5'
+        window.location.href = 'products-page.html?category=5'
     };
     cat6.onclick = () => {
-        window.location.href = 'products-page.html?=6'
+        window.location.href = 'products-page.html?category=6'
     };
-    catAllItems.onclick = () => {
-        window.location.href = 'products-page.html?=all'
+    categoryAll.onclick = () => {
+        window.location.href = 'products-page.html?category=0'
     };
 
     if (localStorage.getItem('testCart')) {
