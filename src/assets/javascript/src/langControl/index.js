@@ -1,8 +1,10 @@
+// worst hardcode solution DON'T TOUCH IT PLEASE!
 const langControl = () => {
 
     if (getCookie('lang_val') === null) {
         $('#lang_en').hide();
     }
+
     $('.switch-lang').hover(function () {
         $('.lang-dropdown').addClass('active');
     });
@@ -239,7 +241,7 @@ const langControl = () => {
 
 
 if (window.location.pathname !== '/admin.html' && window.location.pathname !== '/admin-panel.html') {
-    langControl();
+    // langControl();
 
     if (getCookie('lang_val') === 'ru') {
         $('body').addClass('lang_ru');
@@ -365,5 +367,3 @@ if (window.location.pathname !== '/admin.html' && window.location.pathname !== '
         langControl();
     }
 }
-
-

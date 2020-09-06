@@ -28,6 +28,7 @@
 	  label {
 		font-size: 14px;
 		margin-right: 10px;
+
 		input#productQuantity {
 		  width: 40px;
 		  font-size: 15px;
@@ -49,6 +50,12 @@
 		text-transform: uppercase;
 		color: #fff;
 		background-color: #000;
+		transition: .2s;
+
+		&.active {
+		  background: gray;
+		  transform: scale(1.1);
+		}
 
 		&[disabled="disabled"] {
 		  background-color: #999999;

@@ -1,73 +1,87 @@
-const showProduct = () => {
+const loadProduct = () => {
+    let urlParams = new URLSearchParams(window.location.search);
+    let productId = urlParams.get('product_id');
+
+    console.log(urlParams);
+
     $.ajax({
         type: "GET",
-        url: 'http://164.90.218.246:8001/api/products',
+        url: `http://164.90.218.246:8001/api/products/${productId}`,
         success: function (response) {
-            for (let i = 0; i < response.data.length; i++) {
-                if (response.data[i].id) {
-                    let matches = window.location.search.match(/\d+/g);
-                    let currentProductId = parseInt(matches[0]);
-                    if (response.data[i].id === currentProductId) {
-                        $('#productId').html(response.data[i].id);
-                        setCookie('imgValTest', response.data[i].images[0].url, 0.5);
-
-                        $('#productPagePhoto').attr('style', `background: url('${response.data[i].images[0].url}') center no-repeat; background-size: contain;`);
-                        $('#productPageTitle').html(response.data[i].title);
-                        $('#productPagePrice').html(`<span style="margin-right: 5px;" class="currentCurrencyValPrice">${$("#currencyNew option:checked").val()}</span>` + response.data[i].current_price);
-                        $('#productPageCode').html('Code: ' + response.data[i].code);
-
-                        if (response.data[i].in_stock) {
-                            $('#itemAvailable').addClass('true')
-                        } else {
-                            $("#addProductToCart").attr("disabled", true);
-                            $('#itemAvailable').addClass('false');
-                            $('#itemAvailable').html('This item is not in stock.');
-                        }
-
-                        $('#product_description').html(response.data[i].description);
-                        $('#product_material').html(response.data[i].material);
-                    }
-                }
-            }
+            renderProduct(response);
         }
     })
 };
 
-const addProductTooCart = () => {
-    $.ajax({
-        type: "GET",
-        url: 'http://164.90.218.246:8001/api/products',
-        success: function (response) {
-            $('#addProductToCart').on('click', function () {
-                let addedProduct = document.createElement('li');
-                for (let i = 0; i < response.data.length; i++) {
-                    addedProduct.className = 'clearfix';
-                    addedProduct.innerHTML = `<button type="button" class="close" aria-label="Close"><span aria-hidden="true" id="removeItemFromCart">&times;</span></button>
-                    <div class="img" style="background: url(${getCookie('imgValTest')}) center center no-repeat; background-size: contain;"></div>
-                    <span class="item-name">${document.querySelector('#productPageTitle').innerHTML}</span>
-                    <span class="item-price itemPrice">${document.querySelector('#productPagePrice').innerHTML}</span> <span class="oc-text-gray">Quantity: </span>
-                    <span class="item-quantity">${$('#productQuantity').val()}</span>`;
+const renderProduct = (product) => {
+    setCookie('imgValue', product.images[0].url, 0.5);
 
-                    document.querySelector('#shoppingCartContainer').appendChild(addedProduct);
+    document.getElementById('productId').innerHTML = product.id;
+    document.getElementById('product_description').innerHTML = product.description;
+    document.getElementById('product_material').innerHTML = product.material;
+    document.getElementById('productPagePrice').innerHTML = `<span style="margin-right: 5px;" class="currentCurrencyValPrice">${$("#currencyNew option:checked").val()}</span>` + product.current_price;
 
-                    localStorage.setItem('itemId', parseInt($('#productId').html()));
-                    localStorage.setItem('itemQuantity', parseInt($('.item-quantity').html()));
+    document.getElementById('productPageCode').innerHTML = 'Code: ' + product.code;
+    document.getElementById('productPagePhoto').setAttribute('style', `background: url('${product.images[0].url}') center no-repeat; background-size: contain;`);
+    document.getElementById('productPageTitle').innerHTML = product.title;
 
-                    localStorage.setItem('testCart', document.querySelector('.container_cart').innerHTML);
-                }
-
-                quantityCartHeader();
-                cartSum();
-            });
-        }
-    })
+    if (product.in_stock) {
+        document.getElementById('itemAvailable').classList.add('true')
+    } else {
+        // $("#addProductToCart").attr("disabled", true);
+        document.getElementById('itemAvailable').classList.add('false');
+        document.getElementById('itemAvailable').innerHTML = 'This item is not in stock';
+    }
 };
 
+const initProductToCardHandler = () => {
+    let addToCartTrigger = document.getElementById('addProductToCart');
+
+    addToCartTrigger.onclick = () => {
+        addToCartTrigger.classList.add('active');
+        document.querySelector('.fa-shopping-cart.cart-icon').classList.add('pulse-drop');
+
+        setTimeout(function () {
+            addToCartTrigger.classList.remove('active');
+            document.querySelector('.fa-shopping-cart.cart-icon').classList.remove('pulse-drop');
+        }, 600);
+
+        let addedProduct = document.createElement('li');
+        addedProduct.className = 'clearfix';
+        addedProduct.innerHTML = `
+        <div class="img" style="background: url(${getCookie('imgValue')}) center center no-repeat; background-size: contain;"></div>
+        <span class="item-name">${document.querySelector('#productPageTitle').innerHTML}</span>
+        <span class="item-price itemPrice">${document.querySelector('#productPagePrice').innerHTML}</span> <span class="oc-text-gray">Quantity: </span>
+        <span class="item-quantity">${document.getElementById('productQuantity').value}</span>
+        <span class="selected_item-id d-none">${document.getElementById('productId').innerHTML}</span>`;
+
+        document.querySelector('#shoppingCartContainer').appendChild(addedProduct);
 
 
-if (window.location.pathname === '/product-page.html') {
-    showProduct();
-    addProductTooCart();
+        let productId = document.getElementById('productId').innerHTML;
+        localStorage.setItem('itemId', parseInt(productId));
+        localStorage.setItem('itemQuantity', parseInt($('.item-quantity').html()));
+
+        localStorage.setItem('testCart', document.querySelector('.container_cart').innerHTML);
+
+        for (let i = 0; i < document.querySelectorAll('.clearfix .item-quantity').length; i++) {
+            console.log('quantity')
+            console.log(document.querySelectorAll('.clearfix .item-quantity')[i].innerHTML);
+        }
+
+        for (let i = 0; i < document.querySelectorAll('.clearfix .selected_item-id').length; i++) {
+            console.log('ID')
+            console.log(document.querySelectorAll('.clearfix .selected_item-id')[i].innerHTML);
+        }
+
+
+        quantityCartHeader();
+        cartSum();
+    };
+
+};
+
+const productPageTabs = () => {
     (function () {
 
         'use strict';
@@ -127,17 +141,11 @@ if (window.location.pathname === '/product-page.html') {
     });
 
     myTabs1.init();
-}
+};
 
-$.ajax({
-    type: "POST",
-    url: 'http://164.90.218.246:8001/auth/admin/sign-in',
-    data: JSON.stringify({
-        "login": "admin",
-        "password": "eUdYff4bkQbmEKNq"
-    }),
-    dataType: "json",
-    success: function (data) {
-        setCookie('auth_token', data.token, 0.5)
-    },
-});
+
+if (window.location.pathname === '/product-page.html') {
+    loadProduct();
+    initProductToCardHandler();
+    productPageTabs();
+}

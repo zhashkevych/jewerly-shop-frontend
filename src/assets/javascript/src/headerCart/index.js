@@ -39,40 +39,40 @@ const cartSum = () => {
 };
 
 const categoriesToggle = () => {
-    let cat1 = document.getElementById('ringsTestString');
-    let cat2 = document.getElementById('braceletsTestString');
-    let cat3 = document.getElementById('pedantsTestString');
-    let cat4 = document.getElementById('earringsTestString');
-    let cat5 = document.getElementById('chokersNecklacesTestString');
-    let cat6 = document.getElementById('setsTestString');
-    let catAllItems = document.getElementById('catAllItems');
+    let category1 = document.getElementById('ringsTestString');
+    let category2 = document.getElementById('braceletsTestString');
+    let category3 = document.getElementById('pedantsTestString');
+    let category4 = document.getElementById('earringsTestString');
+    let category5 = document.getElementById('chokersNecklacesTestString');
+    let category6 = document.getElementById('setsTestString');
+    let categoryAll = document.getElementById('catAllItems');
 
-    cat1.onclick = () => {
-        window.location.href = 'products-page.html?=1'
+    category1.onclick = () => {
+        window.location.href = 'products-page.html?category=1'
     };
-    cat2.onclick = () => {
-        window.location.href = 'products-page.html?=2'
+    category2.onclick = () => {
+        window.location.href = 'products-page.html?category=2'
     };
-    cat3.onclick = () => {
-        window.location.href = 'products-page.html?=3'
+    category3.onclick = () => {
+        window.location.href = 'products-page.html?category=3'
     };
-    cat4.onclick = () => {
-        window.location.href = 'products-page.html?=4'
+    category4.onclick = () => {
+        window.location.href = 'products-page.html?category=4'
     };
-    cat5.onclick = () => {
-        window.location.href = 'products-page.html?=5'
+    category5.onclick = () => {
+        window.location.href = 'products-page.html?category=5'
     };
-    cat6.onclick = () => {
-        window.location.href = 'products-page.html?=6'
+    category6.onclick = () => {
+        window.location.href = 'products-page.html?category=6'
     };
-    catAllItems.onclick = () => {
-        window.location.href = 'products-page.html?=all'
+    categoryAll.onclick = () => {
+        window.location.href = 'products-page.html?category=0'
     };
 
-    // if (localStorage.getItem('testCart')) {
-    //     document.querySelector('.container_cart').innerHTML = localStorage.getItem('testCart')
-    //     console.log(localStorage.getItem('testCart'));
-    // }
+    if (localStorage.getItem('testCart')) {
+        document.querySelector('.container_cart').innerHTML = localStorage.getItem('testCart');
+        console.log(localStorage.getItem('testCart'));
+    }
 };
 
 if (window.location.pathname !== '/admin.html' && window.location.pathname !== '/admin-panel.html') {
