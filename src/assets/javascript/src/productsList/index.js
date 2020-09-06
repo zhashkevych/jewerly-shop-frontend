@@ -1,11 +1,12 @@
 const productsList = () => {
     let urlParams = new URLSearchParams(window.location.search);
     let categoryId = urlParams.get('category');
+    let language = urlParams.get('language');
     let categoryTitle = getCategoryTitle(categoryId);
 
     $.ajax({
         type: "GET",
-        url: `http://164.90.218.246:8001/api/products?category=${categoryId}`,
+        url: `http://164.90.218.246:8001/api/products?category=${categoryId}&language=${language}`,
         success: function (response) {
             renderProductsList(response, categoryTitle);
         }

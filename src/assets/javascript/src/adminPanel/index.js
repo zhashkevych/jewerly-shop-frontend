@@ -5,6 +5,7 @@ const adminPanel = () => {
         success: function (response) {
             $('#totalItems').html('Total products: ' + response.total);
             for (let i = 0; i < response.data.length; i++) {
+                console.log(response)
                 let catsObject = {
                     1: 'Rings',
                     2: 'Bracelets',
@@ -62,9 +63,9 @@ const adminPanel = () => {
                                         success: function () {
                                             swal(
                                                 'Deleted!',
-                                                'Your file has been deleted.',
+                                                'This product has been deleted.',
                                                 'success'
-                                            )
+                                            );
                                             setTimeout(function () {
                                                 window.location.reload(true)
                                             }, 1500)
@@ -86,29 +87,6 @@ const adminPanel = () => {
             };
 
             removeProductNew();
-
-            const toggleModalWindow = () => {
-                var modal = document.getElementById("myModal");
-                var btn = document.getElementById("myBtn");
-                var span = document.getElementsByClassName("close")[0];
-
-                btn.onclick = function () {
-                    modal.style.display = "block";
-                };
-
-                span.onclick = function () {
-                    modal.style.display = "none";
-                };
-
-                window.onclick = function (event) {
-                    if (event.target == modal) {
-                        modal.style.display = "none";
-                    }
-                }
-            };
-
-            toggleModalWindow();
-
 
             const editProductNew = () => {
                 let allEditItems = document.querySelectorAll('#editItem');
@@ -248,15 +226,17 @@ const adminPanel = () => {
                         data: JSON.stringify(addProductData),
                         dataType: "json",
                         headers: {'Authorization': `Bearer ${getCookie('auth_token')}`},
-                        success: function (response) {
-                            console.log(response);
-                            swal({
-                                title: "Success",
-                                text: 'sadasdasdasd',
-                                icon: "success",
-                                closeOnClickOutside: true,
-                                closeOnEsc: true,
-                            })
+                        statusCode: {
+                            200: function () {
+                                swal(
+                                    'OK!',
+                                    `OK`,
+                                    'success'
+                                );
+                                setTimeout(function () {
+                                    window.location.reload(true)
+                                }, 2000)
+                            }
                         },
                         error: function (jqXHR, textStatus, errorMessage) {
                             console.log(addProductData);
@@ -274,105 +254,32 @@ const adminPanel = () => {
                     console.log(errorMessage);
                 }
             });
-
         }
     };
 
+    const toggleModalWindow = () => {
+        let modal = document.getElementById("myModal");
+        let btn = document.getElementById("myBtn");
+        let span = document.getElementsByClassName("close")[0];
 
-    const removeProduct = () => {
-        // let removeItem = document.getElementById('removeProduct');
-        //
-        // removeItem.onclick = () => {
-        //     let delItemId = parseInt(document.getElementById('idDelItem').value);
-        //
-        //     $.ajax({
-        //             type: "DELETE",
-        //             url: `http://164.90.218.246:8001/admin/products/${delItemId}`,
-        //             headers: {'Authorization': `Bearer ${getCookie('auth_token')}`},
-        //             success: function (response) {
-        //                 swal({
-        //                     title: "Success",
-        //                     text: `Product with ID: ${delItemId} was successful deleted.`,
-        //                     icon: "success",
-        //                     closeOnClickOutside: true,
-        //                     closeOnEsc: true,
-        //                 })
-        //             }
-        //         }
-        //     )
-        // }
+        btn.onclick = function () {
+            modal.style.display = "block";
+        };
+
+        span.onclick = function () {
+            modal.style.display = "none";
+        };
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
     };
 
-    // const editProduct = () => {
-    // let openEditForm = document.querySelector('#toggleEditForm');
-    // let editForm = document.querySelector('#editFormInputs');
-    //
-    // openEditForm.onclick = () => {
-    //     editForm.classList.toggle('d-none');
-    // };
-    //
-    // $("#editAvailability").on('change', function () {
-    //     if ($(this).is(':checked')) {
-    //         $(this).attr('value', true);
-    //     } else {
-    //         $(this).attr('value', false);
-    //     }
-    //
-    //     $('#checkbox-value').text($('#editAvailability').val());
-    // });
-    //
-    // let editItem = document.querySelector('#editProduct');
-    // editItem.onclick = () => {
-    //     // let editItemId = parseInt(document.getElementById('idDelItem').value);
-    //
-    //     let editItemObj = {
-    //         titles: {
-    //             english: document.getElementById("editItemTitle_en").value,
-    //             russian: document.getElementById("editItemTitle_ru").value,
-    //             ukrainian: document.getElementById("editItemTitle_ua").value,
-    //         },
-    //         descriptions: {
-    //             english: document.getElementById("editItemDescr_en").value,
-    //             russian: document.getElementById("editItemDescr_ru").value,
-    //             ukrainian: document.getElementById("editItemDescr_ua").value,
-    //         },
-    //         materials: {
-    //             english: document.getElementById("editItemMater_en").value,
-    //             russian: document.getElementById("editItemMater_ru").value,
-    //             ukrainian: document.getElementById("editItemMater_ua").value,
-    //         },
-    //         current_price: parseFloat(document.getElementById("editItemCurrPrice").value),
-    //         previous_price: parseFloat(document.getElementById("editItemPrevPrice").value),
-    //         code: document.getElementById("editItemCode").value,
-    //         // image_ids: [parseInt(localStorage.getItem('uploadedImageId'))],
-    //         category_id: parseInt(document.getElementById("editItemCategory").value),
-    //         in_stock: JSON.parse(document.getElementById("editAvailability").value),
-    //     };
-    //     $.ajax({
-    //             type: "PUT",
-    //             url: `http://164.90.218.246:8001/admin/products/3`,
-    //             data: JSON.stringify(editItemObj),
-    //             dataType: "json",
-    //             headers: {'Authorization': `Bearer ${getCookie('auth_token')}`},
-    //             success: function (response) {
-    //                 console.log(response);
-    //                 swal({
-    //                     title: "Success",
-    //                     text: `Success`,
-    //                     icon: "success",
-    //                     closeOnClickOutside: true,
-    //                     closeOnEsc: true,
-    //                 })
-    //             }
-    //         }
-    //     )
-    // }
-    // };
-
+    toggleModalWindow();
 
     addProduct();
-    removeProduct();
-    // editProduct();
 };
 
 if (window.location.pathname === '/admin-panel.html' && getCookie('auth_token') !== null) {

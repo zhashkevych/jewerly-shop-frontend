@@ -241,7 +241,7 @@ const langControl = () => {
 
 
 if (window.location.pathname !== '/admin.html' && window.location.pathname !== '/admin-panel.html') {
-    // langControl();
+    langControl();
 
     if (getCookie('lang_val') === 'ru') {
         $('body').addClass('lang_ru');

@@ -1,14 +1,14 @@
 const loadProduct = () => {
     let urlParams = new URLSearchParams(window.location.search);
     let productId = urlParams.get('product_id');
-
-    console.log(urlParams);
+    let language = urlParams.get('language');
 
     $.ajax({
         type: "GET",
-        url: `http://164.90.218.246:8001/api/products/${productId}`,
+        url: `http://164.90.218.246:8001/api/products/${productId}?language=${language}`,
         success: function (response) {
             renderProduct(response);
+            console.log(response)
         }
     })
 };
