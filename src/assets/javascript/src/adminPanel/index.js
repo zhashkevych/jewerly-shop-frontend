@@ -27,7 +27,7 @@ const adminPanel = () => {
 </div>
 <div class="col-md-1" id="idOfProduct"><p>${response.data[i].id}</p></div>
 <div class="col-md-2"><p>${response.data[i].title}</p></div>
-<div class="col-md-1"><p>${response.data[i].current_price}</p></div>
+<div class="col-md-1"><p>${response.data[i].price}</p></div>
 <div class="col-md-3"><p>${response.data[i].description}</p></div>
 <div class="col-md-1 mr-2"><p>${response.data[i].material}</p></div>
 <div class="col-md-1"><p>${response.data[i].code}</p></div>
@@ -214,9 +214,12 @@ const adminPanel = () => {
                             russian: document.getElementById("addItemMater_ru").value,
                             ukrainian: document.getElementById("addItemMater_ua").value,
                         },
-                        current_price: parseFloat(document.getElementById("addItemCurrPrice").value),
-                        previous_price: parseFloat(document.getElementById("addItemPrevPrice").value),
-                        code: document.getElementById("addItemPrevPrice").value,
+                        price: {
+                            usd: parseFloat(document.getElementById("addItemCurrPriceUsd").value),
+                            eur: parseFloat(document.getElementById("addItemCurrPriceEur").value),
+                            uah: parseFloat(document.getElementById("addItemCurrPriceUah").value),
+                        },
+                        code: document.getElementById("addItemCode").value,
                         image_ids: [parseInt(localStorage.getItem('uploadedImageId'))],
                         category_id: parseInt(document.getElementById("addItemCategory").value),
                     };
