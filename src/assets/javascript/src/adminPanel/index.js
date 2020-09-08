@@ -6,6 +6,7 @@ const adminPanel = () => {
             $('#totalItems').html('Total products: ' + response.total);
             for (let i = 0; i < response.data.length; i++) {
                 console.log(response)
+                console.log('response')
                 let catsObject = {
                     1: 'Rings',
                     2: 'Bracelets',
