@@ -69,10 +69,19 @@ const categoriesToggle = () => {
         window.location.href = 'products-page.html?category=0'
     };
 
-    if (localStorage.getItem('testCart')) {
-        document.querySelector('.container_cart').innerHTML = localStorage.getItem('testCart');
-        console.log(localStorage.getItem('testCart'));
-    }
+    // if (localStorage.getItem('testCart')) {
+    //     document.querySelector('.container_cart').innerHTML = localStorage.getItem('testCart');
+    //     console.log(localStorage.getItem('testCart'));
+    // }
+
+    // let testObject = {
+    //     title: 'Test title for cart item',
+    //     quantity: '10',
+    //     price: 299.19
+    // };
+    //
+    // localStorage.setItem('testObject', JSON.stringify(testObject));
+
 };
 
 if (window.location.pathname !== '/admin.html' && window.location.pathname !== '/admin-panel.html') {
