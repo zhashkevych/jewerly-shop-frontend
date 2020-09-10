@@ -50,8 +50,6 @@
   .nav-pills-custom .nav-link.active::before {
     opacity: 1;
   }
-
-
 }
 
 .admin-page {
@@ -104,6 +102,17 @@
     width: 250px;
     margin: 50px auto 0 auto;
     cursor: pointer;
+  }
+
+  #allInfoAboutOrder {
+    border: 1px solid black;
+    margin: 15px 0;
+    padding: 10px 10px 0;
+
+    p {
+      margin-right: 20px;
+      padding-bottom: 20px;
+    }
   }
 }
 

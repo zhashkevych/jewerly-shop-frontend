@@ -309,8 +309,25 @@ const adminPanel = () => {
 `;
                     document.querySelector('#listOfAllOrders').appendChild(allOrders);
 
-//
-//                     for (let j = 0; j < document.querySelector('#allInfoAboutOrder').length; j++) {
+
+                    for (let j = 0; j < response.data[i].transactions.length; j++) {
+                        console.log(response.data[i].transactions[j])
+                        let createTestDiv = document.createElement('div');
+                        createTestDiv.className = 'row no-gutters';
+                        createTestDiv.innerHTML = `
+                        <p>Transaction ID: ${response.data[i].transactions[j].transaction_id}</p>
+                        <p>Card mask: ${response.data[i].transactions[j].card_mask}</p>
+                        <p>Status: ${response.data[i].transactions[j].status}</p>
+                        <p>Created at: ${response.data[i].transactions[j].created_at}</p>
+                        `
+
+                        for (let k = 0; k < document.querySelectorAll('#allInfoAboutOrder').length; k++) {
+                            document.querySelectorAll('#allInfoAboutOrder')[k].appendChild(createTestDiv)
+                        }
+                    }
+
+
+//                     for (let j = 0; j < document.querySelectorAll('#allInfoAboutOrder').length; j++) {
 //                         for (let k = 0; k < response.data[i].transactions.length; k++) {
 //                             let moreInfoTransactions = response.data[i].transactions[k];
 //                             console.log(moreInfoTransactions);
@@ -325,19 +342,24 @@ const adminPanel = () => {
 //     <hr>
 // `;
 //
-//                             document.querySelector('#allInfoAboutOrder')[j].appendChild(transactionInfo);
+//                             document.querySelectorAll('#allInfoAboutOrder')[j].appendChild(transactionInfo);
 //
 //                         }
 //                     }
+
                 }
             }
         })
     };
 
-    toggleModalWindow();
+    const allInfoAboutOrders = () => {
 
+    }
+
+    toggleModalWindow();
     addProduct();
     getAllOrders();
+    allInfoAboutOrders()
 };
 
 if (window.location.pathname === '/admin-panel.html' && getCookie('auth_token') !== null) {
