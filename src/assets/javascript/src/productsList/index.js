@@ -2,11 +2,12 @@ const productsList = () => {
     let urlParams = new URLSearchParams(window.location.search);
     let categoryId = urlParams.get('category');
     let language = urlParams.get('language');
+    let currency = getCurrencyQueryParameter()
     let categoryTitle = getCategoryTitle(categoryId);
 
     $.ajax({
         type: "GET",
-        url: `http://164.90.218.246:8001/api/products?category=${categoryId}&language=${language}`,
+        url: `http://164.90.218.246:8001/api/products?category=${categoryId}&language=${language}&currency=${currency}`,
         success: function (response) {
             renderProductsList(response, categoryTitle);
         }
@@ -39,7 +40,7 @@ const renderProductsList = (response, title) => {
         renderEmptyList();
     } else {
         renderTotalItemsText(response.total, response.data.length);
-        renderItems(response.data);
+        renderItems(response.data, getCurrencyCurrency());
     }
 };
 
@@ -51,7 +52,7 @@ const renderEmptyList = () => {
     document.querySelector('#productsPageItemsList').appendChild(noItems);
 };
 
-const renderItems = (items) => {
+const renderItems = (items, currency) => {
     for (let i = 0; i < items.length; i++) {
         const itemTitle = items[i].title;
         const itemPrice = items[i].price;
@@ -64,8 +65,7 @@ const renderItems = (items) => {
 <div class="item" id="item_id_${itemId}" style="background: url(${itemImg})  center center no-repeat; min-height: 250px; background-size: contain;">
     <div class="price_cta_preview">
     <a href="/product-page.html?product_id=${itemId}">${itemTitle} | ${itemPrice} 
-       <span class="currentCurrencyValPrice">${
-               document.getElementById('currentCurrencyMain').innerHTML}</span>
+       <span class="currentCurrencyValPrice">${currency}</span>
        </a>
     </div>
 </div>`;

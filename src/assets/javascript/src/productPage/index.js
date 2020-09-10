@@ -2,37 +2,16 @@ const loadProduct = () => {
     let urlParams = new URLSearchParams(window.location.search);
     let productId = urlParams.get('product_id');
     let language = urlParams.get('language');
-    let currency = urlParams.get('currency');
-    let productCurrencySymbol = getCurrencySymbol(currency);
-    let setCurrentCurrencySymbol = document.getElementById('currentCurrencyVal')
-    setCurrentCurrencySymbol.innerText = productCurrencySymbol;
+    let currency = getCurrencyQueryParameter();
 
     $.ajax({
         type: "GET",
         url: `http://164.90.218.246:8001/api/products/${productId}?language=${language}&currency=${currency}`,
         success: function (response) {
             renderProduct(response);
-            // console.log(response)
         }
     })
 };
-
-const getCurrencySymbol = (currency) => {
-    switch (currency) {
-        case 'usd':
-            return '$';
-        case 'eur':
-            return '€';
-        case 'uah':
-            return '₴';
-        case null:
-            return '$';
-        // case undefined:
-        //     return '$';
-    }
-};
-
-// console.log(document.getElementById('currencyNew').value)
 
 const renderProduct = (product) => {
     setCookie('imgValue', product.images[0].url, 0.5);
@@ -84,11 +63,6 @@ const initProductToCardHandler = () => {
             price: document.querySelector('.itemPrice').childNodes[1].data
         };
 
-        // [[{name: "Название товара", type: "title", value: "МИНДАЛЬ С МЕДОМ (250 мл) &nbsp;#11"},…]]
-        // 0: {name: "Название товара", type: "title", value: "МИНДАЛЬ С МЕДОМ (250 мл) &nbsp;#11"}
-        // 1: {name: "Цена товара", type: "price", value: "159 грн."}
-        // 2: {name: "Фото товара", type: "photo",…}
-        // 3: {name: "Количество", type: "amount", value: 1}
 
         localStorage.setItem('testObject', JSON.stringify(testCartObject));
 
