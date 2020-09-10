@@ -5,6 +5,8 @@ const adminPanel = () => {
         success: function (response) {
             $('#totalItems').html('Total products: ' + response.total);
             for (let i = 0; i < response.data.length; i++) {
+                console.log(response)
+                console.log('response')
                 let catsObject = {
                     1: 'Rings',
                     2: 'Bracelets',
@@ -25,7 +27,7 @@ const adminPanel = () => {
 </div>
 <div class="col-md-1" id="idOfProduct"><p>${response.data[i].id}</p></div>
 <div class="col-md-2"><p>${response.data[i].title}</p></div>
-<div class="col-md-1"><p>${response.data[i].current_price}</p></div>
+<div class="col-md-1"><p>${response.data[i].price}</p></div>
 <div class="col-md-3"><p>${response.data[i].description}</p></div>
 <div class="col-md-1 mr-2"><p>${response.data[i].material}</p></div>
 <div class="col-md-1"><p>${response.data[i].code}</p></div>
@@ -193,6 +195,7 @@ const adminPanel = () => {
                 processData: false,
                 contentType: false,
                 success: function (response) {
+                    console.log(response);
                     localStorage.setItem('uploadedImageId', response.id);
 
                     let addProductData = {
@@ -329,6 +332,7 @@ const adminPanel = () => {
     };
 
     toggleModalWindow();
+
     addProduct();
     getAllOrders();
 };

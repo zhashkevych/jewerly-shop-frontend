@@ -53,7 +53,7 @@ const renderEmptyList = () => {
 const renderItems = (items) => {
     for (let i = 0; i < items.length; i++) {
         const itemTitle = items[i].title;
-        const itemPrice = items[i].current_price;
+        const itemPrice = items[i].price;
         const itemId = items[i].id;
         const itemImg = items[i].images[0].url;
 

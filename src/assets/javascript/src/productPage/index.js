@@ -19,7 +19,7 @@ const renderProduct = (product) => {
     document.getElementById('productId').innerHTML = product.id;
     document.getElementById('product_description').innerHTML = product.description;
     document.getElementById('product_material').innerHTML = product.material;
-    document.getElementById('productPagePrice').innerHTML = `<span style="margin-right: 5px;" class="currentCurrencyValPrice">${$("#currencyNew option:checked").val()}</span>` + product.current_price;
+    document.getElementById('productPagePrice').innerHTML = `<span style="margin-right: 5px;" class="currentCurrencyValPrice">${$("#currencyNew option:checked").val()}</span>` + product.price;
 
     document.getElementById('productPageCode').innerHTML = 'Code: ' + product.code;
     document.getElementById('productPagePhoto').setAttribute('style', `background: url('${product.images[0].url}') center no-repeat; background-size: contain;`);
