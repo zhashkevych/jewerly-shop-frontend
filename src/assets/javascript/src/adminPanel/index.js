@@ -233,8 +233,8 @@ const adminPanel = () => {
                         statusCode: {
                             200: function () {
                                 swal(
-                                    'OK!',
-                                    `OK`,
+                                    'Success!',
+                                    `New product was added`,
                                     'success'
                                 );
                                 setTimeout(function () {

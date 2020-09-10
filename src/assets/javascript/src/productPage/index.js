@@ -6,14 +6,13 @@ const loadProduct = () => {
     let productCurrencySymbol = getCurrencySymbol(currency);
     let setCurrentCurrencySymbol = document.getElementById('currentCurrencyVal')
     setCurrentCurrencySymbol.innerText = productCurrencySymbol;
-    console.log(productCurrencySymbol)
 
     $.ajax({
         type: "GET",
         url: `http://164.90.218.246:8001/api/products/${productId}?language=${language}&currency=${currency}`,
         success: function (response) {
             renderProduct(response);
-            console.log(response)
+            // console.log(response)
         }
     })
 };
@@ -28,8 +27,12 @@ const getCurrencySymbol = (currency) => {
             return '₴';
         case null:
             return '$';
+        // case undefined:
+        //     return '$';
     }
 };
+
+// console.log(document.getElementById('currencyNew').value)
 
 const renderProduct = (product) => {
     setCookie('imgValue', product.images[0].url, 0.5);

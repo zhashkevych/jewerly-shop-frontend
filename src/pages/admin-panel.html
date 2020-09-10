@@ -32,22 +32,22 @@ padding: 5px 10px; width: 200px; margin: 40px auto 0 auto;" class="text-center">
                         <a class="nav-link" id="orders-tab" data-toggle="tab" href="#orders" role="tab"
                            aria-controls="Orders" aria-selected="false">Orders</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="main_page-tab" data-toggle="tab" href="#main_page" role="tab"
-                           aria-controls="main_page" aria-selected="false">Main page</a>
-                    </li>
+<!--                    <li class="nav-item">-->
+<!--                        <a class="nav-link" id="main_page-tab" data-toggle="tab" href="#main_page" role="tab"-->
+<!--                           aria-controls="main_page" aria-selected="false">Main page</a>-->
+<!--                    </li>-->
                 </ul>
             </div>
             <div class="col-md-10">
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="products" role="tabpanel" aria-labelledby="products-tab">
                         <div class="article-level-4">
-                            <p>Product</p>
-                            <a href="/products-page.html" target="_blank" style="font-size: 16px;">Link</a>
+                            <p>Products</p>
+                            <a href="/products-page.html" target="_blank" style="font-size: 16px;">Link for products page</a>
                         </div>
                         <hr>
                         <div class="panel_id_products">
-                            <div class="mb-20" id="addNewProduct">
+                            <div class="" id="addNewProduct">
                                 <div id="toggleAddInputs">Add new product</div>
 
                                 <span id="myBtn"></span>
@@ -88,110 +88,93 @@ padding: 5px 10px; width: 200px; margin: 40px auto 0 auto;" class="text-center">
                                         </div>
                                     </div>
                                 </div>
-                                <!--<div id="editFormInputs" class="d-none">-->
-                                <!--<input type="text" id="editItemTitle_en" placeholder="editItemTitle_en">-->
-                                <!--<input type="text" id="editItemTitle_ru" placeholder="editItemTitle_ru">-->
-                                <!--<input type="text" id="editItemTitle_ua" placeholder="editItemTitle_ua">-->
-                                <!--<input type="text" id="editItemDescr_en" placeholder="editItemDescr_en">-->
-                                <!--<input type="text" id="editItemDescr_ru" placeholder="editItemDescr_ru">-->
-                                <!--<input type="text" id="editItemDescr_ua" placeholder="editItemDescr_ua">-->
-                                <!--<input type="text" id="editItemMater_en" placeholder="editItemMater_en">-->
-                                <!--<input type="text" id="editItemMater_ru" placeholder="editItemMater_ru">-->
-                                <!--<input type="text" id="editItemMater_ua" placeholder="editItemMater_ua">-->
-                                <!--<input type="number" id="editItemCurrPrice" placeholder="editItemCurrPrice">-->
-                                <!--<input type="number" id="editItemPrevPrice" placeholder="editItemPrevPrice">-->
-                                <!--<input type="text" id="editItemCode" placeholder="editItemCode">-->
-                                <!--<label>-->
-                                <!--<select id="editItemCategory" name="category_id">-->
-                                <!--<option value="1">Rings</option>-->
-                                <!--<option value="2">Bracelets</option>-->
-                                <!--<option value="3">Pedants</option>-->
-                                <!--<option value="4">Earrings</option>-->
-                                <!--<option value="5">Necklaces</option>-->
-                                <!--<option value="6">Sets</option>-->
-                                <!--</select>-->
-                                <!--</label>-->
-                                <!--<input type="checkbox" name="acceptRules" class="inline checkbox"-->
-                                <!--id="editAvailability" value="false">-->
-                                <!--<input type="submit" id="editProduct" value="editProductSUBMIT">-->
-                                <!--<div id="idOfEditingProduct"></div>-->
-                                <!--</div>-->
-                                <div class="add-new-items-table d-none">
+
+                                <div class="add-new-items-table mt-30 d-none">
                                     <div class="row no-gutters">
                                         <div class="col-md-12">
                                             <div class="row no-gutters">
                                                 <div class="col-md-4">
-                                                    <p>Title</p>
                                                     <label>
+                                                        Title for EN
                                                         <input id="addItemTitle_en" name="" type="text"
-                                                               placeholder="Title EN">
+                                                               placeholder="">
                                                     </label>
                                                     <label>
+                                                        Title for RU
                                                         <input id="addItemTitle_ru" name="" type="text"
-                                                               placeholder="Title RU">
+                                                               placeholder="">
                                                     </label>
                                                     <label>
+                                                        Title for UA
                                                         <input id="addItemTitle_ua" name="" type="text"
-                                                               placeholder="Title UA">
+                                                               placeholder="">
                                                     </label>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <p>Descriptions</p>
                                                     <label>
+                                                        Description for EN
                                                         <input id="addItemDescr_en" name="" type="text"
-                                                               placeholder="Description EN">
+                                                               placeholder="">
                                                     </label>
                                                     <label>
+                                                        Description for RU
                                                         <input id="addItemDescr_ru" name="" type="text"
-                                                               placeholder="Description RU">
+                                                               placeholder="">
                                                     </label>
                                                     <label>
+                                                        Description for UA
                                                         <input id="addItemDescr_ua" name="" type="text"
-                                                               placeholder="Description UA">
+                                                               placeholder="">
                                                     </label>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <p>Materials</p>
                                                     <label>
+                                                        Material for EN
                                                         <input id="addItemMater_en" name="" type="text"
-                                                               placeholder="Material EN">
+                                                               placeholder="">
                                                     </label>
                                                     <label>
+                                                        Material for RU
                                                         <input id="addItemMater_ru" name="" type="text"
-                                                               placeholder="Material RU">
+                                                               placeholder="">
                                                     </label>
                                                     <label>
+                                                        Material for UA
                                                         <input id="addItemMater_ua" name="" type="text"
-                                                               placeholder="Material UA">
+                                                               placeholder="">
                                                     </label>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <label>
+                                                        Price USD
                                                         <input id="addItemCurrPriceUsd" name="price_usd" type="text"
-                                                               placeholder="Price USD">
+                                                               placeholder="">
                                                     </label>
                                                     <label>
+                                                        Price EUR
                                                         <input id="addItemCurrPriceEur" name="price_eur" type="text"
-                                                               placeholder="Price EUR">
+                                                               placeholder="">
                                                     </label>
                                                     <label>
+                                                        Price UAH
                                                         <input id="addItemCurrPriceUah" name="price_uah" type="text"
-                                                               placeholder="Price UAH">
+                                                               placeholder="">
                                                     </label>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <label>
+                                                        Product code
                                                         <input id="addItemCode" name="code" type="text"
-                                                               placeholder="Code">
+                                                               placeholder="">
                                                     </label>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <input placeholder="Add image" type="file" id="addItemImg"
-                                                           name="uploadImg" required
-                                                           accept="image/*">
-                                                </div>
-                                                <div class="col-md-4">
                                                     <label>
+                                                        Add image
+                                                        <input type="file" id="addItemImg"
+                                                               name="uploadImg" required
+                                                               accept="image/*">
+                                                    </label>
+                                                    <label>
+                                                        Category
                                                         <select id="addItemCategory" name="category_id">
                                                             <option value="1">Rings</option>
                                                             <option value="2">Bracelets</option>
@@ -205,7 +188,7 @@ padding: 5px 10px; width: 200px; margin: 40px auto 0 auto;" class="text-center">
                                             </div>
                                         </div>
                                     </div>
-                                    <h3 class="add_product">Submit</h3>
+                                    <h3 class="add_product mt-50">Submit</h3>
                                 </div>
                             </div>
                             <hr>
