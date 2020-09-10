@@ -132,9 +132,6 @@ const checkoutPageAction = () => {
                     beforeSend: function () {
 
                     },
-                    error: function (response) {
-                        console.log(response)
-                    },
                     success: function (response) {
                         swal({
                             title: "Success",
@@ -146,6 +143,9 @@ const checkoutPageAction = () => {
                             window.open(response.url);
                         });
                     },
+                    error: function (response) {
+                        console.log(response)
+                    }
                 });
                 localStorage.clear();
             }

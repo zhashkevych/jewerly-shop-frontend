@@ -214,9 +214,12 @@ const adminPanel = () => {
                             russian: document.getElementById("addItemMater_ru").value,
                             ukrainian: document.getElementById("addItemMater_ua").value,
                         },
-                        current_price: parseFloat(document.getElementById("addItemCurrPrice").value),
-                        previous_price: parseFloat(document.getElementById("addItemPrevPrice").value),
-                        code: document.getElementById("addItemPrevPrice").value,
+                        price: {
+                            usd: parseFloat(document.getElementById("addItemCurrPriceUsd").value),
+                            eur: parseFloat(document.getElementById("addItemCurrPriceEur").value),
+                            uah: parseFloat(document.getElementById("addItemCurrPriceUah").value),
+                        },
+                        code: document.getElementById("addItemCode").value,
                         image_ids: [parseInt(localStorage.getItem('uploadedImageId'))],
                         category_id: parseInt(document.getElementById("addItemCategory").value),
                     };
@@ -284,14 +287,14 @@ const adminPanel = () => {
 
         $.ajax({
             type: "GET",
-            url: 'http://164.90.218.246:8001/admin/orders?limit=20&offset=20',
+            url: 'http://164.90.218.246:8001/admin/orders',
+            // url: 'http://164.90.218.246:8001/admin/orders?limit=20&offset=20',
             headers: {'Authorization': `Bearer ${getCookie('auth_token')}`},
             success: function (response) {
                 document.getElementById('amountOfOrders').innerText += response.total;
                 for (let i = 0; i < response.data.length; i++) {
-                    console.log(response);
-
                     let allOrders = document.createElement('div');
+
                     allOrders.className = `col-md-12 order_id_${response.data[i].id}`;
                     allOrders.innerHTML = `
 <div class="row no-gutters">
@@ -306,26 +309,26 @@ const adminPanel = () => {
 `;
                     document.querySelector('#listOfAllOrders').appendChild(allOrders);
 
-
-                    for (let j = 0; j < document.querySelectorAll('#allInfoAboutOrder').length; j++) {
-                        for (let k = 0; k < response.data[i].transactions.length; k++) {
-                            let moreInfoTransactions = response.data[i].transactions[k];
-                            console.log(moreInfoTransactions);
-
-                            let transactionInfo = document.createElement('div');
-                            transactionInfo.className = `more_items_hidden`;
-                            transactionInfo.innerHTML = `
-    <p>Transaction ID: ${moreInfoTransactions.transaction_id}</p>
-    <p>Status: ${moreInfoTransactions.status}</p>
-    <p>Card mask: ${moreInfoTransactions.card_mask}</p>
-    <p>Created at: ${moreInfoTransactions.created_at}</p>
-    <hr>
-`;
-
-                            document.querySelectorAll('#allInfoAboutOrder')[j].appendChild(transactionInfo);
-
-                        }
-                    }
+//
+//                     for (let j = 0; j < document.querySelector('#allInfoAboutOrder').length; j++) {
+//                         for (let k = 0; k < response.data[i].transactions.length; k++) {
+//                             let moreInfoTransactions = response.data[i].transactions[k];
+//                             console.log(moreInfoTransactions);
+//
+//                             let transactionInfo = document.createElement('div');
+//                             transactionInfo.className = `more_items_hidden`;
+//                             transactionInfo.innerHTML = `
+//     <p>Transaction ID: ${moreInfoTransactions.transaction_id}</p>
+//     <p>Status: ${moreInfoTransactions.status}</p>
+//     <p>Card mask: ${moreInfoTransactions.card_mask}</p>
+//     <p>Created at: ${moreInfoTransactions.created_at}</p>
+//     <hr>
+// `;
+//
+//                             document.querySelector('#allInfoAboutOrder')[j].appendChild(transactionInfo);
+//
+//                         }
+//                     }
                 }
             }
         })

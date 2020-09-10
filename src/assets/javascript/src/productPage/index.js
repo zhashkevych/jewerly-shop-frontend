@@ -2,15 +2,33 @@ const loadProduct = () => {
     let urlParams = new URLSearchParams(window.location.search);
     let productId = urlParams.get('product_id');
     let language = urlParams.get('language');
+    let currency = urlParams.get('currency');
+    let productCurrencySymbol = getCurrencySymbol(currency);
+    let setCurrentCurrencySymbol = document.getElementById('currentCurrencyVal')
+    setCurrentCurrencySymbol.innerText = productCurrencySymbol;
+    console.log(productCurrencySymbol)
 
     $.ajax({
         type: "GET",
-        url: `http://164.90.218.246:8001/api/products/${productId}?language=${language}`,
+        url: `http://164.90.218.246:8001/api/products/${productId}?language=${language}&currency=${currency}`,
         success: function (response) {
             renderProduct(response);
             console.log(response)
         }
     })
+};
+
+const getCurrencySymbol = (currency) => {
+    switch (currency) {
+        case 'usd':
+            return '$';
+        case 'eur':
+            return '€';
+        case 'uah':
+            return '₴';
+        case null:
+            return '$';
+    }
 };
 
 const renderProduct = (product) => {
@@ -19,7 +37,7 @@ const renderProduct = (product) => {
     document.getElementById('productId').innerHTML = product.id;
     document.getElementById('product_description').innerHTML = product.description;
     document.getElementById('product_material').innerHTML = product.material;
-    document.getElementById('productPagePrice').innerHTML = `<span style="margin-right: 5px;" class="currentCurrencyValPrice">${$("#currencyNew option:checked").val()}</span>` + product.price;
+    document.getElementById('productPagePrice').innerHTML = `<span style="margin-right: 5px;" class="currentCurrencyValPrice">${$('#currentCurrencyVal').html()}</span>` + product.price;
 
     document.getElementById('productPageCode').innerHTML = 'Code: ' + product.code;
     document.getElementById('productPagePhoto').setAttribute('style', `background: url('${product.images[0].url}') center no-repeat; background-size: contain;`);
@@ -57,21 +75,35 @@ const initProductToCardHandler = () => {
 
         document.querySelector('#shoppingCartContainer').appendChild(addedProduct);
 
+        let testCartObject = {
+            title: document.querySelector('#productPageTitle').textContent,
+            quantity: document.getElementById('productQuantity').value,
+            price: document.querySelector('.itemPrice').childNodes[1].data
+        };
+
+        // [[{name: "Название товара", type: "title", value: "МИНДАЛЬ С МЕДОМ (250 мл) &nbsp;#11"},…]]
+        // 0: {name: "Название товара", type: "title", value: "МИНДАЛЬ С МЕДОМ (250 мл) &nbsp;#11"}
+        // 1: {name: "Цена товара", type: "price", value: "159 грн."}
+        // 2: {name: "Фото товара", type: "photo",…}
+        // 3: {name: "Количество", type: "amount", value: 1}
+
+        localStorage.setItem('testObject', JSON.stringify(testCartObject));
+
 
         let productId = document.getElementById('productId').innerHTML;
         localStorage.setItem('itemId', parseInt(productId));
-        localStorage.setItem('itemQuantity', parseInt($('.item-quantity').html()));
+        localStorage.setItem('itemQuantity', parseInt(document.querySelector('.item-quantity').textContent));
 
         localStorage.setItem('testCart', document.querySelector('.container_cart').innerHTML);
 
         for (let i = 0; i < document.querySelectorAll('.clearfix .item-quantity').length; i++) {
-            console.log('quantity')
-            console.log(document.querySelectorAll('.clearfix .item-quantity')[i].innerHTML);
+            // console.log('quantity')
+            // console.log(document.querySelectorAll('.clearfix .item-quantity')[i].innerHTML);
         }
 
         for (let i = 0; i < document.querySelectorAll('.clearfix .selected_item-id').length; i++) {
-            console.log('ID')
-            console.log(document.querySelectorAll('.clearfix .selected_item-id')[i].innerHTML);
+            // console.log('ID')
+            // console.log(document.querySelectorAll('.clearfix .selected_item-id')[i].innerHTML);
         }
 
 
