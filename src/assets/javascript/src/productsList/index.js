@@ -2,15 +2,10 @@ const productsList = () => {
     let urlParams = new URLSearchParams(window.location.search);
     let categoryId = urlParams.get('category');
     let language = urlParams.get('language');
+    let currency = getCurrencyQueryParameter()
     let categoryTitle = getCategoryTitle(categoryId);
 
-    $.ajax({
-        type: "GET",
-        url: `http://164.90.218.246:8001/api/products?category=${categoryId}&language=${language}`,
-        success: function (response) {
-            renderProductsList(response, categoryTitle);
-        }
-    });
+    productsController.getAllProducts(categoryId, language, currency).then(products => renderProductsList(products, categoryTitle));
 };
 
 const getCategoryTitle = (categoryId) => {
@@ -38,7 +33,8 @@ const renderProductsList = (response, title) => {
     if (response.data === null) {
         renderEmptyList();
     } else {
-        renderItems(response.data);
+        renderTotalItemsText(response.total, response.data.length);
+        renderItems(response.data, getCurrencyCurrency());
     }
 };
 
@@ -50,7 +46,7 @@ const renderEmptyList = () => {
     document.querySelector('#productsPageItemsList').appendChild(noItems);
 };
 
-const renderItems = (items) => {
+const renderItems = (items, currency) => {
     for (let i = 0; i < items.length; i++) {
         const itemTitle = items[i].title;
         const itemPrice = items[i].price;
@@ -63,8 +59,7 @@ const renderItems = (items) => {
 <div class="item" id="item_id_${itemId}" style="background: url(${itemImg})  center center no-repeat; min-height: 250px; background-size: contain;">
     <div class="price_cta_preview">
     <a href="/product-page.html?product_id=${itemId}">${itemTitle} | ${itemPrice} 
-       <span class="currentCurrencyValPrice">${
-               document.getElementById('currentCurrencyMain').innerHTML}</span>
+       <span class="currentCurrencyValPrice">${currency}</span>
        </a>
     </div>
 </div>`;
@@ -78,6 +73,14 @@ const renderCategoryTitle = (title) => {
     catTitleItem.innerHTML = `${title}`;
     document.querySelector('#catTitle').appendChild(catTitleItem);
 };
+
+
+const renderTotalItemsText = (totalItems, itemsCount) => {
+    let itemsCountElement = document.createElement('div');
+    itemsCountElement.innerHTML = `Showing ${itemsCount} of ${totalItems} items`;
+    document.querySelector('#itemsCount').appendChild(itemsCountElement);
+};
+
 
 if (window.location.pathname === '/products-page.html') {
     productsList();
