@@ -26,7 +26,7 @@ padding: 5px 10px; width: 200px; margin: 40px auto 0 auto;" class="text-center">
                 <ul class="nav nav-pills flex-column" id="myTab" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link active" id="products-tab" data-toggle="tab" href="#products" role="tab"
-                           aria-controls="Product" aria-selected="true">Product</a>
+                           aria-controls="Product" aria-selected="true">Products</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="orders-tab" data-toggle="tab" href="#orders" role="tab"
@@ -82,39 +82,39 @@ padding: 5px 10px; width: 200px; margin: 40px auto 0 auto;" class="text-center">
                                                 Stock:
                                             </label>
                                             <input type="checkbox" name="acceptRules" class="inline checkbox"
-                                                                                         id="editAvailability" value="false">
+                                                   id="editAvailability" value="false">
                                             <input type="submit" id="editProduct" value="editProductSUBMIT">
                                             <div id="idOfEditingProduct"></div>
                                         </div>
                                     </div>
                                 </div>
                                 <!--<div id="editFormInputs" class="d-none">-->
-                                    <!--<input type="text" id="editItemTitle_en" placeholder="editItemTitle_en">-->
-                                    <!--<input type="text" id="editItemTitle_ru" placeholder="editItemTitle_ru">-->
-                                    <!--<input type="text" id="editItemTitle_ua" placeholder="editItemTitle_ua">-->
-                                    <!--<input type="text" id="editItemDescr_en" placeholder="editItemDescr_en">-->
-                                    <!--<input type="text" id="editItemDescr_ru" placeholder="editItemDescr_ru">-->
-                                    <!--<input type="text" id="editItemDescr_ua" placeholder="editItemDescr_ua">-->
-                                    <!--<input type="text" id="editItemMater_en" placeholder="editItemMater_en">-->
-                                    <!--<input type="text" id="editItemMater_ru" placeholder="editItemMater_ru">-->
-                                    <!--<input type="text" id="editItemMater_ua" placeholder="editItemMater_ua">-->
-                                    <!--<input type="number" id="editItemCurrPrice" placeholder="editItemCurrPrice">-->
-                                    <!--<input type="number" id="editItemPrevPrice" placeholder="editItemPrevPrice">-->
-                                    <!--<input type="text" id="editItemCode" placeholder="editItemCode">-->
-                                    <!--<label>-->
-                                        <!--<select id="editItemCategory" name="category_id">-->
-                                            <!--<option value="1">Rings</option>-->
-                                            <!--<option value="2">Bracelets</option>-->
-                                            <!--<option value="3">Pedants</option>-->
-                                            <!--<option value="4">Earrings</option>-->
-                                            <!--<option value="5">Necklaces</option>-->
-                                            <!--<option value="6">Sets</option>-->
-                                        <!--</select>-->
-                                    <!--</label>-->
-                                    <!--<input type="checkbox" name="acceptRules" class="inline checkbox"-->
-                                           <!--id="editAvailability" value="false">-->
-                                    <!--<input type="submit" id="editProduct" value="editProductSUBMIT">-->
-                                    <!--<div id="idOfEditingProduct"></div>-->
+                                <!--<input type="text" id="editItemTitle_en" placeholder="editItemTitle_en">-->
+                                <!--<input type="text" id="editItemTitle_ru" placeholder="editItemTitle_ru">-->
+                                <!--<input type="text" id="editItemTitle_ua" placeholder="editItemTitle_ua">-->
+                                <!--<input type="text" id="editItemDescr_en" placeholder="editItemDescr_en">-->
+                                <!--<input type="text" id="editItemDescr_ru" placeholder="editItemDescr_ru">-->
+                                <!--<input type="text" id="editItemDescr_ua" placeholder="editItemDescr_ua">-->
+                                <!--<input type="text" id="editItemMater_en" placeholder="editItemMater_en">-->
+                                <!--<input type="text" id="editItemMater_ru" placeholder="editItemMater_ru">-->
+                                <!--<input type="text" id="editItemMater_ua" placeholder="editItemMater_ua">-->
+                                <!--<input type="number" id="editItemCurrPrice" placeholder="editItemCurrPrice">-->
+                                <!--<input type="number" id="editItemPrevPrice" placeholder="editItemPrevPrice">-->
+                                <!--<input type="text" id="editItemCode" placeholder="editItemCode">-->
+                                <!--<label>-->
+                                <!--<select id="editItemCategory" name="category_id">-->
+                                <!--<option value="1">Rings</option>-->
+                                <!--<option value="2">Bracelets</option>-->
+                                <!--<option value="3">Pedants</option>-->
+                                <!--<option value="4">Earrings</option>-->
+                                <!--<option value="5">Necklaces</option>-->
+                                <!--<option value="6">Sets</option>-->
+                                <!--</select>-->
+                                <!--</label>-->
+                                <!--<input type="checkbox" name="acceptRules" class="inline checkbox"-->
+                                <!--id="editAvailability" value="false">-->
+                                <!--<input type="submit" id="editProduct" value="editProductSUBMIT">-->
+                                <!--<div id="idOfEditingProduct"></div>-->
                                 <!--</div>-->
                                 <div class="add-new-items-table d-none">
                                     <div class="row no-gutters">
@@ -231,9 +231,19 @@ padding: 5px 10px; width: 200px; margin: 40px auto 0 auto;" class="text-center">
                         <div class="article-level-4">Orders</div>
                         <hr>
                         <div class="panel_id_orders">
-                            <p>
-                                List of all orders
-                            </p>
+                            <p id="amountOfOrders">Total of orders: </p>
+                            <div class="row" id="listOfAllOrders">
+                                <div class="col-md-12">
+                                    <div class="row no-gutters">
+                                        <div class="col-md-1"><p>ID</p></div>
+                                        <div class="col-md-3"><p>First name</p></div>
+                                        <div class="col-md-3"><p>Last name</p></div>
+                                        <div class="col-md-4"><p>Email</p></div>
+                                        <div class="col-md-1"><p>Total cost</p></div>
+                                    </div>
+                                    <hr>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="main_page" role="tabpanel" aria-labelledby="main_page-tab">

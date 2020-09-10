@@ -5,7 +5,6 @@ const adminPanel = () => {
         success: function (response) {
             $('#totalItems').html('Total products: ' + response.total);
             for (let i = 0; i < response.data.length; i++) {
-                console.log(response)
                 let catsObject = {
                     1: 'Rings',
                     2: 'Bracelets',
@@ -194,7 +193,6 @@ const adminPanel = () => {
                 processData: false,
                 contentType: false,
                 success: function (response) {
-                    console.log(response);
                     localStorage.setItem('uploadedImageId', response.id);
 
                     let addProductData = {
@@ -277,9 +275,62 @@ const adminPanel = () => {
         }
     };
 
-    toggleModalWindow();
 
+    const getAllOrders = () => {
+        let ordersWrapper = document.getElementById('listOfAllOrders');
+
+        $.ajax({
+            type: "GET",
+            url: 'http://164.90.218.246:8001/admin/orders?limit=20&offset=20',
+            headers: {'Authorization': `Bearer ${getCookie('auth_token')}`},
+            success: function (response) {
+                document.getElementById('amountOfOrders').innerText += response.total;
+                for (let i = 0; i < response.data.length; i++) {
+                    console.log(response);
+
+                    let allOrders = document.createElement('div');
+                    allOrders.className = `col-md-12 order_id_${response.data[i].id}`;
+                    allOrders.innerHTML = `
+<div class="row no-gutters">
+    <div class="col-md-1" id="idOfOrder"><p>${response.data[i].id}</p></div>
+    <div class="col-md-3"><p>${response.data[i].first_name}</p></div>
+    <div class="col-md-3"><p>${response.data[i].last_name}</p></div>
+    <div class="col-md-4"><p>${response.data[i].email}</p></div>
+    <div class="col-md-1"><p>${response.data[i].total_cost}</p></div>
+    <div id="allInfoAboutOrder"></div>
+</div>
+<hr> 
+`;
+                    document.querySelector('#listOfAllOrders').appendChild(allOrders);
+
+
+                    for (let j = 0; j < document.querySelectorAll('#allInfoAboutOrder').length; j++) {
+                        for (let k = 0; k < response.data[i].transactions.length; k++) {
+                            let moreInfoTransactions = response.data[i].transactions[k];
+                            console.log(moreInfoTransactions);
+
+                            let transactionInfo = document.createElement('div');
+                            transactionInfo.className = `more_items_hidden`;
+                            transactionInfo.innerHTML = `
+    <p>Transaction ID: ${moreInfoTransactions.transaction_id}</p>
+    <p>Status: ${moreInfoTransactions.status}</p>
+    <p>Card mask: ${moreInfoTransactions.card_mask}</p>
+    <p>Created at: ${moreInfoTransactions.created_at}</p>
+    <hr>
+`;
+
+                            document.querySelectorAll('#allInfoAboutOrder')[j].appendChild(transactionInfo);
+
+                        }
+                    }
+                }
+            }
+        })
+    };
+
+    toggleModalWindow();
     addProduct();
+    getAllOrders();
 };
 
 if (window.location.pathname === '/admin-panel.html' && getCookie('auth_token') !== null) {

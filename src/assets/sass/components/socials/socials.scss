@@ -10,14 +10,6 @@
 	  display: flex;
 	  justify-content: end;
 
-	  //&:nth-child(2) {
-	  //margin: 0 50px;
-	  //@include media('<sm') {
-	  //  margin: 0 0 0 25px;
-	  //}
-	  //}
-
-	  //.fb,
 	  .ig {
 		height: 30px;
 		width: 30px;
@@ -27,27 +19,3 @@
 	}
   }
 }
-
-//.blue_bg {
-//  display: flex;
-//  justify-content: center;
-//  align-items: center;
-//  background: #92b7f1;
-//  @include media('<sm') {
-//	height: 70px;
-//  }
-//
-//  p {
-//	font-weight: bolder;
-//	color: white;
-//	font-size: 52px;
-//
-//	@include media('<md') {
-//	  font-size: 46px;
-//	}
-//
-//	@include media('<sm') {
-//	  font-size: 21px;
-//	}
-//  }
-//}
