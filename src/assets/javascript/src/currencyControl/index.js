@@ -27,22 +27,18 @@ const initCurrencySelector = (values) => {
 const initCurrencySelectorHandler = () => {
     $('#currencySelector').change(function () {
         let currency = $("#currencySelector option:checked").val();
-        setCurrencyCookie(currency);
+        setCookie(currencyCookieName, currency);
         location.reload();
     });
 };
 
 const getCurrencyCurrency = () => {
     if (getCookie(currencyCookieName) === null) {
-        setCurrencyCookie(defaultCurrency)
+        setCookie(currencyCookieName, currency);
         return defaultCurrency
     }
 
     return getCookie(currencyCookieName)
-}
-
-const setCurrencyCookie = (currency) => {
-    setCookie(currencyCookieName, currency)
 }
 
 const getCurrencyQueryParameter = () => {
