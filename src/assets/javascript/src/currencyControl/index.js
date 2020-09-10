@@ -16,11 +16,7 @@ const currenciesURLParams = {
 const initCurrencySelector = (values) => {
     $.each(values, function(key, value) {
         $('#currencySelector')
-            .append($("<option></option>")
-                .attr(
-                    "value", key,
-                )
-                .text(value));
+            .append($("<option></option>").attr("value", key).text(value));
     });
 
     // set current currency option selected
@@ -31,13 +27,9 @@ const initCurrencySelector = (values) => {
 const initCurrencySelectorHandler = () => {
     $('#currencySelector').change(function () {
         let currency = $("#currencySelector option:checked").val();
-        console.log(currency);
         setCurrencyCookie(currency);
         location.reload();
-        // reloadPageWithNewCurrency(currency);
     });
-
-    console.log($("#currencySelector option:checked").val());
 };
 
 const getCurrencyCurrency = () => {
