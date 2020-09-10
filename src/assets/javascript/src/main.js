@@ -1,3 +1,5 @@
+@@include('api/products.js');
+@@include('api/orders.js');
 @@include('currencyControl/index.js');
 @@include('langControl/index.js');
 @@include('cookies/index.js');

@@ -5,13 +5,7 @@ const productsList = () => {
     let currency = getCurrencyQueryParameter()
     let categoryTitle = getCategoryTitle(categoryId);
 
-    $.ajax({
-        type: "GET",
-        url: `http://164.90.218.246:8001/api/products?category=${categoryId}&language=${language}&currency=${currency}`,
-        success: function (response) {
-            renderProductsList(response, categoryTitle);
-        }
-    });
+    productsLoader.getAllProducts(categoryId, language, currency).then(products => renderProductsList(products, categoryTitle));
 };
 
 const getCategoryTitle = (categoryId) => {

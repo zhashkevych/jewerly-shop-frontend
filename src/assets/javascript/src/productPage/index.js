@@ -4,13 +4,7 @@ const loadProduct = () => {
     let language = urlParams.get('language');
     let currency = getCurrencyQueryParameter();
 
-    $.ajax({
-        type: "GET",
-        url: `http://164.90.218.246:8001/api/products/${productId}?language=${language}&currency=${currency}`,
-        success: function (response) {
-            renderProduct(response);
-        }
-    })
+    productsLoader.getProductById(productId, language, currency).then(product => renderProduct(product));;
 };
 
 const renderProduct = (product) => {
@@ -19,7 +13,9 @@ const renderProduct = (product) => {
     document.getElementById('productId').innerHTML = product.id;
     document.getElementById('product_description').innerHTML = product.description;
     document.getElementById('product_material').innerHTML = product.material;
-    document.getElementById('productPagePrice').innerHTML = `<span style="margin-right: 5px;" class="currentCurrencyValPrice">${$('#currentCurrencyVal').html()}</span>` + product.price;
+
+    let currency = getCurrencyCurrency()
+    document.getElementById('productPagePrice').innerHTML = `<span style="margin-right: 5px;" class="currentCurrencyValPrice">${currency}</span>` + product.price;
 
     document.getElementById('productPageCode').innerHTML = 'Code: ' + product.code;
     document.getElementById('productPagePhoto').setAttribute('style', `background: url('${product.images[0].url}') center no-repeat; background-size: contain;`);
@@ -35,27 +31,12 @@ const renderProduct = (product) => {
 };
 
 const initProductToCardHandler = () => {
-    let addToCartTrigger = document.getElementById('addProductToCart');
+    let addToCartButton = document.getElementById('addProductToCart');
 
-    addToCartTrigger.onclick = () => {
-        addToCartTrigger.classList.add('active');
-        document.querySelector('.fa-shopping-cart.cart-icon').classList.add('pulse-drop');
+    addToCartButton.onclick = () => {
+        animateButton(addToCartButton);
+        createShoppingCartListElement();
 
-        setTimeout(function () {
-            addToCartTrigger.classList.remove('active');
-            document.querySelector('.fa-shopping-cart.cart-icon').classList.remove('pulse-drop');
-        }, 600);
-
-        let addedProduct = document.createElement('li');
-        addedProduct.className = 'clearfix';
-        addedProduct.innerHTML = `
-        <div class="img" style="background: url(${getCookie('imgValue')}) center center no-repeat; background-size: contain;"></div>
-        <span class="item-name">${document.querySelector('#productPageTitle').innerHTML}</span>
-        <span class="item-price itemPrice">${document.querySelector('#productPagePrice').innerHTML}</span> <span class="oc-text-gray">Quantity: </span>
-        <span class="item-quantity">${document.getElementById('productQuantity').value}</span>
-        <span class="selected_item-id d-none">${document.getElementById('productId').innerHTML}</span>`;
-
-        document.querySelector('#shoppingCartContainer').appendChild(addedProduct);
 
         let testCartObject = {
             title: document.querySelector('#productPageTitle').textContent,
@@ -87,8 +68,30 @@ const initProductToCardHandler = () => {
         quantityCartHeader();
         cartSum();
     };
-
 };
+
+const animateButton = (button) => {
+    button.classList.add('active');
+    document.querySelector('.fa-shopping-cart.cart-icon').classList.add('pulse-drop');
+
+    setTimeout(function () {
+        button.classList.remove('active');
+        document.querySelector('.fa-shopping-cart.cart-icon').classList.remove('pulse-drop');
+    }, 600);
+};
+
+const createShoppingCartListElement = () => {
+    let addedProduct = document.createElement('li');
+    addedProduct.className = 'clearfix';
+    addedProduct.innerHTML = `
+        <div class="img" style="background: url(${getCookie('imgValue')}) center center no-repeat; background-size: contain;"></div>
+        <span class="item-name">${document.querySelector('#productPageTitle').innerHTML}</span>
+        <span class="item-price itemPrice">${document.querySelector('#productPagePrice').innerHTML}</span> <span class="oc-text-gray">Quantity: </span>
+        <span class="item-quantity">${document.getElementById('productQuantity').value}</span>
+        <span class="selected_item-id d-none">${document.getElementById('productId').innerHTML}</span>`;
+
+    document.querySelector('#shoppingCartContainer').appendChild(addedProduct);
+}
 
 const productPageTabs = () => {
     (function () {

@@ -27,6 +27,7 @@ const quantityCartHeader = () => {
 const cartSum = () => {
     let cartTotalSumHeader = $('#cartTotalSumHeader');
     let itemPrice = document.querySelectorAll('.itemPrice');
+    let currency = getCurrencyCurrency()
 
     let totalSum = 0;
 
@@ -34,7 +35,7 @@ const cartSum = () => {
         let singleItemPrice = itemPrice[i];
         totalSum += parseFloat(singleItemPrice.innerText.substr(1));
         let toFixedTest = totalSum.toFixed(2);
-        cartTotalSumHeader.html(`<span class="currentCurrencyValPrice">${$('#currentCurrencyMain').html()}</span> ` + +`${parseInt(toFixedTest) * parseInt($('#productQuantity').val())}`);
+        cartTotalSumHeader.html(`<span class="currentCurrencyValPrice">${currency}</span> ` + +`${parseInt(toFixedTest) * parseInt($('#productQuantity').val())}`);
     }
 };
 
