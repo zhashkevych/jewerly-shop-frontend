@@ -4,7 +4,7 @@ const loadProduct = () => {
     let language = urlParams.get('language');
     let currency = getCurrencyQueryParameter();
 
-    productsLoader.getProductById(productId, language, currency).then(product => renderProduct(product));;
+    productsController.getProductById(productId, language, currency).then(product => renderProduct(product));;
 };
 
 const renderProduct = (product) => {

@@ -5,7 +5,7 @@ const productsList = () => {
     let currency = getCurrencyQueryParameter()
     let categoryTitle = getCategoryTitle(categoryId);
 
-    productsLoader.getAllProducts(categoryId, language, currency).then(products => renderProductsList(products, categoryTitle));
+    productsController.getAllProducts(categoryId, language, currency).then(products => renderProductsList(products, categoryTitle));
 };
 
 const getCategoryTitle = (categoryId) => {
