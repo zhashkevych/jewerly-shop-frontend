@@ -38,6 +38,7 @@ const renderProductsList = (response, title) => {
     if (response.data === null) {
         renderEmptyList();
     } else {
+        renderTotalItemsText(response.total, response.data.length);
         renderItems(response.data);
     }
 };
@@ -78,6 +79,14 @@ const renderCategoryTitle = (title) => {
     catTitleItem.innerHTML = `${title}`;
     document.querySelector('#catTitle').appendChild(catTitleItem);
 };
+
+
+const renderTotalItemsText = (totalItems, itemsCount) => {
+    let itemsCountElement = document.createElement('div');
+    itemsCountElement.innerHTML = `Showing ${itemsCount} of ${totalItems} items`;
+    document.querySelector('#itemsCount').appendChild(itemsCountElement);
+};
+
 
 if (window.location.pathname === '/products-page.html') {
     productsList();
