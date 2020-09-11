@@ -291,19 +291,34 @@ const adminPanel = () => {
             // url: 'http://164.90.218.246:8001/admin/orders?limit=20&offset=20',
             headers: {'Authorization': `Bearer ${getCookie('auth_token')}`},
             success: function (response) {
+                console.log(response)
                 document.getElementById('amountOfOrders').innerText += response.total;
                 for (let i = 0; i < response.data.length; i++) {
                     let allOrders = document.createElement('div');
+
+                    // additional_name: "test order 1"
+                    // address: "addresssss"
+                    // country: "ua"
+                    // items: [{…}]
+                    // ordered_at: "2020-09-10T07:30:17.751149Z"
+                    // postal_code: "12031"
 
                     allOrders.className = `col-md-12 order_id_${response.data[i].id}`;
                     allOrders.innerHTML = `
 <div class="row no-gutters">
     <div class="col-md-1" id="idOfOrder"><p>${response.data[i].id}</p></div>
-    <div class="col-md-3"><p>${response.data[i].first_name}</p></div>
-    <div class="col-md-3"><p>${response.data[i].last_name}</p></div>
-    <div class="col-md-4"><p>${response.data[i].email}</p></div>
-    <div class="col-md-1"><p>${response.data[i].total_cost}</p></div>
-    <div id="allInfoAboutOrder"></div>
+    <div class="col-md-2"><p>${response.data[i].first_name}</p></div>
+    <div class="col-md-2"><p>${response.data[i].last_name}</p></div>
+    <div class="col-md-2"><p>${response.data[i].additional_name}</p></div>
+    <div class="col-md-2"><p>${response.data[i].email}</p></div>
+    <div class="col-md-2"><p>${response.data[i].total_cost}</p></div>
+    <div class="col-md-1"><p>${response.data[i].country}</p></div>
+<!--            <div id="openMoreInfo">openMoreInfo</div>-->
+
+        <div id="allInfoAboutOrder" class="w-100">
+            <p>Ordered at: ${response.data[i].ordered_at}</p>
+            <p>Postal code: ${response.data[i].postal_code}</p>
+        </div>
 </div>
 <hr> 
 `;
@@ -311,55 +326,49 @@ const adminPanel = () => {
 
 
                     for (let j = 0; j < response.data[i].transactions.length; j++) {
-                        console.log(response.data[i].transactions[j])
-                        let createTestDiv = document.createElement('div');
-                        createTestDiv.className = 'row no-gutters';
-                        createTestDiv.innerHTML = `
+                        let moreTransactionInfo = document.createElement('div');
+                        moreTransactionInfo.className = '';
+                        moreTransactionInfo.innerHTML = `
+                        <div class="article-level-4">Transaction info</div>
                         <p>Transaction ID: ${response.data[i].transactions[j].transaction_id}</p>
                         <p>Card mask: ${response.data[i].transactions[j].card_mask}</p>
                         <p>Status: ${response.data[i].transactions[j].status}</p>
                         <p>Created at: ${response.data[i].transactions[j].created_at}</p>
+                        <hr>
                         `
 
                         for (let k = 0; k < document.querySelectorAll('#allInfoAboutOrder').length; k++) {
-                            document.querySelectorAll('#allInfoAboutOrder')[k].appendChild(createTestDiv)
+                            document.querySelectorAll('#allInfoAboutOrder')[k].appendChild(moreTransactionInfo)
                         }
                     }
 
 
-//                     for (let j = 0; j < document.querySelectorAll('#allInfoAboutOrder').length; j++) {
-//                         for (let k = 0; k < response.data[i].transactions.length; k++) {
-//                             let moreInfoTransactions = response.data[i].transactions[k];
-//                             console.log(moreInfoTransactions);
-//
-//                             let transactionInfo = document.createElement('div');
-//                             transactionInfo.className = `more_items_hidden`;
-//                             transactionInfo.innerHTML = `
-//     <p>Transaction ID: ${moreInfoTransactions.transaction_id}</p>
-//     <p>Status: ${moreInfoTransactions.status}</p>
-//     <p>Card mask: ${moreInfoTransactions.card_mask}</p>
-//     <p>Created at: ${moreInfoTransactions.created_at}</p>
-//     <hr>
-// `;
-//
-//                             document.querySelectorAll('#allInfoAboutOrder')[j].appendChild(transactionInfo);
-//
-//                         }
-//                     }
+                    for (let p = 0; p < response.data[i].items.length; p++) {
+                        console.log('response.data[i].items')
+                        console.log(response.data[i].items)
+                        let listOfAllOrderedItems = document.createElement('div');
+                        listOfAllOrderedItems.className = '';
+                        listOfAllOrderedItems.innerHTML = `
+                        <div class="article-level-4">Ordered Items</div>
+                        <p>Product id: ${response.data[i].items[p].product_id}</p>
+                        <p>Quantity: ${response.data[i].items[p].quantity}</p>
+                        <hr>
+`
+                        for (let q = 0; q < document.querySelectorAll('#allInfoAboutOrder').length; q++) {
+                            document.querySelectorAll('#allInfoAboutOrder')[q].appendChild(listOfAllOrderedItems)
+                        }
+                    }
 
                 }
             }
         })
     };
 
-    const allInfoAboutOrders = () => {
 
-    }
 
     toggleModalWindow();
     addProduct();
     getAllOrders();
-    allInfoAboutOrders()
 };
 
 if (window.location.pathname === '/admin-panel.html' && getCookie('auth_token') !== null) {

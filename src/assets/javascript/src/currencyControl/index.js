@@ -1,4 +1,4 @@
-const defaultCurrency = '$'
+const defaultCurrency = '$';
 const currencyCookieName = 'currency';
 
 const currenciesSelectorOptions = {
