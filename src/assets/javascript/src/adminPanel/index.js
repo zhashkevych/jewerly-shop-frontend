@@ -5,8 +5,8 @@ const adminPanel = () => {
         success: function (response) {
             $('#totalItems').html('Total products: ' + response.total);
             for (let i = 0; i < response.data.length; i++) {
+                console.log('products response')
                 console.log(response)
-                console.log('response')
                 let catsObject = {
                     1: 'Rings',
                     2: 'Bracelets',
@@ -195,7 +195,6 @@ const adminPanel = () => {
                 processData: false,
                 contentType: false,
                 success: function (response) {
-                    console.log(response);
                     localStorage.setItem('uploadedImageId', response.id);
 
                     let addProductData = {
@@ -243,7 +242,6 @@ const adminPanel = () => {
                             }
                         },
                         error: function (jqXHR, textStatus, errorMessage) {
-                            console.log(addProductData);
                             swal({
                                 title: "Error",
                                 text: errorMessage,
@@ -289,7 +287,6 @@ const adminPanel = () => {
             // url: 'http://164.90.218.246:8001/admin/orders?limit=20&offset=20',
             headers: {'Authorization': `Bearer ${getCookie('auth_token')}`},
             success: function (response) {
-                console.log(response)
                 document.getElementById('amountOfOrders').innerText += response.total;
                 for (let i = 0; i < response.data.length; i++) {
                     let allOrders = document.createElement('div');
@@ -304,7 +301,7 @@ const adminPanel = () => {
                         <div class="col-md-2"><p>${response.data[i].email}</p></div>
                         <div class="col-md-2"><p>${response.data[i].total_cost} $</p></div>
                         <div class="col-md-1"><p>${response.data[i].country}</p></div>
-                    <div id="showMoreInfo" class="article-level-6 mt-10 mb-0" onclick="document.getElementById('allInfoAboutOrder').classList.toggle('d-none')">Click to see more info about this order</div>
+                    <div id="showMoreInfo" class="article-level-6 mt-10 mb-0">Click to see more info about this order</div>
                         <div id="allInfoAboutOrder" class="w-100 d-none">
                             <p>Ordered at: ${response.data[i].ordered_at}</p>
                             <p>Postal code: ${response.data[i].postal_code}</p>
@@ -315,10 +312,20 @@ const adminPanel = () => {
 
                     document.querySelector('#listOfAllOrders').appendChild(allOrders);
 
-                    for (let j = 0; j < response.data[i].transactions.length; j++) {
-                        let moreTransactionInfo = document.createElement('div');
-                        moreTransactionInfo.className = '';
-                        moreTransactionInfo.innerHTML = `
+
+                    const toggleAllInfoAboutOrder = () => {
+                        for (let w = 0; w < document.querySelectorAll('#showMoreInfo').length; w++) {
+                            document.querySelectorAll('#showMoreInfo')[w].onclick = () => {
+                                document.querySelectorAll('#showMoreInfo')[w].nextElementSibling.classList.toggle('d-none');
+                            }
+                        }
+                    }
+
+                    const addMoreTransactionInfo = () => {
+                        for (let j = 0; j < response.data[i].transactions.length; j++) {
+                            let moreTransactionInfo = document.createElement('div');
+                            moreTransactionInfo.className = '';
+                            moreTransactionInfo.innerHTML = `
                             <div class="article-level-4">Transaction info</div>
                             <p>Transaction ID: ${response.data[i].transactions[j].transaction_id}</p>
                             <p>Card mask: ${response.data[i].transactions[j].card_mask}</p>
@@ -327,30 +334,35 @@ const adminPanel = () => {
                             <hr>
                         `
 
-                        for (let k = 0; k < document.querySelectorAll('#allInfoAboutOrder').length; k++) {
-                            document.querySelectorAll('#allInfoAboutOrder')[k].appendChild(moreTransactionInfo)
+                            for (let k = 0; k < document.querySelectorAll('#allInfoAboutOrder').length; k++) {
+                                document.querySelectorAll('#allInfoAboutOrder')[k].appendChild(moreTransactionInfo)
+                            }
                         }
                     }
 
 
-                    for (let p = 0; p < response.data[i].items.length; p++) {
-                        let listOfAllOrderedItems = document.createElement('div');
-                        listOfAllOrderedItems.className = '';
-                        listOfAllOrderedItems.innerHTML = `
+                    const allUsersOrderedItems = () => {
+                        for (let p = 0; p < response.data[i].items.length; p++) {
+                            let listOfAllOrderedItems = document.createElement('div');
+                            listOfAllOrderedItems.className = '';
+                            listOfAllOrderedItems.innerHTML = `
                             <div class="article-level-4">Ordered Items</div>
                             <p>Product id: ${response.data[i].items[p].product_id}</p>
                             <p>Quantity: ${response.data[i].items[p].quantity}</p>
                         `
-                        for (let q = 0; q < document.querySelectorAll('#allInfoAboutOrder').length; q++) {
-                            document.querySelectorAll('#allInfoAboutOrder')[q].appendChild(listOfAllOrderedItems)
+                            for (let q = 0; q < document.querySelectorAll('#allInfoAboutOrder').length; q++) {
+                                document.querySelectorAll('#allInfoAboutOrder')[q].appendChild(listOfAllOrderedItems)
+                            }
                         }
                     }
 
+                    toggleAllInfoAboutOrder()
+                    addMoreTransactionInfo();
+                    allUsersOrderedItems()
                 }
             }
         })
     };
-
 
     toggleModalWindow();
     addProduct();
