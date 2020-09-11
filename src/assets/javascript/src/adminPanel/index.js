@@ -311,11 +311,11 @@ const adminPanel = () => {
     <div class="col-md-2"><p>${response.data[i].last_name}</p></div>
     <div class="col-md-2"><p>${response.data[i].additional_name}</p></div>
     <div class="col-md-2"><p>${response.data[i].email}</p></div>
-    <div class="col-md-2"><p>${response.data[i].total_cost}</p></div>
+    <div class="col-md-2"><p>${response.data[i].total_cost} $</p></div>
     <div class="col-md-1"><p>${response.data[i].country}</p></div>
 <!--            <div id="openMoreInfo">openMoreInfo</div>-->
-
-        <div id="allInfoAboutOrder" class="w-100">
+<div id="showMoreInfo" class="article-level-6 mt-10 mb-0" onclick="document.getElementById('allInfoAboutOrder').classList.toggle('d-none')">Click to see more info about this order</div>
+        <div id="allInfoAboutOrder" class="w-100 d-none">
             <p>Ordered at: ${response.data[i].ordered_at}</p>
             <p>Postal code: ${response.data[i].postal_code}</p>
         </div>
@@ -344,8 +344,6 @@ const adminPanel = () => {
 
 
                     for (let p = 0; p < response.data[i].items.length; p++) {
-                        console.log('response.data[i].items')
-                        console.log(response.data[i].items)
                         let listOfAllOrderedItems = document.createElement('div');
                         listOfAllOrderedItems.className = '';
                         listOfAllOrderedItems.innerHTML = `
@@ -363,7 +361,6 @@ const adminPanel = () => {
             }
         })
     };
-
 
 
     toggleModalWindow();
