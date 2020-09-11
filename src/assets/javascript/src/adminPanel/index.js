@@ -283,8 +283,6 @@ const adminPanel = () => {
 
 
     const getAllOrders = () => {
-        let ordersWrapper = document.getElementById('listOfAllOrders');
-
         $.ajax({
             type: "GET",
             url: 'http://164.90.218.246:8001/admin/orders',
@@ -296,45 +294,37 @@ const adminPanel = () => {
                 for (let i = 0; i < response.data.length; i++) {
                     let allOrders = document.createElement('div');
 
-                    // additional_name: "test order 1"
-                    // address: "addresssss"
-                    // country: "ua"
-                    // items: [{…}]
-                    // ordered_at: "2020-09-10T07:30:17.751149Z"
-                    // postal_code: "12031"
-
                     allOrders.className = `col-md-12 order_id_${response.data[i].id}`;
                     allOrders.innerHTML = `
-<div class="row no-gutters">
-    <div class="col-md-1" id="idOfOrder"><p>${response.data[i].id}</p></div>
-    <div class="col-md-2"><p>${response.data[i].first_name}</p></div>
-    <div class="col-md-2"><p>${response.data[i].last_name}</p></div>
-    <div class="col-md-2"><p>${response.data[i].additional_name}</p></div>
-    <div class="col-md-2"><p>${response.data[i].email}</p></div>
-    <div class="col-md-2"><p>${response.data[i].total_cost} $</p></div>
-    <div class="col-md-1"><p>${response.data[i].country}</p></div>
-<!--            <div id="openMoreInfo">openMoreInfo</div>-->
-<div id="showMoreInfo" class="article-level-6 mt-10 mb-0" onclick="document.getElementById('allInfoAboutOrder').classList.toggle('d-none')">Click to see more info about this order</div>
-        <div id="allInfoAboutOrder" class="w-100 d-none">
-            <p>Ordered at: ${response.data[i].ordered_at}</p>
-            <p>Postal code: ${response.data[i].postal_code}</p>
-        </div>
-</div>
-<hr> 
-`;
-                    document.querySelector('#listOfAllOrders').appendChild(allOrders);
+                    <div class="row no-gutters">
+                        <div class="col-md-1" id="idOfOrder"><p>${response.data[i].id}</p></div>
+                        <div class="col-md-2"><p>${response.data[i].first_name}</p></div>
+                        <div class="col-md-2"><p>${response.data[i].last_name}</p></div>
+                        <div class="col-md-2"><p>${response.data[i].additional_name}</p></div>
+                        <div class="col-md-2"><p>${response.data[i].email}</p></div>
+                        <div class="col-md-2"><p>${response.data[i].total_cost} $</p></div>
+                        <div class="col-md-1"><p>${response.data[i].country}</p></div>
+                    <div id="showMoreInfo" class="article-level-6 mt-10 mb-0" onclick="document.getElementById('allInfoAboutOrder').classList.toggle('d-none')">Click to see more info about this order</div>
+                        <div id="allInfoAboutOrder" class="w-100 d-none">
+                            <p>Ordered at: ${response.data[i].ordered_at}</p>
+                            <p>Postal code: ${response.data[i].postal_code}</p>
+                            <hr>
+                        </div>
+                    </div>
+                    <hr>`;
 
+                    document.querySelector('#listOfAllOrders').appendChild(allOrders);
 
                     for (let j = 0; j < response.data[i].transactions.length; j++) {
                         let moreTransactionInfo = document.createElement('div');
                         moreTransactionInfo.className = '';
                         moreTransactionInfo.innerHTML = `
-                        <div class="article-level-4">Transaction info</div>
-                        <p>Transaction ID: ${response.data[i].transactions[j].transaction_id}</p>
-                        <p>Card mask: ${response.data[i].transactions[j].card_mask}</p>
-                        <p>Status: ${response.data[i].transactions[j].status}</p>
-                        <p>Created at: ${response.data[i].transactions[j].created_at}</p>
-                        <hr>
+                            <div class="article-level-4">Transaction info</div>
+                            <p>Transaction ID: ${response.data[i].transactions[j].transaction_id}</p>
+                            <p>Card mask: ${response.data[i].transactions[j].card_mask}</p>
+                            <p>Status: ${response.data[i].transactions[j].status}</p>
+                            <p>Created at: ${response.data[i].transactions[j].created_at}</p>
+                            <hr>
                         `
 
                         for (let k = 0; k < document.querySelectorAll('#allInfoAboutOrder').length; k++) {
@@ -347,11 +337,10 @@ const adminPanel = () => {
                         let listOfAllOrderedItems = document.createElement('div');
                         listOfAllOrderedItems.className = '';
                         listOfAllOrderedItems.innerHTML = `
-                        <div class="article-level-4">Ordered Items</div>
-                        <p>Product id: ${response.data[i].items[p].product_id}</p>
-                        <p>Quantity: ${response.data[i].items[p].quantity}</p>
-                        <hr>
-`
+                            <div class="article-level-4">Ordered Items</div>
+                            <p>Product id: ${response.data[i].items[p].product_id}</p>
+                            <p>Quantity: ${response.data[i].items[p].quantity}</p>
+                        `
                         for (let q = 0; q < document.querySelectorAll('#allInfoAboutOrder').length; q++) {
                             document.querySelectorAll('#allInfoAboutOrder')[q].appendChild(listOfAllOrderedItems)
                         }
