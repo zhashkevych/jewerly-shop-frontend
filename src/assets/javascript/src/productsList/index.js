@@ -1,8 +1,8 @@
 const productsList = () => {
     let urlParams = new URLSearchParams(window.location.search);
     let categoryId = urlParams.get('category');
-    let language = urlParams.get('language');
-    let currency = getCurrencyQueryParameter()
+    let currency = getCurrencyQueryParameter();
+    let language = getLanguageQueryParameter();
     let categoryTitle = getCategoryTitle(categoryId);
 
     productsController.getAllProducts(categoryId, language, currency).then(products => renderProductsList(products, categoryTitle));
