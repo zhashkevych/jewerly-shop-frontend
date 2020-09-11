@@ -34,7 +34,7 @@ const initCurrencySelectorHandler = () => {
 
 const getCurrencyCurrency = () => {
     if (getCookie(currencyCookieName) === null) {
-        setCookie(currencyCookieName, currency);
+        setCookie(currencyCookieName, defaultCurrency);
         return defaultCurrency
     }
 
