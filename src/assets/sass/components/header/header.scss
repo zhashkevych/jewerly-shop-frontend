@@ -132,11 +132,17 @@
     border-top: 1px solid #f0f0f0;
     border-bottom: 1px solid #f0f0f0;
     padding: 15px 0;
+    justify-content: space-between;
 
     .col-sm-2,
     .col-sm-1 {
       cursor: pointer;
       font-size: 14px;
+    }
+
+    .lang-selector {
+      font-size: 14px;
+      border: none;
     }
 
     .item {
