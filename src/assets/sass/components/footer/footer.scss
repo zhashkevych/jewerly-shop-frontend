@@ -1,57 +1,86 @@
 .footer {
   &_content {
-	border-top: 1px solid gray;
-	padding-top: 30px;
-	width: 100%;
+    border-top: 1px solid gray;
+    padding-top: 30px;
+    width: 100%;
 
-	.item {
-	  p {
-		@include media('<sm') {
-		  font-size: 17px;
-		}
-	  }
+    .item {
+      p {
+        @include media('<sm') {
+          font-size: 17px;
+        }
+      }
 
-	  a {
-		font-size: 16px;
-		color: black;
-		opacity: 0.85;
-		margin: 3px 0;
-		@include media('<sm') {
-		  font-size: 14px;
-		}
-	  }
-	}
+      a {
+        font-size: 16px;
+        color: black;
+        opacity: 0.85;
+        margin: 3px 0;
+        @include media('<sm') {
+          font-size: 14px;
+        }
+      }
+    }
   }
 
   .copyright {
-	@include media('<sm') {
-	  display: flex;
-	  justify-content: center;
-	  align-items: center;
-	  flex-direction: column;
-	}
+    @include media('<sm') {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
 
-	p {
-	  @include media('<sm') {
-		font-size: 16px;
-		margin-bottom: 10px;
-	  }
-	}
+    p {
+      @include media('<sm') {
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+    }
 
-	.privacy-policy {
-	  position: relative;
-	  color: black;
-	  font-size: 16px;
+    .privacy-policy {
+      position: relative;
+      color: black;
+      font-size: 16px;
+      margin-left: 10px;
 
-	  &:after {
-		content: "";
-		position: absolute;
-		width: 100%;
-		height: 1px;
-		background: black;
-		bottom: -4px;
-		left: 0;
-	  }
-	}
+      &:hover {
+        transition: .4s;
+        &:after {
+          display: none;
+        }
+      }
+
+      &:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        background: black;
+        bottom: -4px;
+        left: 0;
+      }
+    }
+  }
+
+  &_pages {
+    position: relative;
+
+    &:hover {
+      transition: .4s;
+      &:after {
+        display: none;
+      }
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      background: black;
+      bottom: -4px;
+      left: 0;
+    }
   }
 }

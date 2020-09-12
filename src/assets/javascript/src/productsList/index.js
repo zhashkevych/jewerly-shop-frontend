@@ -40,8 +40,8 @@ const renderProductsList = (response, title) => {
 
 const renderEmptyList = () => {
     let noItems = document.createElement('div');
-    noItems.className = 'article-level-4 text-center';
-    noItems.innerText = 'Now there is no items for this category :(';
+    noItems.className = 'article-level-4 text-center font-weight-medium';
+    noItems.innerText = translations[currentLanguage].categories.noItemsInCategory;
 
     document.querySelector('#productsPageItemsList').appendChild(noItems);
 };
@@ -70,6 +70,7 @@ const renderItems = (items, currency) => {
 
 const renderCategoryTitle = (title) => {
     let catTitleItem = document.createElement('div');
+    catTitleItem.className = 'font-weight-medium';
     catTitleItem.innerHTML = `${title}`;
     document.querySelector('#catTitle').appendChild(catTitleItem);
 };

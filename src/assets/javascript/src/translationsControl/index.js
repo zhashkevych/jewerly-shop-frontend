@@ -20,6 +20,11 @@ const translationsControl = () => {
     $('#addProductToCart').html(translations[currentLanguage].productFields.addToCart);
     $('#quantityLabel').html(translations[currentLanguage].productFields.quantity);
 
+    $('#customerServiceString').html(translations[currentLanguage].footer.customerServicePage);
+    $('#aboutUsString').html(translations[currentLanguage].footer.aboutUsPage);
+    $('.privacy-policy').html(translations[currentLanguage].footer.privacyPolicyPage);
+    $('#allRightsString').html(translations[currentLanguage].footer.copyright);
+
 }
 
 if (window.location.pathname !== '/admin.html' && window.location.pathname !== '/admin-panel.html') {
