@@ -3,6 +3,7 @@
 @@include('currencyControl/index.js');
 @@include('langControl/index.js');
 @@include('cookies/index.js');
+@@include('translationsControl/index.js');
 @@include('headerCart/index.js');
 @@include('productPage/index.js');
 @@include('productsList/index.js');

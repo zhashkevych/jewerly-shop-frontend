@@ -28,7 +28,6 @@ const cartSum = () => {
     let cartTotalSumHeader = $('#cartTotalSumHeader');
     let itemPrice = document.querySelectorAll('.itemPrice');
     let currency = getCurrencyCurrency();
-    // let language = getLanguageLanguage();
 
     let totalSum = 0;
 
@@ -41,13 +40,13 @@ const cartSum = () => {
 };
 
 const categoriesToggle = () => {
-    let category1 = document.getElementById('ringsTestString');
-    let category2 = document.getElementById('braceletsTestString');
-    let category3 = document.getElementById('pedantsTestString');
-    let category4 = document.getElementById('earringsTestString');
-    let category5 = document.getElementById('chokersNecklacesTestString');
-    let category6 = document.getElementById('setsTestString');
-    let categoryAll = document.getElementById('catAllItems');
+    let category1 = document.getElementById('ringsCategory');
+    let category2 = document.getElementById('braceletsCategory');
+    let category3 = document.getElementById('pedantsCategory');
+    let category4 = document.getElementById('earringsCategory');
+    let category5 = document.getElementById('chokersNecklacesCategory');
+    let category6 = document.getElementById('setsCategory');
+    let categoryAll = document.getElementById('categoryAllItems');
 
     category1.onclick = () => {
         window.location.href = 'products-page.html?category=1'
@@ -70,19 +69,6 @@ const categoriesToggle = () => {
     categoryAll.onclick = () => {
         window.location.href = 'products-page.html?category=0'
     };
-
-    // if (localStorage.getItem('testCart')) {
-    //     document.querySelector('.container_cart').innerHTML = localStorage.getItem('testCart');
-    //     console.log(localStorage.getItem('testCart'));
-    // }
-
-    // let testObject = {
-    //     title: 'Test title for cart item',
-    //     quantity: '10',
-    //     price: 299.19
-    // };
-    //
-    // localStorage.setItem('testObject', JSON.stringify(testObject));
 
 };
 
