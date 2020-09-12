@@ -11,7 +11,7 @@ const translationsControl = () => {
     $('#earringsCategory').html(translations[currentLanguage].categories.earrings);
     $('#chokersNecklacesCategory').html(translations[currentLanguage].categories.chokersNecklaces);
     $('#setsCategory').html(translations[currentLanguage].categories.sets);
-    $('#productPageTitle').html(translations[currentLanguage].pageTitle.products);
+    $('#productsPageTitle').html(translations[currentLanguage].pageTitle.products);
     $('#tabProductDescription').html(translations[currentLanguage].productTabs.description);
     $('#tabShipping').html(translations[currentLanguage].productTabs.shipping);
     $('#tabMaterial').html(translations[currentLanguage].productTabs.material);

@@ -11,19 +11,19 @@ const productsList = () => {
 const getCategoryTitle = (categoryId) => {
     switch (categoryId) {
         case '1':
-            return 'Rings';
+            return $('#ringsCategory').html();
         case '2':
-            return 'Bracelets';
+            return $('#braceletsCategory').html();
         case '3':
-            return 'Pendants';
+            return $('#pedantsCategory').html();
         case '4':
-            return 'Earrings';
+            return $('#earringsCategory').html();
         case '5':
-            return 'Necklaces';
+            return $('#chokersNecklacesCategory').html();
         case '6':
-            return 'Sets';
+            return $('#setsCategory').html();
         default:
-            return 'All Products';
+            return $('#categoryAllItems').html();
     }
 };
 

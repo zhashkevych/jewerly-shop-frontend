@@ -131,8 +131,11 @@ const adminPanel = () => {
                                     russian: document.getElementById("editItemMater_ru").value,
                                     ukrainian: document.getElementById("editItemMater_ua").value,
                                 },
-                                current_price: parseFloat(document.getElementById("editItemCurrPrice").value),
-                                previous_price: parseFloat(document.getElementById("editItemPrevPrice").value),
+                                price: {
+                                    usd: parseFloat(document.getElementById("editItemCurrPriceUsd").value),
+                                    eur: parseFloat(document.getElementById("editItemCurrPriceEur").value),
+                                    uah: parseFloat(document.getElementById("editItemCurrPriceUah").value),
+                                },
                                 code: document.getElementById("editItemCode").value,
                                 category_id: parseInt(document.getElementById("editItemCategory").value),
                                 in_stock: JSON.parse(document.getElementById("editAvailability").value),

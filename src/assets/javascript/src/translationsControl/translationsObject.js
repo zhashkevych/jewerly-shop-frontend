@@ -25,7 +25,8 @@ const translations = {
             productPageCode: 'Code: ',
             addToCart: 'Add to cart',
             quantity: 'Quantity: ',
-            availability: '',
+            availabilityTrue: 'This items is in stock',
+            availabilityFalse: 'This items is not in stock',
         }
     },
     'ru': {
@@ -54,7 +55,8 @@ const translations = {
             productPageCode: 'Код товара: ',
             addToCart: 'Добавить в корзину',
             quantity: 'Количество: ',
-            availability: '',
+            availabilityTrue: 'Этот продукт есть в наличии',
+            availabilityFalse: 'Этого продукта нет в наличии',
         }
     },
     'ua': {
@@ -83,7 +85,8 @@ const translations = {
             productPageCode: 'Код продукту: ',
             addToCart: 'Додати до кошика',
             quantity: 'Кількість: ',
-            availability: '',
+            availabilityTrue: 'Цей товар є в наявності',
+            availabilityFalse: 'Цього товара немає в наявності',
         }
     }
 };

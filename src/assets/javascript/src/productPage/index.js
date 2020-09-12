@@ -24,10 +24,10 @@ const renderProduct = (product) => {
 
     if (product.in_stock) {
         document.getElementById('itemAvailable').classList.add('true')
+        document.getElementById('itemAvailable').textContent = translations[currentLanguage].productFields.availabilityTrue;
     } else {
-        // $("#addProductToCart").attr("disabled", true);
         document.getElementById('itemAvailable').classList.add('false');
-        document.getElementById('itemAvailable').innerHTML = 'This item is not in stock';
+        document.getElementById('itemAvailable').textContent = translations[currentLanguage].productFields.availabilityFalse;
     }
 };
 
@@ -45,26 +45,13 @@ const initProductToCardHandler = () => {
             price: document.querySelector('.itemPrice').childNodes[1].data
         };
 
-
         localStorage.setItem('testObject', JSON.stringify(testCartObject));
-
 
         let productId = document.getElementById('productId').innerHTML;
         localStorage.setItem('itemId', parseInt(productId));
         localStorage.setItem('itemQuantity', parseInt(document.querySelector('.item-quantity').textContent));
 
         localStorage.setItem('testCart', document.querySelector('.container_cart').innerHTML);
-
-        for (let i = 0; i < document.querySelectorAll('.clearfix .item-quantity').length; i++) {
-            // console.log('quantity')
-            // console.log(document.querySelectorAll('.clearfix .item-quantity')[i].innerHTML);
-        }
-
-        for (let i = 0; i < document.querySelectorAll('.clearfix .selected_item-id').length; i++) {
-            // console.log('ID')
-            // console.log(document.querySelectorAll('.clearfix .selected_item-id')[i].innerHTML);
-        }
-
 
         quantityCartHeader();
         cartSum();
