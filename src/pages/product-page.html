@@ -22,8 +22,8 @@
                     <p class="price" id="productPagePrice"></p>
                     <div class="d-flex justify-content-sm-between align-content-center">
                         <p class="code" id="productPageCode"></p>
-                        <label>
-                            Quantity:
+                        <label class="d-flex">
+                            <p id="quantityLabel">Quantity:</p>
                             <input width="50" type="number" id="productQuantity" value="1" name="quantity" min="1">
                         </label>
                     </div>
@@ -35,9 +35,9 @@
 
                     <div id="tabs1" class="tab-contents no-js mt-20">
                         <div class="tab-nav">
-                            <a href="#" class="tab-link is-active">Product description</a>
-                            <a href="#" class="tab-link">Shipping and returns</a>
-                            <a href="#" class="tab-link">Material information</a>
+                            <a href="#" class="tab-link is-active" id="tabProductDescription">Product description</a>
+                            <a href="#" class="tab-link" id="tabShipping">Shipping and returns</a>
+                            <a href="#" class="tab-link" id="tabMaterial">Material information</a>
                         </div>
                         <div class="tab-content is-active">
                             <p id="product_description"></p>

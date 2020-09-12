@@ -1,76 +1,25 @@
+@@include('translationsObject.js');
 const translationsControl = () => {
-    const translations = {
-        'en': {
-            headerTop: {
-                title: 'SilverRain Israel jewelry company since 2012. All silver products made in Italy',
-                login_title: 'Login'
-            },
-            categories: {
-                allItems: 'All items',
-                rings: 'Rings',
-                bracelets: 'Bracelets',
-                pendants: 'Pendants',
-                earrings: 'Earrings',
-                chokersNecklaces: 'Chokers / Necklaces',
-                sets: 'Sets',
-            },
-            pageTitle: {
-                products: 'Our products'
-            }
-        },
-        'ru': {
-            headerTop: {
-                title: 'SilverRain Израильская ювелирная компания с 2012 года. Все изделия из серебра произведены в Италии.',
-                login_title: 'Вход'
-            },
-            categories: {
-                allItems: 'Все продукты',
-                rings: 'Кольца',
-                bracelets: 'Браслеты',
-                pendants: 'Подвески',
-                earrings: 'Серьги',
-                chokersNecklaces: 'Чокеры / Ожерелья',
-                sets: 'Сеты',
-            },
-            pageTitle: {
-                products: 'Продукты'
-            }
-        },
-        'ua': {
-            headerTop: {
-                title: 'Ювелірна компанія SilverRain Israel із 2012 року. Всі вироби зі срібла виготовлені в Італії',
-                login_title: 'Вхід',
-            },
-            categories: {
-                allItems: 'Усі продукти',
-                rings: 'Кільця',
-                bracelets: 'Браслети',
-                pendants: 'Підвіски',
-                earrings: 'Сережки',
-                chokersNecklaces: 'Кольє',
-                sets: 'Сети',
-            },
-            pageTitle: {
-                products: 'Продукти'
-            }
-        }
-    };
+    const currentLanguage = getCookie(languageCookieName);
 
-    // console.log(getCookie(languageCookieName))
+    $('#categoryAllItems').html(translations[currentLanguage].categories.allItems);
+    $('.header_notification p').html(translations[currentLanguage].headerTop.title);
+    $('.login_title').html(translations[currentLanguage].headerTop.login_title);
+    $('#ringsCategory').html(translations[currentLanguage].categories.rings);
+    $('#braceletsCategory').html(translations[currentLanguage].categories.bracelets);
+    $('#pedantsCategory').html(translations[currentLanguage].categories.pendants);
+    $('#earringsCategory').html(translations[currentLanguage].categories.earrings);
+    $('#chokersNecklacesCategory').html(translations[currentLanguage].categories.chokersNecklaces);
+    $('#setsCategory').html(translations[currentLanguage].categories.sets);
+    $('#productPageTitle').html(translations[currentLanguage].pageTitle.products);
+    $('#tabProductDescription').html(translations[currentLanguage].productTabs.description);
+    $('#tabShipping').html(translations[currentLanguage].productTabs.shipping);
+    $('#tabMaterial').html(translations[currentLanguage].productTabs.material);
+    $('#productPageCode').html(translations[currentLanguage].productFields.productPageCode);
+    $('#productPageCode').html(translations[currentLanguage].productFields.productPageCode);
+    $('#addProductToCart').html(translations[currentLanguage].productFields.addToCart);
+    $('#quantityLabel').html(translations[currentLanguage].productFields.quantity);
 
-    const currLang = getCookie(languageCookieName);
-
-    $('#categoryAllItems').html(translations[currLang].categories.allItems);
-    $('.header_notification p').html(translations[currLang].headerTop.title);
-    $('.login_title').html(translations[currLang].headerTop.login_title);
-    $('#ringsCategory').html(translations[currLang].categories.rings);
-    $('#braceletsCategory').html(translations[currLang].categories.bracelets);
-    $('#pedantsCategory').html(translations[currLang].categories.pendants);
-    $('#earringsCategory').html(translations[currLang].categories.earrings);
-    $('#chokersNecklacesCategory').html(translations[currLang].categories.chokersNecklaces);
-    $('#setsCategory').html(translations[currLang].categories.sets);
-
-    document.querySelector('.products-page .article-level-3').textContent = translations[currLang].pageTitle.products;
 }
 
 if (window.location.pathname !== '/admin.html' && window.location.pathname !== '/admin-panel.html') {

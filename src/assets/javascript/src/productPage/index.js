@@ -18,7 +18,7 @@ const renderProduct = (product) => {
     let currency = getCurrencyCurrency()
     document.getElementById('productPagePrice').innerHTML = `<span style="margin-right: 5px;" class="currentCurrencyValPrice">${currency}</span>` + product.price;
 
-    document.getElementById('productPageCode').innerHTML = 'Code: ' + product.code;
+    document.getElementById('productPageCode').innerHTML += product.code;
     document.getElementById('productPagePhoto').setAttribute('style', `background: url('${product.images[0].url}') center no-repeat; background-size: contain;`);
     document.getElementById('productPageTitle').innerHTML = product.title;
 
