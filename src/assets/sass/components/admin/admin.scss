@@ -12,50 +12,191 @@
   flex-direction: column;
 
   input {
-	margin-bottom: 20px;
-	border: 1px solid black;
-	padding: 5px 10px;
-	font-size: 15px;
-	min-width: 260px;
+    margin-bottom: 20px;
+    border: 1px solid black;
+    padding: 5px 10px;
+    font-size: 15px;
+    min-width: 260px;
   }
 }
 
 .admin_panel {
-  /*
-  *
-  * ==========================================
-  * CUSTOM UTIL CLASSES
-  * ==========================================
-  */
   .nav-pills-custom .nav-link {
-	color: #aaa;
-	background: #fff;
-	position: relative;
+    color: #aaa;
+    background: #fff;
+    position: relative;
   }
 
   .nav-pills-custom .nav-link.active {
-	color: #45b649;
-	background: #fff;
+    color: #45b649;
+    background: #fff;
   }
 
-
-  /* Add indicator arrow for the active tab */
   @media (min-width: 992px) {
-	.nav-pills-custom .nav-link::before {
-	  content: '';
-	  display: block;
-	  border-top: 8px solid transparent;
-	  border-left: 10px solid #fff;
-	  border-bottom: 8px solid transparent;
-	  position: absolute;
-	  top: 50%;
-	  right: -10px;
-	  transform: translateY(-50%);
-	  opacity: 0;
-	}
+    .nav-pills-custom .nav-link::before {
+      content: '';
+      display: block;
+      border-top: 8px solid transparent;
+      border-left: 10px solid #fff;
+      border-bottom: 8px solid transparent;
+      position: absolute;
+      top: 50%;
+      right: -10px;
+      transform: translateY(-50%);
+      opacity: 0;
+    }
   }
 
   .nav-pills-custom .nav-link.active::before {
-	opacity: 1;
+    opacity: 1;
   }
+}
+
+.admin-page {
+  .no-gutters {
+    display: flex;
+    align-items: center;
+    min-height: 50px;
+  }
+
+  .add-new-items-table {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      display: flex;
+      flex-direction: column;
+      margin: 7px 10px;
+
+      #addItemImg {
+        font-size: 13px;
+      }
+
+      input,
+      select {
+        padding: 5px 10px;
+        margin-top: 10px;
+        border: 1px solid black;
+      }
+    }
+  }
+
+  #toggleAddInputs {
+    border: 1px solid black;
+    background: cornflowerblue;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    padding: 7px 15px;
+    width: 250px;
+    margin: 0 0 0 auto;
+    cursor: pointer;
+  }
+
+  .add_product {
+    border: 1px solid black;
+    background: white;
+    font-size: 18px;
+    text-align: center;
+    padding: 10px 20px;
+    width: 250px;
+    margin: 50px auto 0 auto;
+    cursor: pointer;
+  }
+
+  #allInfoAboutOrder {
+    border: 1px solid black;
+    margin: 15px 0;
+    padding: 10px 10px 0;
+
+    p {
+      margin-right: 20px;
+      padding-bottom: 20px;
+    }
+  }
+
+  .panel_id_orders {
+    p {
+      font-size: 16px;
+    }
+  }
+}
+
+#allItems {
+  .col-md-12 {
+    .item-actions {
+      display: none;
+    }
+
+    &:hover {
+      .item-actions {
+        display: flex;
+        position: absolute;
+        right: 20px;
+        background: white;
+        min-height: 50px;
+        padding: 15px 20px;
+        align-items: center;
+        justify-content: center;
+
+        .edit {
+          background-image: url("../img/icons/svg/edit.svg");
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: cover;
+          width: 15px;
+          height: 17px;
+          margin-right: 10px;
+          cursor: pointer;
+
+          &:hover {
+            opacity: 0.7;
+          }
+        }
+
+        .remove {
+
+        }
+      }
+    }
+  }
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }

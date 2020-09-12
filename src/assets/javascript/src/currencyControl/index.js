@@ -1,37 +1,51 @@
-const toggleCurrencyList = () => {
-    $('#currency').hover(function () {
-        $('.currency_wrapper_hidden').toggleClass('d-none');
+const defaultCurrency = '$';
+const currencyCookieName = 'currency';
+
+const currenciesSelectorOptions = {
+    '$': '$ USD',
+    '€': '€ EUR',
+    '₴': '₴ UAH',
+}
+
+const currenciesURLParams = {
+    '$': 'usd',
+    '€': 'eur',
+    '₴': 'uah',
+}
+
+const initCurrencySelector = (values) => {
+    $.each(values, function(key, value) {
+        $('#currencySelector')
+            .append($("<option></option>").attr("value", key).text(value));
     });
 
-    $('#currencySecondary').on('click', function () {
-        if ($('#currentCurrencyMain').html() === '$ USD') {
-            $('#currentCurrencyMain').html('€ EUR');
-            $('#currencySecondary').html('$ USD');
-            setCookie('currentCurrency', '€', 0.5)
-        }
-    })
-
-    if (getCookie('currentCurrency') === '€') {
-        $('#currentCurrencyMain').html('€ EUR');
-        $('#currencySecondary').html('$ USD');
-        $('#currencySecondary').on('click', function () {
-            $('#currentCurrencyMain').html('$ USD');
-            $('#currencySecondary').html('€ EUR');
-            setCookie('currentCurrency', '$', 0.5)
-        })
-    }
-
-    if (getCookie('currentCurrency') === '$') {
-        $('#currentCurrencyMain').html('$ USD');
-        $('#currencySecondary').html('€ EUR');
-    }
-
-    $('.header_upper_content').bind('DOMSubtreeModified', function () {
-        for (let i = 0; i < document.getElementsByClassName('currentCurrencyValPrice').length; i++) {
-            document.getElementsByClassName('currentCurrencyValPrice')[i].innerHTML = document.getElementById('currentCurrencyMain').innerHTML[0];
-        }
-    });
-
+    // set current currency option selected
+    currentCurrency = getCurrencyCurrency()
+    $("#currencySelector").val(currentCurrency).change();
 };
 
-toggleCurrencyList();
+const initCurrencySelectorHandler = () => {
+    $('#currencySelector').change(function () {
+        let currency = $("#currencySelector option:checked").val();
+        setCookie(currencyCookieName, currency);
+        location.reload();
+    });
+};
+
+const getCurrencyCurrency = () => {
+    if (getCookie(currencyCookieName) === null) {
+        setCookie(currencyCookieName, defaultCurrency);
+        return defaultCurrency
+    }
+
+    return getCookie(currencyCookieName)
+}
+
+const getCurrencyQueryParameter = () => {
+    return currenciesURLParams[getCurrencyCurrency()]
+}
+
+if (window.location.pathname !== '/admin.html' && window.location.pathname !== '/admin-panel.html') {
+    initCurrencySelector(currenciesSelectorOptions);
+    initCurrencySelectorHandler();
+}

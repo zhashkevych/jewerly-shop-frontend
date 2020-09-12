@@ -8,8 +8,28 @@
 	  align-items: center;
 	  flex-direction: column;
 
+	  .spec_fields {
+		label:nth-child(1) {
+		  margin-right: 10px;
+		}
+	  }
+
+	  #checkoutPageSubmit {
+		background: #000;
+		color: #fff;
+		font-size: 17px;
+		text-align: center;
+		padding: 13px 10px;
+		border: 0;
+		cursor: pointer;
+	  }
+
 	  label {
 		margin: 7px 0;
+		p {
+		  font-size: 14px;
+		  font-weight: bold;
+		}
 		input {
 		  border: 1px solid black;
 		  padding: 5px 10px;

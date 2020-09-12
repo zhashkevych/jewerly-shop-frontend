@@ -1,11 +1,13 @@
 const loginToPanel = () => {
-    $('#adminSubmit').on('click', function () {
+    let adminFormLogin = document.getElementById('adminSubmit');
+
+    adminFormLogin.onclick = () => {
         $.ajax({
             type: "POST",
             url: 'http://164.90.218.246:8001/auth/admin/sign-in',
             data: JSON.stringify({
-                "login": $('#adminLoginInput').val(),
-                "password": $('#adminPassInput').val()
+                "login": document.getElementById('adminLoginInput').value,
+                "password": document.getElementById('adminPassInput').value
             }),
             dataType: "json",
             success: function (data) {
@@ -16,8 +18,7 @@ const loginToPanel = () => {
                 alert('ERROR')
             }
         });
-    })
-
+    };
 };
 
 if (window.location.pathname === '/admin.html') {

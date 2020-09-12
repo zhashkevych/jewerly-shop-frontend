@@ -18,23 +18,17 @@
                     <p class="article-level-1 main_title">Silver Rain</p>
                 </div>
                 <div class="col-md-6 d-flex justify-content-end">
-                    <div id="currency" class="currency_wrapper">
-                        <p id="currentCurrencyMain">$ USD</p>
-                        <div class="currency_wrapper_hidden d-none">
-                            <p id="currencySecondary">€ EUR</p>
-                        </div>
-                        <p class="currentCurrencyVal" style="display: none; opacity: 0; visibility: hidden"></p>
-                    </div>
+                    <select id="currencySelector"></select>
                     <div class="item login_wrapper">
                         <a href="/login-page.html" class="login">
                             <div class="login_icon"></div>
                             <p class="login_title">Login</p>
                         </a>
                     </div>
-                    <div class="item d-flex">
+                    <div class="item d-flex cart_holder">
                         <ul class="navbar-right d-flex align-items-center">
                             <li>
-                                <a href="#" id="cart" class="color-black cart-text">
+                                <a id="cart" class="color-black cart-text">
                                     <i class="fa fa-shopping-cart cart-icon"></i>
                                     <span class="badge" id="cartQuantityHeader">0</span>
                                 </a>
@@ -46,7 +40,7 @@
         </div>
     </div>
     <div class="container_cart">
-        <div class="shopping-cart" style="display: none;">
+        <div class="shopping-cart d-none">
             <div class="shopping-cart-header">
                 <i class="fa fa-shopping-cart cart-icon"></i><span class="badge" id="cartQuantityContainer">0</span>
                 <div class="shopping-cart-total">
@@ -64,32 +58,15 @@
     <div class="row no-gutters header_lower_content">
         <div class="col-xs-12 col-sm-10">
             <div class="row no-gutters">
-                <p class="col-6 col-sm-2 pl-0 item" id="catAllItems">All Items</p>
-                <p class="col-6 col-sm-2 item" id="ringsTestString">Rings</p>
-                <p class="col-6 col-sm-2 item" id="braceletsTestString">Bracelets</p>
-                <p class="col-6 col-sm-2 item" id="pedantsTestString">Pendants</p>
-                <p class="col-6 col-sm-2 item" id="earringsTestString">Earrings</p>
-                <p class="col-6 col-sm-2 item" id="chokersNecklacesTestString">Necklaces</p>
+                <p class="col-6 col-sm-2 pl-0 item" id="categoryAllItems">All Items</p>
+                <p class="col-6 col-sm-1 item" id="ringsCategory">Rings</p>
+                <p class="col-6 col-sm-1 item" id="braceletsCategory">Bracelets</p>
+                <p class="col-6 col-sm-1 item" id="pedantsCategory">Pendants</p>
+                <p class="col-6 col-sm-1 item" id="earringsCategory">Earrings</p>
+                <p class="col-6 col-sm-2 item" id="chokersNecklacesCategory">Necklaces</p>
+                <p class="col-6 col-sm-1 item" id="setsCategory">Sets</p>
             </div>
         </div>
-        <div class="col-sm-2">
-
-            <div class="switch-lang">
-                <a href="" class="current-lang">
-                    <p class="lang-text">EN</p>
-                </a>
-                <div class="lang-dropdown">
-                    <div class="selecting-lang" id="lang_ru">
-                        <p class="lang-text">RU</p>
-                    </div>
-                    <div class="selecting-lang" id="lang_ua">
-                        <p class="lang-text">UA</p>
-                    </div>
-                    <div class="selecting-lang" id="lang_en">
-                        <p class="lang-text">EN</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <select id="languageSelector" class="lang-selector"></select>
     </div>
 </header>

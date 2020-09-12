@@ -1,10 +1,15 @@
-$('#cart').on('click', function (e) {
-    let container = $(".shopping-cart");
+const $cartContainer = $('.shopping-cart');
 
-    if (!container.is(e.target) && container.has(e.target).length === 0) {
-        container.fadeToggle("fast");
+$(document).mouseup(e => {
+    if (!$cartContainer.is(e.target) && $cartContainer.has(e.target).length === 0) {
+        $cartContainer.addClass('d-none');
     }
 });
+
+$('#cart').on('click', () => {
+    $cartContainer.removeClass('d-none');
+});
+
 
 const quantityCartHeader = () => {
     let amountOfAddedItemsInCart = $('.shopping-cart-items .clearfix');
@@ -22,6 +27,7 @@ const quantityCartHeader = () => {
 const cartSum = () => {
     let cartTotalSumHeader = $('#cartTotalSumHeader');
     let itemPrice = document.querySelectorAll('.itemPrice');
+    let currency = getCurrencyCurrency();
 
     let totalSum = 0;
 
@@ -29,36 +35,41 @@ const cartSum = () => {
         let singleItemPrice = itemPrice[i];
         totalSum += parseFloat(singleItemPrice.innerText.substr(1));
         let toFixedTest = totalSum.toFixed(2);
-        cartTotalSumHeader.html(`<span class="currentCurrencyValPrice">${document.getElementById('currentCurrencyMain').innerHTML[0]}</span> ` + +`${parseInt(toFixedTest) * parseInt($('#productQuantity').val())}`);
+        cartTotalSumHeader.html(`<span class="currentCurrencyValPrice">${currency}</span> ` + +`${parseInt(toFixedTest) * parseInt($('#productQuantity').val())}`);
     }
 };
 
 const categoriesToggle = () => {
-    let cat1 = document.getElementById('ringsTestString');
-    let cat2 = document.getElementById('braceletsTestString');
-    let cat3 = document.getElementById('pedantsTestString');
-    let cat4 = document.getElementById('earringsTestString');
-    let cat5 = document.getElementById('chokersNecklacesTestString');
-    let catAllItems = document.getElementById('catAllItems');
+    let category1 = document.getElementById('ringsCategory');
+    let category2 = document.getElementById('braceletsCategory');
+    let category3 = document.getElementById('pedantsCategory');
+    let category4 = document.getElementById('earringsCategory');
+    let category5 = document.getElementById('chokersNecklacesCategory');
+    let category6 = document.getElementById('setsCategory');
+    let categoryAll = document.getElementById('categoryAllItems');
 
-    cat1.onclick = () => {
-        window.location.href = 'products-page.html?=1'
+    category1.onclick = () => {
+        window.location.href = 'products-page.html?category=1'
     };
-    cat2.onclick = () => {
-        window.location.href = 'products-page.html?=2'
+    category2.onclick = () => {
+        window.location.href = 'products-page.html?category=2'
     };
-    cat3.onclick = () => {
-        window.location.href = 'products-page.html?=3'
+    category3.onclick = () => {
+        window.location.href = 'products-page.html?category=3'
     };
-    cat4.onclick = () => {
-        window.location.href = 'products-page.html?=4'
+    category4.onclick = () => {
+        window.location.href = 'products-page.html?category=4'
     };
-    cat5.onclick = () => {
-        window.location.href = 'products-page.html?=5'
+    category5.onclick = () => {
+        window.location.href = 'products-page.html?category=5'
     };
-    catAllItems.onclick = () => {
-        window.location.href = 'products-page.html?=all'
+    category6.onclick = () => {
+        window.location.href = 'products-page.html?category=6'
     };
+    categoryAll.onclick = () => {
+        window.location.href = 'products-page.html?category=0'
+    };
+
 };
 
 if (window.location.pathname !== '/admin.html' && window.location.pathname !== '/admin-panel.html') {

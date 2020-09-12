@@ -9,21 +9,22 @@
     <link rel="stylesheet" href="css/main.min.css">
 </head>
 <body>
+
 <div class="container">
     @@include('partials/header.html')
     <div class="products-page mt-30 mb-30">
-        <p class="article-level-3">Our products</p>
+        <p class="article-level-3 font-weight-medium" id="productsPageTitle">Our products</p>
         <div class="col-md-12">
             <div class="row">
+                <div class="article-level-3" id="itemsCount" style="font-size: 70%;"></div>
                 <div class="article-level-3 mb-20" id="catTitle" style="margin: 0 auto 30px auto;"></div>
                 <div class="col-md-12 pl-0 mt-30">
                     <div class="row no-gutters" id="productsPageItemsList"></div>
                 </div>
             </div>
         </div>
-
     </div>
-    @@include('partials/socials.html')
+
     @@include('partials/footer.html')
 </div>
 </body>
