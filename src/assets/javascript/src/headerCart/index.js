@@ -27,7 +27,7 @@ const quantityCartHeader = () => {
 const cartSum = () => {
     let cartTotalSumHeader = $('#cartTotalSumHeader');
     let itemPrice = document.querySelectorAll('.itemPrice');
-    let currency = getCurrencyCurrency();
+    let currency = getCurrentCurrency();
 
     let totalSum = 0;
 

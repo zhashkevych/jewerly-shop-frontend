@@ -16,7 +16,6 @@ const translationsControl = () => {
     $('#tabShipping').html(translations[currentLanguage].productTabs.shipping);
     $('#tabMaterial').html(translations[currentLanguage].productTabs.material);
     $('#productPageCode').html(translations[currentLanguage].productFields.productPageCode);
-    $('#productPageCode').html(translations[currentLanguage].productFields.productPageCode);
     $('#addProductToCart').html(translations[currentLanguage].productFields.addToCart);
     $('#quantityLabel').html(translations[currentLanguage].productFields.quantity);
 

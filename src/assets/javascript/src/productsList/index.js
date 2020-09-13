@@ -34,7 +34,7 @@ const renderProductsList = (response, title) => {
         renderEmptyList();
     } else {
         renderTotalItemsText(response.total, response.data.length);
-        renderItems(response.data, getCurrencyCurrency());
+        renderItems(response.data, getCurrentCurrency());
     }
 };
 
