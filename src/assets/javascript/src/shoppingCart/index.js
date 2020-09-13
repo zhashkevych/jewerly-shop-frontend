@@ -21,7 +21,7 @@ class ShoppingCartController {
     renderProducts() {
         this.clearProductsList();
 
-        let items = this.getProductsFromLocalStorage();
+        let items = this.getShoppingCartItems();
         if (items.products.length === 0) {
             this.renderEmptyCardText()
             this.setCartSum();
@@ -46,8 +46,7 @@ class ShoppingCartController {
         <span class="item-name">${product.title}</span>
         <span class="item-price itemPrice">${product.price}</span>
         <label class="d-flex">
-            <p id="quantityLabel">Quantity:</p>
-            <input width="50" type="number" id="productQuantity" style="width: 40px;" value="${quantity}" name="quantity" min="1">
+            <p id="quantityLabel">Quantity: ${quantity}</p>
         </label>
         <span class="selected_item-id d-none">${product.id}</span>
         
@@ -84,7 +83,7 @@ class ShoppingCartController {
     calculateCartSum() {
         let totalSum = 0;
 
-        let items = this.getProductsFromLocalStorage()
+        let items = this.getShoppingCartItems()
         items.products.forEach(item => {
             totalSum += item.product.price * item.quantity
         });
@@ -111,18 +110,18 @@ class ShoppingCartController {
     }
 
     appendProduct(product, quantity) {
-        let items = this.getProductsFromLocalStorage()
+        let items = this.getShoppingCartItems()
 
         items.products.push({
             product: product,
             quantity: quantity,
         });
 
-        this.setProductInLocalStorage(items);
+        this.setShoppingCartItems(items);
     }
 
     removeProduct(productId) {
-        let items = this.getProductsFromLocalStorage()
+        let items = this.getShoppingCartItems()
 
         // find by id index of product to remove
         var index = items.products.findIndex(function (obj) {
@@ -132,7 +131,7 @@ class ShoppingCartController {
         // remove product from array
         if (index !== -1) items.products.splice(index, 1);
 
-        this.setProductInLocalStorage(items);
+        this.setShoppingCartItems(items);
     }
 
     addCartPulseAnimation() {
@@ -143,7 +142,7 @@ class ShoppingCartController {
         document.querySelector('.fa-shopping-cart.cart-icon').classList.remove('pulse-drop');
     }
 
-    getProductsFromLocalStorage() {
+    getShoppingCartItems() {
         let productItems = localStorage.getItem('shoppingCartProducts')
         let items = {};
 
@@ -158,7 +157,7 @@ class ShoppingCartController {
         return items
     }
 
-    setProductInLocalStorage(items) {
+    setShoppingCartItems(items) {
         localStorage.setItem('shoppingCartProducts', JSON.stringify(items))
     }
 }

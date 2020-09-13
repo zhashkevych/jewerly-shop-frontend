@@ -1,6 +1,6 @@
 const checkoutPage = () => {
     let formWrapper = document.querySelector('.checkout-form');
-    let orderItems = shoppingCartController.getProductsFromLocalStorage()
+    let orderItems = shoppingCartController.getShoppingCartItems()
 
     if (orderItems.length === 0) {
         formWrapper.innerHTML = 'At first you need add some products to the cart'

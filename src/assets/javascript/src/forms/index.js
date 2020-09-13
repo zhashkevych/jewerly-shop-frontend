@@ -110,10 +110,6 @@ const checkoutPageAction = () => {
         checkoutPageSubmit.onclick = () => {
             if ($('#gender').val() === '') {
                 let data = {
-                    items: [{
-                        product_id: parseInt(localStorage.getItem('itemId')),
-                        quantity: parseInt(localStorage.getItem('itemQuantity')),
-                    }],
                     first_name: document.getElementById('checkout_fname').value,
                     last_name: document.getElementById('checkout_lname').value,
                     additional_name: document.getElementById('checkout_additional_name').value,
@@ -122,8 +118,16 @@ const checkoutPageAction = () => {
                     country: document.getElementById('checkout_country').value,
                     address: document.getElementById('checkout_address').value,
                     postal_code: document.getElementById('checkout_postal_code').value,
+                    items: [],
                 };
 
+                let items = shoppingCartController.getShoppingCartItems()
+                items.products.forEach(item => {
+                     data.items.push({
+                        product_id: item.product.id,
+                        quantity: item.quantity,
+                    })
+                })
 
                 $.ajax({
                     type: 'POST',
