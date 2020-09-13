@@ -22,10 +22,9 @@ class ShoppingCartController {
         this.clearProductsList();
 
         let items = this.getProductsFromLocalStorage();
-
         if (items.products.length === 0) {
-            // render empty
             this.renderEmptyCardText()
+            this.setCartSum();
             return
         }
 
