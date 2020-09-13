@@ -1,261 +1,344 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <!--settings start-->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/main.min.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/main.min.css" />
     <!--settings end-->
     <title>Admin Panel</title>
-</head>
-<body>
-
-<div class="container admin-page">
-    <div class="container">
-        <div style="cursor: pointer; border: 1px solid black; background: white;
-padding: 5px 10px; width: 200px; margin: 40px auto 0 auto;" class="text-center">
+  </head>
+  <body>
+    <section class="adminpanel">
+      <!-- Adminpanel Header -->
+      <div class="adminpanel__header">
+        <div class="adminpanel__nav-wrap">
+          <h1 class="adminpanel__header-title">Admin Panel</h1>
+          <nav class="adminpanel__nav">
+            <ul class="nav nav-pills flex-row" id="myTab" role="tablist">
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  id="products-tab"
+                  data-toggle="tab"
+                  href="#products"
+                  role="tab"
+                  aria-controls="Product"
+                  aria-selected="true"
+                  >Products</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  id="orders-tab"
+                  data-toggle="tab"
+                  href="#orders"
+                  role="tab"
+                  aria-controls="Orders"
+                  aria-selected="false"
+                  >Orders</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  id="productsADD-tab"
+                  data-toggle="tab"
+                  href="#productsADD"
+                  role="tab"
+                  aria-controls="ProductADD"
+                  aria-selected="true"
+                  >Apend products</a
+                >
+              </li>
+              <!--                    <li class="nav-item">-->
+              <!--                        <a class="nav-link" id="main_page-tab" data-toggle="tab" href="#main_page" role="tab"-->
+              <!--                           aria-controls="main_page" aria-selected="false">Main page</a>-->
+              <!--                    </li>-->
+            </ul>
+          </nav>
+          <div class="adminpanel__header-link">
             <a href="/main-page.html" target="_blank">Go to the main page</a>
+          </div>
         </div>
-        <h1 class="mt-20 mb-20">Admin Panel</h1>
-        <hr>
-        <div class="row">
-            <div class="col-md-2 mb-3">
-                <ul class="nav nav-pills flex-column" id="myTab" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active" id="products-tab" data-toggle="tab" href="#products" role="tab"
-                           aria-controls="Product" aria-selected="true">Products</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="orders-tab" data-toggle="tab" href="#orders" role="tab"
-                           aria-controls="Orders" aria-selected="false">Orders</a>
-                    </li>
-<!--                    <li class="nav-item">-->
-<!--                        <a class="nav-link" id="main_page-tab" data-toggle="tab" href="#main_page" role="tab"-->
-<!--                           aria-controls="main_page" aria-selected="false">Main page</a>-->
-<!--                    </li>-->
-                </ul>
-            </div>
-            <div class="col-md-10">
-                <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active" id="products" role="tabpanel" aria-labelledby="products-tab">
-                        <div class="article-level-4">
-                            <p>Products</p>
-                            <a href="/products-page.html" target="_blank" style="font-size: 16px;">Link for products page</a>
-                        </div>
-                        <hr>
-                        <div class="panel_id_products">
-                            <div class="" id="addNewProduct">
-                                <div id="toggleAddInputs">Add new product</div>
+      </div>
+      <!-- Tab Product  -->
+      <div class="adminpanel__wrap">
+        <div class="container">
+          <!-- Wrap tab content -->
+          <div class="tab-content" id="myTabContent">
+            <!-- Content Products -->
+            <div
+              class="tab-pane fade show active"
+              id="products"
+              role="tabpanel"
+              aria-labelledby="products-tab"
+            >
+              <div class="adminpanel__product-header">
+                <p class="adminpanel__product-title">List of all products</p>
+                <p class="adminpanel__product-counter" id="totalItems"></p>
+                <a
+                  class="adminpanel__product-link"
+                  href="/products-page.html"
+                  target="_blank"
+                  >Link for products page</a
+                >
+              </div>
 
-                                <span id="myBtn"></span>
-                                <div id="myModal" class="modal">
-                                    <div class="modal-content">
-                                        <span class="close">&times;</span>
-                                        <div id="editFormInputs">
-                                            <h2 id="editFormTitle"></h2>
-                                            <input type="text" id="editItemTitle_en" placeholder="editItemTitle_en">
-                                            <input type="text" id="editItemTitle_ru" placeholder="editItemTitle_ru">
-                                            <input type="text" id="editItemTitle_ua" placeholder="editItemTitle_ua">
-                                            <input type="text" id="editItemDescr_en" placeholder="editItemDescr_en">
-                                            <input type="text" id="editItemDescr_ru" placeholder="editItemDescr_ru">
-                                            <input type="text" id="editItemDescr_ua" placeholder="editItemDescr_ua">
-                                            <input type="text" id="editItemMater_en" placeholder="editItemMater_en">
-                                            <input type="text" id="editItemMater_ru" placeholder="editItemMater_ru">
-                                            <input type="text" id="editItemMater_ua" placeholder="editItemMater_ua">
-                                            <input type="number" id="editItemCurrPrice" placeholder="editItemCurrPrice">
-                                            <input type="number" id="editItemPrevPrice" placeholder="editItemPrevPrice">
-                                            <input type="text" id="editItemCode" placeholder="editItemCode">
-                                            <label>
-                                                <select id="editItemCategory" name="category_id">
-                                                    <option value="1">Rings</option>
-                                                    <option value="2">Bracelets</option>
-                                                    <option value="3">Pedants</option>
-                                                    <option value="4">Earrings</option>
-                                                    <option value="5">Necklaces</option>
-                                                    <option value="6">Sets</option>
-                                                </select>
-                                            </label>
-                                            <label for="editAvailability">
-                                                Stock:
-                                            </label>
-                                            <input type="checkbox" name="acceptRules" class="inline checkbox"
-                                                   id="editAvailability" value="false">
-                                            <input type="submit" id="editProduct" value="editProductSUBMIT">
-                                            <div id="idOfEditingProduct"></div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="add-new-items-table mt-30 d-none">
-                                    <div class="row no-gutters">
-                                        <div class="col-md-12">
-                                            <div class="row no-gutters">
-                                                <div class="col-md-4">
-                                                    <label>
-                                                        Title for EN
-                                                        <input id="addItemTitle_en" name="" type="text"
-                                                               placeholder="">
-                                                    </label>
-                                                    <label>
-                                                        Title for RU
-                                                        <input id="addItemTitle_ru" name="" type="text"
-                                                               placeholder="">
-                                                    </label>
-                                                    <label>
-                                                        Title for UA
-                                                        <input id="addItemTitle_ua" name="" type="text"
-                                                               placeholder="">
-                                                    </label>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <label>
-                                                        Description for EN
-                                                        <input id="addItemDescr_en" name="" type="text"
-                                                               placeholder="">
-                                                    </label>
-                                                    <label>
-                                                        Description for RU
-                                                        <input id="addItemDescr_ru" name="" type="text"
-                                                               placeholder="">
-                                                    </label>
-                                                    <label>
-                                                        Description for UA
-                                                        <input id="addItemDescr_ua" name="" type="text"
-                                                               placeholder="">
-                                                    </label>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <label>
-                                                        Material for EN
-                                                        <input id="addItemMater_en" name="" type="text"
-                                                               placeholder="">
-                                                    </label>
-                                                    <label>
-                                                        Material for RU
-                                                        <input id="addItemMater_ru" name="" type="text"
-                                                               placeholder="">
-                                                    </label>
-                                                    <label>
-                                                        Material for UA
-                                                        <input id="addItemMater_ua" name="" type="text"
-                                                               placeholder="">
-                                                    </label>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <label>
-                                                        Price USD
-                                                        <input id="addItemCurrPriceUsd" name="price_usd" type="text"
-                                                               placeholder="">
-                                                    </label>
-                                                    <label>
-                                                        Price EUR
-                                                        <input id="addItemCurrPriceEur" name="price_eur" type="text"
-                                                               placeholder="">
-                                                    </label>
-                                                    <label>
-                                                        Price UAH
-                                                        <input id="addItemCurrPriceUah" name="price_uah" type="text"
-                                                               placeholder="">
-                                                    </label>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <label>
-                                                        Product code
-                                                        <input id="addItemCode" name="code" type="text"
-                                                               placeholder="">
-                                                    </label>
-                                                    <label>
-                                                        Add image
-                                                        <input type="file" id="addItemImg"
-                                                               name="uploadImg" required
-                                                               accept="image/*">
-                                                    </label>
-                                                    <label>
-                                                        Category
-                                                        <select id="addItemCategory" name="category_id">
-                                                            <option value="1">Rings</option>
-                                                            <option value="2">Bracelets</option>
-                                                            <option value="3">Pedants</option>
-                                                            <option value="4">Earrings</option>
-                                                            <option value="5">Necklaces</option>
-                                                            <option value="6">Sets</option>
-                                                        </select>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <h3 class="add_product mt-50">Submit</h3>
-                                </div>
-                            </div>
-                            <hr>
-                            <p class="article-level-3">List of all products</p>
-                            <p id="totalItems" class="mb-20"></p>
-                            <hr>
-                            <div class="row" id="allItems">
-                                <div class="col-md-12">
-                                    <div class="row no-gutters">
-                                        <div class="col-md-1"><p>ID</p></div>
-                                        <div class="col-md-2"><p>Title</p></div>
-                                        <div class="col-md-1"><p>Price</p></div>
-                                        <div class="col-md-3"><p>Description</p></div>
-                                        <div class="col-md-1 mr-2"><p>Material</p></div>
-                                        <div class="col-md-1"><p>Code</p></div>
-                                        <div class="col-md-1"><p>Stock</p></div>
-                                        <div class="col-md-1"><p>Category</p></div>
-                                    </div>
-                                    <hr>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="orders" role="tabpanel" aria-labelledby="orders-tab">
-                        <div class="article-level-4">Orders</div>
-                        <hr>
-                        <div class="panel_id_orders">
-                            <p id="amountOfOrders">Total of orders: </p>
-                            <div class="row" id="listOfAllOrders">
-                                <div class="col-md-12">
-                                    <div class="row no-gutters">
-                                        <div class="col-md-1"><p>ID</p></div>
-                                        <div class="col-md-3"><p>First name</p></div>
-                                        <div class="col-md-3"><p>Last name</p></div>
-                                        <div class="col-md-4"><p>Email</p></div>
-                                        <div class="col-md-1"><p>Total cost</p></div>
-                                    </div>
-                                    <hr>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="main_page" role="tabpanel" aria-labelledby="main_page-tab">
-                        <div class="article-level-4">
-                            <p>Main page</p>
-                            <a href="/main-page.html" target="_blank" style="font-size: 16px;">Link</a></div>
-                        <hr>
-                        <div class="panel_id_main_page">
-                            <p>Edit main page</p>
-                        </div>
-                    </div>
+              <!-- Wrap for tablet products-->
+              <div class="adminpanel__table" id="allItems">
+                <div class="adminpanel__table-title">
+                  <div><p>ID</p></div>
+                  <div><p>Title</p></div>
+                  <div><p>Price</p></div>
+                  <div><p>Description</p></div>
+                  <div><p>Material</p></div>
+                  <div><p>Code</p></div>
+                  <div><p>Stock</p></div>
+                  <div><p>Category</p></div>
                 </div>
+              </div>
             </div>
+
+            <!-- Content Orders -->
+            <div
+              class="tab-pane fade"
+              id="orders"
+              role="tabpanel"
+              aria-labelledby="orders-tab"
+            >
+            <div class="adminpanel__product-header">
+              <p class="adminpanel__product-title" >Oders:</p>
+                <p id="amountOfOrders">Total of orders:</p>
+              </div>
+                <div class="adminpanel__table" id="listOfAllOrders">
+                    <div class="adminpanel__table-title">
+                      <div><p>ID</p></div>
+                      <div><p>First name</p></div>
+                      <div><p>Last name</p></div>
+                      <div><p>Email</p></div>
+                      <div><p>Total cost</p></div>
+                    </div>
+                  </div>
+               
+              </div>
+            </div>
+            <!-- Content ADD NEW Products -->
+            <div
+              class="tab-pane fade"
+              id="productsADD"
+              role="tabpanel"
+              aria-labelledby="productsADD-tab"
+            >
+              <div class="adminpanel__wrap">
+                <div class="adminpanel__apend">
+                  <div class="row no-gutters">
+                    <div class="col-md-12">
+                      <div class="row no-gutters">
+                        <div class="col-md-4">
+                          <label>
+                            Title for EN
+                            <input
+                              id="addItemTitle_en"
+                              name=""
+                              type="text"
+                              placeholder=""
+                            />
+                          </label>
+                          <label>
+                            Title for RU
+                            <input
+                              id="addItemTitle_ru"
+                              name=""
+                              type="text"
+                              placeholder=""
+                            />
+                          </label>
+                          <label>
+                            Title for UA
+                            <input
+                              id="addItemTitle_ua"
+                              name=""
+                              type="text"
+                              placeholder=""
+                            />
+                          </label>
+                        </div>
+                        <div class="col-md-4">
+                          <label>
+                            Description for EN
+                            <input
+                              id="addItemDescr_en"
+                              name=""
+                              type="text"
+                              placeholder=""
+                            />
+                          </label>
+                          <label>
+                            Description for RU
+                            <input
+                              id="addItemDescr_ru"
+                              name=""
+                              type="text"
+                              placeholder=""
+                            />
+                          </label>
+                          <label>
+                            Description for UA
+                            <input
+                              id="addItemDescr_ua"
+                              name=""
+                              type="text"
+                              placeholder=""
+                            />
+                          </label>
+                        </div>
+                        <div class="col-md-4">
+                          <label>
+                            Material for EN
+                            <input
+                              id="addItemMater_en"
+                              name=""
+                              type="text"
+                              placeholder=""
+                            />
+                          </label>
+                          <label>
+                            Material for RU
+                            <input
+                              id="addItemMater_ru"
+                              name=""
+                              type="text"
+                              placeholder=""
+                            />
+                          </label>
+                          <label>
+                            Material for UA
+                            <input
+                              id="addItemMater_ua"
+                              name=""
+                              type="text"
+                              placeholder=""
+                            />
+                          </label>
+                        </div>
+                        <div class="col-md-4">
+                          <label>
+                            Price USD
+                            <input
+                              id="addItemCurrPriceUsd"
+                              name="price_usd"
+                              type="text"
+                              placeholder=""
+                            />
+                          </label>
+                          <label>
+                            Price EUR
+                            <input
+                              id="addItemCurrPriceEur"
+                              name="price_eur"
+                              type="text"
+                              placeholder=""
+                            />
+                          </label>
+                          <label>
+                            Price UAH
+                            <input
+                              id="addItemCurrPriceUah"
+                              name="price_uah"
+                              type="text"
+                              placeholder=""
+                            />
+                          </label>
+                        </div>
+                        <div class="col-md-4">
+                          <label>
+                            Product code
+                            <input
+                              id="addItemCode"
+                              name="code"
+                              type="text"
+                              placeholder=""
+                            />
+                          </label>
+                          <label>
+                            Add image
+                            <input
+                              type="file"
+                              id="addItemImg"
+                              name="uploadImg"
+                              required
+                              accept="image/*"
+                            />
+                          </label>
+                          <label>
+                            Category
+                            <select id="addItemCategory" name="category_id">
+                              <option value="1">Rings</option>
+                              <option value="2">Bracelets</option>
+                              <option value="3">Pedants</option>
+                              <option value="4">Earrings</option>
+                              <option value="5">Necklaces</option>
+                              <option value="6">Sets</option>
+                            </select>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <h3 class="add_product mt-50">Submit</h3>
+                </div>
+              </div>
+            </div>
+            <!-- Content Main page -->
+            <div
+              class="tab-pane fade"
+              id="main_page"
+              role="tabpanel"
+              aria-labelledby="main_page-tab"
+            >
+              <div class="article-level-4">
+                <p>Main page</p>
+                <a
+                  href="/main-page.html"
+                  target="_blank"
+                  style="font-size: 16px"
+                  >Link</a
+                >
+              </div>
+              <hr />
+              <div class="panel_id_main_page">
+                <p>Edit main page</p>
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
-</div>
-</body>
+      </div>
+    </section>
+  </body>
 
-<!--settings start-->
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"
-        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
-        integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
-        crossorigin="anonymous"></script>
-<script src="https://jacoblett.github.io/bootstrap4-latest/bootstrap-4-latest.min.js"></script>
-<script src="js/main.min.js"></script>
-<!--settings end-->
-
+  <!--settings start-->
+  <script
+    src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+    crossorigin="anonymous"
+  ></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
+    integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
+    crossorigin="anonymous"
+  ></script>
+  <script src="https://jacoblett.github.io/bootstrap4-latest/bootstrap-4-latest.min.js"></script>
+  <script src="js/main.min.js"></script>
+  <!--settings end-->
 </html>
