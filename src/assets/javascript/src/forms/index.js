@@ -1,10 +1,10 @@
 $('#reg_submit').on('click', function () {
     if ($('#gender').val() === '') {
         let data = {
-            email: $('#reg_email').val(),
-            first_name: $('#reg_f_name').val(),
-            last_name: $('#reg_l_name').val(),
-            password: $('#reg_pass').val()
+            email: document.getElementById('reg_email').value,
+            first_name: document.getElementById('reg_f_name').value,
+            last_name: document.getElementById('reg_l_name').value,
+            password: document.getElementById('reg_pass').value
         };
 
         const url = 'http://164.90.218.246:8000/auth';
@@ -30,6 +30,7 @@ $('#reg_submit').on('click', function () {
                 });
             },
             success: function (response) {
+
                 if (response.success) {
                     setCookie('logged_in', 'true', 0.5);
                 }
@@ -113,14 +114,14 @@ const checkoutPageAction = () => {
                         product_id: parseInt(localStorage.getItem('itemId')),
                         quantity: parseInt(localStorage.getItem('itemQuantity')),
                     }],
-                    first_name: $('#checkout_fname').val(),
-                    last_name: $('#checkout_lname').val(),
-                    additional_name: $('#checkout_additional_name').val(),
-                    email: $('#checkout_email').val(),
-                    phone: $('#checkout_phone').val(),
-                    country: $('#checkout_country').val(),
-                    address: $('#checkout_address').val(),
-                    postal_code: $('#checkout_postal_code').val(),
+                    first_name: document.getElementById('checkout_fname').value,
+                    last_name: document.getElementById('checkout_lname').value,
+                    additional_name: document.getElementById('checkout_additional_name').value,
+                    email: document.getElementById('checkout_email').value,
+                    phone: document.getElementById('checkout_phone').value,
+                    country: document.getElementById('checkout_country').value,
+                    address: document.getElementById('checkout_address').value,
+                    postal_code: document.getElementById('checkout_postal_code').value,
                 };
 
 
@@ -151,7 +152,6 @@ const checkoutPageAction = () => {
             }
         }
     }
-
 
 };
 

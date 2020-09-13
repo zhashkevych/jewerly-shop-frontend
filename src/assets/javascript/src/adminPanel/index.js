@@ -7,7 +7,8 @@ const adminPanel = () => {
             for (let i = 0; i < response.data.length; i++) {
                 console.log('products response')
                 console.log(response)
-                let catsObject = {
+                
+                let categoriesList = {
                     1: 'Rings',
                     2: 'Bracelets',
                     3: 'Pendants',
@@ -18,29 +19,29 @@ const adminPanel = () => {
 
                 let allItems = document.createElement('div');
                 allItems.className = `col-md-12 item_id_${response.data[i].id}`;
-                allItems.innerHTML = `<div class="row no-gutters">
-<div class="item-actions">
-    <div class="edit" data-id="${response.data[i].id}" id="editItem"></div>
-    <button type="button" class="close remove" data-id="${response.data[i].id}" id="removeItem" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>
-<div class="col-md-1" id="idOfProduct"><p>${response.data[i].id}</p></div>
-<div class="col-md-2"><p>${response.data[i].title}</p></div>
-<div class="col-md-1"><p>${response.data[i].price}</p></div>
-<div class="col-md-3"><p>${response.data[i].description}</p></div>
-<div class="col-md-1 mr-2"><p>${response.data[i].material}</p></div>
-<div class="col-md-1"><p>${response.data[i].code}</p></div>
-<div class="col-md-1"><p>${response.data[i].in_stock}</p></div>
-<div class="col-md-1" id="categoryId"><p> ${catsObject[response.data[i].category_id]}</p></div>
-</div>
-<hr> 
-`;
+                allItems.innerHTML = `
+                <div class="row no-gutters">
+                    <div class="item-actions">
+                        <div class="edit" data-id="${response.data[i].id}" id="editItem"></div>
+                        <button type="button" class="close remove" data-id="${response.data[i].id}" id="removeItem" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                
+                    <div class="col-md-1" id="idOfProduct"><p>${response.data[i].id}</p></div>
+                    <div class="col-md-2"><p>${response.data[i].title}</p></div>
+                    <div class="col-md-1"><p>${response.data[i].price}</p></div>
+                    <div class="col-md-3"><p>${response.data[i].description}</p></div>
+                    <div class="col-md-1 mr-2"><p>${response.data[i].material}</p></div>
+                    <div class="col-md-1"><p>${response.data[i].code}</p></div>
+                    <div class="col-md-1"><p>${response.data[i].in_stock}</p></div>
+                    <div class="col-md-1" id="categoryId"><p> ${categoriesList[response.data[i].category_id]}</p></div>
+                    </div>
+                    <hr>`;
 
                 document.querySelector('#allItems').appendChild(allItems);
 
             }
-
 
             const removeProductNew = () => {
                 let allRemoveItems = document.querySelectorAll('#removeItem');
@@ -96,10 +97,7 @@ const adminPanel = () => {
                         let editingItemId = parseInt(allEditItems[i].getAttribute('data-id'));
 
                         $('#myBtn').trigger('click');
-                        document.getElementById('editFormTitle').innerHTML = `
-<p class="mt-20">
-    Editing item with ID: ${editingItemId}
-</p>`;
+                        document.getElementById('editFormTitle').innerHTML = `<p class="mt-20">Editing item with ID: ${editingItemId}</p>`;
 
                         $("#editAvailability").on('change', function () {
                             if ($(this).is(':checked')) {
@@ -160,7 +158,7 @@ const adminPanel = () => {
                                         }
                                     },
                                     success: function () {
-                                        alert('ok');
+                                        console.log('ok');
                                     }
                                 }
                             )
@@ -334,15 +332,13 @@ const adminPanel = () => {
                             <p>Card mask: ${response.data[i].transactions[j].card_mask}</p>
                             <p>Status: ${response.data[i].transactions[j].status}</p>
                             <p>Created at: ${response.data[i].transactions[j].created_at}</p>
-                            <hr>
-                        `
+                            <hr>`;
 
                             for (let k = 0; k < document.querySelectorAll('#allInfoAboutOrder').length; k++) {
                                 document.querySelectorAll('#allInfoAboutOrder')[k].appendChild(moreTransactionInfo)
                             }
                         }
                     }
-
 
                     const allUsersOrderedItems = () => {
                         for (let p = 0; p < response.data[i].items.length; p++) {
@@ -351,8 +347,8 @@ const adminPanel = () => {
                             listOfAllOrderedItems.innerHTML = `
                             <div class="article-level-4">Ordered Items</div>
                             <p>Product id: ${response.data[i].items[p].product_id}</p>
-                            <p>Quantity: ${response.data[i].items[p].quantity}</p>
-                        `
+                            <p>Quantity: ${response.data[i].items[p].quantity}</p>`;
+
                             for (let q = 0; q < document.querySelectorAll('#allInfoAboutOrder').length; q++) {
                                 document.querySelectorAll('#allInfoAboutOrder')[q].appendChild(listOfAllOrderedItems)
                             }
@@ -377,7 +373,7 @@ if (window.location.pathname === '/admin-panel.html' && getCookie('auth_token') 
 }
 
 if (window.location.pathname === '/admin-panel.html' && getCookie('auth_token') === null) {
-    document.getElementsByTagName('body')[0].innerHTML = '<div><p class="text-center">You are not logged</p></div>';
+    document.getElementsByTagName('body')[0].innerHTML = '<div><p class="text-center">You are not logged and you will be redirected on admin login page</p></div>';
     setTimeout(function () {
         window.location.href = '/admin.html'
     }, 2000)
