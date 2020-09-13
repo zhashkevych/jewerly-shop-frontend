@@ -1,21 +1,22 @@
 const loadProduct = () => {
     let urlParams = new URLSearchParams(window.location.search);
     let productId = urlParams.get('product_id');
-    // let language = urlParams.get('language');
+
     let currency = getCurrencyQueryParameter();
     let language = getLanguageQueryParameter();
 
-    productsController.getProductById(productId, language, currency).then(product => renderProduct(product));
+    productsController.getProductById(productId, language, currency).then(product => {
+        renderProduct(product);
+        initProductToCardHandler(product);
+    });
 };
 
 const renderProduct = (product) => {
-    setCookie('imgValue', product.images[0].url, 0.5);
-
     document.getElementById('productId').innerHTML = product.id;
     document.getElementById('product_description').innerHTML = product.description;
     document.getElementById('product_material').innerHTML = product.material;
 
-    let currency = getCurrencyCurrency()
+    let currency = getCurrentCurrency()
     document.getElementById('productPagePrice').innerHTML = `<span style="margin-right: 5px;" class="currentCurrencyValPrice">${currency}</span>` + product.price;
 
     document.getElementById('productPageCode').innerHTML += product.code;
@@ -31,49 +32,27 @@ const renderProduct = (product) => {
     }
 };
 
-const initProductToCardHandler = () => {
+const initProductToCardHandler = (product) => {
     let addToCartButton = document.getElementById('addProductToCart');
 
     addToCartButton.onclick = () => {
+        let quantity = parseInt(document.querySelector('#productQuantity').value);
+        console.log(quantity);
+        shoppingCartController.addProductToCart(product, quantity);
+
         animateButton(addToCartButton);
-        createShoppingCartListElement();
-        // $("#addProductToCart").attr("disabled", true);
-
-        localStorage.setItem('itemId', parseInt(document.getElementById('productId').innerHTML));
-        localStorage.setItem('itemQuantity', parseInt(document.querySelector('#productQuantity').value));
-
-        localStorage.setItem('testCart', document.querySelector('.container_cart').innerHTML);
-
-        quantityCartHeader();
-        cartSum();
     };
 };
 
 const animateButton = (button) => {
     button.classList.add('active');
-    document.querySelector('.fa-shopping-cart.cart-icon').classList.add('pulse-drop');
+    shoppingCartController.addCartPulseAnimation();
 
     setTimeout(function () {
         button.classList.remove('active');
-        document.querySelector('.fa-shopping-cart.cart-icon').classList.remove('pulse-drop');
+        shoppingCartController.removeCartPulseAnimation();
     }, 600);
 };
-
-const createShoppingCartListElement = () => {
-    let addedProduct = document.createElement('li');
-    addedProduct.className = 'clearfix';
-    addedProduct.innerHTML = `
-        <div class="img" style="background: url(${getCookie('imgValue')}) center center no-repeat; background-size: contain;"></div>
-        <span class="item-name">${document.querySelector('#productPageTitle').innerHTML}</span>
-        <span class="item-price itemPrice">${document.querySelector('#productPagePrice').innerHTML}</span>
-        <label class="d-flex">
-            <p id="quantityLabel">Quantity:</p>
-            <input width="50" type="number" id="productQuantity" style="width: 40px;" value="${document.getElementById('productQuantity').value}" name="quantity" min="1">
-        </label>
-        <span class="selected_item-id d-none">${document.getElementById('productId').innerHTML}</span>`;
-
-    document.querySelector('#shoppingCartContainer').appendChild(addedProduct);
-}
 
 const productPageTabs = () => {
     (function () {
@@ -140,6 +119,6 @@ const productPageTabs = () => {
 
 if (window.location.pathname === '/product-page.html') {
     loadProduct();
-    initProductToCardHandler();
+    // initProductToCardHandler();
     productPageTabs();
 }

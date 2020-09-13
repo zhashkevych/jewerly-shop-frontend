@@ -20,7 +20,7 @@ const initCurrencySelector = (values) => {
     });
 
     // set current currency option selected
-    currentCurrency = getCurrencyCurrency()
+    currentCurrency = getCurrentCurrency()
     $("#currencySelector").val(currentCurrency).change();
 };
 
@@ -32,7 +32,7 @@ const initCurrencySelectorHandler = () => {
     });
 };
 
-const getCurrencyCurrency = () => {
+const getCurrentCurrency = () => {
     if (getCookie(currencyCookieName) === null) {
         setCookie(currencyCookieName, defaultCurrency);
         return defaultCurrency
@@ -42,7 +42,7 @@ const getCurrencyCurrency = () => {
 }
 
 const getCurrencyQueryParameter = () => {
-    return currenciesURLParams[getCurrencyCurrency()]
+    return currenciesURLParams[getCurrentCurrency()]
 }
 
 if (window.location.pathname !== '/admin.html' && window.location.pathname !== '/admin-panel.html') {
