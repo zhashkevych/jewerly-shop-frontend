@@ -18,4 +18,4 @@ class ProductsController {
     }
 }
 
-var productsController = new ProductsController('http://164.90.218.246:8001')
+var productsController = new ProductsController(API_HOST)
