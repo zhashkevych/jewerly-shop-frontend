@@ -37,19 +37,10 @@ const initProductToCardHandler = () => {
     addToCartButton.onclick = () => {
         animateButton(addToCartButton);
         createShoppingCartListElement();
+        // $("#addProductToCart").attr("disabled", true);
 
-
-        let testCartObject = {
-            title: document.querySelector('#productPageTitle').textContent,
-            quantity: document.getElementById('productQuantity').value,
-            price: document.querySelector('.itemPrice').childNodes[1].data
-        };
-
-        localStorage.setItem('testObject', JSON.stringify(testCartObject));
-
-        let productId = document.getElementById('productId').innerHTML;
-        localStorage.setItem('itemId', parseInt(productId));
-        localStorage.setItem('itemQuantity', parseInt(document.querySelector('.item-quantity').textContent));
+        localStorage.setItem('itemId', parseInt(document.getElementById('productId').innerHTML));
+        localStorage.setItem('itemQuantity', parseInt(document.querySelector('#productQuantity').value));
 
         localStorage.setItem('testCart', document.querySelector('.container_cart').innerHTML);
 
@@ -74,8 +65,11 @@ const createShoppingCartListElement = () => {
     addedProduct.innerHTML = `
         <div class="img" style="background: url(${getCookie('imgValue')}) center center no-repeat; background-size: contain;"></div>
         <span class="item-name">${document.querySelector('#productPageTitle').innerHTML}</span>
-        <span class="item-price itemPrice">${document.querySelector('#productPagePrice').innerHTML}</span> <span class="oc-text-gray">Quantity: </span>
-        <span class="item-quantity">${document.getElementById('productQuantity').value}</span>
+        <span class="item-price itemPrice">${document.querySelector('#productPagePrice').innerHTML}</span>
+        <label class="d-flex">
+            <p id="quantityLabel">Quantity:</p>
+            <input width="50" type="number" id="productQuantity" style="width: 40px;" value="${document.getElementById('productQuantity').value}" name="quantity" min="1">
+        </label>
         <span class="selected_item-id d-none">${document.getElementById('productId').innerHTML}</span>`;
 
     document.querySelector('#shoppingCartContainer').appendChild(addedProduct);
