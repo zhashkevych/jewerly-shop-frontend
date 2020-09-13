@@ -14,4 +14,4 @@
 @@include('adminPanel/index.js');
 @@include('adminLogin/index.js');
 
-shoppingCartController.renderCart();
+shoppingCartController.initCart();

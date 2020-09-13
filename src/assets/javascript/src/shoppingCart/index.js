@@ -13,7 +13,7 @@ class ShoppingCartController {
         this.renderProducts();
     };
 
-    renderCart() {
+    initCart() {
         this.renderProducts();
         this.renderCartMinimalOrder();
     }
@@ -50,7 +50,12 @@ class ShoppingCartController {
             <p id="quantityLabel">Quantity:</p>
             <input width="50" type="number" id="productQuantity" style="width: 40px;" value="${quantity}" name="quantity" min="1">
         </label>
-        <span class="selected_item-id d-none">${product.id}</span>`;
+        <span class="selected_item-id d-none">${product.id}</span>
+        
+        <button type="button" onclick="shoppingCartController.removeProductFromCart(${product.id})" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        `;
 
         document.querySelector('#shoppingCartContainer').appendChild(addedProduct);
     }
