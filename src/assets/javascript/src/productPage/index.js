@@ -27,6 +27,8 @@ const renderProduct = (product) => {
         document.getElementById('itemAvailable').classList.add('true')
         document.getElementById('itemAvailable').textContent = translations[currentLanguage].productFields.availabilityTrue;
     } else {
+        document.getElementById('addProductToCart').disabled = true;
+        document.getElementById('addProductToCart').classList.add('not_active');
         document.getElementById('itemAvailable').classList.add('false');
         document.getElementById('itemAvailable').textContent = translations[currentLanguage].productFields.availabilityFalse;
     }

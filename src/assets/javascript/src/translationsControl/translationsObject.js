@@ -21,7 +21,7 @@ const translations = {
           amountOfItemsFirstString: 'Showing',
           amountOfItemsSecondString: 'of',
           amountOfItemsProducts: 'items',
-          pagination: '',
+          pagination: 'Page',
         },
         productTabs: {
             description: 'Product description',
