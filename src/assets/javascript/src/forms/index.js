@@ -7,11 +7,11 @@ $('#reg_submit').on('click', function () {
             password: document.getElementById('reg_pass').value
         };
 
-        const url = 'http://164.90.218.246:8000/auth';
+        // const url = 'http://164.90.218.246:8000/auth';
 
         $.ajax({
             type: 'POST',
-            url: `${url}` + '/sign-up',
+            url: `${API_HOST}/sign-up`,
             data: JSON.stringify(data),
             dataType: "json",
             beforeSend: function () {
@@ -59,11 +59,11 @@ $('#login_submit').on('click', function () {
             password: $('#login_pass').val()
         };
 
-        const url = 'http://164.90.218.246:8000/auth';
+        // const url = 'http://164.90.218.246:8000/auth';
 
         $.ajax({
             type: 'POST',
-            url: `${url}` + '/sign-in',
+            url: `${API_HOST}/sign-in`,
             data: JSON.stringify(data),
             dataType: "json",
             beforeSend: function () {
@@ -103,7 +103,7 @@ $('#login_submit').on('click', function () {
 });
 
 const checkoutPageAction = () => {
-    const url = 'http://164.90.218.246:8001';
+    const url = API_HOST;
     let checkoutPageSubmit = document.getElementById('checkoutPageSubmit');
 
     if (checkoutPageSubmit) {

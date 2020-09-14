@@ -1,13 +1,11 @@
 const adminPanel = () => {
     $.ajax({
         type: "GET",
-        url: 'http://164.90.218.246:8001/api/products',
+        url: `${API_HOST}/api/products`,
         success: function (response) {
             $('#totalItems').html('Total products: ' + response.total);
             for (let i = 0; i < response.data.length; i++) {
-                console.log('products response')
-                console.log(response)
-                
+
                 let categoriesList = {
                     1: 'Rings',
                     2: 'Bracelets',
@@ -60,7 +58,7 @@ const adminPanel = () => {
                             if (result) {
                                 $.ajax({
                                         type: "DELETE",
-                                        url: `http://164.90.218.246:8001/admin/products/${delItemId}`,
+                                        url: `${API_HOST}/admin/products/${delItemId}`,
                                         headers: {'Authorization': `Bearer ${getCookie('auth_token')}`},
                                         success: function () {
                                             swal(
@@ -141,7 +139,7 @@ const adminPanel = () => {
 
                             $.ajax({
                                     type: "PUT",
-                                    url: `http://164.90.218.246:8001/admin/products/${editingProductId}`,
+                                    url: `${API_HOST}/admin/products/${editingProductId}`,
                                     data: JSON.stringify(editItemObj),
                                     dataType: "json",
                                     headers: {'Authorization': `Bearer ${getCookie('auth_token')}`},
@@ -189,7 +187,7 @@ const adminPanel = () => {
             formData.append("image", blobFile);
 
             $.ajax({
-                url: "http://164.90.218.246:8001/admin/upload",
+                url: `${API_HOST}/admin/upload`,
                 type: "POST",
                 headers: {'Authorization': `Bearer ${getCookie('auth_token')}`},
                 data: formData,
@@ -226,7 +224,7 @@ const adminPanel = () => {
 
                     $.ajax({
                         type: "POST",
-                        url: 'http://164.90.218.246:8001/admin/products',
+                        url: `${API_HOST}/admin/products`,
                         data: JSON.stringify(addProductData),
                         dataType: "json",
                         headers: {'Authorization': `Bearer ${getCookie('auth_token')}`},
@@ -284,8 +282,7 @@ const adminPanel = () => {
     const getAllOrders = () => {
         $.ajax({
             type: "GET",
-            url: 'http://164.90.218.246:8001/admin/orders',
-            // url: 'http://164.90.218.246:8001/admin/orders?limit=20&offset=20',
+            url: `${API_HOST}/admin/orders`,
             headers: {'Authorization': `Bearer ${getCookie('auth_token')}`},
             success: function (response) {
                 document.getElementById('amountOfOrders').innerText += response.total;

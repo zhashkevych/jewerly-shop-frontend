@@ -108,7 +108,8 @@ const renderPageButton = (pageNumber, wrapper, categoryId) => {
 
     addItems.className = 'mr-15 pagination_item';
     addItems.setAttribute('href', `http://${window.location.host}/products-page.html?category=${categoryId}&page=${pageNumber}`);
-    addItems.innerHTML = `${translations[currentLanguage].productsPage.pagination}  ${pageNumber}`;
+    addItems.innerHTML = `${pageNumber}`;
+    // addItems.innerHTML = `${translations[currentLanguage].productsPage.pagination}  ${pageNumber}`;
 
     wrapper.appendChild(addItems);
 }
