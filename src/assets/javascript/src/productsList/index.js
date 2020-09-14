@@ -102,7 +102,7 @@ const renderPageButton = (pageNumber, wrapper) => {
     let addItems = document.createElement('a');
 
     addItems.className = 'mr-15';
-    addItems.setAttribute('href', `http://localhost:3000/products-page.html?category=0&page=${pageNumber}`);
+    addItems.setAttribute('href', `${window.location.host}/products-page.html?category=0&page=${pageNumber}`);
     addItems.innerHTML = `Page ${pageNumber}`;
 
     wrapper.appendChild(addItems);
