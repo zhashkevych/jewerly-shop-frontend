@@ -44,15 +44,15 @@
             <div class="shopping-cart-header">
                 <i class="fa fa-shopping-cart cart-icon"></i><span class="badge" id="cartQuantityContainer">0</span>
                 <div class="shopping-cart-total">
-                    <span class="lighter-text">Total:</span>
+                    <span class="lighter-text" id="cartTotal"></span>
                     <span class="main-color-text" id="cartTotalSumHeader"></span>
                 </div>
             </div>
 
             <ul class="shopping-cart-items" id="shoppingCartContainer"></ul>
-            <p class="article-level-4 empty_cart fz-16 text-center">Your cart is empty. Buy something ;-)</p>
-            <a href="/checkout-page.html" class="button">Checkout</a>
-            <p class="oc-text-gray minimal-order">Minimal order for 400$</p>
+            <div class="empty-list"></div>
+            <a href="/checkout-page.html" class="button" id="cartCheckout"></a>
+            <p class="oc-text-gray minimal-order"></p>
         </div>
     </div>
     <div class="row no-gutters header_lower_content">

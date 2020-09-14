@@ -3,10 +3,10 @@ class ProductsController {
         this.host = host
     }
 
-    getAllProducts(categoryId, language, currency) {
+    getAllProducts(categoryId, language, currency, limit, offset) {
         return $.ajax({
             type: "GET",
-            url: `${this.host}/api/products?category=${categoryId}&language=${language}&currency=${currency}`
+            url: `${this.host}/api/products?category=${categoryId}&language=${language}&currency=${currency}&limit=${limit}&offset=${offset}`
         });
     }
 
@@ -18,4 +18,4 @@ class ProductsController {
     }
 }
 
-var productsController = new ProductsController('http://164.90.218.246:8001')
+var productsController = new ProductsController(API_HOST)

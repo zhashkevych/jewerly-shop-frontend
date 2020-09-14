@@ -15,7 +15,13 @@ const loginToPanel = () => {
                 window.location.href = '/admin-panel.html'
             },
             error: function (data) {
-                alert('ERROR')
+                swal({
+                    title: "Error",
+                    text: 'Login or password is not correct',
+                    icon: "error",
+                    closeOnClickOutside: true,
+                    closeOnEsc: true,
+                });
             }
         });
     };

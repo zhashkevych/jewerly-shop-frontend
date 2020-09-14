@@ -265,7 +265,8 @@
     margin: 20px 0;
     float: right;
     background: white;
-    width: 320px;
+    width: 300px;
+    //width: 320px;
     position: relative;
     border-radius: 3px;
     padding: 20px;
@@ -292,6 +293,7 @@
         margin-bottom: 18px;
       }
 
+
       div.img {
         float: left;
         margin-right: 12px;
@@ -310,11 +312,20 @@
         margin-right: 8px;
       }
 
-      .item-quantity {
-        color: $light-text;
+      .oc-text-gray {
         font-size: 14px;
       }
 
+      .btn_remove_item {
+        border: 0;
+        position: absolute;
+        right: 25%;
+        background: white;
+
+        span {
+          background: white;
+        }
+      }
 
     }
 

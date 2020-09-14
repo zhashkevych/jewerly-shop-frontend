@@ -5,36 +5,47 @@ const productsList = () => {
     let language = getLanguageQueryParameter();
     let categoryTitle = getCategoryTitle(categoryId);
 
-    productsController.getAllProducts(categoryId, language, currency).then(products => renderProductsList(products, categoryTitle));
+    let limit = 10;
+    let page = urlParams.get('page');
+    if (page == null) {
+        page = 1
+    }
+
+    let offset = (page - 1) * limit;
+
+    productsController.getAllProducts(categoryId, language, currency, limit, offset).then(products => {
+        renderProductsList(products, categoryTitle);
+        renderPagination(products.total, limit, categoryId)
+    });
 };
 
 const getCategoryTitle = (categoryId) => {
     switch (categoryId) {
         case '1':
-            return $('#ringsCategory').html();
+            return document.getElementById('ringsCategory').textContent;
         case '2':
-            return $('#braceletsCategory').html();
+            return document.getElementById('braceletsCategory').textContent;
         case '3':
-            return $('#pedantsCategory').html();
+            return document.getElementById('pedantsCategory').textContent;
         case '4':
-            return $('#earringsCategory').html();
+            return document.getElementById('earringsCategory').textContent;
         case '5':
-            return $('#chokersNecklacesCategory').html();
+            return document.getElementById('chokersNecklacesCategory').textContent;
         case '6':
-            return $('#setsCategory').html();
+            return document.getElementById('setsCategory').textContent;
         default:
-            return $('#categoryAllItems').html();
+            return document.getElementById('categoryAllItems').textContent;
     }
 };
 
-const renderProductsList = (response, title) => {
+const renderProductsList = (response, title, limit) => {
     renderCategoryTitle(title);
 
     if (response.data === null) {
         renderEmptyList();
     } else {
         renderTotalItemsText(response.total, response.data.length);
-        renderItems(response.data, getCurrencyCurrency());
+        renderItems(response.data, getCurrentCurrency());
     }
 };
 
@@ -78,10 +89,29 @@ const renderCategoryTitle = (title) => {
 
 const renderTotalItemsText = (totalItems, itemsCount) => {
     let itemsCountElement = document.createElement('div');
-    itemsCountElement.innerHTML = `Showing ${itemsCount} of ${totalItems} items`;
+    itemsCountElement.innerHTML = `${translations[currentLanguage].productsPage.amountOfItemsFirstString} ${itemsCount} ${translations[currentLanguage].productsPage.amountOfItemsSecondString} ${totalItems} ${translations[currentLanguage].productsPage.amountOfItemsProducts}`;
     document.querySelector('#itemsCount').appendChild(itemsCountElement);
 };
 
+const renderPagination = (totalItems, limit, categoryId) => {
+    let paginationWrapper = document.getElementById('pagination');
+    let amountOfItems = Math.ceil(totalItems / limit);
+
+    for (let i = 1; i <= amountOfItems; i++) {
+        renderPageButton(i, paginationWrapper, categoryId);
+    }
+}
+
+const renderPageButton = (pageNumber, wrapper, categoryId) => {
+    console.log(categoryId)
+    let addItems = document.createElement('a');
+
+    addItems.className = 'mr-15 pagination_item';
+    addItems.setAttribute('href', `http://${window.location.host}/products-page.html?category=${categoryId}&page=${pageNumber}`);
+    addItems.innerHTML = `${translations[currentLanguage].productsPage.pagination}  ${pageNumber}`;
+
+    wrapper.appendChild(addItems);
+}
 
 if (window.location.pathname === '/products-page.html') {
     productsList();

@@ -57,8 +57,9 @@
           transform: scale(1.1);
         }
 
-        &[disabled="disabled"] {
+        &.not_active {
           background-color: #999999;
+          cursor: auto;
         }
       }
 

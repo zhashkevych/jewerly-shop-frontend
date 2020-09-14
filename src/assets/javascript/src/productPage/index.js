@@ -1,21 +1,22 @@
 const loadProduct = () => {
     let urlParams = new URLSearchParams(window.location.search);
     let productId = urlParams.get('product_id');
-    // let language = urlParams.get('language');
+
     let currency = getCurrencyQueryParameter();
     let language = getLanguageQueryParameter();
 
-    productsController.getProductById(productId, language, currency).then(product => renderProduct(product));
+    productsController.getProductById(productId, language, currency).then(product => {
+        renderProduct(product);
+        initProductToCardHandler(product);
+    });
 };
 
 const renderProduct = (product) => {
-    setCookie('imgValue', product.images[0].url, 0.5);
-
     document.getElementById('productId').innerHTML = product.id;
     document.getElementById('product_description').innerHTML = product.description;
     document.getElementById('product_material').innerHTML = product.material;
 
-    let currency = getCurrencyCurrency()
+    let currency = getCurrentCurrency()
     document.getElementById('productPagePrice').innerHTML = `<span style="margin-right: 5px;" class="currentCurrencyValPrice">${currency}</span>` + product.price;
 
     document.getElementById('productPageCode').innerHTML += product.code;
@@ -26,60 +27,33 @@ const renderProduct = (product) => {
         document.getElementById('itemAvailable').classList.add('true')
         document.getElementById('itemAvailable').textContent = translations[currentLanguage].productFields.availabilityTrue;
     } else {
+        document.getElementById('addProductToCart').disabled = true;
+        document.getElementById('addProductToCart').classList.add('not_active');
         document.getElementById('itemAvailable').classList.add('false');
         document.getElementById('itemAvailable').textContent = translations[currentLanguage].productFields.availabilityFalse;
     }
 };
 
-const initProductToCardHandler = () => {
+const initProductToCardHandler = (product) => {
     let addToCartButton = document.getElementById('addProductToCart');
 
     addToCartButton.onclick = () => {
+        let quantity = parseInt(document.querySelector('#productQuantity').value);
+        shoppingCartController.addProductToCart(product, quantity);
+
         animateButton(addToCartButton);
-        createShoppingCartListElement();
-
-
-        let testCartObject = {
-            title: document.querySelector('#productPageTitle').textContent,
-            quantity: document.getElementById('productQuantity').value,
-            price: document.querySelector('.itemPrice').childNodes[1].data
-        };
-
-        localStorage.setItem('testObject', JSON.stringify(testCartObject));
-
-        let productId = document.getElementById('productId').innerHTML;
-        localStorage.setItem('itemId', parseInt(productId));
-        localStorage.setItem('itemQuantity', parseInt(document.querySelector('.item-quantity').textContent));
-
-        localStorage.setItem('testCart', document.querySelector('.container_cart').innerHTML);
-
-        quantityCartHeader();
-        cartSum();
     };
 };
 
 const animateButton = (button) => {
     button.classList.add('active');
-    document.querySelector('.fa-shopping-cart.cart-icon').classList.add('pulse-drop');
+    shoppingCartController.addCartPulseAnimation();
 
     setTimeout(function () {
         button.classList.remove('active');
-        document.querySelector('.fa-shopping-cart.cart-icon').classList.remove('pulse-drop');
+        shoppingCartController.removeCartPulseAnimation();
     }, 600);
 };
-
-const createShoppingCartListElement = () => {
-    let addedProduct = document.createElement('li');
-    addedProduct.className = 'clearfix';
-    addedProduct.innerHTML = `
-        <div class="img" style="background: url(${getCookie('imgValue')}) center center no-repeat; background-size: contain;"></div>
-        <span class="item-name">${document.querySelector('#productPageTitle').innerHTML}</span>
-        <span class="item-price itemPrice">${document.querySelector('#productPagePrice').innerHTML}</span> <span class="oc-text-gray">Quantity: </span>
-        <span class="item-quantity">${document.getElementById('productQuantity').value}</span>
-        <span class="selected_item-id d-none">${document.getElementById('productId').innerHTML}</span>`;
-
-    document.querySelector('#shoppingCartContainer').appendChild(addedProduct);
-}
 
 const productPageTabs = () => {
     (function () {
@@ -146,6 +120,6 @@ const productPageTabs = () => {
 
 if (window.location.pathname === '/product-page.html') {
     loadProduct();
-    initProductToCardHandler();
+    // initProductToCardHandler();
     productPageTabs();
 }
