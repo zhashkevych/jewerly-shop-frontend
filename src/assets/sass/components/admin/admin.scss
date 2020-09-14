@@ -1,22 +1,39 @@
-.admin_login {
+.admin {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
+  height: 100vh;
+  &__title {
+    font-size: 40px;
+    margin-bottom: 40px;
+  }
+  &_submit {
+    margin-top: 20px;
+    cursor: pointer;
+    border: 1px solid #cecece;
+    background: #f6f6f6;
+    box-shadow: inset 0px 20px 20px #ffffff;
+    border-radius: 8px;
+    padding: 8px 14px;
+    width: 150px;
+    text-align: center;
+  }
+  &-wrap {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 
-.admin_inputs_wrapper {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-
-  input {
-    margin-bottom: 20px;
-    border: 1px solid black;
-    padding: 5px 10px;
-    font-size: 15px;
-    min-width: 260px;
+    input {
+      width: 300px;
+      font-size: 13px;
+      padding: 6px 0 4px 10px;
+      margin: 5px 0;
+      border: 1px solid #cecece;
+      background: #f6f6f6;
+      border-radius: 8px;
+    }
   }
 }
 
@@ -46,62 +63,8 @@
       opacity: 0;
     }
   }
-
   .nav-pills-custom .nav-link.active::before {
     opacity: 1;
-  }
-}
-
-.admin-page {
-  .no-gutters {
-    display: flex;
-    align-items: center;
-    min-height: 50px;
-  }
-
-  .add-new-items-table {
-    display: flex;
-    flex-direction: column;
-
-    label {
-      display: flex;
-      flex-direction: column;
-      margin: 7px 10px;
-
-      #addItemImg {
-        font-size: 13px;
-      }
-
-      input,
-      select {
-        padding: 5px 10px;
-        margin-top: 10px;
-        border: 1px solid black;
-      }
-    }
-  }
-
-  #toggleAddInputs {
-    border: 1px solid black;
-    background: cornflowerblue;
-    color: white;
-    font-size: 18px;
-    text-align: center;
-    padding: 7px 15px;
-    width: 250px;
-    margin: 0 0 0 auto;
-    cursor: pointer;
-  }
-
-  .add_product {
-    border: 1px solid black;
-    background: white;
-    font-size: 18px;
-    text-align: center;
-    padding: 10px 20px;
-    width: 250px;
-    margin: 50px auto 0 auto;
-    cursor: pointer;
   }
 }
 
@@ -163,21 +126,13 @@
       margin: 40px auto 0 auto;
     }
   }
-  &__apend {
-    background-color: #fefefe;
-    margin: 50px auto 0;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 100;
-  }
 
   &__product-header {
     display: flex;
     align-items: center;
     height: 50px;
     justify-content: space-around;
-    margin-top: 30px;
-    margin-bottom: 25px;
+    margin: 20px;
   }
   &__product-title {
     font-size: 30px;
@@ -197,6 +152,7 @@
     box-shadow: 0 0 4px 1px rgba(0, 0, 255, 0.1);
     border-radius: 5px;
     display: flex;
+    margin-bottom: 50px;
     flex-direction: column;
     background: white;
     font-size: 14px;
@@ -243,6 +199,23 @@
           max-width: 8.33333%;
         }
       }
+      &-order {
+        background: #f7f9f8;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 10px;
+        padding: 10px 5px;
+        font-size: 16px;
+        div {
+          flex: 0 0 25%;
+          max-width: 25%;
+          &:first-child {
+            flex: 0 0 8.33333%;
+            max-width: 8.33333%;
+          }
+        }
+      }
     }
 
     &-item {
@@ -253,7 +226,6 @@
       position: relative;
       display: flex;
       align-items: center;
-
       div {
         &:nth-child(1) {
           flex: 0 0 8.33333%;
@@ -288,10 +260,123 @@
           max-width: 8.33333%;
         }
       }
-
       &:last-child {
         border-bottom: 0;
       }
+      &-order {
+        max-height: 70px;
+        width: 100%;
+        padding: 10px 0 25px 10px;
+        border-bottom: 1px solid rgba(51, 51, 51, 0.13);
+        display: flex;
+        align-items: center;
+
+        div {
+          flex: 0 0 25%;
+          max-width: 25%;
+
+          &:first-child {
+            flex: 0 0 8.33333%;
+            max-width: 8.33333%;
+          }
+        }
+        &:last-child {
+          border-bottom: 0;
+        }
+      }
+    }
+  }
+
+  &__apend {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 4px 1px rgba(0, 0, 255, 0.1);
+    margin: 50px auto 20px;
+    padding: 20px;
+    border: 1px solid transparent;
+    width: 100;
+
+    &-item {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      margin: 0 20px;
+    }
+    &-img {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      label {
+        margin: 10px 0;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+    &_img {
+      font-size: 13px;
+      padding: 6px 0 4px 10px;
+      margin: 5px 0;
+      border: 1px solid #cecece;
+      background: #f6f6f6;
+      border-radius: 8px;
+    }
+    &-description {
+      margin: 10px 20px;
+    }
+    &-info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      margin-top: 20px;
+    }
+    &-namedis {
+      display: block;
+      text-align: center;
+      margin-bottom: 5px;
+    }
+    &-input {
+      width: 300px;
+      font-size: 13px;
+      padding: 6px 0 4px 10px;
+      margin: 5px 0;
+      border: 1px solid #cecece;
+      background: #f6f6f6;
+      border-radius: 8px;
+    }
+    &-textarea {
+      overflow: auto;
+      resize: none;
+      width: 300px;
+      height: 100px;
+      background: #f6f6f6;
+      border: 1px solid #cecece;
+      border-radius: 8px;
+      padding: 8px 0 8px 10px;
+    }
+    &-submit {
+      margin: 0 auto;
+      cursor: pointer;
+      border: 1px solid #cecece;
+      background: #f6f6f6;
+      box-shadow: inset 0px 20px 20px #ffffff;
+      border-radius: 8px;
+      padding: 8px 14px;
+      width: 150px;
+      text-align: center;
+      &:hover {
+        box-shadow: inset 0px -20px 20px #ffffff;
+      }
+    }
+
+    &-select {
+      width: 100px;
+      font-size: 13px;
+      padding: 6px 0 4px 10px;
+      margin: 10px 0;
+      border: 1px solid #cecece;
+      background: #f6f6f6;
+      border-radius: 8px;
     }
   }
 }

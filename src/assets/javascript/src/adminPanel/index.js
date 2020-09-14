@@ -303,7 +303,7 @@ const adminPanel = () => {
         for (let i = 0; i < response.data.length; i++) {
           let allOrders = document.createElement("div");
 
-          allOrders.className = `adminpanel__table-item order_id_${response.data[i].id}`;
+          allOrders.className = `adminpanel__table-item-order order_id_${response.data[i].id}`;
           allOrders.innerHTML = `
 
     <div id="idOfOrder"><p>${response.data[i].id}</p></div>

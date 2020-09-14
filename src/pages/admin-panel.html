@@ -56,14 +56,10 @@
                   href="#productsADD"
                   role="tab"
                   aria-controls="ProductADD"
-                  aria-selected="true"
-                  >Apend products</a
+                  aria-selected="false"
+                  >Add products</a
                 >
               </li>
-              <!--                    <li class="nav-item">-->
-              <!--                        <a class="nav-link" id="main_page-tab" data-toggle="tab" href="#main_page" role="tab"-->
-              <!--                           aria-controls="main_page" aria-selected="false">Main page</a>-->
-              <!--                    </li>-->
             </ul>
           </nav>
           <div class="adminpanel__header-link">
@@ -93,8 +89,6 @@
                   >Link for products page</a
                 >
               </div>
-
-              <!-- Wrap for tablet products-->
               <div class="adminpanel__table" id="allItems">
                 <div class="adminpanel__table-title">
                   <div><p>ID</p></div>
@@ -108,7 +102,6 @@
                 </div>
               </div>
             </div>
-
             <!-- Content Orders -->
             <div
               class="tab-pane fade"
@@ -121,7 +114,7 @@
                 <p id="amountOfOrders">Total of orders:</p>
               </div>
                 <div class="adminpanel__table" id="listOfAllOrders">
-                    <div class="adminpanel__table-title">
+                    <div class="adminpanel__table-title-order">
                       <div><p>ID</p></div>
                       <div><p>First name</p></div>
                       <div><p>Last name</p></div>
@@ -131,9 +124,8 @@
                   </div>
                
               </div>
-            </div>
             <!-- Content ADD NEW Products -->
-            <div
+              <div
               class="tab-pane fade"
               id="productsADD"
               role="tabpanel"
@@ -141,71 +133,22 @@
             >
               <div class="adminpanel__wrap">
                 <div class="adminpanel__apend">
-                  <div class="row no-gutters">
-                    <div class="col-md-12">
-                      <div class="row no-gutters">
-                        <div class="col-md-4">
+                      
+                        <div class="adminpanel__apend-item">
+                          <div class="adminpanel__apend-info">
                           <label>
-                            Title for EN
+                            <span class="adminpanel__apend-name">Title for EN</span>               
                             <input
+                            class="adminpanel__apend-input"
                               id="addItemTitle_en"
                               name=""
                               type="text"
                               placeholder=""
                             />
-                          </label>
+                          </label>                      
                           <label>
-                            Title for RU
-                            <input
-                              id="addItemTitle_ru"
-                              name=""
-                              type="text"
-                              placeholder=""
-                            />
-                          </label>
-                          <label>
-                            Title for UA
-                            <input
-                              id="addItemTitle_ua"
-                              name=""
-                              type="text"
-                              placeholder=""
-                            />
-                          </label>
-                        </div>
-                        <div class="col-md-4">
-                          <label>
-                            Description for EN
-                            <input
-                              id="addItemDescr_en"
-                              name=""
-                              type="text"
-                              placeholder=""
-                            />
-                          </label>
-                          <label>
-                            Description for RU
-                            <input
-                              id="addItemDescr_ru"
-                              name=""
-                              type="text"
-                              placeholder=""
-                            />
-                          </label>
-                          <label>
-                            Description for UA
-                            <input
-                              id="addItemDescr_ua"
-                              name=""
-                              type="text"
-                              placeholder=""
-                            />
-                          </label>
-                        </div>
-                        <div class="col-md-4">
-                          <label>
-                            Material for EN
-                            <input
+                            <span class="adminpanel__apend-name">Material for EN</span>               
+                            <input class="adminpanel__apend-input"
                               id="addItemMater_en"
                               name=""
                               type="text"
@@ -213,37 +156,42 @@
                             />
                           </label>
                           <label>
-                            Material for RU
-                            <input
-                              id="addItemMater_ru"
-                              name=""
-                              type="text"
-                              placeholder=""
-                            />
-                          </label>
-                          <label>
-                            Material for UA
-                            <input
-                              id="addItemMater_ua"
-                              name=""
-                              type="text"
-                              placeholder=""
-                            />
-                          </label>
-                        </div>
-                        <div class="col-md-4">
-                          <label>
-                            Price USD
-                            <input
+                            <span class="adminpanel__apend-name">Price USD</span>
+                            <input class="adminpanel__apend-input"
                               id="addItemCurrPriceUsd"
                               name="price_usd"
                               type="text"
                               placeholder=""
                             />
                           </label>
+                          </div>
+                          <div class="adminpanel__apend-description">
                           <label>
-                            Price EUR
-                            <input
+                            <span class="adminpanel__apend-namedis">Description for EN</span>
+                            <textarea class="adminpanel__apend-textarea"
+                              id="addItemDescr_en"
+                              name=""
+                              type="text"
+                              placeholder=""
+                            ></textarea>
+                          </label>
+                          </div>
+                        </div>
+
+                        <div class="adminpanel__apend-item">
+                          <div class="adminpanel__apend-info">
+                          <label>
+                            <span class="adminpanel__apend-name">Title for RU</span>
+                            <input class="adminpanel__apend-input"
+                              id="addItemTitle_ru"
+                              name=""
+                              type="text"
+                              placeholder=""
+                            />
+                          </label>
+                          <label>
+                            <span class="adminpanel__apend-name">Price EUR</pspan>
+                            <input class="adminpanel__apend-input"
                               id="addItemCurrPriceEur"
                               name="price_eur"
                               type="text"
@@ -251,19 +199,76 @@
                             />
                           </label>
                           <label>
-                            Price UAH
-                            <input
+                            <span class="adminpanel__apend-name">Material for RU</span>
+                            <input class="adminpanel__apend-input"
+                              id="addItemMater_ru"
+                              name=""
+                              type="text"
+                              placeholder=""
+                            />
+                          </label>  
+                        </div>
+                          <div class="adminpanel__apend-description">
+                             <label>
+                              <span class="adminpanel__apend-namedis">Description for RU</span>
+                            <textarea class="adminpanel__apend-textarea"
+                              id="addItemDescr_ru"
+                              name=""
+                              type="text"
+                              placeholder=""
+                            ></textarea>
+                          </label>
+                          </div>           
+                        </div>
+
+                        <div class="adminpanel__apend-item">
+                          <div class="adminpanel__apend-info">
+                          <label>
+                            <span class="adminpanel__apend-name">Title for UA</span>
+                            <input class="adminpanel__apend-input"
+                              id="addItemTitle_ua"
+                              name=""
+                              type="text"
+                              placeholder=""
+                            />
+                          </label>                        
+                           <label>
+                            <span class="adminpanel__apend-name">Price UAH</span>
+                            <input class="adminpanel__apend-input"
                               id="addItemCurrPriceUah"
                               name="price_uah"
                               type="text"
                               placeholder=""
                             />
                           </label>
-                        </div>
-                        <div class="col-md-4">
                           <label>
-                            Product code
-                            <input
+                            <span class="adminpanel__apend-name">Material for UA</span>
+                            <input class="adminpanel__apend-input"
+                              id="addItemMater_ua"
+                              name=""
+                              type="text"
+                              placeholder=""
+                            />
+                          </label>
+                         </div>
+                          <div class="adminpanel__apend-description">
+                            
+                            <label>
+                              <span class="adminpanel__apend-namedis">Description for UA</span>
+                            <textarea class="adminpanel__apend-textarea"
+                              id="addItemDescr_ua"
+                              name=""
+                              type="text"
+                              placeholder=""
+                            ></textarea>
+                          </label>
+                          </div>
+                        </div>             
+
+                        <div class="adminpanel__apend-img">
+                          <label>
+                            <span class="adminpanel__apend-name">Product code</span>
+                            <input class="adminpanel__apend-input"
                               id="addItemCode"
                               name="code"
                               type="text"
@@ -271,8 +276,8 @@
                             />
                           </label>
                           <label>
-                            Add image
-                            <input
+                            <p class="adminpanel__apend-name">Add image</p>
+                            <input class="adminpanel__apend_img"
                               type="file"
                               id="addItemImg"
                               name="uploadImg"
@@ -281,8 +286,8 @@
                             />
                           </label>
                           <label>
-                            Category
-                            <select id="addItemCategory" name="category_id">
+                            <span class="adminpanel__apend-name">Category</span>
+                            <select class="adminpanel__apend-select" id="addItemCategory" name="category_id">
                               <option value="1">Rings</option>
                               <option value="2">Bracelets</option>
                               <option value="3">Pedants</option>
@@ -292,33 +297,15 @@
                             </select>
                           </label>
                         </div>
+
+                        <h3 class="adminpanel__apend-submit add_product ">Submit</h3>
                       </div>
                     </div>
-                  </div>
-                  <h3 class="add_product mt-50">Submit</h3>
+
+
                 </div>
               </div>
             </div>
-            <!-- Content Main page -->
-            <div
-              class="tab-pane fade"
-              id="main_page"
-              role="tabpanel"
-              aria-labelledby="main_page-tab"
-            >
-              <div class="article-level-4">
-                <p>Main page</p>
-                <a
-                  href="/main-page.html"
-                  target="_blank"
-                  style="font-size: 16px"
-                  >Link</a
-                >
-              </div>
-              <hr />
-              <div class="panel_id_main_page">
-                <p>Edit main page</p>
-              </div>
             </div>
           </div>
         </div>
