@@ -85,7 +85,7 @@ const renderTotalItemsText = (totalItems, itemsCount) => {
     document.querySelector('#itemsCount').appendChild(itemsCountElement);
 };
 
-const renderPagination = (totalItems, itemsCount) => {
+const renderPagination = (totalItems, itemsCount, offset) => {
     let paginationWrapper = document.getElementById('pagination');
     let amountOfItems = Math.ceil(totalItems / itemsCount);
     for (let i = 0; i < amountOfItems; i++) {
@@ -97,6 +97,7 @@ const renderPagination = (totalItems, itemsCount) => {
         addItems.innerHTML = `Page ${i + 1}`;
 
         paginationWrapper.appendChild(addItems);
+        offset = i + 5;
     }
 
 }
