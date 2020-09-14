@@ -10,12 +10,13 @@ const translations = {
             bracelets: 'Bracelets',
             pendants: 'Pendants',
             earrings: 'Earrings',
-            chokersNecklaces: 'Chokers / Necklaces',
+            chokersNecklaces: 'Necklaces',
             sets: 'Sets',
             noItemsInCategory: 'Now there is no items for this category'
         },
         pageTitle: {
-            products: 'Our products'
+            products: 'Our products',
+            checkout: 'Checkout'
         },
         productsPage: {
           amountOfItemsFirstString: 'Showing',
@@ -31,7 +32,7 @@ const translations = {
         productFields: {
             productPageCode: 'Code: ',
             addToCart: 'Add to cart',
-            quantity: 'Quantity: ',
+            quantity: 'Quantity',
             availabilityTrue: 'This items is in stock',
             availabilityFalse: 'This items is not in stock',
         },
@@ -40,6 +41,25 @@ const translations = {
             aboutUsPage: 'About us',
             privacyPolicyPage: 'Privacy Policy',
             copyright: 'All rights reserved.',
+        },
+        cart: {
+            empty: 'Your cart is empty',
+            total: 'Total: ',
+            quantity: 'Quantity',
+            checkout: 'Checkout',
+            minimalOrder: 'Minimal order for'
+        },
+        forms: {
+            firstName: 'First name',
+            lastName: 'Last name',
+            additionalName: 'Additional name',
+            email: 'Email',
+            phone: 'Phone',
+            country: 'Country',
+            address: 'Address',
+            postalCode: 'Postal code',
+            goToPayBtn: 'Go to the payment page',
+            checkOutEmptyCart: 'At first you need add some products to the cart'
         }
     },
     'ru': {
@@ -53,12 +73,13 @@ const translations = {
             bracelets: 'Браслеты',
             pendants: 'Подвески',
             earrings: 'Серьги',
-            chokersNecklaces: 'Чокеры / Ожерелья',
+            chokersNecklaces: 'Ожерелья',
             sets: 'Сеты',
             noItemsInCategory: 'Сейчас в этой категории нет товаров'
         },
         pageTitle: {
-            products: 'Продукты'
+            products: 'Продукты',
+            checkout: 'Страница оформления заказа'
         },
         productsPage: {
             amountOfItemsFirstString: 'Показано',
@@ -83,6 +104,26 @@ const translations = {
             aboutUsPage: 'О нас',
             privacyPolicyPage: 'Политика Конфиденциальности',
             copyright: 'Все права защищены.',
+        },
+        cart: {
+            empty: 'Ваша корзина пуста',
+            total: 'Сумма: ',
+            quantity: 'Количество',
+            checkout: 'Оформить заказ',
+            minimalOrder: 'Сумма минимального заказа: '
+        },
+        forms: {
+            firstName: 'Имя',
+            lastName: 'Фамилия',
+            additionalName: 'Отчество',
+            email: 'Електронная почта',
+            phone: 'Телефон',
+            country: 'Страна',
+            address: 'Адрес',
+            postalCode: 'Почтовый индекс',
+            goToPayBtn: 'Перейти на страницу оплаты',
+            checkOutEmptyCart: 'Для начала вам нужно добавить товарв в корзину.',
+
         }
     },
     'ua': {
@@ -101,7 +142,8 @@ const translations = {
             noItemsInCategory: 'Зараз товарів для цієї категорії немає'
         },
         pageTitle: {
-            products: 'Продукти'
+            products: 'Продукти',
+            checkout: 'Сторінка оформлення замовлення'
         },
         productsPage: {
             amountOfItemsFirstString: 'Показано',
@@ -126,6 +168,25 @@ const translations = {
             aboutUsPage: 'Про нас',
             privacyPolicyPage: 'Політика конфіденційності',
             copyright: 'Всі права захищені.',
+        },
+        cart: {
+            empty: 'Ваш кошик пустий',
+            total: 'Сума: ',
+            quantity: 'Кількість',
+            checkout: 'Оформити замовлення',
+            minimalOrder: 'Мінімальна сума замовлення: '
+        },
+        forms: {
+            firstName: "Iм'я",
+            lastName: 'Прізвище',
+            additionalName: 'По батькові',
+            email: 'Електронна пошта',
+            phone: 'Телефон',
+            country: 'Країна',
+            address: 'Адреса',
+            postalCode: 'Поштовий індекс',
+            goToPayBtn: 'Перейти на сторінку оплати',
+            checkOutEmptyCart: 'Спочатку вам потрібно додати товар у кошик'
         }
     }
 };

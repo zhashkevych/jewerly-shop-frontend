@@ -39,7 +39,6 @@ const initProductToCardHandler = (product) => {
 
     addToCartButton.onclick = () => {
         let quantity = parseInt(document.querySelector('#productQuantity').value);
-        console.log(quantity);
         shoppingCartController.addProductToCart(product, quantity);
 
         animateButton(addToCartButton);

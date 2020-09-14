@@ -16,6 +16,8 @@ class ShoppingCartController {
     initCart() {
         this.renderProducts();
         this.renderCartMinimalOrder();
+        document.getElementById('cartCheckout').textContent = translations[currentLanguage].cart.checkout;
+        document.getElementById('cartTotal').textContent = translations[currentLanguage].cart.total;
     }
 
     renderProducts() {
@@ -39,20 +41,18 @@ class ShoppingCartController {
     }
 
     renderProductItem(product, quantity) {
+        let currency = getCurrentCurrency();
         let addedProduct = document.createElement('li');
         addedProduct.className = 'clearfix';
         addedProduct.innerHTML = `
         <div class="img" style="background: url(${product.images[0].url}) center center no-repeat; background-size: contain;"></div>
         <span class="item-name">${product.title}</span>
-        <span class="item-price itemPrice">${product.price}</span>
-        <label class="d-flex">
-            <p id="quantityLabel">Quantity: ${quantity}</p>
-        </label>
-        <span class="selected_item-id d-none">${product.id}</span>
-        
-        <button type="button" onclick="shoppingCartController.removeProductFromCart(${product.id})" aria-label="Close">
+        <button class="btn_remove_item" type="button" onclick="shoppingCartController.removeProductFromCart(${product.id})" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
+        <span class="item-price">${currency} ${product.price}</span>
+        <p id="quantityLabel" class="oc-text-gray">${translations[currentLanguage].cart.quantity} : ${quantity}</p>
+        <span class="selected_item-id d-none">${product.id}</span>
         `;
 
         document.querySelector('#shoppingCartContainer').appendChild(addedProduct);
@@ -61,7 +61,7 @@ class ShoppingCartController {
     renderCartMinimalOrder() {
         let minimalOrderTextElement = document.querySelector('.minimal-order')
         let textElement = document.createElement('p')
-        textElement.innerHTML = `Minimal order for ${this.orderLimit} $`
+        textElement.innerHTML = `${translations[currentLanguage].cart.minimalOrder} ${this.orderLimit} $`
         minimalOrderTextElement.appendChild(textElement)
     }
 
@@ -94,12 +94,12 @@ class ShoppingCartController {
     renderCartSum(totalPrice) {
         let cartTotalSumHeader = $('#cartTotalSumHeader');
         let currency = getCurrentCurrency();
-        cartTotalSumHeader.html(`<span class="currentCurrencyValPrice">${currency}</span> `+`${totalPrice}`);
+        cartTotalSumHeader.html(`<span class="currentCurrencyValPrice">${currency}</span> ` + `${totalPrice}`);
     }
 
     renderEmptyCardText() {
         let emptyList = document.querySelector('.empty-list')
-        emptyList.innerHTML = `<p class="article-level-4 empty_cart fz-16 text-center">Your cart is empty. Buy something ;-)</p>`
+        emptyList.innerHTML = `<p class="article-level-4 empty_cart fz-16 text-center">${translations[currentLanguage].cart.empty}</p>`
     }
 
     clearEmptyCardText() {

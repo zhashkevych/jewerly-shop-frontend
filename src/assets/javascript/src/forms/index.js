@@ -150,6 +150,13 @@ const checkoutPageAction = () => {
                     },
                     error: function (response) {
                         console.log(response)
+                        swal({
+                            title: "Error",
+                            text: "Something went wrong. Please check all fields",
+                            icon: "error",
+                            closeOnClickOutside: true,
+                            closeOnEsc: true,
+                        })
                     }
                 });
                 localStorage.clear();

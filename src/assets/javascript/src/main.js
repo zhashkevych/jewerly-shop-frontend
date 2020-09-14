@@ -4,6 +4,7 @@
 @@include('currencyControl/index.js');
 @@include('langControl/index.js');
 @@include('cookies/index.js');
+@@include('categories/index.js');
 @@include('translationsControl/index.js');
 @@include('headerCart/index.js');
 @@include('shoppingCart/index.js');
