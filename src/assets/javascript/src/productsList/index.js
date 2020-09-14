@@ -5,7 +5,7 @@ const productsList = () => {
     let language = getLanguageQueryParameter();
     let categoryTitle = getCategoryTitle(categoryId);
 
-    let limit = 5; // need to change
+    let limit = 5;
     let page = urlParams.get('page');
     if (page == null) {
         page = 1
@@ -15,7 +15,7 @@ const productsList = () => {
 
     productsController.getAllProducts(categoryId, language, currency, limit, offset).then(products => {
         renderProductsList(products, categoryTitle);
-        renderPagination(products.total, limit)
+        renderPagination(products.total, limit, categoryId)
     });
 };
 
@@ -89,25 +89,26 @@ const renderCategoryTitle = (title) => {
 
 const renderTotalItemsText = (totalItems, itemsCount) => {
     let itemsCountElement = document.createElement('div');
-    itemsCountElement.innerHTML = `Showing ${itemsCount} of ${totalItems} items`;
+    itemsCountElement.innerHTML = `${translations[currentLanguage].productsPage.amountOfItemsFirstString} ${itemsCount} ${translations[currentLanguage].productsPage.amountOfItemsSecondString} ${totalItems} ${translations[currentLanguage].productsPage.amountOfItemsProducts}`;
     document.querySelector('#itemsCount').appendChild(itemsCountElement);
 };
 
-const renderPagination = (totalItems, limit) => {
+const renderPagination = (totalItems, limit, categoryId) => {
     let paginationWrapper = document.getElementById('pagination');
     let amountOfItems = Math.ceil(totalItems / limit);
 
     for (let i = 1; i <= amountOfItems; i++) {
-        renderPageButton(i, paginationWrapper);
+        renderPageButton(i, paginationWrapper, categoryId);
     }
 }
 
-const renderPageButton = (pageNumber, wrapper) => {
+const renderPageButton = (pageNumber, wrapper, categoryId) => {
+    console.log(categoryId)
     let addItems = document.createElement('a');
 
-    addItems.className = 'mr-15';
-    addItems.setAttribute('href', `http://${window.location.host}/products-page.html?category=0&page=${pageNumber}`);
-    addItems.innerHTML = `Page ${pageNumber}`;
+    addItems.className = 'mr-15 pagination_item';
+    addItems.setAttribute('href', `http://${window.location.host}/products-page.html?category=${categoryId}&page=${pageNumber}`);
+    addItems.innerHTML = `${translations[currentLanguage].productsPage.pagination}  ${pageNumber}`;
 
     wrapper.appendChild(addItems);
 }

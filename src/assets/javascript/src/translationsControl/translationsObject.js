@@ -17,6 +17,12 @@ const translations = {
         pageTitle: {
             products: 'Our products'
         },
+        productsPage: {
+          amountOfItemsFirstString: 'Showing',
+          amountOfItemsSecondString: 'of',
+          amountOfItemsProducts: 'items',
+          pagination: '',
+        },
         productTabs: {
             description: 'Product description',
             shipping: 'Shipping and returns',
@@ -54,6 +60,12 @@ const translations = {
         pageTitle: {
             products: 'Продукты'
         },
+        productsPage: {
+            amountOfItemsFirstString: 'Показано',
+            amountOfItemsSecondString: 'из',
+            amountOfItemsProducts: 'продуктов',
+            pagination: 'Страница',
+        },
         productTabs: {
             description: 'Описание продукта',
             shipping: 'Доставка и возврат',
@@ -90,6 +102,12 @@ const translations = {
         },
         pageTitle: {
             products: 'Продукти'
+        },
+        productsPage: {
+            amountOfItemsFirstString: 'Показано',
+            amountOfItemsSecondString: 'із',
+            amountOfItemsProducts: 'продуктів',
+            pagination: 'Сторінка',
         },
         productTabs: {
             description: 'Опис продукту',
