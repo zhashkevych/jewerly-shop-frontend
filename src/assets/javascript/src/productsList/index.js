@@ -7,6 +7,10 @@ const productsList = () => {
 
     let limit = 5; // need to change
     let page = urlParams.get('page');
+    if (page == null) {
+        page = 1
+    }
+
     let offset = (page - 1) * limit;
 
     productsController.getAllProducts(categoryId, language, currency, limit, offset).then(products => {
@@ -102,7 +106,7 @@ const renderPageButton = (pageNumber, wrapper) => {
     let addItems = document.createElement('a');
 
     addItems.className = 'mr-15';
-    addItems.setAttribute('href', `${window.location.host}/products-page.html?category=0&page=${pageNumber}`);
+    addItems.setAttribute('href', `http://${window.location.host}/products-page.html?category=0&page=${pageNumber}`);
     addItems.innerHTML = `Page ${pageNumber}`;
 
     wrapper.appendChild(addItems);
