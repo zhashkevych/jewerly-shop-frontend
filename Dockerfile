@@ -1,4 +1,6 @@
 # BUILDER
+ARG ENV
+
 FROM node:latest as build-stage
 
 RUN npm install -g gulp
