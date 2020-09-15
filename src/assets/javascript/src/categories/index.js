@@ -1,11 +1,11 @@
 const categoriesToggle = () => {
-    let category1 = document.getElementById('ringsCategory');
-    let category2 = document.getElementById('braceletsCategory');
-    let category3 = document.getElementById('pedantsCategory');
-    let category4 = document.getElementById('earringsCategory');
-    let category5 = document.getElementById('chokersNecklacesCategory');
-    let category6 = document.getElementById('setsCategory');
-    let categoryAll = document.getElementById('categoryAllItems');
+    let category1 = document.querySelector('.ringsCategory');
+    let category2 = document.querySelector('.braceletsCategory');
+    let category3 = document.querySelector('.pedantsCategory');
+    let category4 = document.querySelector('.earringsCategory');
+    let category5 = document.querySelector('.chokersNecklacesCategory');
+    let category6 = document.querySelector('.setsCategory');
+    let categoryAll = document.querySelector('.categoryAllItems');
 
     category1.onclick = () => {
         window.location.href = 'products-page.html?category=1'
