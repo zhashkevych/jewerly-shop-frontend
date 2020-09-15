@@ -50,9 +50,19 @@
     }
 
     #currencySelector {
-      border: none;
-      margin-right: 10px;
-      font-size: 14px;
+      //margin-right: 10px;
+      //font-size: 14px;
+      //-webkit-appearance: none;
+      //-moz-appearance: none;
+      //appearance: none;
+      //-moz-border-radius: 3px;
+      //-webkit-border-radius: 3px;
+      //border-radius: 3px;
+      //background-position: right center;
+      //background-color: #fafafa;
+      //color: #000000;
+      //border: 1px solid black;
+      //padding: 5px;
     }
 
     .currency_wrapper {
@@ -138,11 +148,6 @@
     .col-sm-1 {
       cursor: pointer;
       font-size: 14px;
-    }
-
-    .lang-selector {
-      font-size: 14px;
-      border: none;
     }
 
     .item {
@@ -461,3 +466,33 @@
   }
 
 }
+
+#currencySelector {
+  height: 40px;
+  margin: auto 20px auto;
+}
+
+#currencySelector,
+.lang-selector {
+  position: relative;
+  background-color: #92b7f1;
+  color: #fff;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 3px;
+  font-size: 14px;
+  text-align: center;
+  padding: 7px 15px;
+  border: 1px solid white;
+  cursor: pointer;
+}
+
+.selector_arrow {
+  position: absolute;
+  content: "";
+  background-image: url("../img/icons/svg/arrow.svg");
+  width: 10px;
+  height: 10px;
+}
+

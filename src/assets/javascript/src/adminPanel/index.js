@@ -94,7 +94,7 @@ const adminPanel = () => {
                         console.log('click')
 
                         let editingItemId = parseInt(allEditItems[i].getAttribute('data-id'));
-                        document.getElementById('editFormTitle').innerHTML = `<p class="mt-20">Editing item with ID: ${editingItemId}</p>`;
+                        document.getElementById('editFormTitle').innerHTML = `<p class="mt-20">Editing product with ID: ${editingItemId}</p>`;
 
                         $("#editAvailability").on('change', function () {
                             if ($(this).is(':checked')) {
