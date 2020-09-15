@@ -6,9 +6,8 @@ COPY package*.json ./
 RUN npm install
 
 COPY ./ .
-# WORKDIR /src/
 
-RUN gulp -f gulp.build.js
+RUN gulp -f gulp.build.js --env $ENV
 
 # NGINX
 FROM nginx as production-stage

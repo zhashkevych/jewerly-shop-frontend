@@ -32,8 +32,15 @@ let {src, dest} = require('gulp'),
     autoprefixer = require('gulp-autoprefixer'),
     clean_css = require('gulp-clean-css'),
     rename = require('gulp-rename'),
-    uglify = require('gulp-uglify-es').default;
+    uglify = require('gulp-uglify-es').default,
+    replace = require('gulp-string-replace'),
+    gutil = require('gulp-util');
 
+function replaceHost() {
+    var host = gutil.env.env === 'prod' ? 'http://silverrain-jewelry.com:8000' : 'http://silverrain-jewelry.com:8001'
+
+    return replace(new RegExp('@api_host@', 'g'), host)
+}
 
 function html() {
     return src(path.src.html)
@@ -49,6 +56,7 @@ function img() {
 
 function js() {
     return src(path.src.js)
+        .pipe(replaceHost())
         .pipe(fileinclude())
         .pipe(dest(path.build.js))
         .pipe(uglify())
