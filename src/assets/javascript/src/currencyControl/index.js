@@ -46,6 +46,7 @@ const getCurrentCurrency = () => {
     // return getCookie(currencyCookieName)
 }
 
+
 const getCurrencyQueryParameter = () => {
     return currenciesURLParams[getCurrentCurrency()]
 }
