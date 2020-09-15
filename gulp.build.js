@@ -39,6 +39,9 @@ let {src, dest} = require('gulp'),
 function replaceHost() {
     var host = gutil.env.env === 'prod' ? 'http://silverrain-jewelry.com:8000' : 'http://silverrain-jewelry.com:8001'
 
+    console.log(gutil.env.env);
+    console.log(host);
+
     return replace(new RegExp('@api_host@', 'g'), host)
 }
 
