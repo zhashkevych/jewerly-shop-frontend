@@ -135,11 +135,13 @@ class ShoppingCartController {
     }
 
     addCartPulseAnimation() {
-        document.querySelector('.fa-shopping-cart.cart-icon').classList.add('pulse-drop');
+        document.querySelector('.cart-icon').classList.add('pulse-drop');
+        document.querySelector('.header-mob-cart-trigger').classList.add('pulse-drop');
     }
 
     removeCartPulseAnimation() {
-        document.querySelector('.fa-shopping-cart.cart-icon').classList.remove('pulse-drop');
+        document.querySelector('.cart-icon').classList.remove('pulse-drop');
+        document.querySelector('.header-mob-cart-trigger').classList.remove('pulse-drop');
     }
 
     getShoppingCartItems() {

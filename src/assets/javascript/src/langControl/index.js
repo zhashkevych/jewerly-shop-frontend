@@ -20,7 +20,7 @@ const initLanguageSelector = (values) => {
     });
 
     // set current language option selected
-    currentLanguage = getLanguageLanguage()
+    currentLanguage = getCurrentLanguage()
     $("#languageSelector").val(currentLanguage).change();
 };
 
@@ -32,7 +32,7 @@ const initLanguageSelectorHandler = () => {
     });
 };
 
-const getLanguageLanguage = () => {
+const getCurrentLanguage = () => {
     if (getCookie(languageCookieName) === null) {
         setCookie(languageCookieName, defaultLanguage);
         return defaultLanguage
@@ -42,7 +42,7 @@ const getLanguageLanguage = () => {
 }
 
 const getLanguageQueryParameter = () => {
-    return languagesURLParams[getLanguageLanguage()]
+    return languagesURLParams[getCurrentLanguage()]
 }
 
 if (window.location.pathname !== '/admin.html' && window.location.pathname !== '/admin-panel.html') {

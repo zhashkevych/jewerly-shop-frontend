@@ -88,7 +88,7 @@
       font-size: 13px;
 
       &_icon {
-        background-image: url("https://assets.safira.com/static/version1595826986/frontend/Swace/safira/en_US/images/minicart-icon2.svg");
+        background-image: url("../img/icons/svg/mobile_cart.svg");
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
@@ -195,8 +195,12 @@
     margin: auto;
     width: calc(90% - 40px);
     position: absolute;
-    z-index: 1;
+    z-index: 2;
     left: 60px;
+
+    @include media('<sm') {
+      top: 40px;
+    }
   }
 
   .badge {
@@ -210,57 +214,7 @@
     text-align: center;
     vertical-align: middle;
     white-space: nowrap;
-  }
-
-  .pulse-drop {
-    animation: pulse-drop 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-  }
-
-
-  @-webkit-keyframes pulse-drop {
-    0% {
-      transform: scale(0.5);
-    }
-    25% {
-      transform: scale(1);
-    }
-
-    50% {
-      transform: scale(1.2);
-    }
-
-    75% {
-      transform: scale(1.5);
-    }
-
-    100% {
-      transform: scale(1.1);
-    }
-  }
-
-  .pulse-drop_2 {
-    animation: pulse-drop_2 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-  }
-
-  @-webkit-keyframes pulse-drop_2 {
-    0% {
-      transform: scale(0.5);
-    }
-    25% {
-      transform: scale(1);
-    }
-
-    50% {
-      transform: scale(1.2);
-    }
-
-    75% {
-      transform: scale(1.5);
-    }
-
-    100% {
-      transform: scale(1.1);
-    }
+    height: 22px;
   }
 
   .shopping-cart {
@@ -345,11 +299,24 @@
     margin-left: -8px;
   }
 
-  .cart-icon {
-    color: black;
-    font-size: 24px;
-    margin-right: 7px;
-    float: left;
+  .cart {
+    &-text {
+      display: flex;
+    }
+
+    &-icon {
+      color: black;
+      font-size: 24px;
+      margin-right: 7px;
+      float: left;
+      background-image: url("../img/icons/svg/mobile_cart.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      width: 25px;
+      height: 25px;
+    }
+
   }
 
   .button {
@@ -467,6 +434,12 @@
   margin: auto 20px auto;
 }
 
+#mob_currencyHolder {
+  #currencySelector {
+    margin: 0;
+  }
+}
+
 #currencySelector,
 .lang-selector {
   position: relative;
@@ -478,8 +451,8 @@
   border-radius: 3px;
   font-size: 14px;
   text-align: center;
-  padding: 7px 15px;
-  border: 1px solid white;
+  padding: 7px 30px 7px 15px;
+  border: 1px solid #fff;
   cursor: pointer;
 }
 
@@ -537,8 +510,49 @@
   }
 }
 
-.header-mob-sidebar-open {
-  font-size: 30px;
-  cursor: pointer;
-  margin-top: 10px;
+.header-mob-actions-holder {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .header-mob-sidebar-open {
+    display: inline;
+    font-size: 30px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+
+  .header-mob-cart-trigger {
+    display: inline;
+    background-image: url("../img/icons/svg/mobile_cart.svg");
+    width: 25px;
+    height: 25px;
+    margin-top: 10px;
+  }
+}
+
+.select-wrapper {
+  position: relative;
+  margin: auto 0;
+
+  &:after {
+    content: url("../img/icons/svg/arrow.svg");
+    width: 7px;
+    height: 7px;
+    color: black;
+    display: inline-block;
+    position: absolute;
+    right: 40px;
+    top: 10px;
+    pointer-events: none;
+    z-index: 1;
+    transform: scale(.03);
+  }
+
+  &.lang {
+    &:after {
+      right: 20px;
+      top: 6px;
+    }
+  }
 }

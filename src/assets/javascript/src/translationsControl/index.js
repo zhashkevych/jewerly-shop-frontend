@@ -2,19 +2,6 @@
 const translationsControl = () => {
     const currentLanguage = getCookie(languageCookieName);
 
-    // Mobile start
-    //
-    // $('.categoryAllItems').html(translations[currentLanguage].categories.allItems);
-    // $('.ringsCategory').html(translations[currentLanguage].categories.rings);
-    // $('.braceletsCategory').html(translations[currentLanguage].categories.bracelets);
-    // $('.pedantsCategory').html(translations[currentLanguage].categories.pendants);
-    // $('.earringsCategory').html(translations[currentLanguage].categories.earrings);
-    // $('.chokersNecklacesCategory').html(translations[currentLanguage].categories.chokersNecklaces);
-    // $('.setsCategory').html(translations[currentLanguage].categories.sets);
-
-    // Mobile end
-
-
     $('.categoryAllItems').html(translations[currentLanguage].categories.allItems);
     $('.header_notification p').html(translations[currentLanguage].headerTop.title);
     $('.login_title').html(translations[currentLanguage].headerTop.login_title);
@@ -36,6 +23,8 @@ const translationsControl = () => {
     $('#aboutUsString').html(translations[currentLanguage].footer.aboutUsPage);
     $('.privacy-policy').html(translations[currentLanguage].footer.privacyPolicyPage);
     $('#allRightsString').html(translations[currentLanguage].footer.copyright);
+    $('#mySidenav .categories .title').html(translations[currentLanguage].other.mobSidenavCategoriesTitle);
+    $('#mySidenav .login-title').html(translations[currentLanguage].headerTop.login_title);
 
 }
 
