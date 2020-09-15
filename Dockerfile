@@ -7,6 +7,9 @@ RUN npm install
 
 COPY ./ .
 
+ARG ENV
+RUN echo $ENV
+
 RUN gulp -f gulp.build.js --env $ENV
 
 # NGINX
