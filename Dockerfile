@@ -1,5 +1,6 @@
 # BUILDER
 ARG ENV
+RUN echo $ENV
 
 FROM node:latest as build-stage
 
