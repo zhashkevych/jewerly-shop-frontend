@@ -46,6 +46,7 @@
 
       &:hover {
         transition: .4s;
+
         &:after {
           display: none;
         }
@@ -66,8 +67,13 @@
   &_pages {
     position: relative;
 
+    @include media('<sm') {
+      font-size: 15px;
+    }
+
     &:hover {
       transition: .4s;
+
       &:after {
         display: none;
       }

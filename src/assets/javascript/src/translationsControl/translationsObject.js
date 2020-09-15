@@ -1,5 +1,8 @@
 const translations = {
     'en': {
+        other: {
+            mobSidenavCategoriesTitle: 'Categories'
+        },
         headerTop: {
             title: 'SilverRain Israel jewelry company since 2012. All silver products made in Italy',
             login_title: 'Login'
@@ -63,6 +66,9 @@ const translations = {
         }
     },
     'ru': {
+        other: {
+            mobSidenavCategoriesTitle: 'Категории'
+        },
         headerTop: {
             title: 'SilverRain Израильская ювелирная компания с 2012 года. Все изделия из серебра произведены в Италии.',
             login_title: 'Вход'
@@ -127,6 +133,9 @@ const translations = {
         }
     },
     'ua': {
+        other: {
+            mobSidenavCategoriesTitle: 'Категорії'
+        },
         headerTop: {
             title: 'Ювелірна компанія SilverRain Israel із 2012 року. Всі вироби зі срібла виготовлені в Італії',
             login_title: 'Вхід',

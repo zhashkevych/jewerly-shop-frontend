@@ -23,6 +23,8 @@ const translationsControl = () => {
     $('#aboutUsString').html(translations[currentLanguage].footer.aboutUsPage);
     $('.privacy-policy').html(translations[currentLanguage].footer.privacyPolicyPage);
     $('#allRightsString').html(translations[currentLanguage].footer.copyright);
+    $('#mySidenav .categories .title').html(translations[currentLanguage].other.mobSidenavCategoriesTitle);
+    $('#mySidenav .login-title').html(translations[currentLanguage].headerTop.login_title);
 
 }
 

@@ -15,8 +15,8 @@
         <p class="item chokersNecklacesCategory" id="mob_chokersNecklacesCategory">Necklaces</p>
         <p class="item setsCategory" id="mob_setsCategory">Sets</p>
         <hr>
-        <p class="item" id="mob_currencyHolder">curr (soon)</p>
-        <p class="item" id="mob_languageHolder">lng (soon)</p>
+        <div class="item" id="mob_currencyHolder"></div>
+        <div class="item" id="mob_languageHolder"></div>
         <hr>
         <div class="login_wrapper">
             <a href="/login-page.html" class="login">
@@ -25,8 +25,10 @@
         </div>
     </div>
 </div>
-
-<div id="mobOpenSidenav" class="d-sm-none header-mob-sidebar-open">&#9776;</div>
+<div class="header-mob-actions-holder d-sm-none">
+    <div id="mobOpenSidenav" class="header-mob-sidebar-open">&#9776;</div>
+    <div class="header-mob-cart-trigger"></div>
+</div>
 
 <header class="header">
     <div class="row no-gutters header_upper_content">
@@ -43,9 +45,9 @@
                     <p class="article-level-1 main_title">Silver Rain</p>
                 </div>
                 <div class="col-md-6 d-flex justify-content-end header_top_block">
-                    <!--                    <div class="custom-select currency_select" style="width: 90px;">-->
-                    <select id="currencySelector"></select>
-                    <!--                    </div>-->
+                    <div class="select-wrapper">
+                        <select id="currencySelector"></select>
+                    </div>
                     <div class="item login_wrapper">
                         <a href="/login-page.html" class="login">
                             <div class="login_icon"></div>
@@ -56,7 +58,7 @@
                         <ul class="navbar-right d-flex align-items-center">
                             <li>
                                 <a id="cart" class="color-black cart-text">
-                                    <i class="fa fa-shopping-cart cart-icon"></i>
+                                    <div class="cart-icon"></div>
                                     <span class="badge" id="cartQuantityHeader">0</span>
                                 </a>
                             </li>
@@ -69,7 +71,7 @@
     <div class="container_cart">
         <div class="shopping-cart d-none">
             <div class="shopping-cart-header">
-                <i class="fa fa-shopping-cart cart-icon"></i><span class="badge" id="cartQuantityContainer">0</span>
+                <i class="cart-icon"></i><span class="badge" id="cartQuantityContainer">0</span>
                 <div class="shopping-cart-total">
                     <span class="lighter-text" id="cartTotal"></span>
                     <span class="main-color-text" id="cartTotalSumHeader"></span>
@@ -94,9 +96,10 @@
                 <p class="col-6 col-sm-1 item setsCategory" id="setsCategory">Sets</p>
             </div>
         </div>
-        <!--        <div class="custom-select" style="width:70px;">-->
-        <select id="languageSelector" class="lang-selector"></select>
-        <span class="selector_arrow"></span>
-        <!--        </div>-->
+
+        <div class="select-wrapper lang">
+            <select id="languageSelector" class="lang-selector"></select>
+        </div>
+
     </div>
 </header>
