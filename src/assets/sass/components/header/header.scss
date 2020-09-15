@@ -13,6 +13,19 @@
         color: white;
         font-size: 13px;
       }
+
+      @include media('<sm') {
+        padding: 3px 8px;
+        p {
+          font-size: 11px;
+        }
+      }
+    }
+
+    @include media('<sm') {
+      .item_logo_title {
+        justify-content: center;
+      }
     }
 
     .main_logo {
@@ -496,3 +509,48 @@
   height: 10px;
 }
 
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: cornflowerblue;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+
+  .title {
+    color: white;
+    padding: 0 0 10px 32px;
+    font-size: 22px;
+  }
+
+  .closebtn {
+    color: white;
+    font-size: 18px;
+    position: absolute;
+    top: 30px;
+    right: 25px;
+    margin-left: 50px;
+  }
+
+  .categories {
+    .item {
+      display: block;
+      padding: 8px 8px 8px 32px !important;
+      text-decoration: none;
+      font-size: 16px;
+      color: #f1f1f1;
+      transition: 0.3s;
+    }
+  }
+}
+
+@include media('<sm') {
+  .header_top_block,
+  .header_lower_content {
+    display: none !important;
+  }
+}

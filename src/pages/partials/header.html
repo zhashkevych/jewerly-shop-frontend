@@ -3,6 +3,41 @@
 <link rel="stylesheet" href="css/main.min.css">
 <!--settings end-->
 
+<div id="mySidenav" class="sidenav d-sm-none">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <div class="categories">
+        <p class="title">Categories</p>
+        <p class="item" id="categoryAllItems">All Items</p>
+        <p class="item" id="ringsCategory">Rings</p>
+        <p class="item" id="braceletsCategory">Bracelets</p>
+        <p class="item" id="pedantsCategory">Pendants</p>
+        <p class="item" id="earringsCategory">Earrings</p>
+        <p class="item" id="chokersNecklacesCategory">Necklaces</p>
+        <p class="item" id="setsCategory">Sets</p>
+        <hr>
+        <p class="item">Change currency</p>
+        <p class="item">Change language</p>
+        <hr>
+        <div class="login_wrapper">
+            <a href="/login-page.html" class="login">
+                <p class="item">Login</p>
+            </a>
+        </div>
+    </div>
+</div>
+
+<span style="font-size:30px;cursor:pointer" onclick="openNav()" class="d-sm-none">&#9776;</span>
+
+<script>
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+    }
+</script>
+
 <header class="header">
     <div class="row no-gutters header_upper_content">
         <div class="col-md-12">
@@ -12,12 +47,12 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6 d-flex align-items-center item">
+                <div class="col-md-6 d-flex align-items-center item item_logo_title">
                     <a href="/main-page.html"
                        class="main_logo image mr-15"></a>
                     <p class="article-level-1 main_title">Silver Rain</p>
                 </div>
-                <div class="col-md-6 d-flex justify-content-end">
+                <div class="col-md-6 d-flex justify-content-end header_top_block">
                     <!--                    <div class="custom-select currency_select" style="width: 90px;">-->
                     <select id="currencySelector"></select>
                     <!--                    </div>-->
