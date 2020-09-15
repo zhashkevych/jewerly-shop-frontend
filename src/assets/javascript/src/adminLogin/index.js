@@ -4,7 +4,7 @@ const loginToPanel = () => {
     adminFormLogin.onclick = () => {
         $.ajax({
             type: "POST",
-            url: 'http://164.90.218.246:8001/auth/admin/sign-in',
+            url: `${API_HOST}/auth/admin/sign-in`,
             data: JSON.stringify({
                 "login": document.getElementById('adminLoginInput').value,
                 "password": document.getElementById('adminPassInput').value
