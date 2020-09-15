@@ -28,7 +28,6 @@ const initCurrencySelectorHandler = () => {
     $('#currencySelector').change(function () {
         let currency = $("#currencySelector option:checked").val();
         localStorage.setItem(currencyCookieName, currency)
-        // setCookie(currencyCookieName, currency);
         location.reload();
     });
 };
@@ -37,15 +36,9 @@ const getCurrentCurrency = () => {
     if (localStorage.getItem(currencyCookieName) === null) {
         localStorage.setItem(currencyCookieName, defaultCurrency)
     }
-    // if (getCookie(currencyCookieName) === null) {
-    //     setCookie(currencyCookieName, defaultCurrency);
-    //     return defaultCurrency
-    // }
 
     return localStorage.getItem(currencyCookieName)
-    // return getCookie(currencyCookieName)
 }
-
 
 const getCurrencyQueryParameter = () => {
     return currenciesURLParams[getCurrentCurrency()]
