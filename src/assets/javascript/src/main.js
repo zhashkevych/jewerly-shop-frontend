@@ -1,4 +1,5 @@
-@@include('consts/index.js');
+const API_HOST = '@api_host@';
+
 @@include('api/products.js');
 @@include('api/orders.js');
 @@include('currencyControl/index.js');

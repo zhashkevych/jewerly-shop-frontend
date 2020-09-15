@@ -1,6 +1,6 @@
 git checkout -f develop && git pull origin develop
 
-docker build --no-cache . -t jewerly-frontent:0.1
+docker build --build-arg ENV=stage --no-cache . -t jewerly-frontent:0.1
 
 if [ "$(docker ps -q -f name=jewerly-frontend-stage)" ]; then
     if [ ! "$(docker ps -aq -f status=exited -f name=jewerly-frontend-stage)" ]; then
