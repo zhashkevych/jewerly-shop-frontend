@@ -285,8 +285,11 @@
           margin-top: 30px;
           width: 100%;
           max-width: 100%;
-          /* flex: 0; */
           flex-basis: 100%;
+
+          p {
+            margin-bottom: 15px;
+          }
 
           &_title {
             font-size: 14px;
@@ -335,7 +338,7 @@
     margin: 50px auto 20px;
     padding: 20px;
     border: 1px solid transparent;
-    width: 100;
+    width: 100%;
 
     &-item {
       display: flex;
@@ -354,6 +357,15 @@
         display: flex;
         flex-direction: column;
         text-align: center;
+      }
+
+      input[type=checkbox], input[type=radio] {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        padding: 0;
+        width: 20px;
+        height: 20px;
+        margin-bottom: 20px;
       }
     }
 
@@ -459,174 +471,6 @@
   flex: 0 0 17% !important;
 }
 
-// old version
-
-
-//.admin_login {
-//  margin: 0 auto;
-//  display: flex;
-//  flex-direction: column;
-//  align-items: center;
-//  justify-content: center;
-//}
-//
-//.admin_inputs_wrapper {
-//  display: flex;
-//  justify-content: center;
-//  flex-direction: column;
-//
-//  input {
-//    margin-bottom: 20px;
-//    border: 1px solid black;
-//    padding: 5px 10px;
-//    font-size: 15px;
-//    min-width: 260px;
-//  }
-//}
-//
-//.admin_panel {
-//  .nav-pills-custom .nav-link {
-//    color: #aaa;
-//    background: #fff;
-//    position: relative;
-//  }
-//
-//  .nav-pills-custom .nav-link.active {
-//    color: #45b649;
-//    background: #fff;
-//  }
-//
-//  @media (min-width: 992px) {
-//    .nav-pills-custom .nav-link::before {
-//      content: '';
-//      display: block;
-//      border-top: 8px solid transparent;
-//      border-left: 10px solid #fff;
-//      border-bottom: 8px solid transparent;
-//      position: absolute;
-//      top: 50%;
-//      right: -10px;
-//      transform: translateY(-50%);
-//      opacity: 0;
-//    }
-//  }
-//
-//  .nav-pills-custom .nav-link.active::before {
-//    opacity: 1;
-//  }
-//}
-//
-//.admin-page {
-//  .no-gutters {
-//    display: flex;
-//    align-items: center;
-//    min-height: 50px;
-//  }
-//
-//  .add-new-items-table {
-//    display: flex;
-//    flex-direction: column;
-//
-//    label {
-//      display: flex;
-//      flex-direction: column;
-//      margin: 7px 10px;
-//
-//      #addItemImg {
-//        font-size: 13px;
-//      }
-//
-//      input,
-//      select {
-//        padding: 5px 10px;
-//        margin-top: 10px;
-//        border: 1px solid black;
-//      }
-//    }
-//  }
-//
-//  #toggleAddInputs {
-//    border: 1px solid black;
-//    background: cornflowerblue;
-//    color: white;
-//    font-size: 18px;
-//    text-align: center;
-//    padding: 7px 15px;
-//    width: 250px;
-//    margin: 0 0 0 auto;
-//    cursor: pointer;
-//  }
-//
-//  .add_product {
-//    border: 1px solid black;
-//    background: white;
-//    font-size: 18px;
-//    text-align: center;
-//    padding: 10px 20px;
-//    width: 250px;
-//    margin: 50px auto 0 auto;
-//    cursor: pointer;
-//  }
-//
-//  #allInfoAboutOrder {
-//    border: 1px solid black;
-//    margin: 15px 0;
-//    padding: 10px 10px 0;
-//
-//    p {
-//      margin-right: 20px;
-//      padding-bottom: 20px;
-//    }
-//  }
-//
-//  .panel_id_orders {
-//    p {
-//      font-size: 16px;
-//    }
-//  }
-//}
-//
-//#allItems {
-//  .col-md-12 {
-//    .item-actions {
-//      display: none;
-//    }
-//
-//    &:hover {
-//      .item-actions {
-//        display: flex;
-//        position: absolute;
-//        right: 20px;
-//        background: white;
-//        min-height: 50px;
-//        padding: 15px 20px;
-//        align-items: center;
-//        justify-content: center;
-//
-//        .edit {
-//          background-image: url("../img/icons/svg/edit.svg");
-//          background-repeat: no-repeat;
-//          background-position: center;
-//          background-size: cover;
-//          width: 15px;
-//          height: 17px;
-//          margin-right: 10px;
-//          cursor: pointer;
-//
-//          &:hover {
-//            opacity: 0.7;
-//          }
-//        }
-//
-//        .remove {
-//
-//        }
-//      }
-//    }
-//  }
-//}
-//
-///* The Modal (background) */
 .modal {
   display: block;
   position: fixed;
@@ -641,7 +485,6 @@
   background-color: rgba(0, 0, 0, 0.4);
 }
 
-/* Modal Content */
 .modal-content {
   background-color: #fefefe;
   margin: auto;
@@ -650,7 +493,6 @@
   width: 80%;
 }
 
-/* The Close Button */
 .close {
   color: #aaaaaa;
   float: right;

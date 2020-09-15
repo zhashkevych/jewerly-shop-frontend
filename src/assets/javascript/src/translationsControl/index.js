@@ -2,6 +2,19 @@
 const translationsControl = () => {
     const currentLanguage = getCookie(languageCookieName);
 
+    // Mobile start
+
+    $('#mob_categoryAllItems').html(translations[currentLanguage].categories.allItems);
+    $('#mob_ringsCategory').html(translations[currentLanguage].categories.rings);
+    $('#mob_braceletsCategory').html(translations[currentLanguage].categories.bracelets);
+    $('#mob_pedantsCategory').html(translations[currentLanguage].categories.pendants);
+    $('#mob_earringsCategory').html(translations[currentLanguage].categories.earrings);
+    $('#mob_chokersNecklacesCategory').html(translations[currentLanguage].categories.chokersNecklaces);
+    $('#mob_setsCategory').html(translations[currentLanguage].categories.sets);
+
+    // Mobile end
+
+
     $('#categoryAllItems').html(translations[currentLanguage].categories.allItems);
     $('.header_notification p').html(translations[currentLanguage].headerTop.title);
     $('.login_title').html(translations[currentLanguage].headerTop.login_title);

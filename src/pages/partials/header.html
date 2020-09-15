@@ -3,6 +3,31 @@
 <link rel="stylesheet" href="css/main.min.css">
 <!--settings end-->
 
+<div id="mySidenav" class="sidenav d-sm-none">
+    <a href="javascript:void(0)" class="closebtn" id="mobCloseSidenav">&times;</a>
+    <div class="categories">
+        <p class="title">Categories</p>
+        <p class="item" id="mob_categoryAllItems">All Items</p>
+        <p class="item" id="mob_ringsCategory">Rings</p>
+        <p class="item" id="mob_braceletsCategory">Bracelets</p>
+        <p class="item" id="mob_pedantsCategory">Pendants</p>
+        <p class="item" id="mob_earringsCategory">Earrings</p>
+        <p class="item" id="mob_chokersNecklacesCategory">Necklaces</p>
+        <p class="item" id="mob_setsCategory">Sets</p>
+        <hr>
+        <p class="item" id="mob_currencyHolder">curr</p>
+        <p class="item" id="mob_languageHolder">lng</p>
+        <hr>
+        <div class="login_wrapper">
+            <a href="/login-page.html" class="login">
+                <p class="item login-title">Login</p>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div id="mobOpenSidenav" class="d-sm-none header-mob-sidebar-open">&#9776;</div>
+
 <header class="header">
     <div class="row no-gutters header_upper_content">
         <div class="col-md-12">
@@ -12,13 +37,15 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6 d-flex align-items-center item">
+                <div class="col-md-6 d-flex align-items-center item item_logo_title">
                     <a href="/main-page.html"
                        class="main_logo image mr-15"></a>
                     <p class="article-level-1 main_title">Silver Rain</p>
                 </div>
-                <div class="col-md-6 d-flex justify-content-end">
+                <div class="col-md-6 d-flex justify-content-end header_top_block">
+                    <!--                    <div class="custom-select currency_select" style="width: 90px;">-->
                     <select id="currencySelector"></select>
+                    <!--                    </div>-->
                     <div class="item login_wrapper">
                         <a href="/login-page.html" class="login">
                             <div class="login_icon"></div>
@@ -67,6 +94,9 @@
                 <p class="col-6 col-sm-1 item" id="setsCategory">Sets</p>
             </div>
         </div>
+        <!--        <div class="custom-select" style="width:70px;">-->
         <select id="languageSelector" class="lang-selector"></select>
+        <span class="selector_arrow"></span>
+        <!--        </div>-->
     </div>
 </header>

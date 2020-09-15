@@ -22,23 +22,27 @@ const initCurrencySelector = (values) => {
     // set current currency option selected
     currentCurrency = getCurrentCurrency()
     $("#currencySelector").val(currentCurrency).change();
+
+    // if (window.innerWidth <= 576) {
+    //     document.getElementById('mob_currencyHolder').appendChild($('#currencySelector')
+    //         .append($("<option></option>").attr("value", key).text(value)))
+    // }
 };
 
 const initCurrencySelectorHandler = () => {
     $('#currencySelector').change(function () {
         let currency = $("#currencySelector option:checked").val();
-        setCookie(currencyCookieName, currency);
+        localStorage.setItem(currencyCookieName, currency)
         location.reload();
     });
 };
 
 const getCurrentCurrency = () => {
-    if (getCookie(currencyCookieName) === null) {
-        setCookie(currencyCookieName, defaultCurrency);
-        return defaultCurrency
+    if (localStorage.getItem(currencyCookieName) === null) {
+        localStorage.setItem(currencyCookieName, defaultCurrency)
     }
 
-    return getCookie(currencyCookieName)
+    return localStorage.getItem(currencyCookieName)
 }
 
 const getCurrencyQueryParameter = () => {

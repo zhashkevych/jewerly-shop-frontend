@@ -13,6 +13,21 @@
         color: white;
         font-size: 13px;
       }
+
+      @include media('<sm') {
+        padding: 3px 8px;
+        margin-top: 20px;
+        p {
+          font-size: 11px;
+        }
+      }
+    }
+
+    @include media('<sm') {
+      .item_logo_title {
+        justify-content: center;
+        margin: 15px 0;
+      }
     }
 
     .main_logo {
@@ -49,12 +64,6 @@
 
     }
 
-    #currencySelector {
-      border: none;
-      margin-right: 10px;
-      font-size: 14px;
-    }
-
     .currency_wrapper {
       font-size: 14px;
       margin-right: 30px;
@@ -65,7 +74,6 @@
 
       &_hidden {
         position: absolute;
-        //margin-top: 10px;
         background: white;
         width: 60px;
 
@@ -138,11 +146,6 @@
     .col-sm-1 {
       cursor: pointer;
       font-size: 14px;
-    }
-
-    .lang-selector {
-      font-size: 14px;
-      border: none;
     }
 
     .item {
@@ -261,12 +264,10 @@
   }
 
   .shopping-cart {
-    //display: none;
     margin: 20px 0;
     float: right;
     background: white;
     width: 300px;
-    //width: 320px;
     position: relative;
     border-radius: 3px;
     padding: 20px;
@@ -292,7 +293,6 @@
       li {
         margin-bottom: 18px;
       }
-
 
       div.img {
         float: left;
@@ -460,4 +460,85 @@
     margin-top: 6px;
   }
 
+}
+
+#currencySelector {
+  height: 40px;
+  margin: auto 20px auto;
+}
+
+#currencySelector,
+.lang-selector {
+  position: relative;
+  background-color: #92b7f1;
+  color: #fff;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 3px;
+  font-size: 14px;
+  text-align: center;
+  padding: 7px 15px;
+  border: 1px solid white;
+  cursor: pointer;
+}
+
+.selector_arrow {
+  position: absolute;
+  content: "";
+  background-image: url("../img/icons/svg/arrow.svg");
+  width: 10px;
+  height: 10px;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: cornflowerblue;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+
+  .title {
+    color: white;
+    padding: 0 0 10px 32px;
+    font-size: 22px;
+  }
+
+  .closebtn {
+    color: white;
+    font-size: 18px;
+    position: absolute;
+    top: 30px;
+    right: 25px;
+    margin-left: 50px;
+  }
+
+  .categories {
+    .item {
+      display: block;
+      padding: 8px 8px 8px 32px !important;
+      text-decoration: none;
+      font-size: 16px;
+      color: #f1f1f1;
+      transition: 0.3s;
+    }
+  }
+}
+
+@include media('<sm') {
+  .header_top_block,
+  .header_lower_content {
+    display: none !important;
+  }
+}
+
+.header-mob-sidebar-open {
+  font-size: 30px;
+  cursor: pointer;
+  margin-top: 10px;
 }

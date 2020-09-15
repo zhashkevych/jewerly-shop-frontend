@@ -1,5 +1,6 @@
 const API_HOST = '@api_host@';
 
+@@include('checkBrowser/index.js');
 @@include('api/products.js');
 @@include('api/orders.js');
 @@include('currencyControl/index.js');
@@ -8,6 +9,7 @@ const API_HOST = '@api_host@';
 @@include('categories/index.js');
 @@include('translationsControl/index.js');
 @@include('headerCart/index.js');
+@@include('mobileHeader/index.js');
 @@include('shoppingCart/index.js');
 @@include('productPage/index.js');
 @@include('productsList/index.js');
