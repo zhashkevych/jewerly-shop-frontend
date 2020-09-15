@@ -1,7 +1,4 @@
 # BUILDER
-ARG ENV
-RUN echo $ENV
-
 FROM node:latest as build-stage
 
 RUN npm install -g gulp
@@ -9,6 +6,9 @@ COPY package*.json ./
 RUN npm install
 
 COPY ./ .
+
+ARG ENV
+RUN echo $ENV
 
 RUN gulp -f gulp.build.js --env $ENV
 
