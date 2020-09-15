@@ -4,39 +4,29 @@
 <!--settings end-->
 
 <div id="mySidenav" class="sidenav d-sm-none">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="javascript:void(0)" class="closebtn" id="mobCloseSidenav">&times;</a>
     <div class="categories">
         <p class="title">Categories</p>
-        <p class="item" id="categoryAllItems">All Items</p>
-        <p class="item" id="ringsCategory">Rings</p>
-        <p class="item" id="braceletsCategory">Bracelets</p>
-        <p class="item" id="pedantsCategory">Pendants</p>
-        <p class="item" id="earringsCategory">Earrings</p>
-        <p class="item" id="chokersNecklacesCategory">Necklaces</p>
-        <p class="item" id="setsCategory">Sets</p>
+        <p class="item" id="mob_categoryAllItems">All Items</p>
+        <p class="item" id="mob_ringsCategory">Rings</p>
+        <p class="item" id="mob_braceletsCategory">Bracelets</p>
+        <p class="item" id="mob_pedantsCategory">Pendants</p>
+        <p class="item" id="mob_earringsCategory">Earrings</p>
+        <p class="item" id="mob_chokersNecklacesCategory">Necklaces</p>
+        <p class="item" id="mob_setsCategory">Sets</p>
         <hr>
-        <p class="item">Change currency</p>
-        <p class="item">Change language</p>
+        <p class="item" id="mob_currencyHolder">curr</p>
+        <p class="item" id="mob_languageHolder">lng</p>
         <hr>
         <div class="login_wrapper">
             <a href="/login-page.html" class="login">
-                <p class="item">Login</p>
+                <p class="item login-title">Login</p>
             </a>
         </div>
     </div>
 </div>
 
-<span style="font-size:30px;cursor:pointer" onclick="openNav()" class="d-sm-none">&#9776;</span>
-
-<script>
-    function openNav() {
-        document.getElementById("mySidenav").style.width = "250px";
-    }
-
-    function closeNav() {
-        document.getElementById("mySidenav").style.width = "0";
-    }
-</script>
+<div id="mobOpenSidenav" class="d-sm-none header-mob-sidebar-open">&#9776;</div>
 
 <header class="header">
     <div class="row no-gutters header_upper_content">

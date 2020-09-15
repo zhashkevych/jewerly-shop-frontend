@@ -22,6 +22,11 @@ const initCurrencySelector = (values) => {
     // set current currency option selected
     currentCurrency = getCurrentCurrency()
     $("#currencySelector").val(currentCurrency).change();
+
+    // if (window.innerWidth <= 576) {
+    //     document.getElementById('mob_currencyHolder').appendChild($('#currencySelector')
+    //         .append($("<option></option>").attr("value", key).text(value)))
+    // }
 };
 
 const initCurrencySelectorHandler = () => {

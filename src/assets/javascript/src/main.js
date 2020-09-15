@@ -9,6 +9,7 @@ const API_HOST = '@api_host@';
 @@include('categories/index.js');
 @@include('translationsControl/index.js');
 @@include('headerCart/index.js');
+@@include('mobileHeader/index.js');
 @@include('shoppingCart/index.js');
 @@include('productPage/index.js');
 @@include('productsList/index.js');

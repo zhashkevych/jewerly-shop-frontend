@@ -285,8 +285,11 @@
           margin-top: 30px;
           width: 100%;
           max-width: 100%;
-          /* flex: 0; */
           flex-basis: 100%;
+
+          p {
+            margin-bottom: 15px;
+          }
 
           &_title {
             font-size: 14px;

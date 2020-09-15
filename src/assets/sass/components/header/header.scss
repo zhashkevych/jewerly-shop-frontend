@@ -16,6 +16,7 @@
 
       @include media('<sm') {
         padding: 3px 8px;
+        margin-top: 20px;
         p {
           font-size: 11px;
         }
@@ -25,6 +26,7 @@
     @include media('<sm') {
       .item_logo_title {
         justify-content: center;
+        margin: 15px 0;
       }
     }
 
@@ -62,22 +64,6 @@
 
     }
 
-    #currencySelector {
-      //margin-right: 10px;
-      //font-size: 14px;
-      //-webkit-appearance: none;
-      //-moz-appearance: none;
-      //appearance: none;
-      //-moz-border-radius: 3px;
-      //-webkit-border-radius: 3px;
-      //border-radius: 3px;
-      //background-position: right center;
-      //background-color: #fafafa;
-      //color: #000000;
-      //border: 1px solid black;
-      //padding: 5px;
-    }
-
     .currency_wrapper {
       font-size: 14px;
       margin-right: 30px;
@@ -88,7 +74,6 @@
 
       &_hidden {
         position: absolute;
-        //margin-top: 10px;
         background: white;
         width: 60px;
 
@@ -279,12 +264,10 @@
   }
 
   .shopping-cart {
-    //display: none;
     margin: 20px 0;
     float: right;
     background: white;
     width: 300px;
-    //width: 320px;
     position: relative;
     border-radius: 3px;
     padding: 20px;
@@ -310,7 +293,6 @@
       li {
         margin-bottom: 18px;
       }
-
 
       div.img {
         float: left;
@@ -553,4 +535,10 @@
   .header_lower_content {
     display: none !important;
   }
+}
+
+.header-mob-sidebar-open {
+  font-size: 30px;
+  cursor: pointer;
+  margin-top: 10px;
 }
