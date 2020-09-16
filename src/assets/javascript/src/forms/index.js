@@ -123,7 +123,7 @@ const checkoutPageAction = () => {
 
                 let items = shoppingCartController.getShoppingCartItems()
                 items.products.forEach(item => {
-                     data.items.push({
+                    data.items.push({
                         product_id: item.product.id,
                         quantity: item.quantity,
                     })
@@ -138,15 +138,25 @@ const checkoutPageAction = () => {
 
                     },
                     success: function (response) {
-                        swal({
-                            title: "Success",
-                            text: "Right now you will be redirected on payment page.",
-                            icon: "success",
-                            closeOnClickOutside: true,
-                            closeOnEsc: true,
-                        }).then(() => {
-                            window.open(response.url);
-                        });
+                        window.location.href = response.url;
+                        // swal({
+                        //     title: "Success",
+                        //     text: false,
+                        //     icon: "success",
+                        //     closeOnClickOutside: true,
+                        //     closeOnEsc: true,
+                        // })
+                        // document.querySelector('.checkout-form').classList.add('d-none');
+                        // document.getElementById('checkoutIframeInput').classList.add('active')
+                        // document.getElementById('checkoutIframeInput').setAttribute('src', response.url)
+                        //
+                        // if (document.getElementById('checkoutIframeInput').getAttribute('src') !== "") {
+                        //     $('#submit').trigger('click')
+                        // }
+
+
+                        // example of success response after PAY
+                        // http://silverrain-jewelry.com:8080/?payme_status=success&payme_signature=467ba56efd88f93bbd2cc74a61fc4e08&payme_sale_id=SALE1600-261613WL-W20WA6XU-46FFX4UF&payme_transaction_id=TRAN1600-261679SB-XOUZSQL6-N8QJCKGR&price=617000&currency=USD&transaction_id=7d773232-f81d-11ea-bedb-0242ac110003&is_token_sale=0&is_foreign_card=1
                     },
                     error: function (response) {
                         console.log(response)
