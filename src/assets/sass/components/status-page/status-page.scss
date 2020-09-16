@@ -1,0 +1,35 @@
+.status_page {
+  margin-top: 100px;
+  @include media('<sm') {
+    margin-top: 20px;
+  }
+
+  .response {
+
+    @include media('<sm') {
+      margin-top: 50px;
+    }
+
+    &_success {
+      .icon {
+        background-image: url("../img/icons/svg/success-icon.svg");
+        width: 100px;
+        height: 100px;
+        margin: 25px auto;
+      }
+    }
+
+    &_error {
+      @include media('<sm') {
+        margin-top: 50px;
+      }
+
+      .icon {
+        background-image: url("../img/icons/svg/error-icon.svg");
+        width: 100px;
+        height: 100px;
+        margin: 25px auto;
+      }
+    }
+  }
+}

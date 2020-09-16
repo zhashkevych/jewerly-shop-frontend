@@ -32,6 +32,13 @@ const translationsControl = () => {
     $('.privacy-policy_title').html(translations[currentLanguage].footer.privacyPolicyPage)
     $('.main-page_title').html(translations[currentLanguage].pageTitle.mainPage)
 
+
+    $('.response_success .title').html(translations[currentLanguage].other.paymentSuccessTitle)
+    $('.response_success .text').html(translations[currentLanguage].other.paymentSuccessText)
+
+    $('.response_error .title').html(translations[currentLanguage].other.paymentFailedTitle)
+    $('.response_error .text').html(translations[currentLanguage].other.paymentFailedText)
+    $('.main-page_text').html(translations[currentLanguage].pageTitle.mainPage)
 }
 
 if (window.location.pathname !== '/admin.html' && window.location.pathname !== '/admin-panel.html') {

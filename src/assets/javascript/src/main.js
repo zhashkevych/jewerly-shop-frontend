@@ -1,5 +1,20 @@
 const API_HOST = '@api_host@';
 
+let urlParams = new URLSearchParams(window.location.search);
+let payStatus = urlParams.get('payme_status');
+let paySaleId = urlParams.get('payme_sale_id');
+
+if (payStatus === 'success' && paySaleId !== "") {
+    localStorage.setItem('success', 'true');
+    window.location.href = '/status-page.html';
+}
+
+if (payStatus === 'error') {
+    localStorage.setItem('success', 'false');
+    window.location.href = '/status-page.html';
+}
+
+@@include('statusPage/index.js');
 @@include('checkBrowser/index.js');
 @@include('api/products.js');
 @@include('api/orders.js');

@@ -1,40 +1,55 @@
 .checkout-page {
+  &_iframe {
+    &.active {
+      width: 100%;
+      height: 500px;
+    }
+  }
+
   .content {
-	margin: 0 auto;
+    margin: 0 auto;
 
-	.checkout-form {
-	  display: flex;
-	  justify-content: center;
-	  align-items: center;
-	  flex-direction: column;
+    .checkout-form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
 
-	  .spec_fields {
-		label:nth-child(1) {
-		  margin-right: 10px;
-		}
-	  }
+      .spec_fields {
+        @include media('<md') {
+          flex-direction: column;
+        }
 
-	  #checkoutPageSubmit {
-		background: #000;
-		color: #fff;
-		font-size: 17px;
-		text-align: center;
-		padding: 13px 10px;
-		border: 0;
-		cursor: pointer;
-	  }
+        label:nth-child(1) {
+          margin-right: 10px;
+        }
+      }
 
-	  label {
-		margin: 7px 0;
-		p {
-		  font-size: 14px;
-		  font-weight: bold;
-		}
-		input {
-		  border: 1px solid black;
-		  padding: 5px 10px;
-		}
-	  }
-	}
+      #checkoutPageSubmit {
+        background: #000;
+        color: #fff;
+        font-size: 17px;
+        text-align: center;
+        padding: 13px 30px;
+        border: 0;
+        margin-top: 30px;
+        cursor: pointer;
+        max-width: 290px;
+      }
+
+      label {
+        margin: 7px 0;
+
+        p {
+          font-size: 14px;
+          font-weight: bold;
+        }
+
+        input {
+          border: 1px solid black;
+          padding: 5px 10px;
+        }
+      }
+    }
   }
 }

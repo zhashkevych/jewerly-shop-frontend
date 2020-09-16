@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Success payment</title>
+</head>
+<body>
+
+<div class="container">
+    @@include('partials/header.html')
+    <div class="status_page mt-30 mb-30 text-center">
+        <div class="response_success">
+            <p class="article-level-2 title font-weight-medium">Success payment</p>
+            <div class="icon"></div>
+            <p class="mb-30 text">Your order has been successfully accepted</p>
+            <a href="/main-page.html" class="main-page_text">Main page</a>
+        </div>
+        <div class="response_error">
+            <p class="article-level-2 title font-weight-medium">Failed payment</p>
+            <div class="icon"></div>
+            <p class="mb-30 text">There was an error processing your order</p>
+            <a href="/main-page.html" class="main-page_text">Main page</a>
+        </div>
+    </div>
+
+    @@include('partials/footer.html')
+</div>
+</body>
+</html>

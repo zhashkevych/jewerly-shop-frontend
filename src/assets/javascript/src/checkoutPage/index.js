@@ -14,7 +14,6 @@ const checkoutPage = () => {
     document.querySelector('#checkoutPageSubmit').value = translations[currentLanguage].forms.goToPayBtn;
 
     if (orderItems === null) {
-        console.log('asd')
         formWrapper.innerHTML = translations[currentLanguage].forms.checkOutEmptyCart;
         return
     }
