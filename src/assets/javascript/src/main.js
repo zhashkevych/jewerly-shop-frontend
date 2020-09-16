@@ -5,10 +5,16 @@ let payStatus = urlParams.get('payme_status');
 let paySaleId = urlParams.get('payme_sale_id');
 
 if (payStatus === 'success' && paySaleId !== "") {
-    window.location.href = '/success_page.html';
+    localStorage.setItem('success', 'true');
+    window.location.href = '/status-page.html';
 }
 
-@@include('actionsAfterPayment/index.js');
+if (payStatus === 'error') {
+    localStorage.setItem('success', 'false');
+    window.location.href = '/status-page.html';
+}
+
+@@include('statusPage/index.js');
 @@include('checkBrowser/index.js');
 @@include('api/products.js');
 @@include('api/orders.js');

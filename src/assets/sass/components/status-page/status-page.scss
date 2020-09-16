@@ -1,0 +1,21 @@
+.status_page {
+  .response {
+    &_success {
+      .icon {
+        background-image: url("../img/icons/svg/success-icon.svg");
+        width: 100px;
+        height: 100px;
+        margin: 25px auto;
+      }
+    }
+
+    &_error {
+      .icon {
+        background-image: url("../img/icons/svg/error-icon.svg");
+        width: 100px;
+        height: 100px;
+        margin: 25px auto;
+      }
+    }
+  }
+}
