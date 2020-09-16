@@ -47,7 +47,9 @@ class ShoppingCartController {
         addedProduct.innerHTML = `
         <div class="img" style="background: url(${product.images[0].url}) center center no-repeat; background-size: contain;"></div>
         <span class="item-name">${product.title}</span>
-        <button class="btn_remove_item" type="button" onclick="shoppingCartController.removeProductFromCart(${product.id})" aria-label="Close">
+        <button class="btn_remove_item" type="button" id="removeProductFromCart" onclick="shoppingCartController.removeProductFromCart(${product.id}); 
+        document.getElementById('addProductToCart').disabled = false;
+        document.getElementById('addProductToCart').classList.remove('not_active');" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
         <span class="item-price">${currency} ${product.price}</span>
