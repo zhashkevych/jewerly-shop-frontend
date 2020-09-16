@@ -19,7 +19,8 @@ const translations = {
         },
         pageTitle: {
             products: 'Our products',
-            checkout: 'Checkout'
+            checkout: 'Checkout',
+            mainPage: 'Main page'
         },
         productsPage: {
           amountOfItemsFirstString: 'Showing',
@@ -85,7 +86,8 @@ const translations = {
         },
         pageTitle: {
             products: 'Продукты',
-            checkout: 'Страница оформления заказа'
+            checkout: 'Страница оформления заказа',
+            mainPage: 'Главная страница'
         },
         productsPage: {
             amountOfItemsFirstString: 'Показано',
@@ -128,7 +130,7 @@ const translations = {
             address: 'Адрес',
             postalCode: 'Почтовый индекс',
             goToPayBtn: 'Перейти на страницу оплаты',
-            checkOutEmptyCart: 'Для начала вам нужно добавить товарв в корзину.',
+            checkOutEmptyCart: 'Для начала вам нужно добавить товар в корзину.',
 
         }
     },
@@ -152,7 +154,8 @@ const translations = {
         },
         pageTitle: {
             products: 'Продукти',
-            checkout: 'Сторінка оформлення замовлення'
+            checkout: 'Сторінка оформлення замовлення',
+            mainPage: 'Головна сторінка'
         },
         productsPage: {
             amountOfItemsFirstString: 'Показано',
