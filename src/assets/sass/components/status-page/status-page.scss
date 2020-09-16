@@ -1,5 +1,15 @@
 .status_page {
+  margin-top: 100px;
+  @include media('<sm') {
+    margin-top: 20px;
+  }
+
   .response {
+
+    @include media('<sm') {
+      margin-top: 50px;
+    }
+
     &_success {
       .icon {
         background-image: url("../img/icons/svg/success-icon.svg");
@@ -10,6 +20,10 @@
     }
 
     &_error {
+      @include media('<sm') {
+        margin-top: 50px;
+      }
+
       .icon {
         background-image: url("../img/icons/svg/error-icon.svg");
         width: 100px;
