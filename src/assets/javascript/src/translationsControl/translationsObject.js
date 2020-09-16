@@ -1,7 +1,11 @@
 const translations = {
     'en': {
         other: {
-            mobSidenavCategoriesTitle: 'Categories'
+            mobSidenavCategoriesTitle: 'Categories',
+            paymentSuccessTitle: 'Success payment',
+            paymentSuccessText: 'Your order has been successfully accepted',
+            paymentFailedTitle: 'Failed payment',
+            paymentFailedText: 'There was an error processing your order',
         },
         headerTop: {
             title: 'SilverRain Israel jewelry company since 2012. All silver products made in Italy',
@@ -68,7 +72,11 @@ const translations = {
     },
     'ru': {
         other: {
-            mobSidenavCategoriesTitle: 'Категории'
+            mobSidenavCategoriesTitle: 'Категории',
+            paymentSuccessTitle: 'Успешный платеж',
+            paymentSuccessText: 'Ваш заказ был успешно принят',
+            paymentFailedTitle: 'Неудачный платеж',
+            paymentFailedText: 'При обработке вашего заказа произошла ошибка',
         },
         headerTop: {
             title: 'SilverRain Израильская ювелирная компания с 2012 года. Все изделия из серебра произведены в Италии.',
@@ -136,7 +144,11 @@ const translations = {
     },
     'ua': {
         other: {
-            mobSidenavCategoriesTitle: 'Категорії'
+            mobSidenavCategoriesTitle: 'Категорії',
+            paymentSuccessTitle: 'Оплата успішна',
+            paymentSuccessText: 'Ваше замовлення успішно прийнято',
+            paymentFailedTitle: 'Невдала оплата',
+            paymentFailedText: 'Під час обробки вашого замовлення сталася помилка',
         },
         headerTop: {
             title: 'Ювелірна компанія SilverRain Israel із 2012 року. Всі вироби зі срібла виготовлені в Італії',
