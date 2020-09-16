@@ -42,6 +42,9 @@ const initProductToCardHandler = (product) => {
         shoppingCartController.addProductToCart(product, quantity);
 
         animateButton(addToCartButton);
+
+        document.getElementById('addProductToCart').disabled = true;
+        document.getElementById('addProductToCart').classList.add('not_active');
     };
 };
 
@@ -120,6 +123,5 @@ const productPageTabs = () => {
 
 if (window.location.pathname === '/product-page.html') {
     loadProduct();
-    // initProductToCardHandler();
     productPageTabs();
 }

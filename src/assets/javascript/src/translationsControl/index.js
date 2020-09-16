@@ -12,6 +12,7 @@ const translationsControl = () => {
     $('.chokersNecklacesCategory').html(translations[currentLanguage].categories.chokersNecklaces);
     $('.setsCategory').html(translations[currentLanguage].categories.sets);
     $('#productsPageTitle').html(translations[currentLanguage].pageTitle.products);
+    $('.checkout-page_title').html(translations[currentLanguage].pageTitle.checkout);
     $('#tabProductDescription').html(translations[currentLanguage].productTabs.description);
     $('#tabShipping').html(translations[currentLanguage].productTabs.shipping);
     $('#tabMaterial').html(translations[currentLanguage].productTabs.material);
@@ -25,6 +26,11 @@ const translationsControl = () => {
     $('#allRightsString').html(translations[currentLanguage].footer.copyright);
     $('#mySidenav .categories .title').html(translations[currentLanguage].other.mobSidenavCategoriesTitle);
     $('#mySidenav .login-title').html(translations[currentLanguage].headerTop.login_title);
+
+    $('.about-us_title').html(translations[currentLanguage].footer.aboutUsPage)
+    $('.customer-service_title').html(translations[currentLanguage].footer.customerServicePage)
+    $('.privacy-policy_title').html(translations[currentLanguage].footer.privacyPolicyPage)
+    $('.main-page_title').html(translations[currentLanguage].pageTitle.mainPage)
 
 }
 

@@ -88,13 +88,69 @@ const adminPanel = () => {
                     allEditItems[i].addEventListener('click', function () {
                         document.querySelector('.modal').classList.toggle('d-none');
 
+                        // for en lang inputs and usd curr
+                        $.ajax({
+                                type: "GET",
+                                url: `${API_HOST}/admin/products/${allEditItems[i].getAttribute('data-id')}`,
+                                dataType: "json",
+                                headers: {'Authorization': `Bearer ${getCookie('auth_token')}`},
+                                statusCode: {
+                                    200: function (response) {
+                                        document.getElementById("editItemCode").value = response.code;
+                                        document.getElementById("editItemCategory").value = response.category_id;
+                                        document.getElementById("editItemTitle_en").value = response.title;
+                                        document.getElementById("editItemDescr_en").value = response.description;
+                                        document.getElementById("editItemMater_en").value = response.material;
+                                        document.getElementById("editItemCurrPriceUsd").value = response.price;
+                                        if (response.in_stock === true) {
+                                            document.getElementById('editAvailability').setAttribute('checked', 'checked')
+                                        } else {
+                                            document.getElementById('editAvailability').removeAttribute('checked')
+                                        }
+                                    }
+                                },
+                            }
+                        )
+
+                        // for ru lang inputs and eur curr
+                        $.ajax({
+                                type: "GET",
+                                url: `${API_HOST}/admin/products/${allEditItems[i].getAttribute('data-id')}?language=ru&currency=eur`,
+                                dataType: "json",
+                                headers: {'Authorization': `Bearer ${getCookie('auth_token')}`},
+                                statusCode: {
+                                    200: function (response) {
+                                        document.getElementById("editItemTitle_ru").value = response.title;
+                                        document.getElementById("editItemDescr_ru").value = response.description;
+                                        document.getElementById("editItemMater_ru").value = response.material;
+                                        document.getElementById("editItemCurrPriceEur").value = response.price;
+                                    }
+                                },
+                            }
+                        )
+
+                        // for ru lang inputs and eur curr
+                        $.ajax({
+                                type: "GET",
+                                url: `${API_HOST}/admin/products/${allEditItems[i].getAttribute('data-id')}?language=ua&currency=uah`,
+                                dataType: "json",
+                                headers: {'Authorization': `Bearer ${getCookie('auth_token')}`},
+                                statusCode: {
+                                    200: function (response) {
+                                        document.getElementById("editItemTitle_ua").value = response.title;
+                                        document.getElementById("editItemDescr_ua").value = response.description;
+                                        document.getElementById("editItemMater_ua").value = response.material;
+                                        document.getElementById("editItemCurrPriceUah").value = response.price;
+                                    }
+                                },
+                            }
+                        )
+
                         $('.close').on('click', function () {
                             $('.modal').addClass('d-none')
                         })
-                        console.log('click')
 
-                        let editingItemId = parseInt(allEditItems[i].getAttribute('data-id'));
-                        document.getElementById('editFormTitle').innerHTML = `<p class="mt-20">Editing product with ID: ${editingItemId}</p>`;
+                        document.getElementById('editFormTitle').innerHTML = `<p class="mt-20">Editing product with ID: ${allEditItems[i].getAttribute('data-id')}</p>`;
 
                         $("#editAvailability").on('change', function () {
                             if ($(this).is(':checked')) {
@@ -319,6 +375,7 @@ const adminPanel = () => {
 
                     const allUsersOrderedItems = () => {
                         for (let p = 0; p < response.data[i].items.length; p++) {
+                            console.log('response.data[i].items[p]');
                             console.log(response.data[i].items[p]);
                             let listOfAllOrderedItems = document.createElement('div');
                             listOfAllOrderedItems.className = 'more-info_content';
