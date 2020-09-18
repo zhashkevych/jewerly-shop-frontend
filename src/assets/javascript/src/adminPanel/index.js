@@ -6,7 +6,7 @@ const adminPanel = () => {
             $("#totalItems").html("Total products: " + response.total);
             for (let i = 0; i < response.data.length; i++) {
 
-                let catsObject = {
+                let categoriesObject = {
                     1: "Rings",
                     2: "Bracelets",
                     3: "Pendants",
@@ -20,17 +20,15 @@ const adminPanel = () => {
                 allItems.innerHTML = `
 <div id="idOfProduct"><p>${response.data[i].id}</p></div>
 <div><p>${response.data[i].title}</p></div>
-<div><p>${response.data[i].price}</p></div>
+<div><p>${response.data[i].price} $</p></div>
 <div><p>${response.data[i].description}</p></div>
 <div><p>${response.data[i].material}</p></div>
 <div><p>${response.data[i].code}</p></div>
 <div><p>${response.data[i].in_stock}</p></div>
-<div id="categoryId"><p> ${catsObject[response.data[i].category_id]}</p></div>
+<div id="categoryId"><p> ${categoriesObject[response.data[i].category_id]}</p></div>
 <div class="item-actions">
     <div class="edit" data-id="${response.data[i].id}" id="editItem"></div>
-    <button type="button" class="close remove" data-id="${
-                    response.data[i].id
-                }" id="removeItem" aria-label="Close">
+    <button type="button" class="close remove" data-id="${response.data[i].id}" id="removeItem" aria-label="Close">
         <span aria-hidden="true">&times;</span>
     </button>
 </div>
@@ -158,7 +156,6 @@ const adminPanel = () => {
                             } else {
                                 $(this).attr('value', false);
                             }
-
                             $('#checkbox-value').text($('#editAvailability').val());
                         });
 
@@ -310,96 +307,7 @@ const adminPanel = () => {
         };
     };
 
-    const getAllOrders = () => {
-        let ordersWrapper = document.getElementById("listOfAllOrders");
-
-        $.ajax({
-            type: "GET",
-            url: `${API_HOST}/admin/orders`,
-            // url: 'http://164.90.218.246:8001/admin/orders?limit=20&offset=20',
-            headers: {Authorization: `Bearer ${getCookie("auth_token")}`},
-            success: function (response) {
-                console.log(response)
-                document.getElementById("amountOfOrders").innerText += response.total;
-                for (let i = 0; i < response.data.length; i++) {
-                    let allOrders = document.createElement("div");
-
-                    allOrders.className = `adminpanel__table-item-order order_id_${response.data[i].id}`;
-                    allOrders.innerHTML = `
-    <div id="idOfOrder"><p>${response.data[i].id}</p></div>
-    <div><p>${response.data[i].first_name}</p></div>
-    <div><p>${response.data[i].last_name}</p></div>
-    <div><p>${response.data[i].email}</p></div>
-    <div><p>${response.data[i].total_cost} $</p></div>
-    <div class="more-info">
-    <div id="showMoreInfo" class="more-info_title article-level-6 mt-10 mb-0">More info</div>
-    <div id="allInfoAboutOrder" class="more-info_hidden d-none">
-        <div class="more-info_content">
-        <p class="article-level-5">More info about orderer</p>
-            <p>Additional name: ${response.data[i].additional_name}</p>
-            <p>Country: ${response.data[i].country}</p>
-            <p>Address: ${response.data[i].address}</p>
-            <p>Postal code: ${response.data[i].postal_code}</p>
-            <p>Ordered at: ${response.data[i].ordered_at}</p>
-        </div>
-    </div>
-    </div>
-`;
-                    document.querySelector("#listOfAllOrders").appendChild(allOrders);
-
-                    const toggleAllInfoAboutOrder = () => {
-                        for (let w = 0; w < document.querySelectorAll('#showMoreInfo').length; w++) {
-                            document.querySelectorAll('#showMoreInfo')[w].onclick = () => {
-                                document.querySelectorAll('#showMoreInfo')[w].nextElementSibling.classList.toggle('d-none');
-                            }
-                        }
-                    }
-
-                    const addMoreTransactionInfo = () => {
-                        for (let j = 0; j < response.data[i].transactions.length; j++) {
-                            let moreTransactionInfo = document.createElement('div');
-                            moreTransactionInfo.className = 'more-info_content';
-                            moreTransactionInfo.innerHTML = `
-                            <p class="article-level-5">Transaction info</p>
-                            <p>Transaction ID: ${response.data[i].transactions[j].transaction_id}</p>
-                            <p>Card mask: ${response.data[i].transactions[j].card_mask}</p>
-                            <p>Status: ${response.data[i].transactions[j].status}</p>
-                            <p>Created at: ${response.data[i].transactions[j].created_at}</p>
-                            <hr>`;
-
-                            for (let k = 0; k < document.querySelectorAll('#allInfoAboutOrder').length; k++) {
-                                document.querySelectorAll('#allInfoAboutOrder')[k].appendChild(moreTransactionInfo)
-                            }
-                        }
-                    }
-
-                    const allUsersOrderedItems = () => {
-                        for (let p = 0; p < response.data[i].items.length; p++) {
-                            console.log('response.data[i].items[p]');
-                            console.log(response.data[i].items[p]);
-                            let listOfAllOrderedItems = document.createElement('div');
-                            listOfAllOrderedItems.className = 'more-info_content';
-                            listOfAllOrderedItems.innerHTML = `
-                            <p class="article-level-5">Ordered Items</p>
-                            <p>Product id: ${response.data[i].items[p].product_id}</p>
-                            <p>Quantity: ${response.data[i].items[p].quantity}</p>`;
-
-                            for (let q = 0; q < document.querySelectorAll('#allInfoAboutOrder').length; q++) {
-                                document.querySelectorAll('#allInfoAboutOrder')[q].appendChild(listOfAllOrderedItems)
-                            }
-                        }
-                    }
-
-                    toggleAllInfoAboutOrder()
-                    addMoreTransactionInfo();
-                    allUsersOrderedItems()
-                }
-            },
-        });
-    };
-
     addProduct();
-    getAllOrders();
 };
 
 if (window.location.pathname === "/admin-panel.html" && getCookie("auth_token") !== null) {

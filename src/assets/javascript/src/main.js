@@ -30,7 +30,11 @@ if (payStatus === 'error') {
 @@include('productsList/index.js');
 @@include('checkoutPage/index.js');
 @@include('forms/index.js');
+@@include('adminPanel/orders/index.js');
 @@include('adminPanel/index.js');
 @@include('adminLogin/index.js');
 
-shoppingCartController.initCart();
+
+if (window.location.pathname !== '/admin-panel.html') {
+    shoppingCartController.initCart();
+}

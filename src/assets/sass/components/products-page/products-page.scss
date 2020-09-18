@@ -17,27 +17,6 @@
     }
   }
 
-  .pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-top: 50px;
-
-    @include media('<sm') {
-      margin: 30px 0;
-    }
-
-    &_item {
-      border: 1px solid black;
-      border-radius: 10px;
-      padding: 5px 10px;
-      font-size: 14px;
-      text-align: center;
-      color: black;
-    }
-  }
-
   .item {
     border-right: 1px solid gray;
     border-right: 1px solid gray;
@@ -76,5 +55,26 @@
       border-bottom: 1px solid gray;
       border-right: 0;
     }
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 50px;
+
+  @include media('<sm') {
+    margin: 30px 0;
+  }
+
+  &_item {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 5px 10px;
+    font-size: 14px;
+    text-align: center;
+    color: black;
   }
 }

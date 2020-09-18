@@ -166,4 +166,7 @@ class ShoppingCartController {
     }
 }
 
-shoppingCartController = new ShoppingCartController(400);
+if (window.location.pathname !== '/admin-panel.html') {
+    shoppingCartController = new ShoppingCartController(400);
+}
+
