@@ -17,7 +17,8 @@ if (payStatus === 'error') {
 @@include('statusPage/index.js');
 @@include('checkBrowser/index.js');
 @@include('api/products.js');
-@@include('api/orders.js');
+@@include('api/admin/orders.js');
+@@include('api/admin/products.js');
 @@include('currencyControl/index.js');
 @@include('langControl/index.js');
 @@include('cookies/index.js');
@@ -30,7 +31,6 @@ if (payStatus === 'error') {
 @@include('productsList/index.js');
 @@include('checkoutPage/index.js');
 @@include('forms/index.js');
-@@include('adminPanel/orders/index.js');
 @@include('adminPanel/index.js');
 @@include('adminLogin/index.js');
 

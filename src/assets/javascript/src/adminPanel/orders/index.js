@@ -15,7 +15,7 @@ const ordersList = () => {
 };
 
 const renderOrdersList = (order, title, limit) => {
-
+console.log(order)
     if (order.data === null) {
         renderEmptyOrdersList();
     } else {
