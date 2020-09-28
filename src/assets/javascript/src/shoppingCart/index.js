@@ -96,7 +96,7 @@ class ShoppingCartController {
     renderCartSum(totalPrice) {
         let cartTotalSumHeader = $('#cartTotalSumHeader');
         let currency = getCurrentCurrency();
-        cartTotalSumHeader.html(`<span class="currentCurrencyValPrice">${currency}</span> ` + `${totalPrice}`);
+        cartTotalSumHeader.html(`<span class="currentCurrencyValPrice">${currency}</span> ` + `${totalPrice.toFixed(2)}`);
     }
 
     renderEmptyCardText() {
