@@ -1,8 +1,3 @@
-<!--settings start-->
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/main.min.css">
-<!--settings end-->
-
 <div id="mySidenav" class="sidenav d-sm-none">
     <a href="javascript:void(0)" class="closebtn" id="mobCloseSidenav">&times;</a>
     <div class="categories">
@@ -15,14 +10,14 @@
         <p class="item chokersNecklacesCategory" id="mob_chokersNecklacesCategory">Necklaces</p>
         <p class="item setsCategory" id="mob_setsCategory">Sets</p>
         <hr>
-        <div class="item" id="mob_currencyHolder"></div>
+        <!--        <div class="item" id="mob_currencyHolder"></div>-->
         <div class="item" id="mob_languageHolder"></div>
         <hr>
-        <div class="login_wrapper">
-            <a href="/login-page.html" class="login">
-                <p class="item login-title">Login</p>
-            </a>
-        </div>
+        <!--        <div class="login_wrapper">-->
+        <!--            <a href="/login-page.html" class="login">-->
+        <!--                <p class="item login-title">Login</p>-->
+        <!--            </a>-->
+        <!--        </div>-->
     </div>
 </div>
 <div class="header-mob-actions-holder d-sm-none">
@@ -45,15 +40,20 @@
                     <p class="article-level-1 main_title">Silver Rain</p>
                 </div>
                 <div class="col-md-6 d-flex justify-content-end header_top_block">
-                    <div class="select-wrapper">
-                        <select id="currencySelector"></select>
+                    <!--                    <div class="select-wrapper">-->
+                    <!--                        <select id="currencySelector"></select>-->
+                    <!--                    </div>-->
+                    <!--                    <div class="item login_wrapper">-->
+                    <!--                        <a href="/login-page.html" class="login">-->
+                    <!--                            <div class="login_icon"></div>-->
+                    <!--                            <p class="login_title">Login</p>-->
+                    <!--                        </a>-->
+                    <!--                    </div>-->
+
+                    <div class="select-wrapper lang">
+                        <select id="languageSelector" class="lang-selector"></select>
                     </div>
-                    <div class="item login_wrapper">
-                        <a href="/login-page.html" class="login">
-                            <div class="login_icon"></div>
-                            <p class="login_title">Login</p>
-                        </a>
-                    </div>
+
                     <div class="item d-flex cart_holder">
                         <ul class="navbar-right d-flex align-items-center">
                             <li>
@@ -96,10 +96,5 @@
                 <p class="col-6 col-sm-1 item setsCategory" id="setsCategory">Sets</p>
             </div>
         </div>
-
-        <div class="select-wrapper lang">
-            <select id="languageSelector" class="lang-selector"></select>
-        </div>
-
     </div>
 </header>

@@ -6,8 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Product page</title>
-    <link rel="stylesheet" href="css/main.min.css">
-</head>
+    @@include('partials/headSettings.html')</head>
 <body>
 <div class="container">
     @@include('partials/header.html')
@@ -18,7 +17,7 @@
                     <div class="photo" id="productPagePhoto"></div>
                 </div>
                 <div class="col-md-5 item_descr">
-                    <p class="title font-weight-semi" id="productPageTitle"></p>
+                    <p class="title font-weight-medium" id="productPageTitle"></p>
                     <p class="price" id="productPagePrice"></p>
                     <div class="d-flex justify-content-sm-between align-content-center">
                         <p class="code" id="productPageCode"></p>

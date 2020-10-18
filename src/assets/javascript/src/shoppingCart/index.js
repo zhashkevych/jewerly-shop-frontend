@@ -50,7 +50,7 @@ class ShoppingCartController {
         <button class="btn_remove_item" type="button" id="removeProductFromCart" onclick="shoppingCartController.removeProductFromCart(${product.id}); 
         document.getElementById('addProductToCart').disabled = false;
         document.getElementById('addProductToCart').classList.remove('not_active');" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+            <span aria-hidden="true" style="font-size: 20px;position: relative;left: 20px;">X</span>
         </button>
         <span class="item-price">${currency} ${product.price}</span>
         <p id="quantityLabel" class="oc-text-gray">${translations[currentLanguage].cart.quantity} : ${quantity}</p>
@@ -169,4 +169,3 @@ class ShoppingCartController {
 if (window.location.pathname !== '/admin-panel.html') {
     shoppingCartController = new ShoppingCartController(400);
 }
-

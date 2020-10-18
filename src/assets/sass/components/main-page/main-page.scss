@@ -59,6 +59,7 @@ input[type="search"] {
 .main-page {
   .section {
     &_colored {
+      margin-top: 30px;
       background: #92b7f1;
 
       .text {
@@ -215,8 +216,9 @@ input[type="search"] {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    padding-bottom: 25px;
+    padding-bottom: 20px;
     min-height: 240px;
+    border: 1px solid #92b7f1;
 
     &.img {
       &_lg {

@@ -17,9 +17,18 @@
     }
   }
 
+  .item-wrapper {
+    padding: 0 15px;
+    position: relative;
+
+    @include media('<sm') {
+      padding: 15px 0px;
+    }
+  }
+
   .item {
-    border-right: 1px solid gray;
-    border-right: 1px solid gray;
+    //border-right: 1px solid gray;
+    //background-size: cover !important;
     position: relative;
     display: flex;
     justify-content: center;
@@ -52,7 +61,7 @@
     }
 
     @include media('<sm') {
-      border-bottom: 1px solid gray;
+      //border-bottom: 1px solid gray;
       border-right: 0;
     }
   }

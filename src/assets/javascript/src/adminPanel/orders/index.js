@@ -79,13 +79,15 @@ const renderOrderPagination = (totalItems, limit) => {
 
 const renderOrderPageButton = (pageNumber, wrapper) => {
     let addItems = document.createElement('a');
-    // $('#orders-tab').trigger('click');
 
     addItems.className = 'mr-15 pagination_item';
-    addItems.setAttribute('href', `http://${window.location.host}/admin-panel.html?page=${pageNumber}`);
+    addItems.setAttribute('href', `http://${window.location.host}/admin-panel.html?page=${pageNumber}&orders_tab`);
     addItems.innerHTML = `${pageNumber}`;
-
     wrapper.appendChild(addItems);
+}
+
+if (window.location.search.includes('orders_tab')) {
+    $('#orders-tab').trigger('click');
 }
 
 if (window.location.pathname === '/admin-panel.html') {
