@@ -2,18 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
-    <meta
-            name="viewport"
-            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
-    />
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <!--settings start-->
-    <link
-            href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap"
-            rel="stylesheet"
-    />
-    <link rel="stylesheet" href="css/main.min.css"/>
-    <!--settings end-->
+    @@include('partials/headSettings.html')
     <title>Admin Panel</title>
 </head>
 <body>
@@ -25,40 +17,31 @@
             <nav class="adminpanel__nav">
                 <ul class="nav nav-pills flex-row" id="myTab" role="tablist">
                     <li class="nav-item">
-                        <a
-                                class="nav-link active"
+                        <a class="nav-link active"
                                 id="products-tab"
                                 data-toggle="tab"
                                 href="#products"
                                 role="tab"
                                 aria-controls="Product"
-                                aria-selected="true"
-                        >Products</a
-                        >
+                                aria-selected="true">Products</a>
                     </li>
                     <li class="nav-item">
-                        <a
-                                class="nav-link"
+                        <a class="nav-link"
                                 id="orders-tab"
                                 data-toggle="tab"
                                 href="#orders"
                                 role="tab"
                                 aria-controls="Orders"
-                                aria-selected="false"
-                        >Orders</a
-                        >
+                                aria-selected="false">Orders</a>
                     </li>
                     <li class="nav-item">
-                        <a
-                                class="nav-link"
+                        <a class="nav-link"
                                 id="productsADD-tab"
                                 data-toggle="tab"
                                 href="#productsADD"
                                 role="tab"
                                 aria-controls="ProductADD"
-                                aria-selected="false"
-                        >Add products</a
-                        >
+                                aria-selected="false">Add product</a>
                     </li>
                 </ul>
             </nav>
@@ -77,8 +60,7 @@
                         class="tab-pane fade show active"
                         id="products"
                         role="tabpanel"
-                        aria-labelledby="products-tab"
-                >
+                        aria-labelledby="products-tab">
                     <div class="adminpanel__product-header">
                         <p class="adminpanel__product-title">List of all products</p>
                         <p class="adminpanel__product-counter" id="totalItems"></p>
@@ -101,6 +83,7 @@
                             <div><p>Category</p></div>
                         </div>
                     </div>
+                    <div id="paginationProducts" class="pagination"></div>
                 </div>
                 <!-- Content Orders -->
                 <div class="tab-pane fade"
@@ -109,7 +92,7 @@
                      aria-labelledby="orders-tab">
                     <div class="adminpanel__product-header">
                         <p class="adminpanel__product-title">Orders</p>
-                        <p id="amountOfOrders">Total of orders:</p>
+                        <p id="amountOfOrders"></p>
                     </div>
                     <div class="adminpanel__table" id="listOfAllOrders">
                         <div class="adminpanel__table-title-order">
@@ -120,6 +103,8 @@
                             <div><p>Total cost</p></div>
                         </div>
                     </div>
+                    <div id="emptyOrderList"></div>
+                    <div id="paginationOrders" class="pagination mb-50"></div>
 
                 </div>
                 <!-- Content ADD NEW Products -->
@@ -181,14 +166,6 @@
                                                placeholder=""/>
                                     </label>
                                     <label>
-                                        <span class="adminpanel__apend-name">Price EUR</span>
-                                        <input class="adminpanel__apend-input"
-                                               id="addItemCurrPriceEur"
-                                               name="price_eur"
-                                               type="text"
-                                               placeholder=""/>
-                                    </label>
-                                    <label>
                                         <span class="adminpanel__apend-name">Material for RU</span>
                                         <input class="adminpanel__apend-input"
                                                id="addItemMater_ru"
@@ -216,14 +193,6 @@
                                         <input class="adminpanel__apend-input"
                                                id="addItemTitle_ua"
                                                name=""
-                                               type="text"
-                                               placeholder=""/>
-                                    </label>
-                                    <label>
-                                        <span class="adminpanel__apend-name">Price UAH</span>
-                                        <input class="adminpanel__apend-input"
-                                               id="addItemCurrPriceUah"
-                                               name="price_uah"
                                                type="text"
                                                placeholder=""/>
                                     </label>
@@ -345,14 +314,6 @@
                                            placeholder=""/>
                                 </label>
                                 <label>
-                                    <span class="adminpanel__apend-name">Price EUR</span>
-                                    <input class="adminpanel__apend-input"
-                                           id="editItemCurrPriceEur"
-                                           name="price_eur"
-                                           type="text"
-                                           placeholder=""/>
-                                </label>
-                                <label>
                                     <span class="adminpanel__apend-name">Material for RU</span>
                                     <input class="adminpanel__apend-input"
                                            id="editItemMater_ru"
@@ -380,14 +341,6 @@
                                     <input class="adminpanel__apend-input"
                                            id="editItemTitle_ua"
                                            name=""
-                                           type="text"
-                                           placeholder=""/>
-                                </label>
-                                <label>
-                                    <span class="adminpanel__apend-name">Price UAH</span>
-                                    <input class="adminpanel__apend-input"
-                                           id="editItemCurrPriceUah"
-                                           name="price_uah"
                                            type="text"
                                            placeholder=""/>
                                 </label>

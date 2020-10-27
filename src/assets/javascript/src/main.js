@@ -17,7 +17,8 @@ if (payStatus === 'error') {
 @@include('statusPage/index.js');
 @@include('checkBrowser/index.js');
 @@include('api/products.js');
-@@include('api/orders.js');
+@@include('api/admin/orders.js');
+@@include('api/admin/products.js');
 @@include('currencyControl/index.js');
 @@include('langControl/index.js');
 @@include('cookies/index.js');
@@ -33,4 +34,7 @@ if (payStatus === 'error') {
 @@include('adminPanel/index.js');
 @@include('adminLogin/index.js');
 
-shoppingCartController.initCart();
+
+if (window.location.pathname !== '/admin-panel.html') {
+    shoppingCartController.initCart();
+}

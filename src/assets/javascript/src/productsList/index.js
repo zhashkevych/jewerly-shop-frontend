@@ -65,7 +65,7 @@ const renderItems = (items, currency) => {
         const itemImg = items[i].images[0].url;
 
         let productsListItem = document.createElement('div');
-        productsListItem.className = 'col-md-3 mb-20';
+        productsListItem.className = 'col-md-3 mb-20 item-wrapper';
         productsListItem.innerHTML = `
 <div class="item" id="item_id_${itemId}" style="background: url(${itemImg})  center center no-repeat; min-height: 250px; background-size: contain;">
     <div class="price_cta_preview">

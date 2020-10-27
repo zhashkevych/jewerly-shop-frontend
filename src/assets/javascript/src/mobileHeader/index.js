@@ -22,7 +22,7 @@ const closeNav = () => {
 
 const appendSelectorToSideNav = () => {
     if (window.innerWidth <= 576) {
-        document.getElementById('mob_currencyHolder').appendChild(document.getElementById('currencySelector'));
+        // document.getElementById('mob_currencyHolder').appendChild(document.getElementById('currencySelector'));
         document.getElementById('mob_languageHolder').appendChild(document.getElementById('languageSelector'));
     }
 }
