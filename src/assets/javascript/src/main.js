@@ -14,26 +14,25 @@ if (payStatus === 'error') {
     window.location.href = '/status-page.html';
 }
 
-@@include('statusPage/index.js');
-@@include('checkBrowser/index.js');
-@@include('api/products.js');
-@@include('api/admin/orders.js');
-@@include('api/admin/products.js');
-@@include('currencyControl/index.js');
-@@include('langControl/index.js');
-@@include('cookies/index.js');
-@@include('categories/index.js');
-@@include('translationsControl/index.js');
-@@include('headerCart/index.js');
-@@include('mobileHeader/index.js');
-@@include('shoppingCart/index.js');
-@@include('productPage/index.js');
-@@include('productsList/index.js');
-@@include('checkoutPage/index.js');
-@@include('forms/index.js');
-@@include('adminPanel/index.js');
-@@include('adminLogin/index.js');
-
+@@include('statusPage/index.js')
+@@include('checkBrowser/index.js')
+@@include('api/products.js')
+@@include('api/admin/orders.js')
+@@include('api/admin/products.js')
+@@include('currencyControl/index.js')
+@@include('langControl/index.js')
+@@include('cookies/index.js')
+@@include('categories/index.js')
+@@include('translationsControl/index.js')
+@@include('headerCart/index.js')
+@@include('mobileHeader/index.js')
+@@include('shoppingCart/index.js')
+@@include('productPage/index.js')
+@@include('productsList/index.js')
+@@include('checkoutPage/index.js')
+@@include('forms/index.js')
+@@include('adminPanel/index.js')
+@@include('adminLogin/index.js')
 
 if (window.location.pathname !== '/admin-panel.html') {
     shoppingCartController.initCart();
