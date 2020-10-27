@@ -15,7 +15,7 @@ const ordersList = () => {
 };
 
 const renderOrdersList = (order, title, limit) => {
-console.log(order)
+    console.log(order)
     if (order.data === null) {
         renderEmptyOrdersList();
     } else {
@@ -35,7 +35,6 @@ const renderEmptyOrdersList = () => {
 const renderOrderItems = (order) => {
     for (let i = 0; i < order.length; i++) {
         let allOrders = document.createElement("div");
-
         allOrders.className = `adminpanel__table-item-order order_id_${order[i].id}`;
         allOrders.innerHTML = `
             <div id="idOfOrder"><p>${order[i].id}</p></div>
@@ -44,8 +43,8 @@ const renderOrderItems = (order) => {
             <div><p>${order[i].email}</p></div>
             <div><p>${order[i].total_cost} $</p></div>
             <div class="more-info">
-                <div id="showMoreInfo" class="more-info_title article-level-6 mt-10 mb-0">More info</div>
-                <div id="allInfoAboutOrder" class="more-info_hidden d-none">
+                <div id="showMoreInfo" class="more-info_title article-level-6 mt-10 mb-0"><!--More info--></div>
+                <div id="allInfoAboutOrder" class="more-info_hidden">
                     <div class="more-info_content">
                         <p class="article-level-5">More info about orderer</p>
                         <p>Additional name: ${order[i].additional_name}</p>
@@ -53,6 +52,11 @@ const renderOrderItems = (order) => {
                         <p>Address: ${order[i].address}</p>
                         <p>Postal code: ${order[i].postal_code}</p>
                         <p>Ordered at: ${order[i].ordered_at}</p>
+                        <p class="article-level-5 mt-30">Transaction info</p>
+                        <p>created_at: ${order[i].transactions[0].created_at}</p>
+                        <p>status: ${order[i].transactions[0].status}</p>
+                        <p>transaction_id: ${order[i].transactions[0].transaction_id}</p>
+                        <p>card_mask: ${order[i].transactions[0].card_mask}</p>
                     </div>
                 </div>
             </div>
@@ -61,6 +65,7 @@ const renderOrderItems = (order) => {
     }
 
 };
+
 
 const renderTotalOrderItemsText = (totalItems, itemsCount) => {
     let itemsCountElement = document.createElement('div');
