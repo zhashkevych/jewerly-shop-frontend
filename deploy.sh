@@ -8,4 +8,4 @@ if [ "$(docker ps -q -f name=jewerly-frontend)" ]; then
     fi
 fi
 
-docker run -d -p --restart always 80:80 --name jewerly-frontend --link=jewerly-api:api jewerly-frontent:0.1
+docker run -d --restart always -p 80:80 --name jewerly-frontend --link=jewerly-api:api jewerly-frontent:0.1
