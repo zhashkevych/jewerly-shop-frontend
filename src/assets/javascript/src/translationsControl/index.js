@@ -3,7 +3,7 @@ const translationsControl = () => {
     const currentLanguage = getCookie(languageCookieName);
 
     $('.categoryAllItems').html(translations[currentLanguage].categories.allItems);
-    $('.header_notification p').html(translations[currentLanguage].headerTop.title);
+    // $('.header_notification p').html(translations[currentLanguage].headerTop.title);
     $('.login_title').html(translations[currentLanguage].headerTop.login_title);
     $('.ringsCategory').html(translations[currentLanguage].categories.rings);
     $('.braceletsCategory').html(translations[currentLanguage].categories.bracelets);
