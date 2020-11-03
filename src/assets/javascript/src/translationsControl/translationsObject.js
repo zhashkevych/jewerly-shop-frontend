@@ -8,7 +8,7 @@ const translations = {
             paymentFailedText: 'There was an error processing your order',
         },
         headerTop: {
-            title: 'SilverRain Israel jewelry company since 2012. All silver products made in Italy',
+            // title: 'SilverRain Israel jewelry company since 2012. All silver products made in Italy',
             login_title: 'Login'
         },
         categories: {
@@ -79,7 +79,7 @@ const translations = {
             paymentFailedText: 'При обработке вашего заказа произошла ошибка',
         },
         headerTop: {
-            title: 'SilverRain Израильская ювелирная компания с 2012 года. Все изделия из серебра произведены в Италии.',
+            // title: 'SilverRain Израильская ювелирная компания с 2012 года. Все изделия из серебра произведены в Италии.',
             login_title: 'Вход'
         },
         categories: {
@@ -151,7 +151,7 @@ const translations = {
             paymentFailedText: 'Під час обробки вашого замовлення сталася помилка',
         },
         headerTop: {
-            title: 'Ювелірна компанія SilverRain Israel із 2012 року. Всі вироби зі срібла виготовлені в Італії',
+            // title: 'Ювелірна компанія SilverRain Israel із 2012 року. Всі вироби зі срібла виготовлені в Італії',
             login_title: 'Вхід',
         },
         categories: {
