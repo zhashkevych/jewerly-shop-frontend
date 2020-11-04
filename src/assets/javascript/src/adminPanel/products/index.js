@@ -160,90 +160,93 @@ const deleteProduct = () => {
 //     }
 // }
 
-const addProduct = () => {
-    localStorage.clear();
-    const addItemBtn = document.querySelector(".add_product");
+if (document.querySelector(".add_product")) {
+    const addProduct = () => {
+        localStorage.clear();
+        const addItemBtn = document.querySelector(".add_product");
 
-    addItemBtn.onclick = () => {
-        let blobFile = $("#addItemImg")[0].files[0];
-        let formData = new FormData();
-        formData.append("image", blobFile);
+        addItemBtn.onclick = () => {
+            let blobFile = $("#addItemImg")[0].files[0];
+            let formData = new FormData();
+            formData.append("image", blobFile);
 
-        $.ajax({
-            url: `${API_HOST}/admin/upload`,
-            type: "POST",
-            headers: {Authorization: `Bearer ${getCookie("auth_token")}`},
-            data: formData,
-            processData: false,
-            contentType: false,
-            success: function (response) {
-                localStorage.setItem("uploadedImageId", response.id);
+            $.ajax({
+                url: `${API_HOST}/admin/upload`,
+                type: "POST",
+                headers: {Authorization: `Bearer ${getCookie("auth_token")}`},
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (response) {
+                    localStorage.setItem("uploadedImageId", response.id);
 
-                let addProductData = {
-                    titles: {
-                        english: document.getElementById("addItemTitle_en").value,
-                        russian: document.getElementById("addItemTitle_ru").value,
-                        ukrainian: document.getElementById("addItemTitle_ua").value,
-                    },
-                    descriptions: {
-                        english: document.getElementById("addItemDescr_en").value,
-                        russian: document.getElementById("addItemDescr_ru").value,
-                        ukrainian: document.getElementById("addItemDescr_ua").value,
-                    },
-                    materials: {
-                        english: document.getElementById("addItemMater_en").value,
-                        russian: document.getElementById("addItemMater_ru").value,
-                        ukrainian: document.getElementById("addItemMater_ua").value,
-                    },
-                    price: +document.getElementById("addItemCurrPriceUsd").value,
-                    code: document.getElementById("addItemCode").value,
-                    image_ids: [parseInt(localStorage.getItem("uploadedImageId"))],
-                    category_id: parseInt(
-                        document.getElementById("addItemCategory").value
-                    ),
-                };
-
-                $.ajax({
-                    type: "POST",
-                    url: `${API_HOST}/admin/products`,
-                    data: JSON.stringify(addProductData),
-                    dataType: "json",
-                    headers: {Authorization: `Bearer ${getCookie("auth_token")}`},
-                    statusCode: {
-                        200: function () {
-                            swal("Success!", `New product was added`, "success");
-                            setTimeout(function () {
-                                window.location.reload(true);
-                            }, 2000);
+                    let addProductData = {
+                        titles: {
+                            english: document.getElementById("addItemTitle_en").value,
+                            russian: document.getElementById("addItemTitle_ru").value,
+                            ukrainian: document.getElementById("addItemTitle_ua").value,
                         },
-                    },
-                    error: function (jqXHR, textStatus, errorMessage) {
-                        console.log(addProductData);
-                        swal({
-                            title: "Error",
-                            text: errorMessage,
-                            icon: "error",
-                            closeOnClickOutside: true,
-                            closeOnEsc: true,
-                        });
-                    },
-                });
-            },
-            error: function (jqXHR, textStatus, errorMessage) {
-                console.log(errorMessage);
-                swal({
-                    title: "Error",
-                    text: errorMessage,
-                    icon: "error",
-                    closeOnClickOutside: true,
-                    closeOnEsc: true,
-                });
-            },
-        });
-    };
-};
+                        descriptions: {
+                            english: document.getElementById("addItemDescr_en").value,
+                            russian: document.getElementById("addItemDescr_ru").value,
+                            ukrainian: document.getElementById("addItemDescr_ua").value,
+                        },
+                        materials: {
+                            english: document.getElementById("addItemMater_en").value,
+                            russian: document.getElementById("addItemMater_ru").value,
+                            ukrainian: document.getElementById("addItemMater_ua").value,
+                        },
+                        price: +document.getElementById("addItemCurrPriceUsd").value,
+                        code: document.getElementById("addItemCode").value,
+                        image_ids: [parseInt(localStorage.getItem("uploadedImageId"))],
+                        category_id: parseInt(
+                            document.getElementById("addItemCategory").value
+                        ),
+                    };
 
-addProduct();
+                    $.ajax({
+                        type: "POST",
+                        url: `${API_HOST}/admin/products`,
+                        data: JSON.stringify(addProductData),
+                        dataType: "json",
+                        headers: {Authorization: `Bearer ${getCookie("auth_token")}`},
+                        statusCode: {
+                            200: function () {
+                                swal("Success!", `New product was added`, "success");
+                                setTimeout(function () {
+                                    window.location.reload(true);
+                                }, 2000);
+                            },
+                        },
+                        error: function (jqXHR, textStatus, errorMessage) {
+                            console.log(addProductData);
+                            swal({
+                                title: "Error",
+                                text: errorMessage,
+                                icon: "error",
+                                closeOnClickOutside: true,
+                                closeOnEsc: true,
+                            });
+                        },
+                    });
+                },
+                error: function (jqXHR, textStatus, errorMessage) {
+                    console.log(errorMessage);
+                    swal({
+                        title: "Error",
+                        text: errorMessage,
+                        icon: "error",
+                        closeOnClickOutside: true,
+                        closeOnEsc: true,
+                    });
+                },
+            });
+        };
+    };
+
+    addProduct();
+}
+
 
 //
 // const editProduct = () => {
