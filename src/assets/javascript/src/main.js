@@ -34,6 +34,6 @@ if (payStatus === 'error') {
 @@include('adminPanel/index.js')
 @@include('adminLogin/index.js')
 
-if (window.location.pathname !== '/admin-panel.html') {
+if (window.location.pathname !== '/admin-panel.html' && window.location.pathname !== '/admin.html') {
     shoppingCartController.initCart();
 }

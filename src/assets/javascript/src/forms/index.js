@@ -185,6 +185,6 @@ const isUserLogged = () => {
 
 isUserLogged();
 
-if (window.location.pathname !== '/admin-panel.html') {
+if (window.location.pathname !== '/admin-panel.html' && window.location.pathname !== '/admin.html') {
     checkoutPageAction();
 }

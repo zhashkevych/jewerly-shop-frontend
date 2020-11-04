@@ -15,7 +15,6 @@ const adminProductsList = () => {
 };
 
 const renderAdminProductsList = (product, title, limit) => {
-
     if (product.data === null) {
         renderEmptyAdminProductsList();
     } else {
@@ -33,6 +32,7 @@ const renderEmptyAdminProductsList = () => {
 };
 
 const renderAdminProductsItems = (product) => {
+
     for (let i = 0; i < product.length; i++) {
 
         let categoriesObject = {
@@ -65,8 +65,22 @@ const renderAdminProductsItems = (product) => {
         document.querySelector("#allItems").appendChild(allProducts);
     }
 
+
     renderDeleteProduct();
     renderEditProduct();
+
+    // function compareNumeric(a, b) {
+    //     if (a > b) return 1;
+    //     if (a == b) return 0;
+    //     if (a < b) return -1;
+    // }
+
+    // let emptyTestArray2 = [];
+    // for (let q = 0; q < document.querySelectorAll('#idOfProduct p').length; q++) {
+    //     emptyTestArray2.push(+document.querySelectorAll('#idOfProduct p')[q].innerText)
+    // }
+    //
+    // console.log(emptyTestArray2.sort(compareNumeric))
 
 };
 
@@ -78,10 +92,14 @@ const renderDeleteProduct = () => {
             let deletingProductID = parseInt(deleteProductTrigger[i].getAttribute('data-id'));
             localStorage.setItem('deletingProductIDValue', deletingProductID)
             console.log(deletingProductID);
-
-            $('.close').on('click', function () {
-                $('.modal').toggleClass('d-none')
-            })
+            //
+            // $('#editItem').on('click', function () {
+            //     $('.modal').removeClass('d-none')
+            // })
+            //
+            // $('.close').on('click', function () {
+            //     $('.modal').addClass('d-none')
+            // })
             deleteProduct();
         })
     }
@@ -134,96 +152,107 @@ const deleteProduct = () => {
     });
 };
 
-const addProduct = () => {
-    localStorage.clear();
-    const addItemBtn = document.querySelector(".add_product");
+if (window.location.pathname !== '/admin.html' && document.querySelector(".add_product")) {
+    const addProduct = () => {
+        localStorage.clear();
+        let addItemBtn = document.querySelector(".add_product");
 
-    addItemBtn.onclick = () => {
-        let blobFile = $("#addItemImg")[0].files[0];
-        let formData = new FormData();
-        formData.append("image", blobFile);
+        addItemBtn.onclick = () => {
+            let blobFile = $("#addItemImg")[0].files[0];
+            let formData = new FormData();
+            formData.append("image", blobFile);
 
-        $.ajax({
-            url: `${API_HOST}/admin/upload`,
-            type: "POST",
-            headers: {Authorization: `Bearer ${getCookie("auth_token")}`},
-            data: formData,
-            processData: false,
-            contentType: false,
-            success: function (response) {
-                localStorage.setItem("uploadedImageId", response.id);
+            $.ajax({
+                url: `${API_HOST}/admin/upload`,
+                type: "POST",
+                headers: {Authorization: `Bearer ${getCookie("auth_token")}`},
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (response) {
+                    localStorage.setItem("uploadedImageId", response.id);
 
-                let addProductData = {
-                    titles: {
-                        english: document.getElementById("addItemTitle_en").value,
-                        russian: document.getElementById("addItemTitle_ru").value,
-                        ukrainian: document.getElementById("addItemTitle_ua").value,
-                    },
-                    descriptions: {
-                        english: document.getElementById("addItemDescr_en").value,
-                        russian: document.getElementById("addItemDescr_ru").value,
-                        ukrainian: document.getElementById("addItemDescr_ua").value,
-                    },
-                    materials: {
-                        english: document.getElementById("addItemMater_en").value,
-                        russian: document.getElementById("addItemMater_ru").value,
-                        ukrainian: document.getElementById("addItemMater_ua").value,
-                    },
-                    price: +document.getElementById("addItemCurrPriceUsd").value,
-                    code: document.getElementById("addItemCode").value,
-                    image_ids: [parseInt(localStorage.getItem("uploadedImageId"))],
-                    category_id: parseInt(
-                        document.getElementById("addItemCategory").value
-                    ),
-                };
-
-                $.ajax({
-                    type: "POST",
-                    url: `${API_HOST}/admin/products`,
-                    data: JSON.stringify(addProductData),
-                    dataType: "json",
-                    headers: {Authorization: `Bearer ${getCookie("auth_token")}`},
-                    statusCode: {
-                        200: function () {
-                            swal("Success!", `New product was added`, "success");
-                            setTimeout(function () {
-                                window.location.reload(true);
-                            }, 2000);
+                    let addProductData = {
+                        titles: {
+                            english: document.getElementById("addItemTitle_en").value,
+                            russian: document.getElementById("addItemTitle_ru").value,
+                            ukrainian: document.getElementById("addItemTitle_ua").value,
                         },
-                    },
-                    error: function (jqXHR, textStatus, errorMessage) {
-                        console.log(addProductData);
-                        swal({
-                            title: "Error",
-                            text: errorMessage,
-                            icon: "error",
-                            closeOnClickOutside: true,
-                            closeOnEsc: true,
-                        });
-                    },
-                });
-            },
-            error: function (jqXHR, textStatus, errorMessage) {
-                console.log(errorMessage);
-            },
-        });
-    };
-};
+                        descriptions: {
+                            english: document.getElementById("addItemDescr_en").value,
+                            russian: document.getElementById("addItemDescr_ru").value,
+                            ukrainian: document.getElementById("addItemDescr_ua").value,
+                        },
+                        materials: {
+                            english: document.getElementById("addItemMater_en").value,
+                            russian: document.getElementById("addItemMater_ru").value,
+                            ukrainian: document.getElementById("addItemMater_ua").value,
+                        },
+                        price: +document.getElementById("addItemCurrPriceUsd").value,
+                        code: document.getElementById("addItemCode").value,
+                        image_ids: [parseInt(localStorage.getItem("uploadedImageId"))],
+                        category_id: parseInt(
+                            document.getElementById("addItemCategory").value
+                        ),
+                    };
 
-addProduct();
+                    $.ajax({
+                        type: "POST",
+                        url: `${API_HOST}/admin/products`,
+                        data: JSON.stringify(addProductData),
+                        dataType: "json",
+                        headers: {Authorization: `Bearer ${getCookie("auth_token")}`},
+                        statusCode: {
+                            200: function () {
+                                swal("Success!", `New product was added`, "success");
+                                setTimeout(function () {
+                                    window.location.reload(true);
+                                }, 2000);
+                            },
+                        },
+                        error: function (jqXHR, textStatus, errorMessage) {
+                            console.log(addProductData);
+                            swal({
+                                title: "Error",
+                                text: errorMessage,
+                                icon: "error",
+                                closeOnClickOutside: true,
+                                closeOnEsc: true,
+                            });
+                        },
+                    });
+                },
+                error: function (jqXHR, textStatus, errorMessage) {
+                    console.log(errorMessage);
+                },
+            });
+        };
+    };
+
+    addProduct();
+}
 
 const renderEditProduct = () => {
-    let editProductTrigger = document.querySelectorAll('#editItem');
+    // let editProductTrigger = document.querySelectorAll('#editItem');
+    //
+    // for (let i = 0; i < editProductTrigger.length; i++) {
+    //     editProductTrigger[i].addEventListener('click', function () {
+    //         let editingProductID = parseInt(editProductTrigger[i].getAttribute('data-id'));
+    //         localStorage.setItem('editingProductIDValue', editingProductID)
+    //         console.log(editingProductID);
+    //         editProductNew();
+    //         // editProduct();
+    //     })
+    //     $('.close').on('click', function () {
+    //         $('.modal').addClass('d-none')
+    //     })
+    //
+    // }
 
-    for (let i = 0; i < editProductTrigger.length; i++) {
-        editProductTrigger[i].addEventListener('click', function () {
-            let editingProductID = parseInt(editProductTrigger[i].getAttribute('data-id'));
-            localStorage.setItem('editingProductIDValue', editingProductID)
-            console.log(editingProductID);
-            editProductNew();
-            // editProduct();
-        })
-    }
+    $('.close').on('click', function () {
+        $('.modal').addClass('d-none')
+    })
+    editProductNew();
 }
 
 
@@ -232,12 +261,9 @@ const editProductNew = () => {
     for (let i = 0; i < allEditItems.length; i++) {
         allEditItems[i].addEventListener('click', function () {
 
-            $('.close').on('click', function () {
-                $('.modal').addClass('d-none')
-            })
-            console.log('click on modal')
+            $('.modal').removeClass('d-none')
 
-            document.querySelector('.modal').classList.toggle('d-none');
+
             // for en lang inputs and usd curr
             $.ajax({
                     type: "GET",
@@ -295,7 +321,7 @@ const editProductNew = () => {
             )
 
 
-            document.getElementById('editFormTitle').innerHTML = `<p class="mt-20">Editing product with ID: ${allEditItems[i].getAttribute('data-id')}</p>`;
+            document.getElementById('editFormTitle').innerHTML = `<p class="mt-20 font-weight-medium">Editing product with ID: ${allEditItems[i].getAttribute('data-id')}</p>`;
 
             $("#editAvailability").on('change', function () {
                 if ($(this).is(':checked')) {
