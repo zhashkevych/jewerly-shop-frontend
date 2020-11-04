@@ -5,7 +5,7 @@ const productsList = () => {
     let language = getLanguageQueryParameter();
     let categoryTitle = getCategoryTitle(categoryId);
 
-    let limit = 10;
+    let limit = 12;
     let page = urlParams.get('page');
     if (page == null) {
         page = 1

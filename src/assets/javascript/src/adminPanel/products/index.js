@@ -1,3 +1,15 @@
+// if (window.location.pathname === "/admin-panel.html") {
+if (window.location.pathname === "/admin-panel.html" && getCookie("auth_token") === null) {
+    document.getElementsByTagName("body")[0].innerHTML =
+        '<div style="height: 500px; margin: auto 0; display:flex; justify-content: center;align-items: center; flex-direction: column">' +
+        '<p class="text-center" style="font-size: 36px; font-weight: 500">You are not logged.</p>' +
+        '<p class="descr" style="margin-top: 70px; font-size: 26px;">Right now you will be redirected to the admin login page.</p>' +
+        '</div>';
+    setTimeout(function () {
+        window.location.href = "/admin.html";
+    }, 2500);
+}
+
 const adminProductsList = () => {
     let urlParams = new URLSearchParams(window.location.search);
     let limit = 10;
@@ -226,7 +238,13 @@ if (window.location.pathname !== '/admin.html' && document.querySelector(".add_p
                     });
                 },
                 error: function (jqXHR, textStatus, errorMessage) {
-                    console.log(errorMessage);
+                    swal({
+                        title: "Error",
+                        text: 'Something went wrong, check all fields and try again later',
+                        icon: "error",
+                        closeOnClickOutside: true,
+                        closeOnEsc: true,
+                    });
                 },
             });
         };
@@ -423,10 +441,3 @@ if (window.location.pathname === '/admin-panel.html') {
     adminProductsList();
 }
 
-if (window.location.pathname === "/admin-panel.html" && getCookie("auth_token") === null) {
-    document.getElementsByTagName("body")[0].innerHTML =
-        '<div><p class="text-center">You are not logged</p></div>';
-    setTimeout(function () {
-        window.location.href = "/admin.html";
-    }, 2000);
-}
