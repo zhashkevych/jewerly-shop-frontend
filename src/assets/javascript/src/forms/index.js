@@ -7,8 +7,6 @@ $('#reg_submit').on('click', function () {
             password: document.getElementById('reg_pass').value
         };
 
-        // const url = 'http://164.90.218.246:8000/auth';
-
         $.ajax({
             type: 'POST',
             url: `${API_HOST}/sign-up`,
@@ -58,8 +56,6 @@ $('#login_submit').on('click', function () {
             email: $('#login_email').val(),
             password: $('#login_pass').val()
         };
-
-        // const url = 'http://164.90.218.246:8000/auth';
 
         $.ajax({
             type: 'POST',
@@ -139,24 +135,6 @@ const checkoutPageAction = () => {
                     },
                     success: function (response) {
                         window.location.href = response.url;
-                        // swal({
-                        //     title: "Success",
-                        //     text: false,
-                        //     icon: "success",
-                        //     closeOnClickOutside: true,
-                        //     closeOnEsc: true,
-                        // })
-                        // document.querySelector('.checkout-form').classList.add('d-none');
-                        // document.getElementById('checkoutIframeInput').classList.add('active')
-                        // document.getElementById('checkoutIframeInput').setAttribute('src', response.url)
-                        //
-                        // if (document.getElementById('checkoutIframeInput').getAttribute('src') !== "") {
-                        //     $('#submit').trigger('click')
-                        // }
-
-
-                        // example of success response after PAY
-                        // http://silverrain-jewelry.com:8080/?payme_status=success&payme_signature=467ba56efd88f93bbd2cc74a61fc4e08&payme_sale_id=SALE1600-261613WL-W20WA6XU-46FFX4UF&payme_transaction_id=TRAN1600-261679SB-XOUZSQL6-N8QJCKGR&price=617000&currency=USD&transaction_id=7d773232-f81d-11ea-bedb-0242ac110003&is_token_sale=0&is_foreign_card=1
                     },
                     error: function (response) {
                         console.log(response)
