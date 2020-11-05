@@ -437,7 +437,23 @@ if (window.location.search.includes('products_tab')) {
     $('#products-tab').trigger('click');
 }
 
+// temporary solution. should be rewritten
+// temporary solution. should be rewritten
+// temporary solution. should be rewritten
+
 if (window.location.pathname === '/admin-panel.html') {
     adminProductsList();
+
+    if (window.location.search !== '') {
+        $('#products-tab').on('click', function () {
+            window.location.search = '';
+        })
+    }
+
+    if (window.location.search !== '') {
+        $('#orders-tab').on('click', function () {
+            window.location.search = '';
+        })
+    }
 }
 

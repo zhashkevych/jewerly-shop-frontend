@@ -135,19 +135,35 @@ const checkoutPageAction = () => {
                     },
                     success: function (response) {
                         window.location.href = response.url;
+                        localStorage.clear();
                     },
                     error: function (response) {
                         console.log(response)
-                        swal({
-                            title: "Error",
-                            text: "Something went wrong. Please check all fields",
-                            icon: "error",
-                            closeOnClickOutside: true,
-                            closeOnEsc: true,
-                        })
+                        console.log(response.responseJSON)
+                        console.log(response.responseJSON.error)
+                        if (response.responseJSON.error === 'order sum is too low') {
+                            swal({
+                                title: "Error",
+                                text: `Your ${response.responseJSON.error}. In 5 seconds you will be redirected to the products page.`,
+                                icon: "error",
+                                closeOnClickOutside: true,
+                                closeOnEsc: true,
+                            })
+                            setTimeout(function () {
+                                window.location.href = "/products-page.html";
+                            }, 5000);
+                        } else {
+                            swal({
+                                title: "Error",
+                                text: `Something went wrong. Please check all fields and try again`,
+                                icon: "error",
+                                closeOnClickOutside: true,
+                                closeOnEsc: true,
+                            })
+                        }
+
                     }
                 });
-                localStorage.clear();
             }
         }
     }
