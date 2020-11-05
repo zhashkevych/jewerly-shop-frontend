@@ -1,4 +1,10 @@
 .checkout-page {
+  .swal-overlay {
+    .swal-text {
+      text-align: center !important;
+    }
+  }
+
   &_iframe {
     &.active {
       width: 100%;

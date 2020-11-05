@@ -46,26 +46,36 @@ const renderOrderItems = (order) => {
                 <div id="showMoreInfo" class="more-info_title article-level-6 mt-10 mb-0"><!--More info--></div>
                 <div id="allInfoAboutOrder" class="more-info_hidden">
                     <div class="more-info_content">
-                        <p class="article-level-5">More info about orderer</p>
-                        <p>Additional name: ${order[i].additional_name}</p>
-                        <p>Country: ${order[i].country}</p>
-                        <p>Address: ${order[i].address}</p>
-                        <p>Postal code: ${order[i].postal_code}</p>
-                        <p>Ordered at: ${order[i].ordered_at}</p>
-                        <p class="article-level-5 mt-30">Transaction info</p>
-                        <p>created_at: ${order[i].transactions[0].created_at}</p>
-                        <p>status: ${order[i].transactions[0].status}</p>
-                        <p>transaction_id: ${order[i].transactions[0].transaction_id}</p>
-                        <p>card_mask: ${order[i].transactions[0].card_mask}</p>
+                        <p class="article-level-5 font-weight-semi">Click to get more info about order</p>
+                        <div id="moreInfoAboutOrderPopup" class="d-none">
+                            <p>Additional name: ${order[i].additional_name}</p>
+                            <p>Country: ${order[i].country}</p>
+                            <p>Address: ${order[i].address}</p>
+                            <p>Postal code: ${order[i].postal_code}</p>
+                            <p>Ordered at: ${order[i].ordered_at}</p>
+                            <hr>
+                            <p class="article-level-5 font-weight-medium mt-30">Transaction info</p>
+                            <p>created_at: ${order[i].transactions[0].created_at}</p>
+                            <p>status: ${order[i].transactions[0].status}</p>
+                            <p>transaction_id: ${order[i].transactions[0].transaction_id}</p>
+                            <p>card_mask: ${order[i].transactions[0].card_mask}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-`;
+            </div>`;
+        
         document.querySelector("#listOfAllOrders").appendChild(allOrders);
     }
 
-};
 
+    for (let g = 0; g < document.querySelectorAll('.more-info_content .article-level-5').length; g++) {
+        document.querySelectorAll('.more-info_content .article-level-5')[g].onclick = () => {
+            console.log(document.querySelectorAll('.more-info_content .article-level-5')[g].nextElementSibling.classList.toggle('d-none'))
+        }
+    }
+
+
+};
 
 const renderTotalOrderItemsText = (totalItems, itemsCount) => {
     let itemsCountElement = document.createElement('div');
