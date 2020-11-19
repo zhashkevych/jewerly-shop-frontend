@@ -138,9 +138,6 @@ const checkoutPageAction = () => {
                         localStorage.clear();
                     },
                     error: function (response) {
-                        console.log(response)
-                        console.log(response.responseJSON)
-                        console.log(response.responseJSON.error)
                         if (response.responseJSON.error === 'order sum is too low') {
                             swal({
                                 title: "Error",

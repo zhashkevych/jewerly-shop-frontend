@@ -103,7 +103,6 @@ const renderPagination = (totalItems, limit, categoryId) => {
 }
 
 const renderPageButton = (pageNumber, wrapper, categoryId) => {
-    console.log(categoryId)
     let addItems = document.createElement('a');
 
     addItems.className = 'mr-15 pagination_item';

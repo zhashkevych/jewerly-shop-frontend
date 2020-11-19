@@ -106,7 +106,6 @@ const renderDeleteProduct = () => {
         deleteProductTrigger[i].addEventListener('click', function () {
             let deletingProductID = parseInt(deleteProductTrigger[i].getAttribute('data-id'));
             localStorage.setItem('deletingProductIDValue', deletingProductID)
-            console.log(deletingProductID);
             //
             // $('#editItem').on('click', function () {
             //     $('.modal').removeClass('d-none')
@@ -122,7 +121,6 @@ const renderDeleteProduct = () => {
 }
 
 const deleteProduct = () => {
-    console.log(API_HOST)
     swal({
         title: "Are you sure?",
         text: `Do you want delete item with ID: ${localStorage.getItem('deletingProductIDValue')}?`,
@@ -226,7 +224,6 @@ if (window.location.pathname !== '/admin.html' && document.querySelector(".add_p
                             },
                         },
                         error: function (jqXHR, textStatus, errorMessage) {
-                            console.log(addProductData);
                             swal({
                                 title: "Error",
                                 text: errorMessage,
@@ -399,7 +396,6 @@ const editProductNew = () => {
                             }
                         },
                         success: function () {
-                            console.log('ok');
                         }
                     }
                 )
