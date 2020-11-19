@@ -7,20 +7,18 @@ let path = {
         css: projectFolder + "/css/",
         js: projectFolder + "/js/",
         img: projectFolder + "/img/",
-        fonts: projectFolder + "/fonts/",
     },
     src: {
         html: sourceFolder + "/pages/*.html",
         css: sourceFolder + "/assets/sass/main.scss",
         js: sourceFolder + "/assets/javascript/src/main.js",
-        img: sourceFolder + "/assets/images/**/*.{jpg,png,svg,gif,ico,webp}",
-        fonts: sourceFolder + "/assets/fonts/*.ttf",
+        img: sourceFolder + "/assets/images/**",
     },
     watch: {
         html: sourceFolder + "/pages/**/*.html",
         css: sourceFolder + "/assets/**/*.scss",
         js: sourceFolder + "/assets/javascript/**/*.js",
-        img: sourceFolder + "/assets/images/**/*.{jpg,png,svg,gif,ico,webp}",
+        img: sourceFolder + "/assets/images/**",
     },
     clean: "./" + projectFolder + "/"
 }
@@ -35,7 +33,8 @@ let {src, dest} = require('gulp'),
     rename = require('gulp-rename'),
     uglify = require('gulp-uglify-es').default,
     replace = require('gulp-string-replace'),
-    gutil = require('gulp-util');
+    gutil = require('gulp-util'),
+    imagemin = require('gulp-imagemin');
 
 function browserSync() {
     browsersync.init({
@@ -62,8 +61,14 @@ function html() {
         .pipe(browsersync.stream())
 }
 
-function img() {
+function images() {
     return src(path.src.img)
+        .pipe(imagemin({
+            progressive: true,
+            svgoPlugins: [{ removeViewBox: false }],
+            interlaced: true,
+            optimizationLevel: 3
+        }))
         .pipe(fileinclude())
         .pipe(dest(path.build.img))
         .pipe(browsersync.stream())
@@ -108,14 +113,15 @@ function watchFiles() {
     gulp.watch([path.watch.html], html);
     gulp.watch([path.watch.css], css);
     gulp.watch([path.watch.js], js);
+    gulp.watch([path.watch.img], images);
 }
 
-let build = gulp.series(gulp.parallel(js, css, html, img));
+let build = gulp.series(gulp.parallel(js, css, html, images));
 let watch = gulp.parallel(build, watchFiles, browserSync);
 
 exports.js = js;
 exports.css = css;
-exports.img = img;
+exports.images = images;
 exports.html = html;
 exports.build = build;
 exports.watch = watch;

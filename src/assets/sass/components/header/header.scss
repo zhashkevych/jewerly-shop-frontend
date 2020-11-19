@@ -1,6 +1,7 @@
 .header {
   &_upper_content {
     border-bottom: 2px solid white;
+    padding-bottom: 10px;
 
     .header_notification {
       background: black;
@@ -33,9 +34,9 @@
     .main_logo {
       background-position: center;
       background-size: cover;
-      width: 110px;
+      width: 190px;
       height: 90px;
-      background-image: url("../img/icons/svg/new_header_logo.svg");
+      background-image: url("https://i.ibb.co/Kxc7qTh/Silver-Rain-Logo-8-2.png");
     }
 
     .main_title {
