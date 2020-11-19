@@ -47,12 +47,13 @@ const renderOrderItems = (order) => {
                     <div class="more-info_content">
                         <p class="article-level-5 font-weight-semi">Click to get more info about order</p>
                         <div id="moreInfoAboutOrderPopup" class="d-none">
-                            <p>Additional name: ${order[i].additional_name}</p>
-                            <p>Country: ${order[i].country}</p>
-                            <p>Address: ${order[i].address}</p>
-                            <p>Postal code: ${order[i].postal_code}</p>
-                            <p>Ordered at: ${order[i].ordered_at}</p>
+                            <p><span class="font-weight-semi">Additional name:</span> ${order[i].additional_name}</p>
+                            <p><span class="font-weight-semi">Country:</span> ${order[i].country}</p>
+                            <p><span class="font-weight-semi">Address:</span> ${order[i].address}</p>
+                            <p><span class="font-weight-semi">Postal code:</span> ${order[i].postal_code}</p>
+                            <p><span class="font-weight-semi">Ordered at:</span> ${order[i].ordered_at}</p>
                             <hr>
+                            <p class="article-level-4 font-weight-medium mt-30">Transaction info</p>
                         </div>
                     </div>
                 </div>
@@ -63,11 +64,11 @@ const renderOrderItems = (order) => {
         for (let k = 0; k < order[i].transactions.length; k++) {
             let allClientTransactions = document.createElement('div');
             allClientTransactions.innerHTML = `
-                            <p class="article-level-5 font-weight-medium mt-30">Transaction info</p>
-                            <p>created_at: ${order[i].transactions[k].created_at}</p>
-                            <p>status: ${order[i].transactions[k].status}</p>
-                            <p>transaction_id: ${order[i].transactions[k].transaction_id}</p>
-                            <p>card_mask: ${order[i].transactions[k].card_mask}</p>`
+            <p><span class="font-weight-semi">Created at:</span> ${order[i].transactions[k].created_at}</p>
+            <p><span class="font-weight-semi">Status:</span> ${order[i].transactions[k].status}</p>
+            <p><span class="font-weight-semi">Transaction ID:</span> ${order[i].transactions[k].transaction_id}</p>
+            <p><span class="font-weight-semi">Card mask:</span> ${order[i].transactions[k].card_mask}</p>
+            <hr>`
 
             for (let y = 0; y < document.querySelectorAll('#moreInfoAboutOrderPopup').length; y++) {
                 document.querySelectorAll('#moreInfoAboutOrderPopup')[i].append((allClientTransactions))
