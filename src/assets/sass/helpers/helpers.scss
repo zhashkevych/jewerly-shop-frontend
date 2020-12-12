@@ -59,9 +59,9 @@ main {
 }
 
 .container {
-  @include media(">=md") {
-    max-width: 100%;
-  }
+  max-width: 1280px;
+  padding-bottom: 10px;
+  box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 #skipnav {
@@ -804,10 +804,6 @@ strong {
 //    line-height
 .lh-40 {
   line-height: 40px;
-}
-
-.container {
-  max-width: 1280px;
 }
 
 .fz-16 {
