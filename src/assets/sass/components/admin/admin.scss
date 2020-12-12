@@ -85,6 +85,22 @@
   &__wrap {
     width: 100%;
     padding-bottom: 100px;
+
+    .homepage-settings {
+      display: flex;
+      flex-direction: column;
+      padding-top: 50px;
+
+      &_images {
+        display: flex;
+        flex-wrap: nowrap;
+
+        &_item {
+          border: 1px solid black;
+          margin-right: 10px;
+        }
+      }
+    }
   }
 
   &__header {

@@ -17,31 +17,40 @@
             <nav class="adminpanel__nav">
                 <ul class="nav nav-pills flex-row" id="myTab" role="tablist">
                     <li class="nav-item">
+                        <a class="nav-link"
+                           id="editMainPage-tab"
+                           data-toggle="tab"
+                           href="#main_page"
+                           role="tab"
+                           aria-controls="Main Page"
+                           aria-selected="true">Edit main page</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link active"
-                                id="products-tab"
-                                data-toggle="tab"
-                                href="#products"
-                                role="tab"
-                                aria-controls="Product"
-                                aria-selected="true">Products</a>
+                           id="products-tab"
+                           data-toggle="tab"
+                           href="#products"
+                           role="tab"
+                           aria-controls="Product"
+                           aria-selected="true">Products</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link"
-                                id="orders-tab"
-                                data-toggle="tab"
-                                href="#orders"
-                                role="tab"
-                                aria-controls="Orders"
-                                aria-selected="false">Orders</a>
+                           id="orders-tab"
+                           data-toggle="tab"
+                           href="#orders"
+                           role="tab"
+                           aria-controls="Orders"
+                           aria-selected="false">Orders</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link"
-                                id="productsADD-tab"
-                                data-toggle="tab"
-                                href="#productsADD"
-                                role="tab"
-                                aria-controls="ProductADD"
-                                aria-selected="false">Add product</a>
+                           id="productsADD-tab"
+                           data-toggle="tab"
+                           href="#productsADD"
+                           role="tab"
+                           aria-controls="ProductADD"
+                           aria-selected="false">Add product</a>
                     </li>
                 </ul>
             </nav>
@@ -55,9 +64,32 @@
         <div class="container">
             <!-- Wrap tab content -->
             <div class="tab-content" id="myTabContent">
+                <!-- Content EditMainPage -->
+                <div class="tab-pane fade show  active"
+                     id="main_page"
+                     role="tabpanel"
+                     aria-labelledby="editMainPage-tab">
+                    <div class="homepage-settings">
+                        <div class="article-level-5">Current home page images:</div>
+                        <div class="homepage-settings_images">
+                            <div class="homepage-settings_images_item">
+                                Current image 1 on home page Current image 1 on home page Current image 1 on home page
+                            </div>
+                            <div class="homepage-settings_images_item">
+                                Current image 2 on home page Current image 2 on home page Current image 2 on home page
+                            </div>
+                            <div class="homepage-settings_images_item">
+                                Current image 3 on home page Current image 3 on home page Current image 3 on home page
+                            </div>
+                            <div class="homepage-settings_images_item">
+                                Current image 4 on home page Current image 4 on home page Current image 4 on home page
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <!-- Content Products -->
                 <div
-                        class="tab-pane fade show active"
+                        class="tab-pane fade "
                         id="products"
                         role="tabpanel"
                         aria-labelledby="products-tab">
@@ -68,8 +100,7 @@
                                 class="adminpanel__product-link"
                                 href="/products-page.html"
                                 target="_blank"
-                        >Link for products page</a
-                        >
+                        >Link for products page</a>
                     </div>
                     <div class="adminpanel__table" id="allItems">
                         <div class="adminpanel__table-title">

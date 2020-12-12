@@ -6,6 +6,7 @@ const translations = {
             paymentSuccessText: 'Your order has been successfully accepted',
             paymentFailedTitle: 'Failed payment',
             paymentFailedText: 'There was an error processing your order',
+            priceText: 'Price: '
         },
         headerTop: {
             // title: 'SilverRain Israel jewelry company since 2012. All silver products made in Italy',
@@ -77,6 +78,7 @@ const translations = {
             paymentSuccessText: 'Ваш заказ был успешно принят',
             paymentFailedTitle: 'Неудачный платеж',
             paymentFailedText: 'При обработке вашего заказа произошла ошибка',
+            priceText: 'Цена: '
         },
         headerTop: {
             // title: 'SilverRain Израильская ювелирная компания с 2012 года. Все изделия из серебра произведены в Италии.',
@@ -139,7 +141,6 @@ const translations = {
             postalCode: 'Почтовый индекс',
             goToPayBtn: 'Перейти на страницу оплаты',
             checkOutEmptyCart: 'Для начала вам нужно добавить товар в корзину.',
-
         }
     },
     'ua': {
@@ -149,6 +150,7 @@ const translations = {
             paymentSuccessText: 'Ваше замовлення успішно прийнято',
             paymentFailedTitle: 'Невдала оплата',
             paymentFailedText: 'Під час обробки вашого замовлення сталася помилка',
+            priceText: 'Вартість: '
         },
         headerTop: {
             // title: 'Ювелірна компанія SilverRain Israel із 2012 року. Всі вироби зі срібла виготовлені в Італії',

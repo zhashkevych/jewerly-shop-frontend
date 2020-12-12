@@ -18,6 +18,7 @@ if (payStatus === 'error') {
 @@include('checkBrowser/index.js')
 @@include('api/products.js')
 @@include('api/admin/orders.js')
+@@include('api/admin/homePage.js')
 @@include('api/admin/products.js')
 @@include('currencyControl/index.js')
 @@include('langControl/index.js')

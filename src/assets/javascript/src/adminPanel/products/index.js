@@ -430,7 +430,7 @@ const renderAdminProductsPageButton = (pageNumber, wrapper) => {
 }
 
 if (window.location.search.includes('products_tab')) {
-    $('#products-tab').trigger('click');
+    // $('#products-tab').trigger('click');
 }
 
 // temporary solution. should be rewritten

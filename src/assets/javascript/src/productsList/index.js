@@ -65,15 +65,15 @@ const renderItems = (items, currency) => {
         const itemImg = items[i].images[0].url;
 
         let productsListItem = document.createElement('div');
-        productsListItem.className = 'col-md-3 mb-20 item-wrapper';
+        productsListItem.className = 'col-md-3 mb-60 item-wrapper';
         productsListItem.innerHTML = `
-<div class="item" id="item_id_${itemId}" style="background: url(${itemImg})  center center no-repeat; min-height: 250px; background-size: contain;">
-    <div class="price_cta_preview">
-    <a href="/product-page.html?product_id=${itemId}">${itemTitle} | ${itemPrice} 
-       <span class="currentCurrencyValPrice">${currency}</span>
-       </a>
-    </div>
-</div>`;
+        <div class="item" id="item_id_${itemId}" style="background: url(${itemImg}) center center no-repeat; min-height: 250px; background-size: contain;"></div>
+        <div class="price_cta_preview">
+            <a href="/product-page.html?product_id=${itemId}">${itemTitle}
+                <div>${translations[currentLanguage].other.priceText} ${itemPrice} <span class="currentCurrencyValPrice">${currency}</span></div>
+            </a>
+        </div>
+`;
 
         document.querySelector('#productsPageItemsList').appendChild(productsListItem);
     }
