@@ -69,8 +69,9 @@
                      id="main_page"
                      role="tabpanel"
                      aria-labelledby="editMainPage-tab">
-                    <div class="homepage-settings">
+                    <div class="homepage-view">
                         <div class="article-level-5">Current home page images:</div>
+                        <div id="getAllHomepageImages">getAllHomepageImages</div>
                         <div class="homepage-settings_images">
                             <div class="homepage-settings_images_item">
                                 Current image 1 on home page Current image 1 on home page Current image 1 on home page
@@ -85,6 +86,16 @@
                                 Current image 4 on home page Current image 4 on home page Current image 4 on home page
                             </div>
                         </div>
+                    </div>
+                    <div class="homepage-post-image">
+                        <div class="article-level-5">Add Image</div>
+                        <input class="adminpanel__apend_img"
+                               type="file"
+                               id="addItemImgToHomepage"
+                               name="uploadImg"
+                               required
+                               accept="image/*"/>
+                        <div id="uploadImgToHomepage">uploadImgToHomepage</div>
                     </div>
                 </div>
                 <!-- Content Products -->
